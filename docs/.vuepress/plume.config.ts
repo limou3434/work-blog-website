@@ -1,11 +1,11 @@
+/**
+ * 主题配置
+ */
 import { defineThemeConfig } from 'vuepress-theme-plume'
 import { navbar } from './navbar'
 import { notes } from './notes'
 import * as path from "node:path";
 
-/**
- * 主题配置
- */
 export default defineThemeConfig({
   // 网站标志
   logo: './logo.svg',

@@ -1,10 +1,10 @@
+/**
+ * 基础配置
+ */
 import {viteBundler} from '@vuepress/bundler-vite'
 import {defineUserConfig} from 'vuepress'
 import {plumeTheme} from 'vuepress-theme-plume'
 
-/**
- * 基础配置
- */
 export default defineUserConfig({
     // 网站元数
     base: '/work-blog-website/',

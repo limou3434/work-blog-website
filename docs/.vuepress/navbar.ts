@@ -1,8 +1,8 @@
-import {defineNavbarConfig} from 'vuepress-theme-plume'
-
 /**
  * 目录配置
  */
+import {defineNavbarConfig} from 'vuepress-theme-plume'
+
 export const navbar = defineNavbarConfig([
     {text: '首页', link: '/', icon: 'material-symbols:home-outline'},
     {text: '博客', link: '/blog/'},

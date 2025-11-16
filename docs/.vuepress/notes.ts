@@ -1,7 +1,38 @@
+/**
+ * 笔记配置
+ */
 import {defineNoteConfig, defineNotesConfig} from 'vuepress-theme-plume'
 
 import path from "path";
 import fs from "fs";
+import {navbar} from './navbar'
+
+// 移除 "/notes" 前缀和 "/README.md" 后缀
+function transformNavbarLink(link: string): string {
+    return link
+        .replace(/^\/notes/, '')  // 去除 "/notes" 前缀
+        .replace(/\/README\.md$/, '')  // 去除 "/README.md" 后缀
+}
+
+// 从 navbar 提取所有 link
+function extractLinksFromNavbar(): string[] {
+    const links: string[] = []
+    
+    navbar.forEach((item: any) => {
+        if (item.link && item.link.startsWith('/notes/')) {
+            links.push(transformNavbarLink(item.link))
+        }
+        if (item.items && Array.isArray(item.items)) {
+            item.items.forEach((subItem: any) => {
+                if (subItem.link && subItem.link.startsWith('/notes/')) {
+                    links.push(transformNavbarLink(subItem.link))
+                }
+            })
+        }
+    })
+    
+    return links
+}
 
 // 笔记配置
 function generateNoteConfig(link) {
@@ -17,33 +48,11 @@ function generateNoteConfig(link) {
     return { dir, link, sidebar }
 }
 
+// 从 navbar 自动生成 notes 配置
+const navbarLinks = extractLinksFromNavbar()
+
 export const notes = defineNotesConfig({
     dir: 'notes',
     link: '/',
-    notes: [
-        defineNoteConfig(generateNoteConfig('/1.编码修养/1.编程语言/1.系统语言')),
-        defineNoteConfig(generateNoteConfig('/1.编码修养/1.编程语言/2.业务语言')),
-        defineNoteConfig(generateNoteConfig('/1.编码修养/1.编程语言/3.智能语言')),
-        defineNoteConfig(generateNoteConfig('/1.编码修养/1.编程语言/4.脚本语言')),
-        defineNoteConfig(generateNoteConfig('/1.编码修养/2.数构算法/1.数据结构')),
-        defineNoteConfig(generateNoteConfig('/1.编码修养/2.数构算法/2.复合结构')),
-        defineNoteConfig(generateNoteConfig('/1.编码修养/2.数构算法/3.基础排序')),
-        defineNoteConfig(generateNoteConfig('/1.编码修养/2.数构算法/4.常规算法')),
-        defineNoteConfig(generateNoteConfig('/1.编码修养/3.系统网络/1.基本操作')),
-        defineNoteConfig(generateNoteConfig('/1.编码修养/3.系统网络/2.系统美化')),
-        defineNoteConfig(generateNoteConfig('/1.编码修养/3.系统网络/3.网络协议')),
-        defineNoteConfig(generateNoteConfig('/1.编码修养/3.系统网络/4.内核原理')),
-        defineNoteConfig(generateNoteConfig('/1.编码修养/4.业务服务/1.存储服务')),
-        defineNoteConfig(generateNoteConfig('/1.编码修养/4.业务服务/2.缓存服务')),
-        defineNoteConfig(generateNoteConfig('/1.编码修养/4.业务服务/3.鉴权服务')),
-        defineNoteConfig(generateNoteConfig('/2.开发方向/1.页面开发')),
-        defineNoteConfig(generateNoteConfig('/2.开发方向/2.桌面开发')),
-        defineNoteConfig(generateNoteConfig('/2.开发方向/3.移动开发')),
-        defineNoteConfig(generateNoteConfig('/2.开发方向/4.小程开发')),
-        defineNoteConfig(generateNoteConfig('/2.开发方向/5.插件开发')),
-        defineNoteConfig(generateNoteConfig('/2.开发方向/6.文档开发')),
-        defineNoteConfig(generateNoteConfig('/3.艺术设计/1.色彩理论')),
-        defineNoteConfig(generateNoteConfig('/3.艺术设计/2.摄影技巧')),
-        defineNoteConfig(generateNoteConfig('/3.艺术设计/3.立体建模')),
-    ],
+    notes: navbarLinks.map(link => defineNoteConfig(generateNoteConfig(link))),
 })

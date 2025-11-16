@@ -1,3 +1,6 @@
+/**
+ * 客端配置
+ */
 // @ts-ignore
 import { defineClientConfig } from 'vuepress/client'
 import BulletinContent from './components/BulletinContent.vue'
@@ -9,9 +12,6 @@ import BulletinContent from './components/BulletinContent.vue'
 
 // import './theme/styles/custom.css'
 
-/**
- * 客端配置
- */
 export default defineClientConfig({
   enhance({ app }) {
     // built-in components
