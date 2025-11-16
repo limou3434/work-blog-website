@@ -5,9 +5,9 @@ import {defineNavbarConfig} from 'vuepress-theme-plume'
  */
 export const navbar = defineNavbarConfig([
     {text: '首页', link: '/', icon: 'material-symbols:home-outline'},
-    {text: '博客', link: '/blog/',  icon: 'material-symbols:note-alt-rounded'},
-    {text: '标签', link: '/blog/tags/', icon: 'pajamas:feature-flag'},
-    {text: '归档', link: '/blog/archives/', icon: 'material-symbols:article-outline'},
+    {text: '博客', link: '/blog/'},
+    {text: '标签', link: '/blog/tags/'},
+    {text: '归档', link: '/blog/archives/'},
     {
         text: '编程语言',
         items: [
@@ -21,8 +21,9 @@ export const navbar = defineNavbarConfig([
         text: '数构算法',
         items: [
             {text: '数据结构', link: '/notes/1.编码修养/2.数构算法/1.数据结构/README.md'},
-            {text: '基础排序', link: '/notes/1.编码修养/2.数构算法/2.基础排序/README.md'},
-            {text: '常规算法', link: '/notes/1.编码修养/2.数构算法/3.常规算法/README.md'},
+            {text: '复合结构', link: '/notes/1.编码修养/2.数构算法/2.复合结构/README.md'},
+            {text: '基础排序', link: '/notes/1.编码修养/2.数构算法/3.基础排序/README.md'},
+            {text: '常规算法', link: '/notes/1.编码修养/2.数构算法/4.常规算法/README.md'},
         ]
     },
     {
