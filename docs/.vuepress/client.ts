@@ -1,3 +1,4 @@
+// @ts-ignore
 import { defineClientConfig } from 'vuepress/client'
 import BulletinContent from './components/BulletinContent.vue'
 // import RepoCard from 'vuepress-theme-plume/features/RepoCard.vue'

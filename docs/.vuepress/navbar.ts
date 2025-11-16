@@ -4,10 +4,10 @@ import {defineNavbarConfig} from 'vuepress-theme-plume'
  * 目录配置
  */
 export const navbar = defineNavbarConfig([
-    {text: '首页', link: '/'},
-    {text: '博客', link: '/blog/'},
-    {text: '标签', link: '/blog/tags/'},
-    {text: '归档', link: '/blog/archives/'},
+    {text: '首页', link: '/', icon: 'material-symbols:home-outline'},
+    {text: '博客', link: '/blog/',  icon: 'material-symbols:note-alt-rounded'},
+    {text: '标签', link: '/blog/tags/', icon: 'pajamas:feature-flag'},
+    {text: '归档', link: '/blog/archives/', icon: 'material-symbols:article-outline'},
     {
         text: '编程语言',
         items: [
@@ -40,6 +40,25 @@ export const navbar = defineNavbarConfig([
             {text: '存储服务', link: '/notes/1.编码修养/4.业务服务/1.存储服务/README.md'},
             {text: '缓存服务', link: '/notes/1.编码修养/4.业务服务/2.缓存服务/README.md'},
             {text: '鉴权服务', link: '/notes/1.编码修养/4.业务服务/3.鉴权服务/README.md'},
+        ]
+    },
+    {
+        text: '开发方向',
+        items: [
+            {text: '页面开发', link: '/notes/2.开发方向/1.页面开发/README.md'},
+            {text: '桌面开发', link: '/notes/2.开发方向/2.桌面开发/README.md'},
+            {text: '移动开发', link: '/notes/2.开发方向/3.移动开发/README.md'},
+            {text: '小程开发', link: '/notes/2.开发方向/4.小程开发/README.md'},
+            {text: '插件开发', link: '/notes/2.开发方向/5.插件开发/README.md'},
+            {text: '文档开发', link: '/notes/2.开发方向/6.文档开发/README.md'},
+        ]
+    },
+    {
+        text: '艺术设计',
+        items: [
+            {text: '色彩理论', link: '/notes/3.艺术设计/1.色彩理论/README.md'},
+            {text: '摄影技巧', link: '/notes/3.艺术设计/2.摄影技巧/README.md'},
+            {text: '立体建模', link: '/notes/3.艺术设计/3.立体建模/README.md'},
         ]
     },
 ])
