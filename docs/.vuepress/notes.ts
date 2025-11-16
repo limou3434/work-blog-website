@@ -3,8 +3,8 @@ import {defineNoteConfig, defineNotesConfig} from 'vuepress-theme-plume'
 import path from "path";
 import fs from "fs";
 
-// 快速生成侧边对象
-export function generateNoteConfig(link) {
+// 笔记配置
+function generateNoteConfig(link) {
     const dir = link.replace(/^\//, '') // 去除开头斜杠
     const fullPath = path.resolve(process.cwd(), 'docs/notes', dir)
     const files = fs.existsSync(fullPath) ? fs.readdirSync(fullPath) : []
@@ -21,12 +21,19 @@ export const notes = defineNotesConfig({
     dir: 'notes',
     link: '/',
     notes: [
-        defineNoteConfig(generateNoteConfig('/1.编码修养/1.编程语言')),
-        defineNoteConfig(generateNoteConfig('/1.编码修养/2.数构算法')),
-        defineNoteConfig(generateNoteConfig('/1.编码修养/3.系统网络')),
-        defineNoteConfig(generateNoteConfig('/1.编码修养/4.持久存储/mysql')),
-        defineNoteConfig(generateNoteConfig('/1.编码修养/4.持久存储/redis')),
-        defineNoteConfig(generateNoteConfig('/2.业务开发')),
-        defineNoteConfig(generateNoteConfig('/3.机器学习')),
+        defineNoteConfig(generateNoteConfig('/1.编码修养/1.编程语言/1.系统语言')),
+        defineNoteConfig(generateNoteConfig('/1.编码修养/1.编程语言/2.业务语言')),
+        defineNoteConfig(generateNoteConfig('/1.编码修养/1.编程语言/3.智能语言')),
+        defineNoteConfig(generateNoteConfig('/1.编码修养/1.编程语言/4.脚本语言')),
+        defineNoteConfig(generateNoteConfig('/1.编码修养/2.数构算法/1.数据结构')),
+        defineNoteConfig(generateNoteConfig('/1.编码修养/2.数构算法/2.基础排序')),
+        defineNoteConfig(generateNoteConfig('/1.编码修养/2.数构算法/3.常规算法')),
+        defineNoteConfig(generateNoteConfig('/1.编码修养/3.系统网络/1.基本操作')),
+        defineNoteConfig(generateNoteConfig('/1.编码修养/3.系统网络/2.系统美化')),
+        defineNoteConfig(generateNoteConfig('/1.编码修养/3.系统网络/3.网络协议')),
+        defineNoteConfig(generateNoteConfig('/1.编码修养/3.系统网络/4.内核原理')),
+        defineNoteConfig(generateNoteConfig('/1.编码修养/4.业务服务/1.存储服务')),
+        defineNoteConfig(generateNoteConfig('/1.编码修养/4.业务服务/2.缓存服务')),
+        defineNoteConfig(generateNoteConfig('/1.编码修养/4.业务服务/3.鉴权服务')),
     ],
 })

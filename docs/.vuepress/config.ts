@@ -3,7 +3,7 @@ import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
 
 /**
- * vuepress 配置文件
+ * 基础配置
  */
 export default defineUserConfig({
   // 网站元数

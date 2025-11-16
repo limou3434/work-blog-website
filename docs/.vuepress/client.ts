@@ -1,4 +1,4 @@
-import { defineClientConfig } from 'vuepress/client'
+import { defineClientConfig } from '@vuepress/client'
 import BulletinContent from './components/BulletinContent.vue'
 // import RepoCard from 'vuepress-theme-plume/features/RepoCard.vue'
 // import NpmBadge from 'vuepress-theme-plume/features/NpmBadge.vue'
@@ -8,6 +8,9 @@ import BulletinContent from './components/BulletinContent.vue'
 
 // import './theme/styles/custom.css'
 
+/**
+ * 客端配置
+ */
 export default defineClientConfig({
   enhance({ app }) {
     // built-in components
