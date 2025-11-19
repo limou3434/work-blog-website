@@ -23,12 +23,11 @@ export default defineUserConfig({
 
     // 主题配置
     theme: plumeTheme({
-
         // 加密功能
         encrypt: {
             rules: {
-                'notes/2.开发方向/': 'Qwe54188_',
-                'notes/3.艺术设计/': 'Qwe54188_',
+                'notes/1.编码修养/5.开发方向/': 'Qwe54188_',
+                'notes/2.个人摘要/': 'Qwe54188_',
             }
         },
 
@@ -91,7 +90,14 @@ export default defineUserConfig({
 
         // 拓展语法
         markdown: {
+            math: {             // 启用数学公式
+                type: 'katex',
+            },
             mermaid: true,      // 启用 mermaid
+            chartjs: true,      // 启用 chart.js
+            echarts: true,      // 启用 ECharts
+            markmap: true,      // 启用 Markmap
+            // codeTree: true,     // 启用代码树语法
             bilibili: true,     // 启用嵌入 bilibili视频 语法 @[bilibili](bid)
             youtube: true,      // 启用嵌入 youtube视频 语法 @[youtube](video_id)
             pdf: true,          // 启用 PDF 嵌入 @[pdf](/xxx.pdf)
@@ -102,9 +108,6 @@ export default defineUserConfig({
             collapse: true,     // 折叠面板语法 ::: collapse
             caniuse: true,      // 启用 caniuse 语法  @[caniuse](feature_name)
             chat: true,         // 启用 chat 语法 ::: chat
-            math: {             // 启用数学公式
-                type: 'katex',
-            },
             image: {
                 figure: true,     // 启用 figure
                 lazyload: true,   // 启用图片懒加载
@@ -128,8 +131,6 @@ export default defineUserConfig({
             //     rust: true,       // ::: rust-repl
             //     kotlin: true,     // ::: kotlin-repl
             //   },
-            //   chartjs: true,      // 启用 chart.js
-            //   echarts: true,      // 启用 ECharts
             //   flowchart: true,    // 启用 flowchart
             //   include: true,      // 在 Markdown 文件中导入其他 markdown 文件内容
             //   imageSize: 'local', // 启用 自动填充 图片宽高属性，避免页面抖动

@@ -46,20 +46,20 @@ export const navbar = defineNavbarConfig([
     {
         text: '开发方向',
         items: [
-            {text: '页面开发', link: '/notes/2.开发方向/1.页面开发/README.md'},
-            {text: '桌面开发', link: '/notes/2.开发方向/2.桌面开发/README.md'},
-            {text: '移动开发', link: '/notes/2.开发方向/3.移动开发/README.md'},
-            {text: '小程开发', link: '/notes/2.开发方向/4.小程开发/README.md'},
-            {text: '插件开发', link: '/notes/2.开发方向/5.插件开发/README.md'},
-            {text: '文档开发', link: '/notes/2.开发方向/6.文档开发/README.md'},
+            {text: '页面开发', link: '/notes/1.编码修养/5.开发方向/1.网页开发/README.md'},
+            {text: '桌面开发', link: '/notes/1.编码修养/5.开发方向/2.桌面开发/README.md'},
+            {text: '移动开发', link: '/notes/1.编码修养/5.开发方向/3.移动开发/README.md'},
+            {text: '小程开发', link: '/notes/1.编码修养/5.开发方向/4.小程开发/README.md'},
+            {text: '插件开发', link: '/notes/1.编码修养/5.开发方向/5.插件开发/README.md'},
+            {text: '文档开发', link: '/notes/1.编码修养/5.开发方向/6.文档开发/README.md'},
         ]
     },
     {
-        text: '艺术设计',
+        text: '个人摘要',
         items: [
-            {text: '色彩理论', link: '/notes/3.艺术设计/1.色彩理论/README.md'},
-            {text: '摄影技巧', link: '/notes/3.艺术设计/2.摄影技巧/README.md'},
-            {text: '立体建模', link: '/notes/3.艺术设计/3.立体建模/README.md'},
+            {text: '色彩理论', link: '/notes/2.个人摘要/1.色彩理论/README.md'},
+            {text: '摄影技巧', link: '/notes/2.个人摘要/2.摄影技巧/README.md'},
+            {text: '立体建模', link: '/notes/2.个人摘要/3.立体建模/README.md'},
         ]
     },
 ])
