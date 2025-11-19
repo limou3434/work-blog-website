@@ -5,8 +5,9 @@
 <template>
   <div class="bulletin-content">
     <!-- 自定义公告内容 -->
-    <p>本网站正在不断升级中，若有 bug 可以在本开发者的对应项目下提交 <a href="https://github.com/limou3434/work-blog-website/issues" target="_blank">issues</a>。 您在使用中的任何问题也可以加入我们的 QQ 群聊一起讨论。</p>
-    <img src="../public/qqtlq.png" alt="讨论群"/>
+    <p>本网站正在不断升级中，若有 bug 可以在本开发者的对应项目下提交 <a href="https://github.com/limou3434/work-blog-website/issues" target="_blank">issues</a>。</p>
+<!--    <p>您在使用中的任何问题也可以加入我们的 QQ 群聊一起讨论。</p>-->
+<!--    <img src="../public/qqtlq.png" alt="讨论群"/>-->
   </div>
 </template>
 

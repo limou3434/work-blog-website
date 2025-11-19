@@ -62,4 +62,8 @@ export const navbar = defineNavbarConfig([
             {text: '立体建模', link: '/notes/2.个人摘要/3.立体建模/README.md'},
         ]
     },
+    {
+        text: '友情链接',
+        link: '/FRIENDS.md'
+    }
 ])
