@@ -4,6 +4,7 @@
 import {viteBundler} from '@vuepress/bundler-vite'
 import {defineUserConfig} from 'vuepress'
 import {plumeTheme} from 'vuepress-theme-plume'
+import {collections} from './collections'
 
 export default defineUserConfig({
     // 网站元数
@@ -23,36 +24,36 @@ export default defineUserConfig({
 
     // 主题配置
     theme: plumeTheme({
+        // 集合配置
+        collections,
+
         // 加密功能
         encrypt: {
             rules: {
-                'notes/1.编码修养/5.开发方向/': 'Qwe54188_',
-                'notes/2.个人摘要/': 'Qwe54188_',
+                'note/1.编码修养/5.开发方向/': 'Qwe54188_',
+                'note/2.个人摘要/': 'Qwe54188_',
             }
         },
 
-        // 博客配置
-        blog: {
-            postList: true, // 是否启用文章列表页
-            tags: true, // 是否启用标签页
-            archives: true, // 是否启用归档页
-            categories: true, // 是否启用分类页
-            postCover: 'right', // 文章封面位置
-            pagination: 15, // 每页显示文章数量
-        },
-        article: '/article/', // 博客文档前缀
-
         // 页面水印
-        watermark: true,
+        watermark: {
+            watermarkOptions: {
+                content: 'limou3434',
+                fontColor: '#fff', // 文字颜色
+            }
+        },
 
         // 编译缓存
         cache: 'filesystem', // 加快编译速度
+        // - false: 禁用 缓存
+        // - 'memory': 使用内存缓存，此方式可获得更快的启动速度，但随着项目文件数量增加，内存占用会增加， 适合文章数量较少的项目使用
+        // - 'filesystem': 使用文件系统缓存，此方式可获得相对快且稳定的启动速度，更适合内容多的项目使用
 
-        // 自动添加
+        // 文档头部
         autoFrontmatter: {
-            permalink: true, // 是否给 frontmatter 生成永久链接
-            createTime: true, // 是否 frontmatter 生成创建时间
-            title: false, // 是否 frontmatter 生成标题
+            permalink: true, // 是否给 .md 文档 frontmatter 生成永久链接
+            createTime: true, // 是否 .md 文档 frontmatter 生成创建时间
+            title: false, // 是否 .md 文档 frontmatter 生成标题
         },
 
         // 本地搜索
@@ -71,11 +72,13 @@ export default defineUserConfig({
             inputPosition: 'top',
         },
 
-        // 页内信息
+        // 页面历史
         editLink: true,
         contributors: true,
-        changelog: false,
-        // lastUpdated: true,
+        changelog: {
+            maxCount: 10,
+            repoUrl: 'https://github.com/limou3434/work-blog-website',
+        },
         plugins: {
             git: true, // 如果您在此处直接声明为 true, 则表示开发环境和生产环境都启用该功能
         },
@@ -88,6 +91,11 @@ export default defineUserConfig({
         docsDir: 'docs',
         docsBranch: 'main',
 
+        // 代码拷贝
+        copyCode: {
+            showInMobile: true, // 是否启用移动端代码拷贝功能
+        },
+
         // 拓展语法
         markdown: {
             math: {             // 启用数学公式
@@ -97,7 +105,7 @@ export default defineUserConfig({
             chartjs: true,      // 启用 chart.js
             echarts: true,      // 启用 ECharts
             markmap: true,      // 启用 Markmap
-            // codeTree: true,     // 启用代码树语法
+            codeTree: true,     // 启用代码树语法
             bilibili: true,     // 启用嵌入 bilibili视频 语法 @[bilibili](bid)
             youtube: true,      // 启用嵌入 youtube视频 语法 @[youtube](video_id)
             pdf: true,          // 启用 PDF 嵌入 @[pdf](/xxx.pdf)
@@ -135,16 +143,5 @@ export default defineUserConfig({
             //   include: true,      // 在 Markdown 文件中导入其他 markdown 文件内容
             //   imageSize: 'local', // 启用 自动填充 图片宽高属性，避免页面抖动
         },
-
-        // 搜索服务
-        // search: { // 启用此搜索需要将 本地搜索 search 设置为 false
-        //   provider: 'algolia',
-        //   appId: '',
-        //   apiKey: '',
-        //   indexName: '',
-        // },
-
-        // 资源链替
-        // replaceAssets: 'https://cdn.example.com',
     }),
 })
