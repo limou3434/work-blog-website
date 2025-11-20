@@ -1,5 +1,5 @@
 ---
-title: 内核原理
-createTime: 2025/04/09 11:50:31
-permalink: /3.系统网络/4.内核原理/
+createTime: 2025/11/16 18:32:01
+permalink: /3.系统网络/aciri2lz/
 ---
+# 内核原理

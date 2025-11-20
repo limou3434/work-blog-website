@@ -1,6 +1,6 @@
 ---
 createTime: 2025/04/09 13:05:15
-permalink: /5.开发方向/1.网页开发/gg8tsyan/
+permalink: /5.开发方向/gg8tsyan/
 ---
 <!-- @include: basic.md#statement -->
 

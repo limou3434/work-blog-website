@@ -1,6 +1,6 @@
 ---
 createTime: 2025/06/21 15:33:58
-permalink: /5.开发方向/1.网页开发/b2ggv3mi/
+permalink: /5.开发方向/b2ggv3mi/
 ---
 # 渲染框架
 

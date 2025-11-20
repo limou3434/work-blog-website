@@ -1,5 +1,4 @@
 ---
-title: 基础排序
-createTime: 2025/04/09 11:50:31
-permalink: /2.数构算法/3.基础排序/
+createTime: 2025/11/16 18:10:31
+permalink: /2.数构算法/j6yuheo1/
 ---

@@ -1,6 +1,6 @@
 ---
 createTime: 2025/10/20 01:41:26
-permalink: /5.开发方向/1.网页开发/sv8fk15l/
+permalink: /5.开发方向/sv8fk15l/
 ---
 # 页面组件
 

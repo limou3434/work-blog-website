@@ -1,7 +1,7 @@
 ---
 title: 002_limou_2024_09_22_ReactJS_进阶使用
 createTime: 2025/04/09 13:05:15
-permalink: /5.开发方向/1.网页开发/8k1taybv/
+permalink: /5.开发方向/8k1taybv/
 ---
 <style>
 .heimu {

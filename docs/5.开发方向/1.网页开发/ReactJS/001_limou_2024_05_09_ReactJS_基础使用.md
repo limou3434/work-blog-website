@@ -1,7 +1,7 @@
 ---
 title: 001_limou_2024_05_09_ReactJS_基础使用
 createTime: 2025/04/09 13:05:15
-permalink: /5.开发方向/1.网页开发/0uqsda8p/
+permalink: /5.开发方向/0uqsda8p/
 ---
 <style>
 .heimu {

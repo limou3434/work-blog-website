@@ -1,6 +1,6 @@
 ---
 createTime: 2025/04/09 13:05:15
-permalink: /5.开发方向/1.网页开发/xlb4h3y7/
+permalink: /5.开发方向/xlb4h3y7/
 ---
 浏览器拓展 https://zh-hans.react.dev/learn/react-developer-tools
 
