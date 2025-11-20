@@ -12,14 +12,14 @@ export default defineThemeConfig({
     appearance: true, // 启动深色模式
 
     // 社交链接
-    // social: [
-        // {icon: 'github', link: 'https://github.com/limou3434'},
+    social: [
+        {icon: 'github', link: 'https://github.com/limou3434'},
         // { icon: 'zhihu', link: 'https://www.zhihu.com/people/limou3434' },
         // { icon: 'twitter', link: 'https://x.com/3434Limou97685' },
         // { icon: 'youtube', link: 'https://www.youtube.com/@3434limou' },
         // { icon: 'bilibili', link: 'https://space.bilibili.com/356662607?spm_id_from=333.1007.0.0' },
-    // ],
-    // navbarSocialInclude: ['github', 'twitter', 'youtube', 'bilibili', 'zhihu'], // 允许显示在导航栏的 social 社交链接
+    ],
+    navbarSocialInclude: ['github', 'twitter', 'youtube', 'bilibili', 'zhihu'], // 允许显示在导航栏的 social 社交链接
 
     // 开发卡片
     profile: {
