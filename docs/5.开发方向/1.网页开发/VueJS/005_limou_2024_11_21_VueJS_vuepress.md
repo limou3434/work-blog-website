@@ -2,8 +2,6 @@
 createTime: 2025/04/09 13:05:15
 permalink: /5.开发方向/gg8tsyan/
 ---
-<!-- @include: basic.md#statement -->
-
 # Vuepress
 
 ## 1.VuePress 的简单概要
@@ -291,5 +289,3 @@ description: 页面的描述
 ## 8.VuePress 的接口文档
 
 待补充...
-
-<!-- @include: basic.md#comment -->
