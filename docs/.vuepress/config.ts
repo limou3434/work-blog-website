@@ -108,6 +108,7 @@ export default defineUserConfig({
 
         // 拓展语法
         markdown: {
+            field: true, // 启用字段展示
             math: {             // 启用数学公式
                 type: 'katex',
                 katex: {
