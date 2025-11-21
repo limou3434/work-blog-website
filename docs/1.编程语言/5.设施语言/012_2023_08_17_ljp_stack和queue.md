@@ -22,7 +22,7 @@ permalink: /1.编程语言/7dp2bpap/
 
 ### 3.1.[栈的压入、弹出序列](https://www.nowcoder.com/practice/d77d11405cc7470d82554cb392585106?tpId=13&tqId=11174&ru=/exam/oj)
 
-```c++
+```cpp
 class Solution
 {
 public:
@@ -69,7 +69,7 @@ public:
 
 ### 3.2.[最小栈](https://leetcode.cn/problems/min-stack/)
 
-```c++
+```cpp
 class MinStack
 {
 public:

@@ -42,7 +42,7 @@ permalink: /1.编程语言/6umgd0wc/
 
 这是`deque`的一份说明文档：[deque - C++ Reference (cplusplus.com)](https://legacy.cplusplus.com/reference/deque/deque/)，或者您可以看我省略大部分信息后的简易版本。
 
-```c++
+```cpp
 template < class T, class Alloc = allocator<T> > class deque
 {
 
@@ -79,7 +79,7 @@ template < class T, class Alloc = allocator<T> > class deque
 
 如果需要变成小堆就可以使用仿函数（也叫“函数对象”，仿函数不是回调函数，但是原理有点像，是一种函数对象，不是函数）
 
-```c++
+```cpp
 #include <functional>
 #include <queue>
 priority_queue<int> pq1;//默认大堆
@@ -92,7 +92,7 @@ priority_queue<int, vector<int>, greater<int>> pq2;//小堆，实际上这里的
 
 ### 2.3.priority_queue实现
 
-```c+
+```cpp
 priority_queue
 ```
 
@@ -100,7 +100,7 @@ priority_queue
 
 
 
-```c++
+```cpp
 #pragma once
 #include <vector>
 #include <deque>
