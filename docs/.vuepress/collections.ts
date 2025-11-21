@@ -58,6 +58,13 @@ export const collections = defineCollections([
         archives: true, // 启用归档
         categories: true, // 启用分类
     }),
+    defineCollection({
+        type: 'doc',
+        dir: '/book/',
+        title: 'book',
+        sidebarCollapsed: true,
+        sidebar: 'auto',
+    }),
     // 自动生成的文档集合
     ...docConfigs.map(config => defineCollection(config)),
 ])

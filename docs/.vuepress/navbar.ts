@@ -6,8 +6,9 @@ import {defineNavbarConfig} from 'vuepress-theme-plume'
 // 导航图标可以在 https://fonts.google.com/icons 中查找
 export const navbar = defineNavbarConfig([
     {text: '首页', icon: 'material-symbols:home-outline', badge: {text: 'v2.0.0', type: 'info'}, link: '/',},
+    {text: '友链', icon: 'material-symbols:partner-exchange', link: '/FRIENDS.md',},
     {text: '博客', icon: 'material-symbols:article-outline', link: '/blog/',},
-    {text: '友链', link: '/FRIENDS.md', icon: 'material-symbols:partner-exchange',},
+    {text: '文档', icon: 'material-symbols:developer-guide', link: '/book/',},
     {
         text: '开发修养',
         icon: 'material-symbols:code-blocks',
