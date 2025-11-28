@@ -1,20 +1,28 @@
 ---
 friends: true
 title: 友情链接
-description: 友情链接描述文本
+description: 以下是本站的贡献者，欢迎加入成为我们的编辑者！
 permalink: /friends/
 contentPosition: after
 list:
   -
-    name: pengzhanbo
-    link: https://github.com/pengzhanbo
-    avatar: https://github.com/pengzhanbo.png
-    desc: 即使慢，驰而不息，纵会落后，纵会失败，但必须能够到达他所向的目标。
+    name: limou3434
+    link: https://github.com/limou3434/
+    avatar: https://avatars.githubusercontent.com/u/113878415?v=4
+    desc: 
   -
-    name: pengzhanbo
-    link: https://github.com/pengzhanbo
-    avatar: https://github.com/pengzhanbo.png
-    desc: 即使慢，驰而不息，纵会落后，纵会失败，但必须能够到达他所向的目标。
+    name: YyyCoco
+    link: https://github.com/YyyCoco/
+    avatar: https://avatars.githubusercontent.com/u/162805227?v=4
+    desc: 
+  -
+    name: CueGeo193
+    link: https://github.com/CueGeo193
+    avatar: https://avatars.githubusercontent.com/u/168499077?v=4
+    desc: 
+  -
+    name: weleste
+    link: https://github.com/weleste
+    avatar: https://avatars.githubusercontent.com/u/194663104?v=4
+    desc: 
 ---
-
-自定义内容 <!-- markdown 内容 会插入到 友情链接页中 -->
