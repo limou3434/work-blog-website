@@ -76,6 +76,7 @@ permalink: /5.开发方向/sv8fk15l/
 - [动画渲染组件](https://github.com/motiondivision/motion)
 - [文档展示组件](https://github.com/diegomura/react-pdf)
 - [富文编辑组件](https://github.com/zenoamaro/react-quill)
+- [表格处理组件](https://sheetjs.com/)
 - [~~国际管理~~](https://github.com/i18next/react-i18next)
 - [色彩管理](https://www.npmjs.com/package/@ant-design/colors)
 - [拖拽管理](https://github.com/clauderic/dnd-kit)
