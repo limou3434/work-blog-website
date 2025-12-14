@@ -30,15 +30,9 @@ export default defineUserConfig({
         // 加密功能
         encrypt: {
             rules: {
-                '/9.香水历史/': 'Qwe54188_',
-                '/10.香水原料/': 'Qwe54188_',
-                '/11.香水品牌/': 'Qwe54188_',
-                '/12.货架电商/': 'Qwe54188_',
-                '/13.兴趣电商/': 'Qwe54188_',
-                '/14.种草电商/': 'Qwe54188_',
-                '/15.信任电商/': 'Qwe54188_',
-                '/16.基础乐理/': 'Qwe54188_',
-                '/17.贝斯分类/': 'Qwe54188_',
+                '/6.素材处理/': 'Qwe54188_',
+                '/7.视频剪辑/': 'Qwe54188_',
+                '/8.立体建设/': 'Qwe54188_',
             }
         },
 
@@ -118,8 +112,8 @@ export default defineUserConfig({
             echarts: true,      // 启用 ECharts
             markmap: true,      // 启用 Markmap
             codeTree: true,     // 启用代码树语法
-            bilibili: true,     // 启用嵌入 bilibili视频 语法 @[bilibili](bid)
-            youtube: true,      // 启用嵌入 youtube视频 语法 @[youtube](video_id)
+            bilibili: true,     // 启用嵌入 bilibili 视频 语法 @[bilibili](bid)
+            youtube: true,      // 启用嵌入 youtube 视频 语法 @[youtube](video_id)
             pdf: true,          // 启用 PDF 嵌入 @[pdf](/xxx.pdf)
             audioReader: true,  // 启用嵌入音频朗读功能 语法 @[audioReader](url)
             plot: true,         // 启用隐秘文本语法 !!xxxx!!
