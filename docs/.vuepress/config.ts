@@ -102,10 +102,6 @@ export default defineUserConfig({
             field: true, // 启用字段展示
             math: {             // 启用数学公式
                 type: 'katex',
-                katex: {
-                    strict: false, // 允许使用 Unicode 字符，不显示警告
-                    trust: true, // 信任所有命令
-                },
             },
             mermaid: true,      // 启用 mermaid
             chartjs: true,      // 启用 chart.js
