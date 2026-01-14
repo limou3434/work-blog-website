@@ -8,7 +8,7 @@ import {collections} from './collections'
 
 export default defineUserConfig({
     // 网站元数
-    base: '/work-blog-website/',
+    base: '/work-blog-website/', // 如果需要本地部署，则需要改 base 的值为 '/' 才可以正确访问资源路径
     lang: 'zh-CN',
     title: '缡墨',
     description: '工作室成员长期实践形成的公用博客平台——缡墨',
