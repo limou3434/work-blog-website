@@ -1,0 +1,15 @@
+:3000 {
+  # 前端服务
+  handle_path /* {
+    root * ./dist
+    file_server
+    try_files {path} /index.html # 把所有的其他请求都重定向到 index 页面避免单体页面路径错误
+    }
+
+  # 日志服务
+  log {
+    level DEBUG
+    output file ./log/access.log
+    format json
+  }
+}
