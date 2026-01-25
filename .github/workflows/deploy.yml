@@ -1,51 +1,46 @@
 name: docs
 
+# 每当某个行为发生的时候讲触发动作
 on:
-  # 每当 push 到 main 分支时触发部署
+  # 当 push 到 main 分支时触发工作流
   push:
     branches: [main]
-  # 手动触发部署
+  # 当 xxx 规则时触发工作流（当前为空）
   workflow_dispatch:
 
+# 工作流中需要做的人物清单（每个 job 可以自己命名，并且相互之间默认是并行执行的独立关系，除非使用 needs）
 jobs:
+  # 文档任务（当前只有一个任务）
   docs:
+    # 指定运行环境
     runs-on: ubuntu-latest
 
+    # 指定
     steps:
-      - uses: actions/checkout@v4
+      - name: 把触发 workflow 的那个仓库 clone 到 runner 的工作目录，把仓库“搬到” CI/CD 虚拟机上方便后续构建、测试、部署
+        uses: actions/checkout@v4
         with:
-          # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录
-          fetch-depth: 0
+          fetch-depth: 0 # 拉取 Git 仓库的完整历史
 
-      - name: Setup pnpm
+      - name: 设置指定的 node 依赖管理器和对应的版本
         uses: pnpm/action-setup@v4
         with:
-          # 选择要使用的 pnpm 版本
-          version: 10
-          # 使用 pnpm 安装依赖
-          run_install: true
+          version: 10 # 选择要使用的 pnpm 版本
+          run_install: true # 使用 pnpm 安装依赖
 
-      - name: Setup Node.js
+      - name: 设置指定的 node 语言和对应的版本
         uses: actions/setup-node@v4
         with:
-          # 选择要使用的 node 版本
-          node-version: 22
-          # 缓存 pnpm 依赖
-          cache: pnpm
+          node-version: 22 # 选择要使用的 node 版本
+          cache: pnpm # 缓存 pnpm 依赖
 
-      # 运行构建脚本
-      - name: Build VuePress site
+      - name: 运行构建脚本
         run: pnpm docs:build
 
-      # 查看 workflow 的文档来获取更多信息
-      # @see https://github.com/crazy-max/ghaction-github-pages
-      - name: Deploy to GitHub Pages
+      - name: 部署博客站点到 Github Page 中 # @see https://github.com/crazy-max/ghaction-github-pages
         uses: crazy-max/ghaction-github-pages@v4
         with:
-          # 部署到 gh-pages 分支
-          target_branch: gh-pages
-          # 部署目录为 VuePress 的默认输出目录
-          build_dir: docs/.vuepress/dist
+          target_branch: gh-pages # 部署到 gh-pages 分支
+          build_dir: docs/.vuepress/dist # 部署目录为 VuePress 的默认输出目录
         env:
-          # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
