@@ -1,0 +1,318 @@
+<template><div><h2 id="_1-1-使用-cli-导出导入" tabindex="-1"><a class="header-anchor" href="#_1-1-使用-cli-导出导入"><span>1.1.使用 CLI 导出导入</span></a></h2>
+<p>待补充...</p>
+<h2 id="_1-2-使用-idea-导出导入" tabindex="-1"><a class="header-anchor" href="#_1-2-使用-idea-导出导入"><span>1.2.使用 IDEA 导出导入</span></a></h2>
+<p>待补充...</p>
+<h1 id="_2-使用-maven-管理项目" tabindex="-1"><a class="header-anchor" href="#_2-使用-maven-管理项目"><span>2.使用 Maven 管理项目</span></a></h1>
+<p><code v-pre>Maven</code> 是专为 <code v-pre>Java</code> 设计的项目管理工具，最核心的两个功能就是：</p>
+<ul>
+<li>如何构建项目工程结构</li>
+<li>如何管理项目依赖关系</li>
+</ul>
+<h2 id="_2-1-使用-cli-的-maven-管理项目" tabindex="-1"><a class="header-anchor" href="#_2-1-使用-cli-的-maven-管理项目"><span>2.1.使用 CLI 的 Maven 管理项目</span></a></h2>
+<h3 id="_2-1-1-配置-maven-环境" tabindex="-1"><a class="header-anchor" href="#_2-1-1-配置-maven-环境"><span>2.1.1.配置 Maven 环境</span></a></h3>
+<h3 id="_2-1-2-创建-maven-项目" tabindex="-1"><a class="header-anchor" href="#_2-1-2-创建-maven-项目"><span>2.1.2.创建 Maven 项目</span></a></h3>
+<p>打开终端，运行以下命令创建一个新的 Maven 项目：</p>
+<div class="language-sh line-numbers-mode" data-highlighter="shiki" data-ext="sh" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-sh"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">mvn</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> archetype:generate</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -DgroupId=com.example</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -DartifactId=my-project</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -DarchetypeArtifactId=maven-archetype-quickstart</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -DinteractiveMode=false</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>这会使用 <code v-pre>maven-archetype-quickstart</code> 原型创建一个新的 Maven 项目，并自动生成 <code v-pre>pom.xml</code> 文件和基本的项目结构。<code v-pre>Maven</code> 项目通常包含以下目录结构。</p>
+<div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-"><span class="line"><span>my-project/</span></span>
+<span class="line"><span>├── src/</span></span>
+<span class="line"><span>│   ├── main/</span></span>
+<span class="line"><span>│   │   └── java/</span></span>
+<span class="line"><span>│   └── test/</span></span>
+<span class="line"><span>│       └── java/</span></span>
+<span class="line"><span>├── pom.xml</span></span>
+<span class="line"><span>└── README.md</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_2-1-3-管理-maven-项目" tabindex="-1"><a class="header-anchor" href="#_2-1-3-管理-maven-项目"><span>2.1.3.管理 Maven 项目</span></a></h3>
+<p>编辑 <code v-pre>pom.xml</code> 文件，设置项目的基本信息、依赖、插件等。例如：</p>
+<div class="language-xml line-numbers-mode" data-highlighter="shiki" data-ext="xml" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-xml"><span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">project</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> xmlns</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">=</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">http://maven.apache.org/POM/4.0.0</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">         xmlns</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">xsi</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">=</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">http://www.w3.org/2001/XMLSchema-instance</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">         xsi</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">schemaLocation</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">=</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">modelVersion</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">4.0.0</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">modelVersion</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">groupId</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">com.example</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">groupId</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">artifactId</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">my-project</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">artifactId</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">version</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">1.0-SNAPSHOT</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">version</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">properties</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">        &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">maven.compiler.source</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">8</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">maven.compiler.source</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">        &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">maven.compiler.target</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">8</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">maven.compiler.target</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">        &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">project.build.sourceEncoding</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">UTF-8</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">project.build.sourceEncoding</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">properties</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">dependencies</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">        &#x3C;!-- 添加依赖项 --></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">dependencies</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">project</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>使用 <code v-pre>mvn clean install</code> 把自己这个 <code v-pre>Maven</code> 项目安装到 <code v-pre>pom.xml</code> 中指定的本地存储仓库中，同时寻找存储库中是否有用户需要的依赖，如果没有就会到中央仓库中进行下载。</p>
+<p>然后编写代码和测试：</p>
+<ul>
+<li>在 <code v-pre>src/main/java</code> 目录下编写 Java 源代码。</li>
+<li>在 <code v-pre>src/test/java</code> 目录下编写测试代码</li>
+</ul>
+<p>使用 <code v-pre>Maven</code> 脚本进行测试和安装到本地仓库</p>
+<p>运行单元测试 <code v-pre>mvn test</code></p>
+<p>构建项目，编译代码并打包成 <code v-pre>JAR</code> 文件 <code v-pre>mvn package</code></p>
+<p>使用 <code v-pre>mvn install</code> 安装本项目到本地仓库，安装好后，<code v-pre>JAR</code> 文件和 <code v-pre>pom.xml</code> 文件将位于 <code v-pre>~/.m2/repository/com/example/my-project/</code> 目录中。</p>
+<h2 id="_2-2-使用-idea-的-maven-管理项目" tabindex="-1"><a class="header-anchor" href="#_2-2-使用-idea-的-maven-管理项目"><span>2.2.使用 IDEA 的 Maven 管理项目</span></a></h2>
+<h3 id="_2-2-1-配置-maven-环境" tabindex="-1"><a class="header-anchor" href="#_2-2-1-配置-maven-环境"><span>2.2.1.配置 Maven 环境</span></a></h3>
+<p>首先需要配置 <code v-pre>Maven</code> 环境，才可以让 <code v-pre>IDEA</code> 使用 <code v-pre>Maven</code> 工具管理项目。我们可以对一个项目进行局部配置。</p>
+<figure><img src="@source/1.编程语言/4.Java/assets/image-20240808115725668-1723091666847-8.png" alt="image-20240808115725668" tabindex="0" loading="lazy"><figcaption>image-20240808115725668</figcaption></figure>
+<p>此时的项目是全空的，需要打开项目结构对项目进行配置。</p>
+<figure><img src="@source/1.编程语言/4.Java/assets/image-20240808120403899-1723091666846-3.png" alt="image-20240808120403899" tabindex="0" loading="lazy"><figcaption>image-20240808120403899</figcaption></figure>
+<figure><img src="@source/1.编程语言/4.Java/assets/image-20240808120738648-1723091666847-9.png" alt="image-20240808120738648" tabindex="0" loading="lazy"><figcaption>image-20240808120738648</figcaption></figure>
+<p>然后选择 <code v-pre>文件-&gt;设置</code> 打开关于 <code v-pre>Maven</code> 项目的构建和运行的相关配置，每次设置完就点击应用即可。</p>
+<figure><img src="@source/1.编程语言/4.Java/assets/image-20240808121207378-1723091666847-4.png" alt="image-20240808121207378" tabindex="0" loading="lazy"><figcaption>image-20240808121207378</figcaption></figure>
+<blockquote>
+<p>补充：在 <code v-pre>Maven</code> 中，<code v-pre>settings.xml</code> 文件和 <code v-pre>repository/</code> 目录是两个不同的配置和存储组件，它们的作用和用途各不相同。</p>
+<ol>
+<li>
+<p><code v-pre>settings.xml</code> 文件通常位于用户的 <code v-pre>Maven</code> 配置目录下，例如 <code v-pre>C:\Users\limou3434\.m2\settings.xml</code>。可以交给用户自定义，如果修改就是用户自己的局部配置，如果没有修改就是用户自己的全局配置。<code v-pre>settings.xml</code> 文件用于配置 Maven 的运行时行为。它包含用户特定的配置信息，如远程仓库、镜像、代理、认证信息、全局属性和构建配置等。该文件可以覆盖或补充 <code v-pre>Maven</code> 全局配置文件中的设置（位于 <code v-pre>Maven</code> 安装目录下的 <code v-pre>conf/settings.xml</code>）。</p>
+<div class="language-xml line-numbers-mode" data-highlighter="shiki" data-ext="xml" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-xml"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">&#x3C;!-- settings.xml --></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">settings</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">localRepository</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">C:\Users\Limou_p350ml9\.m2\repository</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">localRepository</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> &#x3C;!-- 指定本地仓库的位置 --></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">mirrors</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> &#x3C;!-- 配置镜像仓库, 用于替代或代理默认的中央仓库 --></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">        &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">mirror</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">            &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">id</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">central</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">id</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">            &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">mirrorOf</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">central</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">mirrorOf</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">            &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">url</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">http://my.local.mirror/repo</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">url</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">        &#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">mirror</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">mirrors</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">servers</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> &#x3C;!-- 配置远程仓库的认证信息 --></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">        &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">server</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">            &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">id</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">my-repo</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">id</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">            &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">username</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">my-username</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">username</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">            &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">password</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">my-password</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">password</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">        &#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">server</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">servers</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">proxies</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> &#x3C;!-- 配置代理服务器的信息 --></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">        &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">proxy</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">            &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">id</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">example-proxy</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">id</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">            &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">active</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">true</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">active</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">            &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">protocol</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">http</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">protocol</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">            &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">host</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">proxy.example.com</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">host</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">            &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">port</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">8080</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">port</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">        &#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">proxy</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">proxies</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">profiles</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> &#x3C;!-- 定义一组构建配置, 可以在运行 Maven 命令时激活 --></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">        &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">profile</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">            &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">id</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">dev</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">id</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">            &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">properties</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">                &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">property.name</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">property.value</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">property.name</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">            &#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">properties</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">        &#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">profile</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">profiles</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">settings</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<p><code v-pre>repository/</code> 目录通常位于用户的 <code v-pre>Maven</code> 本地仓库目录下，例如 <code v-pre>C:\Users\Limou_p350ml9\.m2\repository</code>。具体位置可以通过 <code v-pre>settings.xml</code> 中的 <code v-pre>&lt;localRepository&gt;</code> 配置项进行更改。<code v-pre>repository</code> 目录是 <code v-pre>Maven</code> 的本地仓库，用于存储从远程仓库下载的所有依赖库、插件以及本地构建的 <code v-pre>Maven</code> 工件（<code v-pre>artifacts</code>）。当 <code v-pre>Maven</code> 构建项目时，它首先会在本地仓库中查找所需的依赖。如果未找到，Maven 会从远程仓库下载这些依赖并缓存到本地仓库中，以便下次构建时复用。<code v-pre>repository</code> 目录的结构是按照 <code v-pre>Maven</code> 坐标（<code v-pre>groupI, artifactId, version</code>）组织的，这个坐标需要依靠每一个导入的 <code v-pre>Maven</code> 项目的 <code v-pre>pom.xml</code> 来定义（我们自己的 <code v-pre>Maven</code> 项目则可以在创建的时候自己定义，或者直接修改 <code v-pre>pom.xml</code> 文件）。例如，一个依赖 <code v-pre>org.apache.commons:commons-lang3:3.12.0</code> 的存储路径可能为：<code v-pre>C:\Users\limou3434\.m2\repository\org\apache\commons\commons-lang3\3.12.0\commons-lang3-3.12.0.jar</code> 因此该目录下存储的实际上是第三方库的 <code v-pre>jar</code> 包。</p>
+</li>
+</ol>
+</blockquote>
+<figure><img src="@source/1.编程语言/4.Java/assets/image-20240808121336135-1723091666847-5.png" alt="image-20240808121336135" tabindex="0" loading="lazy"><figcaption>image-20240808121336135</figcaption></figure>
+<p>然后配置编译器。</p>
+<figure><img src="@source/1.编程语言/4.Java/assets/image-20240808121603847-1723091666847-6.png" alt="image-20240808121603847" tabindex="0" loading="lazy"><figcaption>image-20240808121603847</figcaption></figure>
+<p>不过上述的配置是一个项目的局部配置，如果希望当前用户所有项目的全局配置，需要不打开任何项目再进行配置。</p>
+<figure><img src="@source/1.编程语言/4.Java/assets/image-20240808121821826-1723091666847-7.png" alt="image-20240808121821826" tabindex="0" loading="lazy"><figcaption>image-20240808121821826</figcaption></figure>
+<figure><img src="@source/1.编程语言/4.Java/assets/image-20240808122036885-1723091666847-10.png" alt="image-20240808122036885" tabindex="0" loading="lazy"><figcaption>image-20240808122036885</figcaption></figure>
+<p>也是类似的配置，不过注意，我们上面只是使用空项目来演示，实际是应该先使用 <code v-pre>Maven</code> 后再来修改的，因此一般建议设置全局配置后，如果需要不同版本的 <code v-pre>Maven</code> 就需要重新选择局部配置。</p>
+<blockquote>
+<p>补充：实际上最全局最全局的配置是 <code v-pre>Maven</code> 安装目录下的 <code v-pre>settings.xml</code> 文件，而 <code v-pre>repository/</code> 目录其实是依靠前者指定的，用户可以自己配置。</p>
+</blockquote>
+<h3 id="_2-2-2-创建-maven-项目" tabindex="-1"><a class="header-anchor" href="#_2-2-2-创建-maven-项目"><span>2.2.2.创建 Maven 项目</span></a></h3>
+<p>我们把之前的项目全部清空，重新来一遍。</p>
+<figure><img src="@source/1.编程语言/4.Java/assets/image-20240808124654444.png" alt="image-20240808124654444" tabindex="0" loading="lazy"><figcaption>image-20240808124654444</figcaption></figure>
+<p>也可以设置值下组 <code v-pre>ID</code> 和工作 <code v-pre>ID</code>，不过这里我选择默认的，工作组 <code v-pre>ID</code> 默认和项目名称相同。</p>
+<figure><img src="@source/1.编程语言/4.Java/assets/image-20240808124842483.png" alt="image-20240808124842483" tabindex="0" loading="lazy"><figcaption>image-20240808124842483</figcaption></figure>
+<figure><img src="@source/1.编程语言/4.Java/assets/image-20240808124720905.png" alt="image-20240808124720905" tabindex="0" loading="lazy"><figcaption>image-20240808124720905</figcaption></figure>
+<p>而 <code v-pre>Maven</code> 在创建项目的过程中，会进行网络下载，下载好后的内容就放在用户配置的全局配置或局部配置中，我们可以先来简单看看 <code v-pre>Maven</code> 创建工程对应的目录结构：</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># Maven 项目</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">my-app</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">--</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> pom.xml</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # Maven 的配置文件</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">--</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> src</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # Maven 项目源文件</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">   |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">--</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> main</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 实际项目资源</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">   |</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">   |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">--</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> java</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 项目源代码</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">   |</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">   |</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">   |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">--</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> com</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">   |</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">   |</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">       |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">--</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> mycompany</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">   |</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">   |</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">           |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">--</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> app</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">   |</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">   |</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">               |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">--</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> App.java</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">   |</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">   |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">--</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> resources</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 配置文件目录</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">   |</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">       |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">--</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> application.properties</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">   |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">--</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 测试项目资源</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">       |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">--</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> java</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 项目源代码</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">       |</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">   |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">--</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> com</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">       |</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">       |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">--</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> mycompany</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">       |</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">           |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">--</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> app</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">       |</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">               |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">--</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> AppTest.java</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">       |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">--</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> resources</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 配置文件目录</span></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">...</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote>
+<p>补充：关于 <code v-pre>test/</code> 项目中由于其内部的 <code v-pre>resources/</code> 不常用，因此就默认不会创建，如果您需要可以手动创建。</p>
+<figure><img src="@source/1.编程语言/4.Java/assets/image-20240808131558163.png" alt="image-20240808131558163" tabindex="0" loading="lazy"><figcaption>image-20240808131558163</figcaption></figure>
+<figure><img src="@source/1.编程语言/4.Java/assets/image-20240808131628486.png" alt="image-20240808131628486" tabindex="0" loading="lazy"><figcaption>image-20240808131628486</figcaption></figure>
+</blockquote>
+<p>其中最重要的一个文件就是 <code v-pre>pom.xml</code> 我们先来看看这个文件的内容，简单认识一下对应的意思。</p>
+<div class="language-xml line-numbers-mode" data-highlighter="shiki" data-ext="xml" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-xml"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">&#x3C;!-- pom.xml --></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;?</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">xml</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> version</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">=</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">1.0</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> encoding</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">=</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">UTF-8</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#999999;--shiki-dark:#666666">?></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">project</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> xmlns</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">=</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">http://maven.apache.org/POM/4.0.0</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">         xmlns</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">xsi</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">=</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">http://www.w3.org/2001/XMLSchema-instance</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">         xsi</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">schemaLocation</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">=</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">modelVersion</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">4.0.0</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">modelVersion</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">    &#x3C;!-- 一开始创建 Maven 项目时设置的 Maven 坐标, 方便以后把本项目作为第三方库引入其他库中时, 生成对应的目录缓存到导入用户的 Maven 存储库 repository/ 中 --></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">groupId</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">org.example</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">groupId</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">artifactId</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">project_creat</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">artifactId</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">version</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">1.0-SNAPSHOT</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">version</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">properties</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">        &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">maven.compiler.source</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">8</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">maven.compiler.source</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> &#x3C;!-- 源码 gdk 版本 --></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">        &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">maven.compiler.target</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">8</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">maven.compiler.target</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> &#x3C;!-- 目标 gdk 版本 --></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">        &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">project.build.sourceEncoding</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">UTF-8</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">project.build.sourceEncoding</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> &#x3C;!-- 编码字符集 --></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">properties</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">project</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote>
+<p>补充：怎么用 <code v-pre>IDEA</code> 打开现有的 <code v-pre>Maven</code> 项目呢？使用 <code v-pre>IDEA</code> 中关于 <code v-pre>Maven</code> 面板中的 <code v-pre>+</code> 导入 <code v-pre>Maven</code> 项目的 <code v-pre>pom.xml</code> 文件即可。</p>
+</blockquote>
+<h3 id="_2-2-3-管理-maven-项目" tabindex="-1"><a class="header-anchor" href="#_2-2-3-管理-maven-项目"><span>2.2.3.管理 Maven 项目</span></a></h3>
+<h4 id="_2-2-3-1-生命周期脚本" tabindex="-1"><a class="header-anchor" href="#_2-2-3-1-生命周期脚本"><span>2.2.3.1.生命周期脚本</span></a></h4>
+<p><code v-pre>Maven</code> 项目的管理主要依靠 <code v-pre>Maven</code> 的三种生命周期，处理从项目编译到打包的整个过程。主要每个生命周期颞部会包含各个阶段：</p>
+<ul>
+<li>
+<p><code v-pre>clean</code> 清理工作：... <code v-pre>clean</code> 清理构建 ...</p>
+</li>
+<li>
+<p><code v-pre>default</code> 核心工作</p>
+<p>...</p>
+<p><code v-pre>compile</code> 编译项目的源代码</p>
+<p><code v-pre>test</code> 运行测试代码（通常是 <code v-pre>JUnit</code> 测试，对带有 <code v-pre>@Test</code> 注解的代码进行测试）</p>
+<p><code v-pre>package</code> 将编译后的代码打包成 <code v-pre>JAR</code>、<code v-pre>WAR</code> 或其他格式的归 档文件（默认只对主程序进行打包）</p>
+<p><code v-pre>install</code> 将包安装到本地 <code v-pre>Maven</code> 仓库，以供其他项目使用，也可以按照依赖</p>
+<p>...</p>
+</li>
+<li>
+<p><code v-pre>site</code> 站点工作：...</p>
+</li>
+</ul>
+<p>并且靠后的阶段执行必须依靠靠前的阶段，例如运行了 <code v-pre>install</code> 就会运行 <code v-pre>..., compile, test, package, install</code>，不过只限于同一个生命周期内才会由这种向前依赖关系。</p>
+<blockquote>
+<p>补充：不过有些时候不希望经过冗杂的测试而进行快速打包，可以对某些阶段对应的脚本操作进行禁用。</p>
+<figure><img src="@source/1.编程语言/4.Java/assets/image-20240808161841728.png" alt="image-20240808161841728" tabindex="0" loading="lazy"><figcaption>image-20240808161841728</figcaption></figure>
+</blockquote>
+<p>我们只需要关注 <code v-pre>IDEA</code> 中罗列出来的几个主要阶段就行。</p>
+<figure><img src="@source/1.编程语言/4.Java/assets/image-20240808134907171.png" alt="image-20240808134907171" tabindex="0" loading="lazy"><figcaption>image-20240808134907171</figcaption></figure>
+<p>我们稍微在这个 <code v-pre>Maven</code> 项目中编写一些简单的代码，不过 <code v-pre>IDEA</code> 已经帮我们生成了一份最简单的 <code v-pre>HelloWorld</code> 代码，我们尝试运行一下，就会发现多出一个 <code v-pre>target/</code> 目录。</p>
+<figure><img src="@source/1.编程语言/4.Java/assets/image-20240808131908847.png" alt="image-20240808131908847" tabindex="0" loading="lazy"><figcaption>image-20240808131908847</figcaption></figure>
+<p>这里就是编译后产生的字节码，而其他几个指令也都比较好理解，这里我提一个比较重要的，使用 <code v-pre>install</code> 脚本可以把当前的 <code v-pre>Maven</code> 项目按照用户的 <code v-pre>Maven</code> 配置按照到用户的 <code v-pre>repository/</code> 中进行缓存，这样用户就可以把自己写的项目作为依赖配置给别的项目了。</p>
+<p>另外，这里的打包指令默认不会把依赖一起打包，只打包主程序代码 ，如果需要打包则需要在 <code v-pre>pom.xml</code> 中修改打包插件指令。</p>
+<blockquote>
+<p>补充：完整的生命周期解读</p>
+<ol>
+<li><strong>默认生命周期（Build Lifecycle）</strong></li>
+</ol>
+<p>这是 Maven 最常用的生命周期，用于处理项目的构建和部署。它包含以下阶段：</p>
+<ul>
+<li><strong>validate</strong>：验证项目的基本信息和结构，确保所有必要的信息都已提供且正确。</li>
+<li><strong>initialize</strong>：初始化构建状态，设置一些基本属性或环境。</li>
+<li><strong>generate-sources</strong>：生成源代码，在编译之前执行，比如自动代码生成工具。</li>
+<li><strong>process-sources</strong>：处理源代码，通常是对源码进行过滤或其他预处理。</li>
+<li><strong>generate-resources</strong>：生成资源文件，在资源处理之前执行，如生成配置文件。</li>
+<li><strong>process-resources</strong>：处理资源文件，通常是将资源文件复制到目标目录（<code v-pre>target</code>目录），为后续的打包做准备。</li>
+<li><strong>compile</strong>：编译项目的源代码，将<code v-pre>.java</code>文件编译为<code v-pre>.class</code>文件。</li>
+<li><strong>process-classes</strong>：处理编译好的类文件，例如对字节码进行增强操作。</li>
+<li><strong>generate-test-sources</strong>：生成测试源代码，类似于<code v-pre>generate-sources</code>，但用于测试代码。</li>
+<li><strong>process-test-sources</strong>：处理测试源代码，通常是对测试源码进行过滤。</li>
+<li><strong>generate-test-resources</strong>：生成测试资源文件，用于测试环境。</li>
+<li><strong>process-test-resources</strong>：处理测试资源文件，通常是将测试资源文件复制到目标测试目录。</li>
+<li><strong>test-compile</strong>：编译测试代码。</li>
+<li><strong>process-test-classes</strong>：处理编译后的测试类文件。</li>
+<li><strong>test</strong>：运行测试代码，执行单元测试。</li>
+<li><strong>prepare-package</strong>：在实际打包之前的准备阶段，通常用于执行一些预打包的定制任务。</li>
+<li><strong>package</strong>：将编译好的代码和资源打包成可分发的格式，比如<code v-pre>JAR</code>、<code v-pre>WAR</code>。</li>
+<li><strong>pre-integration-test</strong>：在集成测试之前进行的准备工作，比如启动服务器或数据库等。</li>
+<li><strong>integration-test</strong>：运行集成测试。</li>
+<li><strong>post-integration-test</strong>：在集成测试完成后执行的任务，比如停止服务器或数据库等。</li>
+<li><strong>verify</strong>：对项目进行进一步的检查，确保质量标准被满足。</li>
+<li><strong>install</strong>：将打包好的工件（<code v-pre>JAR</code>、<code v-pre>WAR</code>等）安装到本地 Maven 仓库，以便其他项目使用。</li>
+<li><strong>deploy</strong>：将最终的工件部署到远程仓库，通常是用于共享给其他开发者或发布。</li>
+</ul>
+<ol start="2">
+<li><strong>清理生命周期（Clean Lifecycle）</strong></li>
+</ol>
+<p>这个生命周期主要用于清理项目的构建输出。包含以下阶段：</p>
+<ul>
+<li><strong>pre-clean</strong>：清理之前的准备工作。</li>
+<li><strong>clean</strong>：删除之前构建的所有文件（通常是删除<code v-pre>target</code>目录）。</li>
+<li><strong>post-clean</strong>：清理之后的收尾工作。</li>
+</ul>
+<ol start="3">
+<li><strong>站点生命周期（Site Lifecycle）</strong></li>
+</ol>
+<p>这个生命周期用于生成项目的网站文档。包含以下阶段：</p>
+<ul>
+<li><strong>pre-site</strong>：生成站点之前的准备工作。</li>
+<li><strong>site</strong>：生成项目站点文档。</li>
+<li><strong>post-site</strong>：生成站点之后的收尾工作。</li>
+<li><strong>site-deploy</strong>：将生成的站点文档部署到指定的服务器上。</li>
+</ul>
+</blockquote>
+<h4 id="_2-2-3-2-配置项目依赖" tabindex="-1"><a class="header-anchor" href="#_2-2-3-2-配置项目依赖"><span>2.2.3.2.配置项目依赖</span></a></h4>
+<p>上面的创建的 <code v-pre>Maven</code> 项目我们已经做好对项目的管理了，不过只是设置好了项目的结构、编译、打包等事务，但是关于依赖我们还没有配置。怎么把其他 <code v-pre>Maven</code> 项目通过 <code v-pre>package</code> 打包好的 <code v-pre>jar</code> 包和 <code v-pre>pom.xml</code> 配置为当前 <code v-pre>Maven</code> 项目的依赖呢？这就需要修改当前项目的 <code v-pre>pom.xml</code> 配置文件了。</p>
+<p>需要在 <code v-pre>pom.xml</code> 配置文件中添加 <code v-pre>&lt;dependencies&gt;</code> 标签，在这里提供多个依赖，每一个依赖由需要使用 <code v-pre>&lt;dependency&gt;</code> 标签来管理，内部有需要设置 <code v-pre>Maven</code> 坐标。</p>
+<p>这里演示我们前面创建好的 <code v-pre>HelloWord</code> 项目引入依赖 <code v-pre>logback-classic</code> 其他两个标签内容会自动进行补全（如果您要配置的依赖已经存储在 <code v-pre>repository/</code> 缓存），不过这只是配置，还没有实际添加了，需要重新加载，这个加载按钮 <code v-pre>IDEA</code> 自己就会显示出来（实际上这个重新加载就是脚本 <code v-pre>clean+install</code>）。</p>
+<p>如果没有找到本地缓存的依赖，就会在中央仓库中进行网络搜寻。</p>
+<figure><img src="@source/1.编程语言/4.Java/assets/image-20240808141004466.png" alt="image-20240808141004466" tabindex="0" loading="lazy"><figcaption>image-20240808141004466</figcaption></figure>
+<p>查看本项目的 <code v-pre>Maven</code> 面板即可发现，多出了一个依赖项的目录，项目面板中的外部依赖。</p>
+<figure><img src="@source/1.编程语言/4.Java/assets/image-20240808141058538.png" alt="image-20240808141058538" tabindex="0" loading="lazy"><figcaption>image-20240808141058538</figcaption></figure>
+<p>这里我们导入的是第三方的包，如果 <code v-pre>IDEA</code> 没有提示，可以 <a href="https://mvnrepository.com/" target="_blank" rel="noopener noreferrer">去 Maven 的在线仓库中查看对应的包信息</a>。</p>
+<p>由于 <code v-pre>Maven</code> 的依赖具有传递性，有时需要排除某些依赖，这个时候可以使用 <code v-pre>&lt;exclusions&gt;&lt;exclusion&gt;&lt;/exclusion&gt;&lt;/exclusions&gt;</code> 并且坐标无需指定版本，这样就可以主动断开依赖。</p>
+<p>另外，还需要注意引入依赖的范围，默认是在本项目的任何地方，不过可以通过 <code v-pre>&lt;scope&gt;&lt;/scope&gt;</code> 来重新规定作用范围，作用范围分为下面三种：</p>
+<ul>
+<li>主程序文件夹 <code v-pre>main/</code> 范围内有效</li>
+<li>测试文件夹 <code v-pre>test/</code> 范围内有效</li>
+<li>打包指令 <code v-pre>package</code> 内有效</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>scope 值</th>
+<th>主程文件夹</th>
+<th>测试文件夹</th>
+<th>打包指令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>compile(默认)</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>test</td>
+<td>-</td>
+<td>Y</td>
+<td>-</td>
+</tr>
+<tr>
+<td>provided</td>
+<td>Y</td>
+<td>Y</td>
+<td>-</td>
+</tr>
+<tr>
+<td>runtime</td>
+<td>-</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>补充：在软件开发和构建过程中，<code v-pre>scope</code> 的不同值表示不同的依赖类型和其用途，但是为什么需要 <code v-pre>provided</code> 和 <code v-pre>runtime</code> 呢？</p>
+<ul>
+<li><code v-pre>provided</code> 依赖意味着在项目的编译和测试阶段需要这些依赖，但在最终的打包过程中不会包含这些依赖。这种依赖通常是在开发过程中需要的，但在部署时不需要包含在最终的构建中。比如，某些框架或 <code v-pre>API</code> 在运行时由容器或其他环境直接提供。比如在一个使用 <code v-pre>Servlet</code> 的 <code v-pre>Java</code> 项目中，<code v-pre>Servlet API</code> 可能会被设为 <code v-pre>provided</code>，因为这个 <code v-pre>API</code> 在服务器上已经存在，不需要在打包时重复包含。这样可以依赖避免重复减少最终包的大小，确保项目在不同的环境下与提供的库兼容，而不是自带一份可能会引起冲突的库。</li>
+<li><code v-pre>runtime</code> 依赖在编译时不需要，但在运行时需要这些依赖。这些依赖不会影响编译过程，但在运行时是必要的。它们通常是应用的核心功能的一部分。例如数据库驱动或其他需要在程序运行时才用到的库，如 <code v-pre>jdbc</code> 驱动。</li>
+</ul>
+</blockquote>
+</div></template>
+
+

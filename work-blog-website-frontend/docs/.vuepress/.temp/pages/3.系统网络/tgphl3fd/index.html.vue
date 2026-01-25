@@ -1,0 +1,1704 @@
+<template><div><h2 id="_1-git-环境搭建" tabindex="-1"><a class="header-anchor" href="#_1-git-环境搭建"><span>1.Git 环境搭建</span></a></h2>
+<p>去看看 <a href="https://git-scm.com/doc" target="_blank" rel="noopener noreferrer">Git 官方文档</a> 把，主要是环境的问题，安装会很慢。</p>
+<h2 id="_2-git-仓库创建" tabindex="-1"><a class="header-anchor" href="#_2-git-仓库创建"><span>2.Git 仓库创建</span></a></h2>
+<p>首先您需要在 <a href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git" target="_blank" rel="noopener noreferrer">Git 下载帮助文档</a> 里下载 <code v-pre>Git</code> 工具。</p>
+<div class="hint-container warning">
+<p class="hint-container-title">注意</p>
+<p>注意：我们目前（在您还对 <code v-pre>Git</code> 一知半解的时候）不推荐使用任何图形化界面，这对您的学习作用不大，除非您已经熟练操作 <code v-pre>Git命令</code> 和 <code v-pre>Git的相 关概念</code>，这个时候才有使用图形化界面 <code v-pre>Git</code> 的意义。</p>
+</div>
+<h3 id="_2-1-本地创建" tabindex="-1"><a class="header-anchor" href="#_2-1-本地创建"><span>2.1.本地创建</span></a></h3>
+<p>打开 <code v-pre>git bash</code>，通常对于 <code v-pre>windows</code> 来说，在桌面右击鼠标即可找到该功能选项（点进去就有一个“黑色框”出现，以后我们依靠这个命令框，输入和 <code v-pre>Linux</code> 类似的命令和 <code v-pre>git</code> 的专属命令）。而对于 <code v-pre>Linux</code> 用户就方便许多，下载好后直接在终端中进行执行 <code v-pre>git</code> 相关指令即可。</p>
+<p>想要 <code v-pre>Git</code> 管理本地的文件，只需要输入指令：</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 进入某个目录后执行初始化命令</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> mkdir</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> gittest</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> &#x26;&#x26;</span><span style="--shiki-light:#998418;--shiki-dark:#B8A965"> cd</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> gittest</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> init</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">已初始化空的</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 仓库于</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> /home/ljp/git/gittest/.git/</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>指令输入并且回车后 <code v-pre>Git</code> 将会创建一个 <code v-pre>.git</code> 子目录，该子目录包含 <code v-pre>Git</code> 仓库需要的必须文件，这些文件是 <code v-pre>Git</code> 仓库的骨干，有关 <code v-pre>Git</code> 所有的秘密基本都在这里面。</p>
+<p>如果没有进行这个初始化，则没有办法在 <code v-pre>bash</code> 中对该目录使用 <code v-pre>git</code> 的其他命令（注意不可以把其他现有的 <code v-pre>.git</code> 直接复制到这个还未被 <code v-pre>Git</code> 跟踪的目录，这样做会使得 <code v-pre>Git</code> 仓库的状态有可能会出现问题）。</p>
+<div class="hint-container caution">
+<p class="hint-container-title">警告</p>
+<p>注意：本教程更多是在 <code v-pre>Linux</code> 上进行学习，使用 <code v-pre>Windows</code> 不一定可以成功操作所有步骤。</p>
+</div>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充 ：如果不想要被 <code v-pre>Git</code> 进行版本控制，最简单的办法是将 .<code v-pre>git</code> 文件直接删除，当然在我们学过 <code v-pre>git</code> 后不建议这么做...</p>
+</div>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：关于 <code v-pre>.git</code> 的内容可以简单了解一下，可以看看下面的示例：</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># .git 内的内容</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ls</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -al</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">total</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 329</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">drwxr-xr-x</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Limou</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 197121</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">      0</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Aug</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 17</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 21:58</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ./</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">drwxr-xr-x</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Limou</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 197121</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">      0</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Aug</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 17</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 21:56</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ../</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">-rw-r--r--</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Limou</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 197121</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">     47</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Aug</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 17</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 21:58</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> COMMIT_EDITMSG</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">-rw-r--r--</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Limou</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 197121</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">    107</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Jul</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 29</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 16:02</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> FETCH_HEAD</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">-rw-r--r--</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Limou</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 197121</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">     23</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Jul</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 21</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 21:37</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> HEAD</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">-rw-r--r--</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Limou</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 197121</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">     41</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Jul</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 29</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 16:02</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ORIG_HEAD</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">-rw-r--r--</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Limou</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 197121</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">    373</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Jul</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 27</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 11:24</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> config</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">-rw-r--r--</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Limou</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 197121</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">     73</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Jul</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 21</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 21:37</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> description</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">drwxr-xr-x</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Limou</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 197121</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">      0</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Jul</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 21</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 21:37</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> hooks/</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">-rw-r--r--</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Limou</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 197121</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 165766</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Aug</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 17</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 21:58</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> index</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">drwxr-xr-x</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Limou</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 197121</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">      0</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Jul</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 21</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 21:37</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> info/</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">drwxr-xr-x</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Limou</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 197121</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">      0</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Jul</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 21</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 21:37</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> logs/</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">drwxr-xr-x</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Limou</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 197121</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">      0</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Aug</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 17</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 21:58</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> objects/</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">-rw-r--r--</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Limou</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 197121</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">    114</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Jul</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 21</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 21:37</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> packed-refs</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">drwxr-xr-x</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Limou</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 197121</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">      0</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Jul</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 21</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 21:37</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> refs/</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div>
+<p>后面的远程创建您可以先跳过，因为我要先使用本地创建的仓库来演示后面的指令，等到您学到了 <code v-pre>push</code> 指令后再来使用远端仓库。</p>
+<h3 id="_2-2-远程创建" tabindex="-1"><a class="header-anchor" href="#_2-2-远程创建"><span>2.2.远程创建</span></a></h3>
+<p>比如在 <code v-pre>Github</code> 或者 <code v-pre>Gitee</code> 上克隆下来一个 <code v-pre>Git</code> 仓库（或者叫“项目”），执行以下指令：</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> clone</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> github该项目的传输协议</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> [自定义文件名字]</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>如果你想在克隆远程仓库的时候，想要自定义本地仓库的名字，可以通过额外的参数指定新的目录名（若没有指定该参数，一般默认为该项目仓库在服务器上的名字）。</p>
+<p>其中 <code v-pre>Git</code> 支持多种数据传输协议（我们可以先用 <code v-pre>https</code> 来学习，比较简单并且好理解）</p>
+<ol>
+<li>
+<p>可使用 <code v-pre>https://</code> 协议</p>
+</li>
+<li>
+<p>可使用 <code v-pre>git://</code> 协议</p>
+</li>
+<li>
+<p>可使用 <code v-pre>SSH</code> 传输协议</p>
+</li>
+</ol>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：其他协议的使用可能需要一些网络基础知识和额外配置操作，因此我们推荐直接使用 <code v-pre>http</code> 协议，其他您以后再来了解。</p>
+</div>
+<p>这里演示一个 <code v-pre>gitee</code> 如何使用 <code v-pre>git clone</code> 和 <code v-pre>http</code> 来克隆仓库的例子，您可以尝试按照这个例子，把我的笔记仓库给克隆下来，方便您本地阅读。</p>
+<p>首先打开 <a href="https://gitee.com/limou3434/limou-learn-note" target="_blank" rel="noopener noreferrer">这个链接</a>，找到我的仓库地址，然后复制一串 <code v-pre>http</code> 链接。</p>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/image-20240315145157673.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/image-20240315145027205.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<p>得到这个仓库的 <code v-pre>http</code> 链接后（如果您使用的是 <code v-pre>github</code> 也有类似的链接，可以找一找），打开一个空文件夹（您找得到位置的文件夹...）在内部右键选择 <code v-pre>Open Git Bach here</code>，也就是在该文件夹处打开一个命令行窗口（这个窗口可以执行的指令和 <code v-pre>Linux</code> 的指令几乎相同）。shell</p>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/image-20240315145855794.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<p>在 <code v-pre>bash</code> 中执行以下的命令：</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 克隆仓库文件到本地电脑</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> clone</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> https://gitee.com/limou3434/limou-learn-note.git</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 如果出现类似下面的错误</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># Cloning into 'limou-learn-note'...</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># fatal: unable to access 'https://gitee.com/limou3434/limou-learn-note.git/': SSL # certificate problem: unable to get local issuer certificate</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 则可以尝试使用命令 git config --global http.sslVerify false 后再次执行 git clone https://gitee.com/limou3434/limou-learn-note.git 指令</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 可能需要等待一会...</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>完成克隆后，就会出现一个 <code v-pre>.git</code> 文件夹，这里面就是 <code v-pre>Git</code> 的管理仓库和管理配置的文件，默认是被隐藏的（可能需要您设置资源管理器才能查看到隐藏文件）。</p>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：关于本地创建和远端创建的仓库还是有区别的，不过我们后面提到 <code v-pre>push</code> 指令后再来区分...</p>
+</div>
+<h2 id="_3-git-仓库配置" tabindex="-1"><a class="header-anchor" href="#_3-git-仓库配置"><span>3.Git 仓库配置</span></a></h2>
+<p><code v-pre>Git</code> 用来配置的命令是 <code v-pre>git config</code>，而 <code v-pre>Git</code> 的配置变量存储在三个不同的位置，它们的作用范围不同，分别是：系统级别、用户级别、仓库级别。</p>
+<h3 id="_3-1-添加配置" tabindex="-1"><a class="header-anchor" href="#_3-1-添加配置"><span>3.1.添加配置</span></a></h3>
+<h4 id="_3-1-1-系统级别" tabindex="-1"><a class="header-anchor" href="#_3-1-1-系统级别"><span>3.1.1.系统级别</span></a></h4>
+<p>包含系统上每一个用户及他们仓库的通用配置。如果你在执行 <code v-pre>git config</code> 命令时带上了 <code v-pre>--system</code> 选项，<code v-pre>Git</code> 就会在 <code v-pre>/etc/gitconfig</code> 中读写配置变量（<code v-pre>windows</code> 应该在 <code v-pre>C</code> 盘下的管理员文件下）。而因为它是系统级别的配置文件，所以需要管理员或超级用户的权限才能修改它。</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 系统级别</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> config</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --system</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 变量=</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">配置值</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="_3-1-2-用户级别" tabindex="-1"><a class="header-anchor" href="#_3-1-2-用户级别"><span>3.1.2.用户级别</span></a></h4>
+<p>针对当前用户的配置文件（该配置文件位置在 <code v-pre>~/.gitconfig</code> 或 <code v-pre>~/.config/git/config</code>），你可以传递 <code v-pre>--global</code> 选项让 <code v-pre>Git</code> 读写此文件，这样会对该用户在系统上所拥有的仓库生效（对于当前用户的工作目录来说，这个设置相当于全局设置）。</p>
+<p>不过在初步使用 <code v-pre>git</code> 的过程中，最重要的配置是配置用户名字和邮箱地址（邮箱地址最好真实有效）</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 用户级别</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> config</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --global</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> user.name</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">Your Name</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> config</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --global</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> user.email</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">Your email</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="_3-1-3-仓库级别" tabindex="-1"><a class="header-anchor" href="#_3-1-3-仓库级别"><span>3.1.3.仓库级别</span></a></h4>
+<p>针对当前仓库的配置文件（<code v-pre>.git/config</code>）。它只对当前用户拥有仓库有效。你可以传递 <code v-pre>--local</code> 选项让 <code v-pre>Git</code> 读写此文件（当然，你需要进入某个 <code v-pre>Git</code> 仓库中才能让该选项生效，并且生效于该仓库中）</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 仓库级别</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> config</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --local</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 变量=</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">配置值</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_3-2-查看配置" tabindex="-1"><a class="header-anchor" href="#_3-2-查看配置"><span>3.2.查看配置</span></a></h3>
+<p>可以查看当前不同范围的配置，这也是检验配置是否生效的好方法。</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> config</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --范围</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --list</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> -l</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> 某个配置变量</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><h3 id="_3-3-删除配置" tabindex="-1"><a class="header-anchor" href="#_3-3-删除配置"><span>3.3.删除配置</span></a></h3>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> config</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --范围</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --unset</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 某个配置变量</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：我们也可以直接打开不同范围级别对于的配置文件来查看（理论上来说配置也可以直接在配置文件里面手动修改来达到配置的目的）。不过这些直接打开配置文件读写的操作我们目前并不推荐使用。</p>
+<ul>
+<li>系统配置路径 <code v-pre>/etc/gitconfig</code></li>
+<li>用户配置路径 <code v-pre>~/.gitconfig</code></li>
+<li>仓库配置路径 <code v-pre>.git/config</code></li>
+</ul>
+</div>
+<h2 id="_4-git-仓库管理" tabindex="-1"><a class="header-anchor" href="#_4-git-仓库管理"><span>4.Git 仓库管理</span></a></h2>
+<h3 id="_4-1-添加提交" tabindex="-1"><a class="header-anchor" href="#_4-1-添加提交"><span>4.1.添加提交</span></a></h3>
+<p>实际上 <code v-pre>Git仓库</code> 真正指的是 <code v-pre>.git</code> 目录，但是我们不能直接手动将文件手动写入 <code v-pre>.git</code>，一旦误改，就会造成 <code v-pre>Git 仓库</code> 失效。</p>
+<ol>
+<li>因此只能将我们需要给 <code v-pre>Git</code> 管理的文件放在工作目录中（也就是 <code v-pre>.git</code> 的同级目录）</li>
+<li>然后使用 <code v-pre>add</code> 指令将文件从工作区转向版本库中的暂存区/索引（也就是 <code v-pre>.git</code> 目录中的暂存区）。</li>
+<li>在版本库暂存区内部使用 <code v-pre>commit</code> 提交到分支中（也就是 <code v-pre>.git</code> 目录中的存储库）</li>
+</ol>
+<p><code v-pre>add</code> 后，对工作目录的修改的内容（修改包括新增、修改、删除）会写入到对象库中，被其维护，每修改一次后维护就相当于一次版本的管理。而实际上 <code v-pre>Git</code> 追踪管理的是修改而不是文件。</p>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/7c3c7416-7634-4043-b7b6-b26f6e0dc13b.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<p>为什么暂存区也叫“索引”呢？因为该区存储了修改对象的索引（或许叫“指向对象的索引”）。而实际上，分支上存储的也不是对象，也是存储的是对象的索引。</p>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：<code v-pre>Git</code> 中的对象有如下几个。</p>
+<ul>
+<li><strong>Blob 对象</strong>：存储文件内容的对象，每个文件在 <code v-pre>Git</code> 中都对应一个 <code v-pre>Blob</code> 对象，文件的内容会被计算出一个唯一的哈希值</li>
+<li><strong>Tree 对象</strong>：存储目录的信息，包含指向 <code v-pre>Blob</code> 对象和其他 <code v-pre>Tree</code> 对象的指针，通过 <code v-pre>Tree</code> 对象，<code v-pre>Git</code> 维护文件系统的层次结构</li>
+<li><strong>Commit 对象</strong>：记录一次提交的信息，包括指向一个 <code v-pre>Tree</code> 对象的指针、提交信息、作者信息、时间戳等，每个 <code v-pre>Commit</code> 对象指向一个 <code v-pre>Tree</code> 对象，表示那次提交时的文件状态</li>
+<li><strong>Tag 对象</strong>：用于给特定的 <code v-pre>Commit</code> 对象打标签，<code v-pre>Tag</code> 对象可以是轻量级的（直接指向 <code v-pre>Commit</code>）或附注的（包含附加信息，如签名、消息等）</li>
+</ul>
+</div>
+<p>在实际使用中，上述的流程体现为：</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 简化流程</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 程序员编写代码产生文件</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cd</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> gittest</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> echo</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">hello git!</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> >></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cat</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">hello</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git!</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 使用 git 进行版本管理</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> add</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 添加到暂存区</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> commit</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -m</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">这是第一次填写推送信息记录, 要认真写, 方便日后回溯</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 添加到存储库</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">[</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">master （根提交） f64435b</span><span style="--shiki-light:#999999;--shiki-dark:#666666">]</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> 这是第一次填写推送信息记录, 要认真写, 方便日后回溯</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> file</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> changed,</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> insertion</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">+</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> create</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> mode</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 100644</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_4-2-工作状态" tabindex="-1"><a class="header-anchor" href="#_4-2-工作状态"><span>4.2.工作状态</span></a></h3>
+<p>使用 <code v-pre>status</code> 可以查看当前工作目录（或者叫工作树）中有哪些文件没有被 <code v-pre>add</code>，那些文件等待 <code v-pre>commit</code>。不过我们之前已经进行 <code v-pre>add</code> 和 <code v-pre>push</code> 了，所以这次就提示这是一个干净的工作区。</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 工作状态</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> status</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">位于分支</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">无文件要提交，干净的工作区</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_4-3-历史列表" tabindex="-1"><a class="header-anchor" href="#_4-3-历史列表"><span>4.3.历史列表</span></a></h3>
+<p>使用 <code v-pre>log</code> 指令可以查看 <code v-pre>commit</code> 历史、提交者信息、哈希值等。</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 历史列表</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> log</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">commit</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> f64435b08244ccd0ba4ccedece8ea0f12d5f1d6b</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (HEAD -</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">)</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Author:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> limou3434</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> &#x3C;</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">898738804@qq.co</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">m</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Date:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   Sat</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Oct</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 19</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 22:38:50</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 2024</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> +0800</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">    这是第一次填写推送信息记录,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 要认真写,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 方便日后回溯</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> log</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --oneline</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 加上参数 "--oneline" 则输出更加简洁明了</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">f64435b</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (HEAD -</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">) 这是第一次填写推送信息记录, 要认真写, 方便日后回溯</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 如果日志较多可能需要按 [q] 进行退出</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_4-4-对象哈希" tabindex="-1"><a class="header-anchor" href="#_4-4-对象哈希"><span>4.4.对象哈希</span></a></h3>
+<p>不同的对象在 <code v-pre>Git</code> 中计算出一串哈希值，可以根据哈希值得到对象的相关信息，要想查看 <code v-pre>git</code> 对象（哈希值指向的内容），也有对应的指令。</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cat-file</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -p</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> -t</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> -s</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 哈希值</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># -p: 查看对象的内容(某个提交的详细信息或查看某个文件的内容)</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># -t: 查看对象的类型</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># -s: 查看对象的大小</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：查看哈希值。</p>
+<ul>
+<li>使用 <code v-pre>git log</code> 可以查看所有 <code v-pre>commit</code> 的哈希值</li>
+<li>用 <code v-pre>git ls-tree &lt;HEAD | 特定commit的哈希值&gt; &lt;file_path&gt;</code> 可以查看当前版本的文件的哈希值（这里的 <code v-pre>HEAD</code> 就是指当前的版本，也就是最近的一次 <code v-pre>commit</code>，<code v-pre>git</code> 版本的依据就是使用 <code v-pre>commit</code>，不同版本有不同的 <code v-pre>commit</code>）</li>
+<li>使用 <code v-pre>git hash-object &lt;file_path&gt;</code> 则可以查看未提交文件的哈希值（包括目录的）</li>
+<li>使用 <code v-pre>git show-ref --tags</code> 可以查看标签的哈希值</li>
+</ul>
+</div>
+<p>这里我们根据我们之前创建的文件和第一次的 <code v-pre>commit</code> 进行哈希相关的查看（这里还没有学习过标签，您后面学过后自己演示一下即可）。</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 哈希相关的查看</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 查看哈希值</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> log</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">commit</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> f64435b08244ccd0ba4ccedece8ea0f12d5f1d6b</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (HEAD -</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">)</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Author:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> limou3434</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> &#x3C;</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">898738804@qq.co</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">m</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Date:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   Sat</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Oct</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 19</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 22:38:50</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 2024</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> +0800</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">    这是第一次填写推送信息记录,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 要认真写,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 方便日后回溯</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ls-tree</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> HEAD</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">100644</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> blob</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> d1c64694584cf480b01273f2c729fd8b6b7c320c</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">    test1.txt</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">这是第一次填写推送信息记录,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 要认真写,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 方便日后回溯</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 根据哈希值查看其他信息</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cat-file</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -p</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> f64435b08244ccd0ba4ccedece8ea0f12d5f1d6b</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">tree</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 600f75ecbb1caa9761a249341efaaf0b1ef6e593</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">author</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> limou3434</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> &#x3C;</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">898738804@qq.co</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">m</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1729348730</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> +0800</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">committer</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> limou3434</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> &#x3C;</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">898738804@qq.co</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">m</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1729348730</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> +0800</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cat-file</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -t</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> f64435b08244ccd0ba4ccedece8ea0f12d5f1d6b</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">commit</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cat-file</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -s</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> f64435b08244ccd0ba4ccedece8ea0f12d5f1d6b</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">230</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cat-file</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -p</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> d1c64694584cf480b01273f2c729fd8b6b7c320c</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">hello</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git!</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cat-file</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -t</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> d1c64694584cf480b01273f2c729fd8b6b7c320c</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">blob</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cat-file</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -s</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> d1c64694584cf480b01273f2c729fd8b6b7c320c</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">11</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_4-5-查看差异" tabindex="-1"><a class="header-anchor" href="#_4-5-查看差异"><span>4.5.查看差异</span></a></h3>
+<h4 id="_4-5-1-diff-的使用" tabindex="-1"><a class="header-anchor" href="#_4-5-1-diff-的使用"><span>4.5.1.diff 的使用</span></a></h4>
+<p><code v-pre>diff</code> 是 <code v-pre>Git</code> 中一个重要的命令，用于比较文件或提交之间的差异。它可以帮助你了解文件内容的变化以及提交之间的变更情况。</p>
+<p>以下是几个常见的使用方式：</p>
+<ol>
+<li>
+<p>查看未暂存的更改（工作区 vs 版本库）</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> diff</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> [默认使用HEAD </span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> 特定commit哈希值]</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> [文件名] </span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 不加具体文件名就显示全部更改</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div></li>
+<li>
+<p>查看已暂存的更改（暂存区 vs 版本库）</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> diff</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --cached</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> [默认使用HEAD </span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> 特定commit哈希值]</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> [文件名] </span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 不加具体文件名就显示全部更改</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div></li>
+<li>
+<p>查看版本间的更改（版本库 vs 版本库）</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> diff</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> [commit1哈希值] </span><span style="--shiki-light:#999999;--shiki-dark:#666666">[</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">commit2哈希值</span><span style="--shiki-light:#999999;--shiki-dark:#666666">]</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>用实际的提交哈希值来替换 <code v-pre>&lt;commit1哈希值&gt;</code> 和 <code v-pre>&lt;commit2哈希值&gt;</code>，这将显示两个提交之间的差异。</p>
+</li>
+</ol>
+<p>这里我们修改一下 <code v-pre>test1.txt</code> 文件，在没有 <code v-pre>add</code> 之前比对，在 <code v-pre>add</code> 后进行比对，在 <code v-pre>commit</code> 进行比对。</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 快速理解差异查看</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># add 之前</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> vim</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cat</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">hello</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git!</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">I</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> am</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> limou3434.</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> diff</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> HEAD</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">diff</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> a/test1.txt</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> b/test1.txt</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">index</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> d1c6469..641225a</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 100644</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">---</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> a/test1.txt</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">+++</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> b/test1.txt</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">@@</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> +1,3</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> @@</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> hello</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git!</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">+</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">+I</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> am</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> limou3434.</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># add 之后</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> add</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --all</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> diff</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --cached</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> HEAD</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">diff</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> a/test1.txt</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> b/test1.txt</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">index</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> d1c6469..641225a</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 100644</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">---</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> a/test1.txt</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">+++</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> b/test1.txt</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">@@</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> +1,3</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> @@</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> hello</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git!</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">+</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">+I</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> am</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> limou3434.</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># commit 之后</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> commit</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -m</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">这是第二次提交commit的消息</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">[</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">master 2a8c280</span><span style="--shiki-light:#999999;--shiki-dark:#666666">]</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> 这是第二次提交commit的消息</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> file</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> changed,</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 2</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> insertions</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">+</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> log</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">commit</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 2a8c2802e4c5b9a3d942b37800d9384a16ad0dfe</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (HEAD -</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">)</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Author:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> limou3434</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> &#x3C;</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">898738804@qq.co</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">m</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Date:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   Sat</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Oct</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 19</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 23:22:16</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 2024</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> +0800</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">    这是第二次提交commit的消息</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">commit</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> f64435b08244ccd0ba4ccedece8ea0f12d5f1d6b</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Author:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> limou3434</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> &#x3C;</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">898738804@qq.co</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">m</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Date:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   Sat</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Oct</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 19</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 22:38:50</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 2024</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> +0800</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">    这是第一次填写推送信息记录,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 要认真写,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 方便日后回溯</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> diff</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> f64435b08244ccd0ba4ccedece8ea0f12d5f1d6b</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 2a8c2802e4c5b9a3d942b37800d9384a16ad0dfe</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">diff</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> a/test1.txt</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> b/test1.txt</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">index</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> d1c6469..641225a</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 100644</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">---</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> a/test1.txt</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">+++</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> b/test1.txt</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">@@</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> +1,3</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> @@</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> hello</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git!</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">+</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">+I</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> am</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> limou3434.</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="_4-5-2-diff-的输出" tabindex="-1"><a class="header-anchor" href="#_4-5-2-diff-的输出"><span>4.5.2.diff 的输出</span></a></h4>
+<p>上面提供的输出您可能会有点蒙，可以仔细解读一下。</p>
+<ul>
+<li><code v-pre>a/test1.txt</code> 表示源头文件路径</li>
+<li><code v-pre>b/test1.txt</code> 表示目标文件路径</li>
+<li><code v-pre>index ...</code> 是文件索引信息。</li>
+<li><code v-pre>--- a/test1.txt</code> 表示源头文件的起始位置</li>
+<li><code v-pre>+++ b/test1.txt</code> 表示目标文件的起始位置</li>
+<li><code v-pre>@@ -1 +1,3 @@</code> 表示以下变更的范围，源头文件差异从第 <code v-pre>1</code> 行开始，连续 <code v-pre>0</code> 行；目标文件差异从第 <code v-pre>1</code> 行开始，连续 <code v-pre>3</code> 行</li>
+</ul>
+<p>根据上述 <code v-pre>diff</code> 输出，可以看到在原文件中添加了空行和一句话。</p>
+<p>在 <code v-pre>git diff</code> 的输出中，范围指示了变更的具体位置。范围的格式是 <code v-pre>@@ -m,n +x,y @@</code>，其中 <code v-pre>m,n</code> 表示源头文件中的范围，<code v-pre>x,y</code> 表示目标文件中的范围。</p>
+<div class="hint-container warning">
+<p class="hint-container-title">注意</p>
+<p>注意：当显示 <code v-pre>diff</code> 输出时，<code v-pre>Git</code> 有时会包含多余的上下文行（<code v-pre>context lines</code>），以便更好地理解变更的上下文，并在合并等操作中提供更好的决策。因此显示多少取决于 <code v-pre>Git</code> 的判断，但是 <code v-pre>Git</code> 必须要保证您阅读清晰。</p>
+</div>
+<h3 id="_4-6-版本控制" tabindex="-1"><a class="header-anchor" href="#_4-6-版本控制"><span>4.6.版本控制</span></a></h3>
+<h4 id="_4-6-1-版本回退" tabindex="-1"><a class="header-anchor" href="#_4-6-1-版本回退"><span>4.6.1.版本回退</span></a></h4>
+<p>版本回退是 <code v-pre>Git</code> 最重要的功能，主要是执行 <code v-pre>git reset</code> 命令来回退版本。可以指定退回某一次提交的版本，而回退的本质是要将版本库中的内容进行回退，回退依赖 <code v-pre>commit</code>，工作区和暂存区是否会退由命令参数来决定。</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> reset</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> [--soft/--mixed/--hard] </span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">&#x3C;</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">HEAD </span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> commit哈希值</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">></span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><ol>
+<li><code v-pre>--soft</code> 参数（柔的），将 <code v-pre>版本库</code> 回退到某次提交，保留 <code v-pre>暂存区</code>，保留 <code v-pre>工作区</code>（常用）</li>
+<li><code v-pre>--mixed</code> 参数（混合），将 <code v-pre>版本库</code> 回退到某次提交，清空 <code v-pre>暂存区</code>，保留 <code v-pre>工作区</code>（默认）</li>
+<li><code v-pre>--hard</code> 参数（硬的），将 <code v-pre>版本库</code> 回退到某次提交，清空 <code v-pre>暂存区</code>，清空 <code v-pre>工作区</code>（谨慎）</li>
+</ol>
+<div class="hint-container warning">
+<p class="hint-container-title">注意</p>
+<p>注意：这里的清空工作区是指清空那些已经被跟踪文件后（<code v-pre>add</code> 后），再次进行修改还尚未 <code v-pre>add</code> 的工作区。如果是一直还没有被跟踪的文件，即便使用 <code v-pre>hard</code> 后也无法清空。</p>
+</div>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：<code v-pre>HEAD</code> 的使用有点类似绝对路径和相对路径的区别，这个参数可以直接写成某次 <code v-pre>commit</code> 的哈希值，表示回退到指定的版本。也可以使用 <code v-pre>^</code> 来回退，<code v-pre>HEAD</code> 表示当前版本，<code v-pre>HEAD^</code> 表示上一个版本，<code v-pre>HEAD^^</code> 表示上上个版本...当然，直接使用哈希值是更加精准的选择（甚至可以使用 <code v-pre>git log HEAD^</code> 达到和 <code v-pre>ls ../..</code> 类似的目的，也就是试探版本号的哈希值和详细信息进行比较精准的回退）。</p>
+</div>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：使用 <code v-pre>reset</code> 实际上是移动 <code v-pre>HEAD</code> 指针的过程，这个指针指向最新的 <code v-pre>commit</code> 对象。</p>
+</div>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">尝试撤回</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> log</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">commit</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 2a8c2802e4c5b9a3d942b37800d9384a16ad0dfe</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (HEAD -</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">)</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Author:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> limou3434</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> &#x3C;</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">898738804@qq.co</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">m</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Date:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   Sat</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Oct</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 19</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 23:22:16</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 2024</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> +0800</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">    这是第二次提交commit的消息</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">commit</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> f64435b08244ccd0ba4ccedece8ea0f12d5f1d6b</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Author:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> limou3434</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> &#x3C;</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">898738804@qq.co</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">m</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Date:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   Sat</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Oct</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 19</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 22:38:50</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 2024</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> +0800</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">    这是第一次填写推送信息记录,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 要认真写,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 方便日后回溯</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">    </span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 暂存区中有变动</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> vim</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cat</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">hello</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git!</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">I</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> am</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> limou3434.</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">...</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> add</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --all</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 工作区中有变动</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> vim</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cat</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">hello</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git!</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">I</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> am</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> limou3434.</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">...</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">???</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 不同的撤回</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> reset</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --soft</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> HEAD^</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> status</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">位于分支</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">要提交的变更：</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  （使用</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git restore --staged &#x3C;文件>...</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 以取消暂存）</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">        修改：</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">     test1.txt</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">尚未暂存以备提交的变更：</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  （使用</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git add &#x3C;文件>...</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 更新要提交的内容）</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  （使用</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git restore &#x3C;文件>...</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 丢弃工作区的改动）</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">        修改：</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">     test1.txt</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> log</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --oneline</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">f64435b</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (HEAD -</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">) 这是第一次填写推送信息记录, 要认真写, 方便日后回溯</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> reset</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --mixed</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> HEAD</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">重置后取消暂存的变更：</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">M</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">       test1.txt</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> status</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">位于分支</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">尚未暂存以备提交的变更：</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  （使用</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git add &#x3C;文件>...</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 更新要提交的内容）</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  （使用</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git restore &#x3C;文件>...</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 丢弃工作区的改动）</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">        修改：</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">     test1.txt</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">修改尚未加入提交（使用</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git add</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 和/或</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git commit -a</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">）</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> reset</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --hard</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> HEAD</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">HEAD</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 现在位于</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> f64435b</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第一次填写推送信息记录,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 要认真写,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 方便日后回溯</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> status</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">位于分支</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">无文件要提交，干净的工作区</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="_4-6-2-撤回回退" tabindex="-1"><a class="header-anchor" href="#_4-6-2-撤回回退"><span>4.6.2.撤回回退</span></a></h4>
+<p>如果后悔了怎么办？如果您还拥有之前提交的 <code v-pre>commit</code> 对应的哈希值，继续使用上述命令也可以达到撤回的效果（反正只要有哈希值就可以定点跳转）。那如果拿不到这个哈希值怎么办呢？</p>
+<p>可以使用 <code v-pre>git reflog</code>，这条指令会从本地克隆或创建仓库开始，记录本地的每一次提交命令以及重要的 <code v-pre>commit</code>（不过也仅限于本地）对应的哈希值，可以说是本地的历史记录。</p>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：版本回退的操作是很快的，原因是版本回退使用类似指针挪动的操作，所以就会很快。</p>
+</div>
+<h3 id="_4-7-删除文件" tabindex="-1"><a class="header-anchor" href="#_4-7-删除文件"><span>4.7.删除文件</span></a></h3>
+<ol>
+<li>
+<p>直接使用 <code v-pre>rm</code> 只是删除了工作目录中，因此还需要 <code v-pre>add</code> 和 <code v-pre>commit</code> 一遍，也就是将工作区和暂存区里一起删除并且提交版本（这也是记录需要被 <code v-pre>git</code> 记录下来，因此 <code v-pre>git</code> 不是对文件进行版本控制的一个证明就是，对于被删除的文件也会进行版本控制，这控制的其实是“差异”）</p>
+</li>
+<li>
+<p>直接使用 <code v-pre>git rm [--cached] &lt;文件名字&gt;</code>，此时工作区和暂存区中都进行了删除，再加上一次 <code v-pre>commit</code> 将存储库中的也删除掉（<code v-pre>git rm</code> 等价于 <code v-pre>rm</code> 后使用 <code v-pre>add</code>）。如果加上 <code v-pre>--cached</code> 则仅从暂存区中移除文件，但保留工作区中的文件</p>
+</li>
+</ol>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：实际上在 <code v-pre>Git</code> 仓库中删除一个文件而无法恢复是难以办到的（可以进行版本恢复），因此我们后面需要有某些屏蔽方案禁止某一些敏感隐私的数据上传。</p>
+</div>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 删除文件</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 当前状态</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> status</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">位于分支</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">无文件要提交，干净的工作区</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cat</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">hello</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git!</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 提交暂存区</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> vim</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cat</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">hello</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git!</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">!!!</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> status</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">位于分支</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">尚未暂存以备提交的变更：</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  （使用</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git add &#x3C;文件>...</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 更新要提交的内容）</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  （使用</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git restore &#x3C;文件>...</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 丢弃工作区的改动）</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">        修改：</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">     test1.txt</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">修改尚未加入提交（使用</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git add</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 和/或</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git commit -a</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">）</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> add</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> status</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">位于分支</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">要提交的变更：</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  （使用</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git restore --staged &#x3C;文件>...</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 以取消暂存）</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">        修改：</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">     test1.txt</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 移除暂存区</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> rm</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --cached</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">rm</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">test1.txt</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> status</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">位于分支</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">要提交的变更：</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  （使用</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git restore --staged &#x3C;文件>...</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 以取消暂存）</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">        删除：</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">     test1.txt</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">未跟踪的文件:</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  （使用</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git add &#x3C;文件>...</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 以包含要提交的内容）</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">        test1.txt</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 恢复暂存区</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> restore</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --staged</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> status</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">位于分支</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">尚未暂存以备提交的变更：</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  （使用</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git add &#x3C;文件>...</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 更新要提交的内容）</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  （使用</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git restore &#x3C;文件>...</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 丢弃工作区的改动）</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">        修改：</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">     test1.txt</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">修改尚未加入提交（使用</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git add</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 和/或</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git commit -a</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">）</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 重新提交到暂存区</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> add</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> status</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">位于分支</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">要提交的变更：</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  （使用</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git restore --staged &#x3C;文件>...</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 以取消暂存）</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">        修改：</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">     test1.txt</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 移除暂存区, 移除工作区</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> rm</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">error:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 下列文件索引中有变更</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">    test1.txt</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">（使用</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --cached</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 保留本地文件，或用</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -f</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 强制删除）</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> status</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">位于分支</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">要提交的变更：</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  （使用</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git restore --staged &#x3C;文件>...</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 以取消暂存）</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">        修改：</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">     test1.txt</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 提交移除后的新版本</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> commit</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -m</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">删除文件</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">[</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">master 3657ef8</span><span style="--shiki-light:#999999;--shiki-dark:#666666">]</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> 删除文件</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> file</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> changed,</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 2</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> insertions</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">+</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> status</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">位于分支</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">无文件要提交，干净的工作区</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_5-git-分支管理" tabindex="-1"><a class="header-anchor" href="#_5-git-分支管理"><span>5.Git 分支管理</span></a></h2>
+<p><code v-pre>Git</code> 的分支也是最为强大的一部分。</p>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/dd52b3ba-0c1a-42ef-87ff-60c4d1b0e0f2.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<p>每次 <code v-pre>commit</code> 最终都会形成一个提交时间线，默认叫做 <code v-pre>master</code> 主分支，由 <code v-pre>master</code> 指针维护。</p>
+<p><code v-pre>HEAD</code> 指向当前的工作分支（切换工作分支后就切换指向为当前分支），默认指向 <code v-pre>master</code>，并且指向该分支最新的一次 <code v-pre>commit</code> 提交。</p>
+<p>在主分支上，有的时候需要开辟一个次分支，这样既能不影响主分支的重要开发，又可以在次分支上随意开发。等到该分支的代码内容足够稳定，就可以和主分支合并在一起。</p>
+<h3 id="_5-1-分支创建" tabindex="-1"><a class="header-anchor" href="#_5-1-分支创建"><span>5.1.分支创建</span></a></h3>
+<p>使用 <code v-pre>git branch [分支名]</code> 可以创建一个分支。此时在 <code v-pre>./git/refs/heads</code> 下除了 <code v-pre>master</code> 就会多一个分支的文件。次分支最开始指向的 <code v-pre>commit</code> 和主分支指向的 <code v-pre>commit</code> 是一样的。</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 分支创建</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dog</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cat</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ls</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> .git/refs/heads/</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">cat</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">  dog</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">  master</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_5-2-分支查看" tabindex="-1"><a class="header-anchor" href="#_5-2-分支查看"><span>5.2.分支查看</span></a></h3>
+<p>使用 <code v-pre>git branch</code> 就可以查看当前本地存在的分支，其中开头带有 <code v-pre>*</code> 的分支为当前的工作分支。而如果带上 <code v-pre>-v</code> 选项，就可以看出当前分支中最新的一次 <code v-pre>commit</code>。</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 分支查看</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  cat</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  dog</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> master</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -v</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  cat</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">    3657ef8</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 删除文件</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  dog</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">    3657ef8</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 删除文件</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> master 3657ef8 删除文件</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cat-file</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -t</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 3657ef8</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">commit</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cat-file</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -p</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 3657ef8</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">tree</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 12bceac6a2e50aa3d503feda6f818f65e0d17ce9</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">parent</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> f64435b08244ccd0ba4ccedece8ea0f12d5f1d6b</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">author</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> limou3434</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> &#x3C;</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">898738804@qq.co</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">m</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1729355705</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> +0800</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">committer</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> limou3434</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> &#x3C;</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">898738804@qq.co</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">m</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1729355705</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> +0800</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">删除文件</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：查看分支也可以使用下面这种指令（比较直观），后面就会用到。</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> log</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --oneline</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --graph</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --all</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div></div>
+<h3 id="_5-3-分支切换" tabindex="-1"><a class="header-anchor" href="#_5-3-分支切换"><span>5.3.分支切换</span></a></h3>
+<p>使用 <code v-pre>git checkout [分支名]</code> 可以切换当前的工作分支，并且可以注意到 <code v-pre>HEAD</code> 指向的内容发生的改动，此时的 <code v-pre>HEAD</code> 指向当前切换的分支。</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 分支切换</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> checkout</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dog</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">切换到分支</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">dog</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  cat</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> dog</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  master</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_5-4-分支删除" tabindex="-1"><a class="header-anchor" href="#_5-4-分支删除"><span>5.4.分支删除</span></a></h3>
+<p>使用 <code v-pre>git branch -d 分支名</code> 即可，不过要删除某个分支，不可以切换到该分支上删除，需要切换到其他任意的分支才可以成功删除。这里把我们之前随意编写的两个分支删除吧。</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 分支删除</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> checkout</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">切换到分支</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">master</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  cat</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  dog</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> master</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -d</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dog</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cat</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">已删除分支</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dog（曾为</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 3657ef8）。</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">已删除分支</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cat（曾为</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 3657ef8）。</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> master</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>如果一个非空分支还未被合并过，是没有办法删除的，这种情况下只能使用强制删除。</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -D</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> [分支名]</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><h3 id="_5-5-分支合并" tabindex="-1"><a class="header-anchor" href="#_5-5-分支合并"><span>5.5.分支合并</span></a></h3>
+<p>首先先切换到想要被合并的分支上，然后使用 <code v-pre>git merge [某分支名]</code>（把某分支合并到本分支），于是次分支就被合并到主分支上了，需要注意谁合并谁的问题，这有可能造成结果不同。</p>
+<h4 id="_5-5-1-没有冲突时" tabindex="-1"><a class="header-anchor" href="#_5-5-1-没有冲突时"><span>5.5.1.没有冲突时</span></a></h4>
+<div class="hint-container warning">
+<p class="hint-container-title">注意</p>
+<p>注意：最好会一些基本的 <code v-pre>vim</code> 基础操作。</p>
+</div>
+<h5 id="_5-5-1-1-快进合并" tabindex="-1"><a class="header-anchor" href="#_5-5-1-1-快进合并"><span>5.5.1.1.快进合并</span></a></h5>
+<p>当当前分支的 <code v-pre>HEAD</code> 可以直接移动到目标分支的最新提交时，直接合并会发生快进合并。这种情况通常发生在被合并的目标分支没有新提交，而当前分支的提交都在目标分支的提交之前，结果就是当前分支的历史记录变得线性。</p>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/58a8e1ee-22f1-4d7c-8db3-78ef5da9dfb8.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 快进合并</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dev</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> checkout</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dev</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">切换到分支</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">dev</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> vim</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> add</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --all</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> &#x26;&#x26;</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> commit</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -m</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">这是第二次提交</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">[</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">dev 1a141ad</span><span style="--shiki-light:#999999;--shiki-dark:#666666">]</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> 这是第二次提交</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> file</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> changed,</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 2</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> insertions</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">+</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> vim</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> add</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --all</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> &#x26;&#x26;</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> commit</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -m</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">这是第三次提交</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">[</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">dev c391bb3</span><span style="--shiki-light:#999999;--shiki-dark:#666666">]</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> 这是第三次提交</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> file</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> changed,</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 2</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> insertions</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">+</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> log</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --oneline</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">c391bb3</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (HEAD -</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dev</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">) 这是第三次提交</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">1a141ad</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第二次提交</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">3657ef8</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (master) 删除文件</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">f64435b</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第一次填写推送信息记录,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 要认真写,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 方便日后回溯</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -v</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> dev    c391bb3 这是第三次提交</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  master</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 3657ef8</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 删除文件</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> checkout</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">切换到分支</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">master</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> log</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --oneline</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">3657ef8</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (HEAD -</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">) 删除文件</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">f64435b</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第一次填写推送信息记录,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 要认真写,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 方便日后回溯</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> merge</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dev</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">更新</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 3657ef8..c391bb3</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Fast-forward</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> test1.txt</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> 4</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ++++</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> file</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> changed,</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 4</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> insertions</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">+</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> log</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --oneline</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">c391bb3</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (HEAD -</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dev</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">) 这是第三次提交</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">1a141ad</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第二次提交</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">3657ef8</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 删除文件</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">f64435b</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第一次填写推送信息记录,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 要认真写,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 方便日后回溯</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -d</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dev</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">已删除分支</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dev（曾为</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> c391bb3）。</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cat</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">hello</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git!</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">!!!</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">YYY</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">NNN</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h5 id="_5-5-1-2-非快合并" tabindex="-1"><a class="header-anchor" href="#_5-5-1-2-非快合并"><span>5.5.1.2.非快合并</span></a></h5>
+<p>当当前分支和目标分支都有各自的提交时（注意必须没有相同文件的冲突，也就是同一个文件在不同分支上有不同内容，且 <code v-pre>Git</code> 无法自动处理），<code v-pre>Git</code> 会创建一个新的合并提交来将两者合并。这种合并保留了两条分支的历史，形成一个“分叉”的提交图。因此完整的命令是 <code v-pre>git merge --no-ff -m &quot;commit内容&quot; 分支名</code>。</p>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/bf12a64c-aa5a-443f-9d41-d2b7366ce77b.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 非快进合并</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> reset</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --hard</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> HEAD^^</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">HEAD</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 现在位于</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 3657ef8</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 删除文件</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> log</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --oneline</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">3657ef8</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (HEAD -</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">) 删除文件</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">f64435b</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第一次填写推送信息记录,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 要认真写,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 方便日后回溯</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cat</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">hello</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git!</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">!!!</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dev</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> checkout</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dev</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">切换到分支</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">dev</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> echo</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">I am test2.txt</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> ></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test2.txt</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> add</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --all</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> &#x26;&#x26;</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> commit</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -m</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">dev: 这是第二次提交</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">[</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">dev ce5cea4</span><span style="--shiki-light:#999999;--shiki-dark:#666666">]</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> dev: 这是第二次提交</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> file</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> changed,</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> insertion</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">+</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> create</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> mode</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 100644</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test2.txt</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> echo</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">OKOK</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> >></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test2.txt</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> add</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --all</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> &#x26;&#x26;</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> commit</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -m</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">dev: 这是第三次提交</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">[</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">dev 2926bf4</span><span style="--shiki-light:#999999;--shiki-dark:#666666">]</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> dev: 这是第三次提交</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> file</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> changed,</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> insertion</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">+</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> checkout</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">切换到分支</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">master</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ls</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">test1.txt</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> echo</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">I am test1.txt</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> ></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> add</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --all</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> &#x26;&#x26;</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> commit</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -m</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">master: 这是第二次提交</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">[</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">master c2b450c</span><span style="--shiki-light:#999999;--shiki-dark:#666666">]</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> master: 这是第二次提交</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> file</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> changed,</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> insertion</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">+</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">,</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 3</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> deletions</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">-</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> echo</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">NONO</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> >></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test1.txt</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> add</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --all</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> &#x26;&#x26;</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> commit</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -m</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">master: 这是第三次提交</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">[</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">master baa5abf</span><span style="--shiki-light:#999999;--shiki-dark:#666666">]</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> master: 这是第三次提交</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> file</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> changed,</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> insertion</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">+</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> log</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --oneline</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --graph</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --all</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> baa5abf (</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">HEAD</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> -</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">) master: 这是第三次提交</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> c2b450c master: 这是第二次提交</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> *</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 2926bf4</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (dev) dev: 这是第三次提交</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> *</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ce5cea4</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dev:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第二次提交</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">/</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">  </span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> 3657ef8 删除文件</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> f64435b 这是第一次填写推送信息记录, 要认真写, 方便日后回溯</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 确保在 master 上</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  dev</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> master</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> merge</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --no-ff</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -m</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">合并两个不冲突的分支</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dev</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Merge</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> made</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> by</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> the</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">recursive</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> strategy.</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> test2.txt</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> 2</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ++</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> file</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> changed,</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 2</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> insertions</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">+</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> create</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> mode</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 100644</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test2.txt</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">  </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> $</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> log</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --oneline</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --graph</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --all</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">   c16fc21 (</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">HEAD</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> -</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">) 合并两个不冲突的分支</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">\</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">  </span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> *</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 2926bf4</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (dev) dev: 这是第三次提交</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> *</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ce5cea4</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dev:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第二次提交</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> baa5abf</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第三次提交</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> c2b450c</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第二次提交</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">/</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">  </span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> 3657ef8 删除文件</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> f64435b 这是第一次填写推送信息记录, 要认真写, 方便日后回溯</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> checkout</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dev</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">切换到分支</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">dev</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> log</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --oneline</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --graph</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --all</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">   c16fc21 (</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">master</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">) 合并两个不冲突的分支</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">\</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">  </span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> *</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 2926bf4</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (HEAD -</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dev</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">) dev: 这是第三次提交</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> *</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ce5cea4</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dev:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第二次提交</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> baa5abf</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第三次提交</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> c2b450c</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第二次提交</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">/</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">  </span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> 3657ef8 删除文件</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> f64435b 这是第一次填写推送信息记录, 要认真写, 方便日后回溯</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 如果后续 dev 继续提交就会继续延伸</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -v</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> dev    2926bf4 dev: 这是第三次提交</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  master</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> c16fc21</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 合并两个不冲突的分支</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> echo</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">...</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> >></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test2.txt</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> add</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --all</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> &#x26;&#x26;</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> commit</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -m</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">dev: 这是第四次提交</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">[</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">dev e93e012</span><span style="--shiki-light:#999999;--shiki-dark:#666666">]</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> dev: 这是第四次提交</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> file</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> changed,</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> insertion</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">+</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -v</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> dev    e93e012 dev: 这是第四次提交</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  master</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> c16fc21</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 合并两个不冲突的分支</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> log</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --oneline</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --graph</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --all</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> e93e012 (</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">HEAD</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> -</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dev</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">) dev: 这是第四次提交</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> *</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   c16fc21</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (master) 合并两个不冲突的分支</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">\</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">  </span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">/</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">  </span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">/</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">   </span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> 2926bf4</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dev:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第三次提交</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> |</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> ce5cea4</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dev:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第二次提交</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> *</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> baa5abf</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第三次提交</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> *</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> c2b450c</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第二次提交</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">|</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">/</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">  </span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> 3657ef8 删除文件</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> f64435b 这是第一次填写推送信息记录, 要认真写, 方便日后回溯</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> checkout</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">切换到分支</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">master</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> log</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --oneline</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">c16fc21</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (HEAD -</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">) 合并两个不冲突的分支</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">baa5abf</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第三次提交</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">c2b450c</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第二次提交</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">2926bf4</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dev:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第三次提交</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">ce5cea4</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dev:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第二次提交</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">3657ef8</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 删除文件</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">f64435b</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 这是第一次填写推送信息记录,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 要认真写,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 方便日后回溯</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：如果是一开头的分支，如果我们直接使用合并，就会导致分支下移。</p>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/d0e26962-e8f4-4400-aa99-453d5d2fdf10.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+</div>
+<div class="hint-container note">
+<p class="hint-container-title">注</p>
+<p>区别：但是这两种合并有什么区别呢？</p>
+<ul>
+<li>快进合并会使提交历史保持线性，没有多余的合并提交，这使得历史更简洁，易于理解。在开发过程中，如果分支没有其他并行的更改，快进合并可以更方便地合并分支，减少操作复杂度</li>
+<li>非快进合并会创建一个新的合并提交，保留了分支合并的历史信息。这有助于追踪代码的来源和开发过程。在有多个开发者同时工作的场景中，非快进合并能够很好地处理并行开发的情况，尤其是在进行复杂的功能开发时，可以更清晰地看到何时以及为何合并了不同的分支</li>
+</ul>
+</div>
+<h4 id="_5-5-2-存在冲突时" tabindex="-1"><a class="header-anchor" href="#_5-5-2-存在冲突时"><span>5.5.2.存在冲突时</span></a></h4>
+<h5 id="_5-5-2-1-普通合并" tabindex="-1"><a class="header-anchor" href="#_5-5-2-1-普通合并"><span>5.5.2.1.普通合并</span></a></h5>
+<p>通过创建一个新的 “合并提交”（<code v-pre>Merge Commit</code>），将两个分支的修改历史连接起来，保留双方的完整提交记录。<code v-pre>Git</code> 会分析 <code v-pre>main</code> 和 <code v-pre>feature</code> 的共同祖先提交，计算两者的差异，然后生成一个新的合并提交，同时包含两个分支的所有修改。</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 假设您在分支 feature 开发, 需要将其合并到 main 分支</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> checkout</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> main</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> merge</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> feature</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 级社合并过程中出现冲突</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Auto-merging</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> file.txt</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # Git 正在尝试自动合并 file.txt 文件</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">CONFLICT</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (content): Merge conflict in file.txt </span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># file.txt 文件发生内容冲突</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Automatic</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> merge</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> failed</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> fix</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> conflicts</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> and</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> then</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> commit</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> the</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> result.</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 合并失败</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> status</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">plaintext</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">You</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> have</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> unmerged</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> paths.</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 存在未合并的文件路径</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">  (</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">fix</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> conflicts</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> and</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> run</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git commit</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 解决 "所有" 冲突后, 执行 git commit 可完成合并</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">  (</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">use</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git merge --abort</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> to</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> abort</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> the</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> merge</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 可执行本指令来撤销当前合并过程</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Unmerged</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> paths:</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 列出所有未合并的文件</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">  (</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">use</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git add &#x3C;file>...</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> to</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> mark</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> resolution</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 当手动修改完冲突文件后需用本指令告知文件冲突已解决</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">        both</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> modified:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   file.txt</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">        </span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 你查找所有需要修改的文件</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> add</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --all</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> commit</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -m</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">本次解决合并的日志</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>从共同祖先开始，普通合并把所有的冲突文件都整合到一起，然后等您修改完后再一次 <code v-pre>commit</code> 完毕。</p>
+<h5 id="_5-5-2-1-变基合并" tabindex="-1"><a class="header-anchor" href="#_5-5-2-1-变基合并"><span>5.5.2.1.变基合并</span></a></h5>
+<p>将当前分支的所有提交 “移植” 到目标分支的最新提交之后，形成一条线性的提交历史，<strong>不创建新的合并提交</strong>。</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 假设您在分支 feature 开发, 需要将其合并到 main 分支</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> checkout</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> feature</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> rebase</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> main</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">First,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> rewinding</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> head</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> to</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> replay</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> your</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> work</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> on</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> top</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> of</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> it...</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # Git 正在 "回退头指针", 准备将当前分支 feature 的提交(也就是你的工作)重新 "播放(应用)" 到目标分支(main)的最新提交之上</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Applying:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> D</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (提交信息：修改 </span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">file1.txt</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">) </span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 当前正在尝试将 feature 分支的 D 提交(D 是提交的代号, 提交信息是 "修改 file1.txt") 应用到目标分支上</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Auto-merging</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> file1.txt</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # Git 尝试自动合并 file1.txt 文件</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">CONFLICT</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (content): Merge conflict in file1.txt </span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 冲突核心提示: file1.txt 发生了内容冲突(content 表示是代码内容不一致导致的冲突)</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">error:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> could</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> not</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> apply</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> D...</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 修改</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> file1.txt</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 操作失败提示: 由于冲突无法自动解决, D 提交暂时无法应用到目标分支上</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 冲突时的指引指令</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">hint:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Resolve</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> all</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> conflicts</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> manually,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> mark</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> them</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> as</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> resolved</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> with</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 手动解决 file1.txt 中的冲突</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">hint:</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git add/rm &#x3C;conflicted_files></span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> then</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> run</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git rebase --continue</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">.</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 用 git add &#x3C;冲突文件> (这里是 git add file1.txt) 标记冲突已解决, 然后执行 git rebase --continue 继续处理后续提交</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">hint:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> You</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> can</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> instead</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> skip</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> this</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> commit</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> with</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git rebase --skip</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">.</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 如果不想要 D 提交的修改了, 可以用 git rebase --skip 跳过这个提交, 直接处理下一个提交(注意跳过会丢失 D 提交的内容)</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">hint:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> To</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> abort</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> and</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> get</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> back</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> to</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> the</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> state</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> before</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git rebase</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> run</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git rebase --abort</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">.</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 如果想终止整个变基过程, 回到执行 git rebase 之前的状态</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 而由于我们是把另外一个提交应用到 main 分支上所以无需重新使用 git commit (但是会自动跳出一个支持修改的 vim 界面, 允许你重新修改自己的 commit), 只需要按照指引 "解决冲突、标记解决、继续变基" 即可</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 后续想要查看哪些文件冲突可以使用 git status 然后继续变基(类似之前的普通合并), 直到所有 commit 都应用到分支上</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 当 commit 都应用上时, 就会提示 "Successfully rebased and updated refs/heads/feature."</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>从共同祖先开始，变基合并是不是把某个分支应用在另外一个分支上，一次一次应用另外一个分支的 <code v-pre>commit</code>，直到冲突解决，不断继续应用不断解决冲突。</p>
+<h3 id="_5-6-分支策略" tabindex="-1"><a class="header-anchor" href="#_5-6-分支策略"><span>5.6.分支策略</span></a></h3>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/37228997-7ff5-4c2d-9026-b10360daee0a.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<p><code v-pre>Git</code> 的不同分支可能具有不同的功能，例如稳定推荐的 <code v-pre>master</code> 分支和多人协作开发的 <code v-pre>div</code> 分支。如果是那种小型开发团队（3~4 人），那只需要一个 <code v-pre>主分支+多个开发者分支</code> 即可。如果是大型开发团队，那么就需要更加复杂的分支模型才可以符合开发需求，不过这些我们后面再来介绍。</p>
+<h3 id="_5-8-分支去错" tabindex="-1"><a class="header-anchor" href="#_5-8-分支去错"><span>5.8.分支去错</span></a></h3>
+<p>有的时候哪怕是稳定的 <code v-pre>master</code> 分支也会出现 <code v-pre>bug</code>，这个时候不能直接修改 <code v-pre>master</code> 分支，否则有可能从小 <code v-pre>bug</code> 变成大 <code v-pre>bug</code>。因此我们需要通过分支合并，来进行 <code v-pre>bug</code> 修改。</p>
+<ol>
+<li>
+<p>首先创建 <code v-pre>dev</code> 分支（也可以根据 <code v-pre>bug</code> 的名字来命名），修改好 <code v-pre>master</code> 分支里的 <code v-pre>bug</code></p>
+</li>
+<li>
+<p>测试完 <code v-pre>dev</code> 分支确保没有新的 <code v-pre>bug</code> 后，切换回主分支，再将 <code v-pre>dev</code> 分支合并给 <code v-pre>master</code> 分支，并且解决</p>
+</li>
+<li>
+<p>最后最好是删除掉 <code v-pre>dev</code> 分支</p>
+</li>
+</ol>
+<p>这样做的好处是，可以保证 <code v-pre>master</code> 的稳定性，也可以保持 <code v-pre>master</code> 分支历史记录简洁清晰，就算修复失败，也可以直接删除 <code v-pre>dev</code> 分支重新再来。</p>
+<div class="hint-container warning">
+<p class="hint-container-title">注意</p>
+<p>注意：这里只是针对小型开发团队，所以直接创建了一个 <code v-pre>dev</code> 分支，而对于大型开发团队不一定是叫做 <code v-pre>dev</code> 分支，可能会有专属的分支命名，这取决于企业采取的分支模型和命名规范，这些我们后面再来提及...</p>
+</div>
+<h2 id="_6-git-远程仓库" tabindex="-1"><a class="header-anchor" href="#_6-git-远程仓库"><span>6.Git 远程仓库</span></a></h2>
+<h3 id="_6-1-分布式版本控制" tabindex="-1"><a class="header-anchor" href="#_6-1-分布式版本控制"><span>6.1.分布式版本控制</span></a></h3>
+<p>我们上面所学的命令都只是在本地进行工作，也就是说每一个电脑都是一份版本库，因此我们工作的时候就不需要连接网络。但 <code v-pre>Git</code> 可是多人协作的工具，工作文件不能仅仅在每一个个人电脑上。如何在个人和个人直接传递文件来协调呢？</p>
+<ol>
+<li>
+<p>因此就出现了 <code v-pre>中央服务器</code>，该 <code v-pre>中央服务器</code> 保持开机，用来存储代码</p>
+</li>
+<li>
+<p>其他人依靠 <code v-pre>push</code> 命令把文件记录推送到 <code v-pre>中央服务器</code>，而每一个人都可以 <code v-pre>clone 中央服务器</code> 库中的文件记录到自己本地电脑中</p>
+</li>
+<li>
+<p>每个人都在自己的本地电脑开发，使用 <code v-pre>Git</code> 协作，这样就实现了个人和个人的协调工作</p>
+</li>
+</ol>
+<p>而我们可以把中央服务器的仓库称为 <code v-pre>远端仓库</code>，一是可以自己搭建 <code v-pre>中央服务器</code>、二是使用 <code v-pre>Github, GitLab, Gitee</code> 这种代码托管平台。这上面的整个过程，实际上就是 <code v-pre>分布式版本控制</code> 的过程。</p>
+<h3 id="_6-2-远程仓库的创建" tabindex="-1"><a class="header-anchor" href="#_6-2-远程仓库的创建"><span>6.2.远程仓库的创建</span></a></h3>
+<p>利用 <code v-pre>Gitee</code> 和 <code v-pre>Github</code> 可以创建远程仓库，创建过程比较简单（我们之前就演示过，也就是不使用 <code v-pre>git init</code> 获取仓库的做法），一般来说一个仓库代表一个项目系统。一般来说会自动创建一个 <code v-pre>README.md</code>，这是项目的说明书，使用 <code v-pre>Markdown</code> 语法编写的项目文档。</p>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：在 <code v-pre>Gitee</code> 中还有两个模板文件，<code v-pre>ISSUE_TEMPLATE.md</code> 文件和 <code v-pre>PULL_REQUEST_TEMPLATE.md</code> 文件，实际上就对于下面其中两个选项卡。</p>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/9c8dc8b1-18b9-458c-9820-4407174440ff.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<ol>
+<li>
+<p><code v-pre>issues</code> 是有问题的人与开发者沟通的文件集合，这里可以处理使用者发现的问题，进而修改 <code v-pre>bug</code></p>
+</li>
+<li>
+<p><code v-pre>pull request</code> 则是合并分支的申请集合，这里可以请求开发者合并某些分支，也就是所谓的“提交 <code v-pre>PR</code>”</p>
+</li>
+</ol>
+</div>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：只要设置了两个模板文件，详细的模板语法可以上 <code v-pre>Github, Gitee</code> 等网站进行查询，有机会再补充...</p>
+</div>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：远程仓库是拥有权限成员的，例如：报告者、观察者、开发者、管理者等。</p>
+</div>
+<p>不过为了教程的完整性，我重新创建一个空的私有仓库进行后续的学习，步骤如下。</p>
+<p>新建仓库。</p>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/image-20241027114758899.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<p>填写基本信息后进行创建（请一定和我一样，分支模型我们完全可以自己后期再添加）。</p>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/image-20241027115027378.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<p>得到托管仓库主页。</p>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/image-20241027115159954.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<p>点击上面的 <code v-pre>克隆/下载</code> 按钮然后在本地从上到下执行下面两个指令。</p>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/image-20241027115321585.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 克隆仓库</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> clone</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> https://gitee.com/limou3434/git-test.git</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">正克隆到</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git-test</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">...</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">remote:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Enumerating</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> objects:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 7,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> done.</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">remote:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Counting</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> objects:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 100%</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (7/7), done.</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">remote:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Compressing</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> objects:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 100%</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (7/7), done.</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">remote:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Total</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 7</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (delta </span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">0</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">), reused 0 (</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">delta</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 0</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">), pack-reused 0</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">接收对象中:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 100%</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (7/7), 完成.</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 设置配置</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> config</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --global</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> user.name</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">limou3434</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> config</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --global</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> user.email</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">898738804@qq.com</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 进入仓库</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cd</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git-test</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ls</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">README.en.md</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">  README.md</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_6-3-远程仓库的克隆" tabindex="-1"><a class="header-anchor" href="#_6-3-远程仓库的克隆"><span>6.3.远程仓库的克隆</span></a></h3>
+<h4 id="_6-3-1-http-协议" tabindex="-1"><a class="header-anchor" href="#_6-3-1-http-协议"><span>6.3.1.http 协议</span></a></h4>
+<p>远程仓库始终还是需要克隆到本地来开发的，因此就需要 <code v-pre>clone</code> 指令，完整指令为 <code v-pre>git clone https协议 [重命名的名字]</code>，即可完成克隆，但是不能在其他本地仓库目录下进行克隆，上面我们已经使用过了。</p>
+<p>此时克隆下来的本地仓库和远程仓库内容是完全一样的，以后我们就可以在本地机器上对项目进行修改而不影响远程仓库。</p>
+<div class="hint-container warning">
+<p class="hint-container-title">注意</p>
+<p>注意：尽量保证一个项目中只有一个 <code v-pre>.git</code>，否则没有妥善处理是会出现问题的，这种问题我们后面再来补充...</p>
+</div>
+<h4 id="_6-3-2-ssh-协议" tabindex="-1"><a class="header-anchor" href="#_6-3-2-ssh-协议"><span>6.3.2.SSH 协议</span></a></h4>
+<p>远程仓库除了使用 <code v-pre>http</code> 协议还可以使用 <code v-pre>SSH</code>，配合公钥来 <code v-pre>clone</code>。我们需要在远程仓库里配置公钥 <code v-pre>SSH key</code>。</p>
+<ol>
+<li>
+<p>先在用户主目录下查看有无 <code v-pre>.ssh</code> 目录，如果有就查看下面的 <code v-pre>id_rsa(私钥)</code> 和 <code v-pre>id_rsa.pub(公钥)</code> 文件，如果已经有了就跳过这一步，如果没有就需要创建 <code v-pre>SSH key</code></p>
+</li>
+<li>
+<p>使用 <code v-pre>ssh-keygen -t rsa -C &quot;你的邮箱号（必须和gitee或github上的一致）&quot;</code> 然后一路回车即可，暂时不需要填写其他东西</p>
+</li>
+<li>
+<p>使用 <code v-pre>cd .ssh/</code> 就可以看到步骤 <code v-pre>1</code> 说的两个文件，我们就得到了私钥和公钥，复制公钥的内容（一个字符都不要漏）到 <code v-pre>gitee</code> 或者 <code v-pre>github</code> 的 <code v-pre>SSH公钥</code> 选项卡中，并且可以设置公钥的名称，然后输入当前账户的密码即可</p>
+</li>
+<li>
+<p>如果设置了 <code v-pre>SSH</code> 协作，那么就需要分配公钥，仓库允许多个公钥的存在</p>
+</li>
+<li>
+<p>回到本地机器上使用 <code v-pre>SSH</code> 协议克隆</p>
+</li>
+</ol>
+<p>这里我在演示一次 <code v-pre>clione</code>，但是使用 <code v-pre>SSH</code> 协议进行克隆，您可以 <a href="https://help.gitee.com/base/account/SSH%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE" target="_blank" rel="noopener noreferrer">查看 Gitee 官方的公钥私钥教程</a>。</p>
+<p>配置公钥。</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 使用 SSH 拉取相同的仓库</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ssh-keygen</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -t</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> rsa</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -C</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">898738804@qq.com</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # -t 指定密钥类型为 RSA, -C 在密钥中添加注释</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Generating</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> public/private</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> rsa</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> key</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> pair.</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Enter</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> file</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> in</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> which</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> to</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> save</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> the</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> key</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (/home/ljp/.ssh/id_rsa): </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Enter</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> passphrase</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (empty </span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">for</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> no</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> passphrase</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">): </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Enter</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> same</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> passphrase</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> again:</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Your</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> identification</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> has</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> been</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> saved</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> in</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> /home/ljp/.ssh/id_rsa</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Your</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> public</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> key</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> has</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> been</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> saved</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> in</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> /home/ljp/.ssh/id_rsa.pub</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">The</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> key</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> fingerprint</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> is:</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">SHA256:mC/EadZz8wUL7kV/0TZkuaHdqe7EfxtJBUWAiyXE9wk</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 898738804@qq.com</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">The</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> key</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">s randomart image is:</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">+---[RSA 3072]----+</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">|         o.  .o*+|</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">|          o O o+.|</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">|          .=o+o+O|</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">|     . = ..o.=o-=|</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">|      O S + o +..|</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">|       . + +.o. .|</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">|      . . . oo o |</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">|       .    ... o|</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">|            .. oO|</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">+----[SHB257]-----+</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">$ ls ~/.ssh/id_rsa ~/.ssh/id_rsa.pub</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">/home/ljp/.ssh/id_rsa  /home/ljp/.ssh/id_rsa.pub</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"># 这里把公钥文件的内容全部复制下来, 密钥不允许泄漏给外人</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>填写公钥。</p>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/image-20241027131405742.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/image-20241027131813270.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<p>回到之前的仓库页面使用 <code v-pre>SSH</code> 进行克隆。</p>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/image-20241027132201734.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 克隆仓库并且重命名</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> clone</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git@gitee.com:limou3434/git-test.git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git-test-ssh</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">正克隆到</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git-test-ssh</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">...</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">The</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> authenticity</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> of</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> host</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">gitee.com (180.76.198.225)</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> can</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">t be established.</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">ED25519 key fingerprint is SHA256:+ULzij2u99B9eWYFTw1Q4ErYG/aepHLbu96PAUCoV88.</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">This key is not known by any other names.</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes # 这里需要输入 yes 进行确认</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">Warning: Permanently added </span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">gitee.com</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> (ED25519) to the list of known hosts.</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">remote: Enumerating objects: 7, done.</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">remote: Counting objects: 100% (7/7), done.</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">remote: Compressing objects: 100% (7/7), done.</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">remote: Total 7 (delta 0), reused 0 (delta 0), pack-reused 0</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">接收对象中: 100% (7/7), 完成.</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">$ ls</span></span>
+<span class="line"><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git-test  git-test-ssh</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container warning">
+<p class="hint-container-title">注意</p>
+<p>注意：由于之前我们拉取 <code v-pre>git-test</code> 到本地的 <code v-pre>git-test</code> 时已经配置了，所以这里就不再重复配置。如果前面没有配置用户和邮箱，这里就需要自己配置一下。</p>
+</div>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：两种协议的推送区别，等学过后面的 <code v-pre>push</code> 后再回来补充这里的知识。</p>
+<p>如果是 <code v-pre>HTTP</code> 协议，则每次 <code v-pre>push</code> 都需要传输用户密码来进行用户校验；而如果是 <code v-pre>SSH</code> 协议，只有拥有私钥的本地机器才可以进行 <code v-pre>push</code> 推送，这个过程中会发生公钥私钥验证的过程，公钥克隆主要是为了网络传输安全考虑...</p>
+</div>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：两者协议的使用场景和优势结合，等学过后面的 <code v-pre>push</code> 后再回来补充这里的知识。</p>
+<p>既然 <code v-pre>SSH</code> 克隆这么安全？那为什么还有人使用 <code v-pre>HTTPS</code> 克隆？</p>
+<ul>
+<li><strong>兼容性强</strong>：<code v-pre>HTTPS</code> 在各种网络环境中兼容性更好，尤其是在公司防火墙、学校网络等受限的环境中，<code v-pre>HTTPS</code> 通常能绕过这些限制。<code v-pre>SSH</code> 有时会因为端口（默认 <code v-pre>22</code> 端口）问题而被阻断，而 <code v-pre>HTTPS</code> 使用标准的 <code v-pre>443</code> 端口，通常不会受到限制。</li>
+<li><strong>免配置 SSH 密钥</strong>：<code v-pre>HTTPS</code> 克隆不需要事先配置 <code v-pre>SSH</code> 密钥，适合临时或初次访问仓库的用户，简单输入用户名和密码就可以进行认证操作，非常便捷。</li>
+<li><strong>广泛支持代理</strong>：<code v-pre>HTTPS</code> 在代理服务器上配置方便，适合在不同网络环境中下载代码，而 <code v-pre>SSH</code> 有时需要特殊配置才能支持代理连接。</li>
+<li><strong>安全传输</strong>：<code v-pre>HTTPS</code> 通过 <code v-pre>SSL/TLS</code> 协议加密传输，确保下载过程中数据的完整性和保密性，防止中间人攻击和数据篡改。</li>
+</ul>
+<p>不过，其实可以兼顾两者的优势，先通过 <code v-pre>HTTPS</code> 克隆仓库，再修改为仓库的远程地址为 <code v-pre>SSH</code> 即可。</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> clone</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> https://gitee.com/limou3434/git-test.git</span></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">cd</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git-test</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> remote</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> set-url</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> origin</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git@gitee.com:limou3434/git-test.git</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>这样就将远程 <code v-pre>origin</code> 的 <code v-pre>URL</code> 从 <code v-pre>HTTPS</code> 改为 <code v-pre>SSH</code>。之后，所有的推送操作都会走 <code v-pre>SSH</code>，而不再需要 <code v-pre>HTTPS</code> 的用户名和密码认证，而是转为公钥私钥认证。</p>
+</div>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：在 <code v-pre>Github</code> 上，有的开发者为了减少代码仓库的大小，会选择链接到某个子仓库/模块，如果没有携带一些参数，默认不会拉取子仓库/模块，可以查询一下关于 <code v-pre>--recursive</code> 参数的用法，子模块是一种进阶的使用方法，后面有对应的使用介绍。</p>
+</div>
+<h3 id="_6-4-远程仓库的推拉" tabindex="-1"><a class="header-anchor" href="#_6-4-远程仓库的推拉"><span>6.4.远程仓库的推拉</span></a></h3>
+<h4 id="_6-4-1-简单概括版" tabindex="-1"><a class="header-anchor" href="#_6-4-1-简单概括版"><span>6.4.1.简单概括版</span></a></h4>
+<p>在使用 <code v-pre>clone</code> 后，远程仓库和本地仓库就自动有了联系，这个时候就可以直接使用 <code v-pre>push</code>（如果有权限）。我们修改好自己的本地文件后就需要使用 <code v-pre>push</code> 命令来推送代码到远端仓库。</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> push</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>另外，如果在我们推送之前就有别的开发者在同一个分支里推送了文件，这个时候本地仓库和远程仓库是不同步的，因此我们需要使用命令 <code v-pre>git pull 远程仓库名(默认origin) 本地分支:远程分支</code> 拉取更新我们的本地仓库才能继续推送。</p>
+<p>不过，上面是对于完全不懂 <code v-pre>Git</code> 的新手而言的，如果要彻底理解 <code v-pre>Git</code> 的远端拉取，还必须深入了解远端仓库和本地仓库、远端分支和本地分支。</p>
+<div class="hint-container warning">
+<p class="hint-container-title">注意</p>
+<p>注意：这里的推拉指的是使用 <code v-pre>git clone</code> 的仓库，而不是使用 <code v-pre>git init</code> 的仓库。</p>
+</div>
+<h4 id="_6-4-2-深入理解版" tabindex="-1"><a class="header-anchor" href="#_6-4-2-深入理解版"><span>6.4.2.深入理解版</span></a></h4>
+<p>假设我们在 <code v-pre>GitHub</code> 上已有一个远端仓库 <code v-pre>git-test</code>，这个远端仓库默认具有远端分支 <code v-pre>origin/master, origin/dev</code>。</p>
+<ul>
+<li>我们本地的 <code v-pre>git</code> 工具克隆了一个远端仓库后，默认在本地仓库中将远端仓库重命名为 <code v-pre>origin</code> 并且指向该仓库（可使用 <code v-pre>git remote -v</code> 进行查看）</li>
+<li>本地仓库就会存储远端分支为远端跟踪分支 <code v-pre>remotes/origin/master, remotes/origin/dev</code> ，并且本地仓库也会有本地分支 <code v-pre>master, dev</code>（可使用 <code v-pre>git branch -a</code> 进行查看）</li>
+</ul>
+<p>因此实际上，如果没有克隆时的自动关联，也就是直接在本地使用 <code v-pre>git init</code> 初始化的本地仓库，我们是需要指定远端仓库和远端分支的。</p>
+<h5 id="_6-4-2-1-克隆得来的本地仓库" tabindex="-1"><a class="header-anchor" href="#_6-4-2-1-克隆得来的本地仓库"><span>6.4.2.1.克隆得来的本地仓库</span></a></h5>
+<p>先考虑 <code v-pre>git clone</code> 时自动关联的本地仓库，则会做以下工作。</p>
+<ol>
+<li><strong>git clone &lt;远程仓库的URL&gt;</strong>：当您运行 <code v-pre>git clone &lt;远程仓库的URL&gt;</code> 时，<code v-pre>Git</code> 会从远程仓库下载所有的代码、分支和提交历史。同时，<code v-pre>Git</code> 会自动为您创建一个本地分支（例如 <code v-pre>master</code> 或 <code v-pre>dev</code>），这些本地分支会与远程仓库中的对应分支分别建立一对一的追踪关系。此外，<code v-pre>Git</code> 会将远程仓库命名为 <code v-pre>origin</code>，并在本地创建远端跟踪分支（如 <code v-pre>remotes/origin/master</code> 和 <code v-pre>remotes/origin/dev</code>）。</li>
+<li><strong>git fetch</strong>：使用 <code v-pre>git fetch</code> 命令时，<code v-pre>Git</code> 会从远程仓库下载最新的提交和分支信息，下载远程分支的更新到本地的远程跟踪分支（如 <code v-pre>remotes/origin/master</code>），但不会自动合并到当前分支。这样可以让你在进行合并之前查看远程分支的变化，确保合并是可控的（需要继续手动进行合并，例如处于 <code v-pre>master</code> 分支时先使用 <code v-pre>git fetch</code> 后再 <code v-pre>git merge origin/master</code>）。</li>
+<li><strong>git pull</strong>：当您在本地仓库中使用 <code v-pre>git pull</code> 命令时，<code v-pre>Git</code> 会先执行 <code v-pre>git fetch</code>，下载远程分支的更新到本地的远程跟踪分支（如 <code v-pre>remotes/origin/master</code>）。然后，<code v-pre>Git</code> 会将这些更新自动合并到当前活跃的本地分支中（例如 <code v-pre>master</code>），相当于执行了 <code v-pre>git fetch</code> 和 <code v-pre>git merge</code> 的组合。</li>
+<li><strong>git push</strong>：当您使用 <code v-pre>git push</code> 命令时，<code v-pre>Git</code> 会将您本地的更改自动推送到远程仓库的相应分支（如本地的 <code v-pre>master</code> 到 <code v-pre>origin/master</code>）。</li>
+</ol>
+<p>上面这种好理解（因为和我们之前的使用没有太大区别，只不过把细节给出来了而已），因此我在这里就不过多演示...</p>
+<h5 id="_6-4-2-2-初始得来的本地仓库" tabindex="-1"><a class="header-anchor" href="#_6-4-2-2-初始得来的本地仓库"><span>6.4.2.2.初始得来的本地仓库</span></a></h5>
+<p>再考虑 <code v-pre>git init</code> 时没有关联的本地仓库，则会做以下工作（注意此时远端 <code v-pre>GitHub</code> 上有一个创建好但是没有任何文件的空仓库）。</p>
+<ol>
+<li><strong>mkdir git-test &amp;&amp; cd git-test &amp;&amp; git init</strong>：当您运行 <code v-pre>git init</code> 命令时，<code v-pre>Git</code> 会在当前目录创建一个新的空 <code v-pre>Git</code> 仓库，并在该目录下生成一个 <code v-pre>.git</code> 文件夹，用于存储版本控制所需的所有信息（这也就是创建一个本地仓库）。此时，本地仓库尚未与任何远程仓库关联，您可以通过添加文件和提交更改开始工作（可使用 <code v-pre>git remote -v</code> 和 <code v-pre>git branch -a</code> 进行验证）。</li>
+<li><strong>touch README.md &amp;&amp; git add README.md &amp;&amp; git commit -m &quot;first commit&quot;</strong>：创建一个文件并且提交就会自动生成一个 <code v-pre>masert</code> 分支</li>
+<li><strong>git remote add &lt;指定远端仓在本地的命名(一般是origin)&gt; &lt;远程仓库的URL&gt;</strong>：如果您希望将本地仓库与远程仓库关联，您需要使用 <code v-pre>git remote add &lt;指定远端仓在本地的命名(一般是origin)&gt; &lt;远程仓库的URL&gt;</code> 命令手动添加远程仓库（之后可使用 <code v-pre>git remote -v</code> 查看当前的远程仓库配置）。</li>
+<li><strong>git branch --set-upstream-to = origin/&lt;远端分支名&gt; &lt;本地分支名&gt;</strong>：</li>
+<li><strong>git fetch &lt;远端仓库名&gt; [&lt;指定分支&gt;]</strong>：可以将远端仓库的所有（或部分）远端分支的所有更新下载到本地，依旧是不手动合并</li>
+<li><strong>git pull &lt;远端仓库名&gt; [&lt;指定分支&gt;]</strong>：可以将远端仓库的所有（或部分）远端分支的所有更新下载到本地，并且自动根据之前的关联进行合并</li>
+<li><strong>git push &lt;远端仓库在本地的命名&gt; &lt;本地分支名&gt;: &lt;远端分支名&gt;</strong>：如此才是 <code v-pre>push</code> 的完全写法</li>
+</ol>
+<p>这个我们可以测试一下，旨在深刻理解 <code v-pre>Git</code> 远端概念的理解，待补充...</p>
+<h2 id="_7-git-忽略文件" tabindex="-1"><a class="header-anchor" href="#_7-git-忽略文件"><span>7.Git 忽略文件</span></a></h2>
+<p>在日常开发中，有些文件不应该被推送上来（例如保存了数据库密码的配置文件），但是一个一个甄别又十分低效，因此就有了忽略文件的存在。</p>
+<p>忽略文件的名字为 <code v-pre>.gitignore</code>，内部可以写入一些特殊的代码，可以达到屏蔽某些文件的目的，内容可以自己自定义，也可以使用一些已有的模板。在内部写入：</p>
+<ol>
+<li>
+<p>直接写文件名</p>
+</li>
+<li>
+<p>使用通配符 <code v-pre>*</code></p>
+</li>
+<li>
+<p><code v-pre>!</code> 文件名或通配符（反向屏蔽）</p>
+</li>
+</ol>
+<p>可以屏蔽对应的文件，不过也可以使用 <code v-pre>-f</code> 选项强制 <code v-pre>add</code>，不过一般不建议这么做。</p>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：还可以使用 <code v-pre>git check-ignore -v 文件名</code> 来查看该文件为什么被屏蔽的原因（也就是显示出在 <code v-pre>.gitignore</code> 中的相关语法行）。</p>
+</div>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：屏蔽已经被提交的文件。有可能需要屏蔽已经被推送的文件，这里先简单提及一下，等您学过 <code v-pre>push</code> 后再回来看这里。</p>
+<ol>
+<li>先将需要停止追踪的文件 <code v-pre> path/to/file.txt</code> 加入到 <code v-pre>.gitignore</code> 中</li>
+<li>然后使用 <code v-pre>git rm --cached path/to/file.txt</code> 把该文件从暂存区中移除，但是不删除文件</li>
+<li>使用 <code v-pre>git commit -m &quot;Stop tracking file.txt.&quot; &amp;&amp; git push</code> 继续提交和推送到远端即可</li>
+</ol>
+<p>不过对于已经提交的文件，是很难彻底删除历史记录的，因为可以回推提交，这种情况下唯一安全简单的修复方案，几乎就是修改密钥。</p>
+</div>
+<h2 id="_8-git-配置别名" tabindex="-1"><a class="header-anchor" href="#_8-git-配置别名"><span>8.Git 配置别名</span></a></h2>
+<p>可以使用一些配置简化命令 <code v-pre>git config 配置范围 alisa.别名 原有命令</code>，不过配置别名对于新手来说暂时不建议使用。不过如果您使用熟练，也可以可以考虑做定制化的，并且我推荐将 <code v-pre>pull, add, commit</code> 这三个指令重命名，这在个人开发时经常使用（不过其实我觉得这个还不如 <code v-pre>Linux</code> 自己的重名指令），例如下面的指令就非常好用。</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">组合</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> pull,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> add,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> commit,</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> push</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 的指令</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">ugitpacp</span><span style="--shiki-light:#999999;--shiki-dark:#666666">()</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">    # 检查是否提供了提交消息</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">    if</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> [</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> -z</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">$1</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> ];</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> then</span></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">    echo</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">Usage: git_commit_push </span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076">\"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">commit message</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076">\"</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">    return</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">    fi</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">    # 读取提交消息</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">    local</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> commit_message</span><span style="--shiki-light:#999999;--shiki-dark:#666666">=</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">$1</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">    # 执行 Git 命令</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">    git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> pull</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> &#x26;&#x26;</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> add</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --all</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> &#x26;&#x26;</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> commit</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -m</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">$commit_message</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> &#x26;&#x26;</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> push</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>将上述代码添加到 <code v-pre>~/.bashrc</code> 文件的最末尾（如果您用的也是 <code v-pre>bash</code> 终端的话）</p>
+<h2 id="_9-git-标签管理" tabindex="-1"><a class="header-anchor" href="#_9-git-标签管理"><span>9.Git 标签管理</span></a></h2>
+<p><code v-pre>Git</code> 的标签有里程碑的感觉，实际上就是对某次重要的 <code v-pre>commit</code> 的一个标识（别名）例如：版本号。相对于记住难记的 <code v-pre>SHA-1</code> 值，使用标签来寻找 <code v-pre>commit</code> 是更好的选择。</p>
+<ol>
+<li>
+<p>切换到需要打标签 <code v-pre>commit</code> 的分支上</p>
+</li>
+<li>
+<p>打上标签 <code v-pre>git tag [标签名] [某次SHA-1值(如果该选项没写就默认给当前的commit打上标签)]</code></p>
+</li>
+<li>
+<p>查看标签 <code v-pre>git tag</code> 或者 <code v-pre>tree .git</code> 的 <code v-pre>refs/tags</code> 中查看，内部保存的是 <code v-pre>SHA-1</code> 值，注意是根据标签字母排序的，而不是时间排序</p>
+</li>
+<li>
+<p>如果希望给创建标签添加更加详细的描述，可以使用 <code v-pre>git tag -a [标签名] -m &quot;标签详细信息&quot; [SHA-1值]</code>。并且可以使用 <code v-pre>git show [标签名]</code> 来查看详细信息</p>
+</li>
+<li>
+<p>删除标签就是 <code v-pre>git tag -d [标签名]</code>，不过需要注意再次使用 <code v-pre>git push [远程仓库名] :[标签名字]</code></p>
+</li>
+</ol>
+<p>本地 <code v-pre>tag</code> 也是可以推送到远程仓库里的，使用命令 <code v-pre>git push origin [标签名]</code> 单独推送，或者使用 <code v-pre>git push origin --tags</code> 把所有本地标签全部推送到远程仓库中。</p>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：使用以下命令按时间顺序对 <code v-pre>Git</code> 标签排序。</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> tag</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --sort=creatordate</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>这将按标签的创建时间进行升序排列。如果希望逆序显示，可以加上 <code v-pre>-</code>。</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> tag</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --sort=-creatordate</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>这样，标签将按时间降序显示，最新的标签会显示在最前面。</p>
+</div>
+<h2 id="_10-git-密码管理" tabindex="-1"><a class="header-anchor" href="#_10-git-密码管理"><span>10.Git 密码管理</span></a></h2>
+<h3 id="_10-1-用户密码登陆" tabindex="-1"><a class="header-anchor" href="#_10-1-用户密码登陆"><span>10.1.用户密码登陆</span></a></h3>
+<p>要配置 <code v-pre>Git</code> 记住密码，可以通过以下几种方式来实现。</p>
+<h4 id="_10-1-1-永久配置" tabindex="-1"><a class="header-anchor" href="#_10-1-1-永久配置"><span>10.1.1.永久配置</span></a></h4>
+<p>使用 <code v-pre>git-credential-store</code> 即 <code v-pre>Git</code> 的凭证存储功能，可以将用户名和密码保存在本地文件中。</p>
+<ol>
+<li>
+<p><strong>配置全局存储</strong>：执行以下命令，将凭证信息保存在本地配置文件中</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> config</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --global</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> credential.helper</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> store</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div></li>
+<li>
+<p><strong>执行操作</strong>：当你下次进行 <code v-pre>Git</code> 操作时（如 <code v-pre>git push</code>），<code v-pre>Git</code> 会提示你输入用户名和密码，并将其保存到 <code v-pre>~/.git-credentials</code> 文件中</p>
+<div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-"><span class="line"><span>https://&#x3C;username>:&#x3C;password>@github.com</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div></li>
+</ol>
+<h4 id="_10-1-2-临时配置" tabindex="-1"><a class="header-anchor" href="#_10-1-2-临时配置"><span>10.1.2.临时配置</span></a></h4>
+<p>使用 <code v-pre>git-credential-cache</code> 可以 <code v-pre>Git</code> 临时记住密码（如 <code v-pre>15</code> 分钟内），可以使用缓存方式：</p>
+<ol>
+<li>
+<p><strong>启用缓存</strong>：执行以下命令，将 <code v-pre>Git</code> 的凭证保存到缓存中，默认缓存时间为 <code v-pre>15</code> 分钟</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> config</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --global</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> credential.helper</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cache</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div></li>
+<li>
+<p><strong>设置缓存时间（可选）</strong>：如果你希望 <code v-pre>Git</code> 记住密码更长时间（例如 <code v-pre>1</code> 小时），可以指定缓存的超时时间（以秒为单位）</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> config</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --global</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> credential.helper</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">cache --timeout=3600</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div></li>
+</ol>
+<div class="hint-container warning">
+<p class="hint-container-title">注意</p>
+<p>注意：如果您一直提交不了远端服务，可以尝试使用下面的远程密钥配置，因为某些网站（例如 <code v-pre>Github</code>）有发布不再支持用户密码登陆这种不太安全的行为。</p>
+</div>
+<h3 id="_10-2-远程密钥配置" tabindex="-1"><a class="header-anchor" href="#_10-2-远程密钥配置"><span>10.2.远程密钥配置</span></a></h3>
+<p>使用 <code v-pre>SSH</code> 免密登录，也是最推荐的做法（另外 <code v-pre>Github</code> 也废弃了用户密码验证，投向 <code v-pre>ssh-key</code> 和 <code v-pre>token</code> 的怀抱）。使用 <code v-pre>SSH</code> 密钥可以避免每次输入密码，尤其适用于 <code v-pre>GitHub、GitLab</code> 等平台。</p>
+<ol>
+<li>
+<p><strong>生成 SSH 密钥</strong>：执行以下命令生成 <code v-pre>SSH</code> 密钥，然后按照提示完成密钥生成</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ssh-keygen</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -t</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> rsa</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -b</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 4096</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -C</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">your_email@example.com</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div></li>
+<li>
+<p><strong>添加 SSH 密钥到代理</strong>：使用以下命令启动 <code v-pre>SSH</code> 代理并添加私钥（不过如果您的密码没有根据提示配置密码，就不需要进行配置，密钥认证其间会自动读取 <code v-pre>~/.ssh/id_rsa</code> 密钥）</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> eval</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#999999;--shiki-dark:#666666">$(</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">ssh-agent</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -s</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> &#x26;&#x26;</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> ssh-add</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ~/.ssh/id_rsa</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div></li>
+<li>
+<p><strong>将公钥添加到 Git 平台</strong>：将生成的公钥（<code v-pre>~/.ssh/id_rsa.pub</code> 文件内容）添加到 <code v-pre>GitHub</code> 或 <code v-pre>GitLab</code> 的 <code v-pre>SSH</code> 密钥设置中。</p>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/image-20250402190914443.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+</li>
+<li>
+<p><strong>使用 SSH 克隆仓库</strong>：在克隆或操作仓库时，使用 <code v-pre>SSH URL</code> 而非 <code v-pre>HTTPS URL</code>，例如：</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> clone</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git@github.com:username/repository.git</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div></li>
+<li>
+<p>可以使用 <code v-pre>ssh -T -p 443 git@ssh.github.com</code> 来检验是否配置成功</p>
+</li>
+</ol>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：如果还是没有配置成功，可以使用尝试下面的配置。</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> vim</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ~/.ssh/config</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> cat</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ~/.ssh/config</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Host</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> github.com</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">   Hostname</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ssh.github.com</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">   Port</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 443</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">   User</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">   IdentityFile</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ~/.ssh/id_rsa</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div>
+<h2 id="_11-git-协作开发" tabindex="-1"><a class="header-anchor" href="#_11-git-协作开发"><span>11.Git 协作开发</span></a></h2>
+<h3 id="_11-1-小型团队开发" tabindex="-1"><a class="header-anchor" href="#_11-1-小型团队开发"><span>11.1.小型团队开发</span></a></h3>
+<h4 id="_11-1-1-多人协作一-共享分支" tabindex="-1"><a class="header-anchor" href="#_11-1-1-多人协作一-共享分支"><span>11.1.1.多人协作一（共享分支）</span></a></h4>
+<ol>
+<li>
+<p>目标：<code v-pre>master</code> 分支下 <code v-pre>file.txt</code> 文件新增 <code v-pre>text_1</code>、<code v-pre>text_2</code> 文本。</p>
+</li>
+<li>
+<p>实现：由开发者 <code v-pre>1</code> 增加 <code v-pre>text_1</code>，由开发者 <code v-pre>2</code> 增加 <code v-pre>text_2</code>。这里我们可以使用两台电脑，或者使用云服务器来真实模拟两名开发者。</p>
+</li>
+<li>
+<p>条件：在一个分支下完成。</p>
+</li>
+</ol>
+<h5 id="_11-1-1-1-创建远端仓库" tabindex="-1"><a class="header-anchor" href="#_11-1-1-1-创建远端仓库"><span>11.1.1.1.创建远端仓库</span></a></h5>
+<p>创建一个远端仓库，该仓库默认有主分支 <code v-pre>master</code>。并且仓库内有文件 <code v-pre>test_code</code>，内容如下：</p>
+<div class="language-tex line-numbers-mode" data-highlighter="shiki" data-ext="tex" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-tex"><span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">I am a code.</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><h5 id="_11-1-1-2-创建远端分支" tabindex="-1"><a class="header-anchor" href="#_11-1-1-2-创建远端分支"><span>11.1.1.2.创建远端分支</span></a></h5>
+<p>首先在自己的项目仓库中创建一个基于 <code v-pre>master</code> 远端分支的 <code v-pre>debug</code> 远端分支。</p>
+<p>现在远端仓库有两个分支，一个为 <code v-pre>master</code> 远端分支，另外一个为 <code v-pre>debug</code> 远端分支。</p>
+<p>此时对于还没有拉取的两个开发者来说，都各有一个 <code v-pre>master</code> 本地分支和一个 <code v-pre>origin/master</code> 远端分支（<code v-pre>git branch</code> 是查看本地分支，而 <code v-pre>git branch -r</code> 是查看远端分支）。</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -r</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  origin/HEAD</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> -</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> origin/master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  origin/master</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>而我们所有的操作基本都是在本地操作的，此时两名开发者都需要使用 <code v-pre>git pull</code> 拉取远程的仓库。</p>
+<p>此时再次运行就可以显示远端仓库的远端分支，但是我们可以注意到并没有增加本地分支。</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -r</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  origin/HEAD</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> -</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> origin/master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  origin/debug</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  origin/master</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> master</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h5 id="_11-1-1-3-开发者-1-操作" tabindex="-1"><a class="header-anchor" href="#_11-1-1-3-开发者-1-操作"><span>11.1.1.3.开发者 1 操作</span></a></h5>
+<p>此时肯定是不可能在本地直接切换到远端分支的，因此就需要自己创建一个 <code v-pre>debug</code> 分支，使用命令 <code v-pre>git checkout -b debug origin/debug</code>。</p>
+<p>此时本地就有 <code v-pre>debug</code> 本地分支了，并且也切换过去了。</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> checkout</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -b</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> debug</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> origin/debug</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Switched</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> to</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> a</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> new</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">debug</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">branch</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">debug</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> set</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> up</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> to</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> track</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">origin/debug</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">.</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>这实际上就是在创建分支的同时将本地分支和远端分支建立联系/关联，可以使用 <code v-pre>git branch -vv</code> 来查看是否有联系/关联。</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -vv</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> debug  SHA-1值 </span><span style="--shiki-light:#999999;--shiki-dark:#666666">[</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">origin/debug</span><span style="--shiki-light:#999999;--shiki-dark:#666666">]</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> commit内容1</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  master</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> SHA-1值</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> [origin/master] commit内容2</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：建立联系/关联的意义是可以直接使用短命令 <code v-pre>git push</code> 和 <code v-pre>git pull</code>，而不是完整的长命令。</p>
+</div>
+<p>此时已经处于 <code v-pre>debug</code> 分支上，然后使用 <code v-pre>vim</code> 修改。</p>
+<img src="@source/3.系统网络/1.基本操作/assets/dab050ea-f494-4a79-838f-624a77b88f07.png" title="" alt="dab050ea-f494-4a79-838f-624a77b88f07" style="zoom:50%;">
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  debug</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> vim</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test_code</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> add</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --all</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> commit</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -m</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">日志：我是开发者1，我来提交代码</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>然后再进行 <code v-pre>push</code> 操作（由于有关联，因此可以直接使用）</p>
+<p>回去查看远程仓库的内容，可以发现 <code v-pre>debug</code> 远端分支内已经发生了修改，并且领先 <code v-pre>master</code> 远端分支。</p>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/8fdb02da-a4a0-4616-b793-5aea20a8ccf2.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/d667f5a4-0486-4eb9-8d21-75398f65ef7c.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<h5 id="_11-1-1-4-开发者-2-操作" tabindex="-1"><a class="header-anchor" href="#_11-1-1-4-开发者-2-操作"><span>11.1.1.4.开发者 2 操作</span></a></h5>
+<p>也同样需要建立联系/关联，但是这里我们演示不使用联系/关联的情况。</p>
+<p>首先直接创建本地分支：</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> checkout</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -b</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> debug</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Switched</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> to</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> a</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> new</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">debug</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><p>此时就没办法直接使用短命令 <code v-pre>pull</code>：</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> pull</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">There</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> is</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> no</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> tracking</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> information</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> for</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> the</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> current</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch.</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Please</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> specify</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> which</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> you</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> want</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> to</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> merge</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> with.</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">See</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git-pull</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">1</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> for</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> details.</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">    git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> pull</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> &#x3C;</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">remot</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">e</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> &#x3C;</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">branc</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">h</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">If</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> you</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> wish</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> to</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> set</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> tracking</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> information</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> for</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> this</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> you</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> can</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> do</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> so</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> with:</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">    git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --set-upstream-to=origin/</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">&#x3C;</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076">branch</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> debug</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>可以按照提示来链接本地分支和远端分支：</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --set-upstream-to=origin/</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">&#x3C;</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076">branch</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> debug</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> debug</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --set-upstream-to=origin/debug</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> debug</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">branch</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">debug</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> set</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> up</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> to</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> track</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">origin/debug</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">.</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>然后不要急着使用 <code v-pre>pull</code>，我们打开 <code v-pre>test_code</code> 写入以下内容：</p>
+<div class="language-tex line-numbers-mode" data-highlighter="shiki" data-ext="tex" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-tex"><span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">I am a code.</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">test_2</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><p>然后照旧使用 <code v-pre>git add</code> 和 <code v-pre>git commit -m &quot;日志：我是开发者2，我也来提交代码&quot;</code></p>
+<p>再使用 <code v-pre>git push</code>，这个时候发现 <code v-pre>Git</code> 拒绝了该请求，这是因为发生了分支冲突。</p>
+<p>因此必须使用 <code v-pre>pull</code> 拉取，手动解决冲突，然后再进行 <code v-pre>add</code> 和 <code v-pre>commit</code> 和 <code v-pre>push</code>。</p>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/a2581b0d-ab53-4b3a-a8fe-8f5ea8beaae2.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<p><code v-pre>debug</code> 的最后一次提交就已经是我们所要的完整代码了。</p>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/787b7be6-c3c0-4058-8c66-45d9cc6f5f9f.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<h5 id="_11-1-1-5-合并到-master" tabindex="-1"><a class="header-anchor" href="#_11-1-1-5-合并到-master"><span>11.1.1.5.合并到 master</span></a></h5>
+<p>此时 <code v-pre>debug</code> 远端分支已经准备完毕，但是 <code v-pre>master</code> 远端分支还没有修改成功。</p>
+<p>此时有两种做法：</p>
+<h6 id="_11-1-1-5-1-做法一" tabindex="-1"><a class="header-anchor" href="#_11-1-1-5-1-做法一"><span>11.1.1.5.1.做法一</span></a></h6>
+<p>一种是直接在本地合并然后 <code v-pre>push</code> 到远端仓库。</p>
+<ol>
+<li>
+<p>首先是将 <code v-pre>master</code> 分支合并到 <code v-pre>debug</code> 分支，避免 <code v-pre>debug</code> 分支和 <code v-pre>master</code> 分支发生冲突（因为还有其他分支的存在）</p>
+</li>
+<li>
+<p>切换到 <code v-pre>master</code>，通过 <code v-pre>pull</code> 保持最新，然后在本地的 <code v-pre>debug</code> 上解决冲突</p>
+</li>
+<li>
+<p>将 <code v-pre>debug</code> 分支合并到 <code v-pre>master</code> 分支，此时 <code v-pre>master</code> 就有了修改</p>
+</li>
+<li>
+<p>然后进行 <code v-pre>push</code> 即可</p>
+</li>
+<li>
+<p>此时远端和本地 <code v-pre>debug</code> 分支就没有用了，可以在远端仓库中删除和在本地仓库使用 <code v-pre>git branch -d debug</code></p>
+</li>
+<li>
+<p>最后两名开发者同时使用 <code v-pre>pull</code> 命令</p>
+</li>
+</ol>
+<h6 id="_11-1-1-5-2-做法二" tabindex="-1"><a class="header-anchor" href="#_11-1-1-5-2-做法二"><span>11.1.1.5.2.做法二</span></a></h6>
+<p>另外一种方法就是在 <code v-pre>gitee</code> 提交 <code v-pre>PR</code> 合并申请单，由管理员来做审核后来 <code v-pre>merge</code>（可以直接在远端仓库上操作，这种方式更加安全）。</p>
+<img title="" src="@source/3.系统网络/1.基本操作/assets/f740da46-3da4-4ef0-afb6-20505f9e7ab8.png" alt="f740da46-3da4-4ef0-afb6-20505f9e7ab8" style="zoom:50%;">
+<h4 id="_11-1-2-多人协作二-私有分支" tabindex="-1"><a class="header-anchor" href="#_11-1-2-多人协作二-私有分支"><span>11.1.2.多人协作二（私有分支）</span></a></h4>
+<p>目标：远程 <code v-pre>master</code> 分支下新增 <code v-pre>function1</code> 和 <code v-pre>function2</code> 文件。</p>
+<ol>
+<li>
+<p>实现：由开发者 <code v-pre>1</code> 新增 <code v-pre>function1</code> 文件，由开发者 <code v-pre>2</code> 新增 <code v-pre>function2</code> 文件。</p>
+</li>
+<li>
+<p>条件：在不同分支下协作完成（每个开发者有自己的分支，或者一个分支一个功能）。</p>
+</li>
+</ol>
+<p>首先要明白有两种方法：</p>
+<ol>
+<li>
+<p>创建远端分支（正式工作时推荐，可以保证一定是基于远端 <code v-pre>master</code> 上最新的代码）</p>
+</li>
+<li>
+<p>创建本地分支然后 <code v-pre>push</code>（基于本地 <code v-pre>master</code> 分支不一定是最新的代码）</p>
+</li>
+</ol>
+<p>但是我们在本次演示中使用第二种方法。</p>
+<h5 id="_11-1-2-1-开发者-1" tabindex="-1"><a class="header-anchor" href="#_11-1-2-1-开发者-1"><span>11.1.2.1.开发者 1</span></a></h5>
+<ol>
+<li>
+<p><code v-pre>pull</code> 后创建基于 <code v-pre>master</code> 本地分支的 <code v-pre>feature-1</code> 本地分支，此时就没有办法使用链接了，因为我们没有在远端仓库创建远端分支，没有办法链接，因此我们现在的状态是没有办法使用短命令的。</p>
+</li>
+<li>
+<p>然后创建一个 <code v-pre>function1</code> 文件，内部写入内容</p>
+</li>
+<li>
+<p>然后使用 <code v-pre>add</code> 和 <code v-pre>commit</code> 命令</p>
+</li>
+<li>
+<p>由于没有链接（也无法链接，远端仓库没有远端分支），所以要使用长命令，<code v-pre>git push origin feature-1</code> 直接将本地分支推送到远端仓库，可以给远端仓库创建远端分支。</p>
+</li>
+</ol>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">//开发者1</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> pull</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> checkout</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -b</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> feature-1</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Switched</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> to</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> a</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> new</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">feature-1</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> feature-1</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  master</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> vim</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> function1</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> add</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --all</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> commit</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -m</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">日志：开发者1的function1文件</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> push</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> origin</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> feature-1</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>此时就可以看到远端仓库多了一个远端分支。</p>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/81faeadd-4cc5-4397-b6e1-bf73a6f25180.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<h5 id="_11-1-2-2-开发者-2" tabindex="-1"><a class="header-anchor" href="#_11-1-2-2-开发者-2"><span>11.1.2.2.开发者 2</span></a></h5>
+<ol>
+<li>
+<p>此时开发者 <code v-pre>2</code> 也进行一样的工作，但是此时 <code v-pre>master</code> 本地分支不是最新的，因此就需要在 <code v-pre>master</code> 本地分支上 <code v-pre>pull</code>。</p>
+</li>
+<li>
+<p>剩下的工作就和开发者 <code v-pre>1</code> 是一样的</p>
+</li>
+</ol>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">//开发者2</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -r</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  origin/HEAD</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> -</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> origin/master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  origin/master</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> pull</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -r</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  origin/HEAD</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> -</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> origin/master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  origin/feature-1</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  origin/master</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> checkout</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -b</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> feature-2</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Switched</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> to</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> a</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> new</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">feature-2</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> vim</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> function2</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> add</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --all</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> commit</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -m</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">日志：开发者2的function2文件</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> push</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> origin</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> feature-2</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>此时就可以看到远端仓库又多了一个远端分支。</p>
+<figure><img src="@source/3.系统网络/1.基本操作/assets/d93843a3-0613-4392-8872-3f406d0c7c9a.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<h5 id="_11-1-2-3-合并到-master" tabindex="-1"><a class="header-anchor" href="#_11-1-2-3-合并到-master"><span>11.1.2.3.合并到 master</span></a></h5>
+<p>假设这个时候有一种情况，开发者 <code v-pre>2</code> 发生意外情况，没有办法现在合并到 <code v-pre>master</code> 远端分支。</p>
+<ol>
+<li>
+<p>此时开发者 <code v-pre>1</code> 使用 <code v-pre>git pull</code> 把开发者 <code v-pre>2</code> 创建的远端分支 <code v-pre>feature-2</code> 拉取过来（这里之所以可以直接使用短命令，是因为：a.拉取分支内的内容才需要的建立链接 b.但是拉取远端仓库内容的时候就不需要建立链接）</p>
+</li>
+<li>
+<p>开发者 <code v-pre>1</code> 新使用命令 <code v-pre>git checkout -b feature-2 origin/feature-2</code> 创建、链接并且切换到一个 <code v-pre>feature-2</code> 的本地分支。</p>
+</li>
+<li>
+<p>这个时候开发者 <code v-pre>1</code> 就拥有了开发者 <code v-pre>2</code> 的文件，可以继续帮开发者 <code v-pre>2</code> 继续开发（比如加入某些代码或删除，然后再 <code v-pre>add</code> 和 <code v-pre>commit</code>，并且直接使用短命令 <code v-pre>push</code> 即可）</p>
+</li>
+<li>
+<p>如果后续开发者 <code v-pre>2</code> 回来了，就需要再一次将 <code v-pre>feature-2</code> 和 <code v-pre>origin/feature-2</code> 进行链接，然后 <code v-pre>pull</code> 将开发者 <code v-pre>1</code> 帮忙的部分从远端分支拉取</p>
+</li>
+</ol>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">//开发者1</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> pull</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -a</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> feature-1</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  remotes/origin/HEAD</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> -</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> origin/master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  remotes/origin/feature-1</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  remotes/origin/feature-2</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  remotes/origin/master</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> checkout</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -b</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> feature-2</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> origin/feature-2</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Branch</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> feature-2</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> set</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> up</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> to</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> track</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> remote</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> feature-2</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> from</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> origin.</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Switched</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> to</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> a</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> new</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">feature-2</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -a</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  feature-1</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> feature-2</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  remotes/origin/HEAD</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> -</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> origin/master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  remotes/origin/feature-1</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  remotes/origin/feature-2</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  remotes/origin/master</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> vim</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> function2</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> add</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --all</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> commit</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -m</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">日志：开发者1帮助开发者2的开发</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> push</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>此时远端仓库就有了推送</p>
+<img title="" src="@source/3.系统网络/1.基本操作/assets/4c99f63e-8888-424e-a065-9cf477877d18.png" alt="4c99f63e-8888-424e-a065-9cf477877d18" style="zoom:80%;">
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --set-upstream-to=origin/feature-2</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> feature-2</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> pull</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><p>此时开发者 <code v-pre>2</code> 就可以看到开发者 <code v-pre>1</code> 半自己开发的部分了。</p>
+<ol start="5">
+<li>开发者 <code v-pre>2</code> 还可以继续进行自己的开发，照常使用 <code v-pre>add</code> 和 <code v-pre>commit</code> 和短命令 <code v-pre>push</code> 即可</li>
+</ol>
+<img title="" src="@source/3.系统网络/1.基本操作/assets/3fff6e17-68cc-4b56-ab5a-a5522f5f8bd7.png" alt="3fff6e17-68cc-4b56-ab5a-a5522f5f8bd7" style="zoom:50%;">
+<ol start="6">
+<li>现在在远端仓库中，有两个新增加的分支，并且两名开发者都准备好各自的私有分支内的代码文件，最后只需要提交 <code v-pre>PR</code> 给管理者，管理员再远程仓库上做代码审核和冲突修改和分支合并即可</li>
+</ol>
+<img src="@source/3.系统网络/1.基本操作/assets/8b6f4a7c-413e-472d-a60d-1d21c6b37078.png" title="" alt="8b6f4a7c-413e-472d-a60d-1d21c6b37078" style="zoom:50%;">
+<ol start="7">
+<li>此时由审查员和测试员通过审查和测试才可以正式合并进 <code v-pre>master</code>，此时就完成了合并</li>
+</ol>
+<img src="@source/3.系统网络/1.基本操作/assets/cad2bf21-2327-43ec-937a-65bb1854002e.png" title="" alt="cad2bf21-2327-43ec-937a-65bb1854002e" style="zoom:50%;">
+<img title="" src="@source/3.系统网络/1.基本操作/assets/b1af4934-b162-4e7e-80e9-e8a69aa3815e.png" alt="b1af4934-b162-4e7e-80e9-e8a69aa3815e" style="zoom:50%;">
+<img src="@source/3.系统网络/1.基本操作/assets/96a293e7-5b6d-493c-b0c4-740496af77d8.png" title="" alt="96a293e7-5b6d-493c-b0c4-740496af77d8" style="zoom:50%;">
+<ol start="9">
+<li>此时对于开发者 <code v-pre>2</code> 来说，理论上也是可以像开发者 <code v-pre>1</code> 一样操作的，但是有可能发生冲突，因此最好是在本地将远端分支最新的 <code v-pre>master</code> 合并进来，防止冲突在 <code v-pre>master</code> 上解决，然后使用长命令 <code v-pre>push</code>（分支合并会自动 <code v-pre>commit</code>），再提交 <code v-pre>PR</code> 上去。</li>
+</ol>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> checkout</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> pull</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  debug</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  feature-2</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> master</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> checkout</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> feature-2</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> merge</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">//然后解决冲突</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> push</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> origin</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> feature-2</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><img title="" src="@source/3.系统网络/1.基本操作/assets/3ef972f8-7485-4fd5-ba5c-548f1c5a5acc.png" alt="3ef972f8-7485-4fd5-ba5c-548f1c5a5acc" style="zoom:50%;">
+<img title="" src="@source/3.系统网络/1.基本操作/assets/311121ea-41bc-4089-8cb2-5e97e455a102.png" alt="311121ea-41bc-4089-8cb2-5e97e455a102" style="zoom:50%;">
+<img src="@source/3.系统网络/1.基本操作/assets/a43f57f8-313b-4478-84c8-da7f3b4d87bb.png" title="" alt="a43f57f8-313b-4478-84c8-da7f3b4d87bb" style="zoom:50%;">
+<h4 id="_11-1-3-远程分支删除后" tabindex="-1"><a class="header-anchor" href="#_11-1-3-远程分支删除后"><span>11.1.3.远程分支删除后...</span></a></h4>
+<p>前面开发者 <code v-pre>1</code> 和开发者 <code v-pre>2</code> 开发完后，假设开发者 <code v-pre>2</code> 因为请假次数太多被辞了（悲痛~），这个时候管理者也把他的远端工作分支删除了，但是这个时候我们会发现一个问题：在本地使用 <code v-pre>git branch -a/-r</code> 依旧可以看到这个远端分支。</p>
+<img src="@source/3.系统网络/1.基本操作/assets/31a05090-ce0c-4716-befc-163f23408caf.png" title="" alt="31a05090-ce0c-4716-befc-163f23408caf" style="zoom:50%;">
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -a</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  feature-1</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  feature-2</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  remotes/origin/HEAD</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> -</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">></span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> origin/master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  remotes/origin/feature-1</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  remotes/origin/feature-2</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  remotes/origin/master</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>那么这么办呢？可以使用 <code v-pre>git remote show origin</code>，该命令用于显示远程仓库 <code v-pre>origin</code> 的详细信息，包括该远程仓库与本地仓库的分支关联、最新提交等。</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">$</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> git</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> remote</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> show</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> origin</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">*</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> remote origin</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  Fetch</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> URL:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> https://gitee.com/limou3434/limou-c-test-code.git</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  Push</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">  URL:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> https://gitee.com/limou3434/limou-c-test-code.git</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  HEAD</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branch:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  Remote</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branches:</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">    feature-1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">                     tracked</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">    master</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">                        tracked</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">    refs/remotes/origin/feature-2</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> stale</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (use </span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git remote prune</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> to</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> remove</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">)</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  Local</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> branches</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> configured</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> for</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git pull</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">:</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">    feature-2</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> merges</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> with</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> remote</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> feature-2</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">    master</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">    merges</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> with</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> remote</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  Local</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> refs</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> configured</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> for</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">git push</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">:</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">    feature-1</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> pushes</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> to</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> feature-1</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> (up </span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">to</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> date</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">)</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">    master</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">    pushes</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> to</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> master</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">    (up </span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">to</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> date</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">)</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>这里就有提示使用 <code v-pre>git remote prune [远端仓库名]</code> 去移除旧分支，即可裁剪掉显示在本地机器的旧的远端分支。</p>
+<h3 id="_11-2-大型团队开发" tabindex="-1"><a class="header-anchor" href="#_11-2-大型团队开发"><span>11.2.大型团队开发</span></a></h3>
+<h4 id="_11-2-1-协作模式" tabindex="-1"><a class="header-anchor" href="#_11-2-1-协作模式"><span>11.2.1.协作模式</span></a></h4>
+<Mermaid code="eJxLL0osyFDwCeJyjFYKyEnMs0kq0rfTeLG85WnHJE2lWAVdXTsFp2gl5/yUVIjUk92Lny9ohEk5Rys5lWbmpEDkns1rebp7F0zOpVopJLW4BCq1tfvF+qmaSrVgKVcNpaDUnNRiqJlP+yc+3dGsqaQJlnTTUHJJLcjJr4RIvmxe8XzvJpiku4aSf0FqUWIJVOvz3VuedS0BynJxOYIU1Ci92Lv+ye5tT/c0gEzdvvT5iu6nOzrAiqFisxe9nDFfqcaZi8sFWQfEhag6oGJQHS5crsgaXuyfALQdVQNUDKrBnUtVVQFi67OtjSBls/dxAQAs7qgU"></Mermaid><p>在传统的 <code v-pre>IT</code> 组织下，开发团队（<code v-pre>Dev</code>）和运维团队（<code v-pre>Ops</code>）之间的诉求会矛盾：</p>
+<ol>
+<li>
+<p>开发团队追求变化（尤其是追求敏捷编程思想的），可能需要持续交付作为目标</p>
+</li>
+<li>
+<p>运维团队追求稳定，可能强调稳定且变更控制</p>
+</li>
+</ol>
+<p>这就会导致一道无形的”墙“被堆积起来，不利于 <code v-pre>IT</code> 价值的最大化，为了解决这一鸿沟，就需要在企业文化、开发工具、和代码实践等方面做变革——<code v-pre>DevOps(重视“软件开发人员”和“运维技术人员”之间沟通的文化、运动、惯例)</code> 出现了。通过自动化的“软件交付”和“架构变更”的流程，来使得构造、测试、发布软件可以快捷、频繁、可靠。</p>
+<p>在 <code v-pre>DevOps</code> 开发过程中包含 <code v-pre>计划、编码、构建、测试、预发布、发布、运维、监控</code>。</p>
+<p>而做到 <code v-pre>DevOps</code> 就极其需要类似 <code v-pre>Git</code> 这样可以快速迭代版本和维护不同版本的。</p>
+<h4 id="_11-2-2-开发环境" tabindex="-1"><a class="header-anchor" href="#_11-2-2-开发环境"><span>11.2.2.开发环境</span></a></h4>
+<p>对于开发人员来说有几个常用的环境需要了解：</p>
+<ol>
+<li>
+<p>开发环境：是程序员专门用于日常开发的服务器，为了开发调试方便，一般打开全部错误报告和测试工具，是最基础的环境。</p>
+</li>
+<li>
+<p>测试环境：一个程序在测试工作不正常，那么就不可以发布到生产机上。该环境是开发环境到生产环境的过度环境。</p>
+</li>
+<li>
+<p>预发布环境：该环境是为避免因测试环境和线上环境的差异带来的缺陷而设立的环境。其配置等基本和生产环境一致，目的就是让正式开发的时候更有把握。所以预发布环境是你的产品质量的最后一道防线，下一步项目就要上线了。要注意预发布环境的服务器不再线上集成服务器的范围之内，是单独的一些机器。</p>
+</li>
+<li>
+<p>生产环境：是指正式提供对外服务的线上环境，在 <code v-pre>PC</code> 端和手机端能访问到的 <code v-pre>APP</code> 基本都是生产环境。</p>
+</li>
+<li>
+<p>灰度环境：有的大公司还存在灰度环境或者叫仿真环境。</p>
+</li>
+<li>
+<p>其他环境：...</p>
+</li>
+</ol>
+<h4 id="_11-2-3-分支规范" tabindex="-1"><a class="header-anchor" href="#_11-2-3-分支规范"><span>11.2.3.分支规范</span></a></h4>
+<p>环境有了概念之后，<code v-pre>Git</code> 分支就会根据不同的环境进行规范设计。</p>
+<p>一般来说：</p>
+<Mermaid code="eJxlk81KI0EQx+/9FKFBmBz8mE8TWDztI3iTHEa621lwiIxxWYgL2VVUEL9A0UNADH5cxCioxCj4MtMT8xZ2d1UHMbfiV/Wv7n9V91IWrySl+Z8kqTdpUm+IX39+LGbTc87g8aZoXeXvd/JyT+5sFcfdskkU7VvZvh/sd2Vng/4lGW/SjC/zeJWDbtjZlAdHXxVIehvTxdPuR/dkpBVKK3jcWMustt0qHv7Lt9a3Dt/OZErH+G++XF8B3bgCyEiRxk2axqsNnoEg771+rR4cn+f9m1E1mZiASUCNGk1pcnKulLgLFOZBayT1gdVJ4pooDbQOR4FCFplUxnUKnWJKcJMSqmdxcJj3L11a00R4FngIfAt8BIEFAYLQghBBZEGEYNaCWQQVCyoIqhZUlTlmLic4EZ65JXOJCCDyiAgh8okAeywgogJRSEQVokhbxiXZaZiuzHXU8hbXllxaxpYIPAt8BL4FAYLAghBBaEGEIKJlQpjZzTqFc+Xhjnx5puupS5gxMZbwcFFjCV+bgHeDHtIYCudjdX/V0qEzU2jEQE+30xDNGOjrVg51p2YW5HZ/sH8Pf2t4ejfsnNXQQqrWqioc2bv+uLjKe//K+pWZ45h6P4R8AhtDcz0="></Mermaid><blockquote>
+<p>注意：以上只是常用的 <code v-pre>Git Flow</code> 模型，真实环境由企业而定。</p>
+</blockquote>
+<h5 id="_11-2-3-1-master-分支" tabindex="-1"><a class="header-anchor" href="#_11-2-3-1-master-分支"><span>11.2.3.1.master 分支</span></a></h5>
+<ol>
+<li>
+<p>给分支为只读分支，并且只有一个，用于部署到正式发布环境，由合并 <code v-pre>release</code> 分支得到</p>
+</li>
+<li>
+<p>主分支作为稳定的唯一代码，任何情况下不允许直接在 <code v-pre>master</code> 上修改代码</p>
+</li>
+<li>
+<p>产品功能全部实现后，最终在 <code v-pre>master</code> 分支对外发布，另外所有在 <code v-pre>master</code> 的推送都应该打上 <code v-pre>tag</code> 记录，方便追朔（也就是发布一次就要打上标签）</p>
+</li>
+<li>
+<p><code v-pre>master</code> 分支不可删除</p>
+</li>
+</ol>
+<h5 id="_11-2-3-2-develop-分支" tabindex="-1"><a class="header-anchor" href="#_11-2-3-2-develop-分支"><span>11.2.3.2.develop 分支</span></a></h5>
+<ol>
+<li>
+<p><code v-pre>develop</code> 分支作为开发分支，是基于 <code v-pre>master</code> 分支创建的只读唯一分支，始终保持最新完成的 <code v-pre>bug</code> 修复后的代码，可部署到开发环境对应集群</p>
+</li>
+<li>
+<p>可根据需求大小程度确定是由 <code v-pre>feature</code> 分支合并，还是直接在上面开发（后者不太推荐）</p>
+</li>
+</ol>
+<h5 id="_11-2-3-3-feature-分支" tabindex="-1"><a class="header-anchor" href="#_11-2-3-3-feature-分支"><span>11.2.3.3.feature 分支</span></a></h5>
+<ol>
+<li>
+<p><code v-pre>feature</code> 分支通常都作为新功能和新特性开发分支，是以 <code v-pre>develop</code> 分支为基础创建的</p>
+</li>
+<li>
+<p>命名一般以 <code v-pre>feature/</code> 开头，建议的命名规范为：<code v-pre>feature/user_createtime_feature</code></p>
+</li>
+<li>
+<p>新功能开发完成后，开发者需要将 <code v-pre>feature</code> 分支合并到 <code v-pre>develop</code> 分支</p>
+</li>
+<li>
+<p>一旦新需求发布上线后，便要将该分支删除</p>
+</li>
+</ol>
+<h5 id="_11-2-3-4-release-分支" tabindex="-1"><a class="header-anchor" href="#_11-2-3-4-release-分支"><span>11.2.3.4.release 分支</span></a></h5>
+<ol>
+<li>
+<p><code v-pre>release</code> 分支为预发布分支，基于本次上线所有的 <code v-pre>feature</code> 分支合并到 <code v-pre>develop</code> 分支后，再基于 <code v-pre>develop</code> 分支创建，可以部署到测试或预发布集群</p>
+</li>
+<li>
+<p>命名也有规范，一般 <code v-pre>release/</code> 开头，建议命名规则为：<code v-pre>release/version_publishtime</code></p>
+</li>
+<li>
+<p><code v-pre>release</code> 分支主要用于提交给测试人员进行功能测试。发布提测阶段，会以 <code v-pre>release</code> 分支为基准进行提测</p>
+</li>
+<li>
+<p><code v-pre>release</code> 分支测试出问题，则需要回归 <code v-pre>develop</code> 分支查看是否存在此问题</p>
+</li>
+<li>
+<p><code v-pre>release</code> 分支属于临时分支，产品上线后可以选择删除</p>
+</li>
+</ol>
+<h5 id="_11-2-3-5-hotfix-分支" tabindex="-1"><a class="header-anchor" href="#_11-2-3-5-hotfix-分支"><span>11.2.3.5.hotfix 分支</span></a></h5>
+<ol>
+<li>
+<p><code v-pre>hotfix</code> 分支是线上出现紧急 <code v-pre>bug</code> 问题时，提交补丁时使用，又叫”补丁分支“，需要基于 <code v-pre>master</code> 分支创建 <code v-pre>hotfix</code> 分支</p>
+</li>
+<li>
+<p>命名 <code v-pre>hotfix/</code> 开头，建议命名规范为：<code v-pre>hotfix/user_createtime_hotfix</code></p>
+</li>
+<li>
+<p>当问题修复完成后，需要合并到 <code v-pre>develop</code> 分支并推送到远程。一旦修复测试通过，就通过 <code v-pre>develop</code> 远端合并到 <code v-pre>master</code> 远端分支，并且结束后需要将其删除</p>
+</li>
+</ol>
+<p>还有一些其他的大企业有不同的模型。</p>
+<h4 id="_11-2-4-管理实战" tabindex="-1"><a class="header-anchor" href="#_11-2-4-管理实战"><span>11.2.4.管理实战</span></a></h4>
+<h5 id="_11-2-4-1-创建账号" tabindex="-1"><a class="header-anchor" href="#_11-2-4-1-创建账号"><span>11.2.4.1.创建账号</span></a></h5>
+<p>创建两个 <code v-pre>Gitee</code> 账号，一个为公司老板账号 <code v-pre>limou3434</code>，一个为员工账号 <code v-pre>Dimou3434</code>（绑定不同的邮箱）。</p>
+<p>并且最好准备两个浏览器，一个登录老板账号，一登录员工账号。</p>
+<p>最好准备一个本地机器和服务器（模拟老板和员工各自的本地环境，有其他方案替代也可以......）</p>
+<h5 id="_11-2-4-2-创建企业空间" tabindex="-1"><a class="header-anchor" href="#_11-2-4-2-创建企业空间"><span>11.2.4.2.创建企业空间</span></a></h5>
+<p>首先我们需要创建一个企业空间，并且创建好空间内的仓库。</p>
+<img title="" src="@source/3.系统网络/1.基本操作/assets/0a542b12-0890-4124-a138-5fbd214fee4d.png" alt="0a542b12-0890-4124-a138-5fbd214fee4d" style="zoom:33%;">
+<img title="" src="@source/3.系统网络/1.基本操作/assets/a65cf222-7a5e-48c3-853c-243faf6b5aa9.png" alt="a65cf222-7a5e-48c3-853c-243faf6b5aa9" style="zoom:33%;">
+<img title="" src="@source/3.系统网络/1.基本操作/assets/f288a3e0-a2a6-4583-a66e-f3184a021d1e.png" alt="f288a3e0-a2a6-4583-a66e-f3184a021d1e" style="zoom:25%;">
+<img title="" src="@source/3.系统网络/1.基本操作/assets/6cd9515f-7ace-4e6b-9718-d76ae693a846.png" alt="6cd9515f-7ace-4e6b-9718-d76ae693a846" style="zoom:25%;">
+<img title="" src="@source/3.系统网络/1.基本操作/assets/83d4ed4a-cca3-4f7a-b774-27cfb047d16d.png" alt="83d4ed4a-cca3-4f7a-b774-27cfb047d16d" style="zoom:25%;" data-align="inline">
+<p>一个企业会有多个项目，在一个项目中需要多个仓库，这里我们可以先建立一个仓库。</p>
+<img src="@source/3.系统网络/1.基本操作/assets/9e340b0d-e8dc-4d3b-b4b1-1e8f6fb61e9d.png" title="" alt="9e340b0d-e8dc-4d3b-b4b1-1e8f6fb61e9d" style="zoom:25%;">
+<img src="@source/3.系统网络/1.基本操作/assets/f9d75635-82fd-45a4-a4de-ee29c1496e05.png" title="" alt="f9d75635-82fd-45a4-a4de-ee29c1496e05" style="zoom:50%;">
+<img title="" src="@source/3.系统网络/1.基本操作/assets/ac37017e-c755-4a82-afd2-765a0f5d87b7.png" alt="ac37017e-c755-4a82-afd2-765a0f5d87b7" style="zoom:50%;">
+<img title="" src="@source/3.系统网络/1.基本操作/assets/3839ebfb-310c-4fda-b446-bbced604dae4.png" alt="3839ebfb-310c-4fda-b446-bbced604dae4" style="zoom:25%;">
+<p>发送员工邀请链接，让一名员工进来企业空间。</p>
+<img title="" src="@source/3.系统网络/1.基本操作/assets/9c96169f-eb85-4c70-b04f-53c3d2bad2ce.png" alt="9c96169f-eb85-4c70-b04f-53c3d2bad2ce" style="zoom:33%;">
+<p>另外一名员工在登录自己 <code v-pre>gitee</code> 账号后，需要打开该链接填写姓名后加入。</p>
+<img src="@source/3.系统网络/1.基本操作/assets/3a23a48b-fa53-4f73-8720-6daecbe1f55a.png" title="" alt="3a23a48b-fa53-4f73-8720-6daecbe1f55a" style="zoom:25%;">
+<img src="@source/3.系统网络/1.基本操作/assets/9a48981b-9648-41dc-8c47-675a05ed463d.png" title="" alt="9a48981b-9648-41dc-8c47-675a05ed463d" style="zoom:25%;">
+<p>同意员工加入。</p>
+<img src="@source/3.系统网络/1.基本操作/assets/9cff1cfe-4da3-4ed8-960b-c264141e9017.png" title="" alt="9cff1cfe-4da3-4ed8-960b-c264141e9017" style="zoom:33%;">
+<img src="@source/3.系统网络/1.基本操作/assets/23975cea-5306-45a0-acdb-2eaab81f69c9.png" title="" alt="23975cea-5306-45a0-acdb-2eaab81f69c9" style="zoom:25%;">
+<p>项目和仓库也需要设置成员，这样相关的成员才可以使用该仓库的部分权限。</p>
+<img title="" src="@source/3.系统网络/1.基本操作/assets/121b4520-e627-4ac1-92cd-80a9b48147ce.png" alt="121b4520-e627-4ac1-92cd-80a9b48147ce" style="zoom:25%;">
+<img src="@source/3.系统网络/1.基本操作/assets/7ca5a0ef-9260-4aca-b0d6-32ec87b6d3f5.png" title="" alt="7ca5a0ef-9260-4aca-b0d6-32ec87b6d3f5" style="zoom:25%;">
+<img title="" src="@source/3.系统网络/1.基本操作/assets/57910843-6b68-4400-9b6a-ae26452d4554.png" alt="57910843-6b68-4400-9b6a-ae26452d4554" style="zoom:33%;">
+<img src="@source/3.系统网络/1.基本操作/assets/bb9861ca-0d8c-419b-ad25-083543b5a14c.png" title="" alt="bb9861ca-0d8c-419b-ad25-083543b5a14c" style="zoom:25%;">
+<img src="@source/3.系统网络/1.基本操作/assets/c84fb3cb-e69b-4645-adf4-63b357633d23.png" title="" alt="c84fb3cb-e69b-4645-adf4-63b357633d23" style="zoom:25%;">
+<h5 id="_11-2-4-3-分支管理" tabindex="-1"><a class="header-anchor" href="#_11-2-4-3-分支管理"><span>11.2.4.3.分支管理</span></a></h5>
+<p>此时我们设置的库有默认有 <code v-pre>5</code> 个分支，然后拉取到本地，创建 <code v-pre>featrue</code> 本地分支后，在上面进行开发，然后关联远端分支 <code v-pre>featrue</code> 进行提交。</p>
+<p>老板在自己的企业空间上，检查提交，检查完成后，在远端仓库，把远端分支 <code v-pre>featrue</code> 的提交合并到远端分支 <code v-pre>develop</code> 上，老板为了规范，也”装模做样“的做了一次代码审核。</p>
+<img src="@source/3.系统网络/1.基本操作/assets/dca14b33-cd4a-439f-bad0-c12af27c2411.png" title="" alt="dca14b33-cd4a-439f-bad0-c12af27c2411" style="zoom:25%;">
+<img src="@source/3.系统网络/1.基本操作/assets/77b2327d-bb6e-438f-aea9-e547bd09efe9.png" title="" alt="77b2327d-bb6e-438f-aea9-e547bd09efe9" style="zoom:25%;">
+<p>好了，老板自己审核好自己的代码后，进行了合并。</p>
+<img src="@source/3.系统网络/1.基本操作/assets/4ccae20d-489d-438f-b070-40e37985f4b8.png" title="" alt="4ccae20d-489d-438f-b070-40e37985f4b8" style="zoom:25%;">
+<img src="@source/3.系统网络/1.基本操作/assets/8b9e75ca-2ef0-467d-9dc1-f98d3ef81817.png" title="" alt="8b9e75ca-2ef0-467d-9dc1-f98d3ef81817" style="zoom:25%;">
+<img src="@source/3.系统网络/1.基本操作/assets/97aa721c-02c9-4d4b-90ba-2740cc4ad085.png" title="" alt="97aa721c-02c9-4d4b-90ba-2740cc4ad085" style="zoom:25%;">
+<p>此时测试人员（假设是员工 <code v-pre>1</code>）需要测试老板的代码，那么就需要得到本地的 <code v-pre>release</code>，因此他需要先请求远端分支 <code v-pre>release</code> 是基于远端分支 <code v-pre>develop</code> 分裂出来的，因此提交了代码评审。</p>
+<img src="@source/3.系统网络/1.基本操作/assets/e19e7c4f-0ae7-419e-8e72-807c577e9430.png" title="" alt="e19e7c4f-0ae7-419e-8e72-807c577e9430" style="zoom:25%;">
+<img src="@source/3.系统网络/1.基本操作/assets/bd2cad25-62cb-48c9-8e7f-5852b997c1d3.png" title="" alt="bd2cad25-62cb-48c9-8e7f-5852b997c1d3" style="zoom:25%;">
+<p>此时如果测试人员测试通过了老板的代码，那么就可以请求把 <code v-pre>release</code> 远端分支的代码和合并到 <code v-pre>master</code> 远端分支上的，员工使用 <code v-pre>PR</code> 告知老板，然后老板直接通过了该审查。</p>
+<img src="@source/3.系统网络/1.基本操作/assets/63781569-916a-431d-9a74-e15e70539b1c.png" title="" alt="63781569-916a-431d-9a74-e15e70539b1c" style="zoom:25%;">
+<img src="@source/3.系统网络/1.基本操作/assets/d62b7e99-957a-431f-80da-368cdea3383b.png" title="" alt="d62b7e99-957a-431f-80da-368cdea3383b" style="zoom:25%;">
+<p>并且测试分支也被删除了。</p>
+<img src="@source/3.系统网络/1.基本操作/assets/1c416a5d-db6d-468d-84af-a6757cc8ea08.png" title="" alt="1c416a5d-db6d-468d-84af-a6757cc8ea08" style="zoom:50%;">
+<p>当然，如果 <code v-pre>release</code> 远端分支出现了问题，就需要回去检查 <code v-pre>develop</code> 远端分支是否存在这个问题，如果有问题，就从 <code v-pre>feature</code> 远端分支上进行 <code v-pre>debug</code> 然后合并到 <code v-pre>develop</code> 远端分支，然后将新的 <code v-pre>develop</code> 分支合并到 <code v-pre>release</code> 远端分支，在进行测试，知道没有 <code v-pre>bug</code>。</p>
+<p>剩下的几个分支和相关流程实际上和我们之前讲的大差不差，您可以自己试一试......</p>
+<div class="hint-container warning">
+<p class="hint-container-title">注意</p>
+<p>注意：最后再强调一遍，只有适合自己团队的分支模型，而没有最完美的分支模型。</p>
+</div>
+<h4 id="_11-2-5-代码部署" tabindex="-1"><a class="header-anchor" href="#_11-2-5-代码部署"><span>11.2.5.代码部署</span></a></h4>
+<p>这个可以在 <code v-pre>流水线</code> 里研究（不过在 <code v-pre>gitee</code> 上是需要付费的），相关的操作请查看 <code v-pre>gitee</code> 的 <a href="https://help.gitee.com/repository" target="_blank" rel="noopener noreferrer">文档</a>。</p>
+<h2 id="_12-git-拓展知识" tabindex="-1"><a class="header-anchor" href="#_12-git-拓展知识"><span>12.Git 拓展知识</span></a></h2>
+<h3 id="_12-1-代码仓库原则" tabindex="-1"><a class="header-anchor" href="#_12-1-代码仓库原则"><span>12.1.代码仓库原则</span></a></h3>
+<p>关于 <code v-pre>git</code> 的 <code v-pre>Monorepos</code> 和 <code v-pre>Multirepos</code> 的争论，您可以简单看一下这篇 <a href="https://www.jianshu.com/p/c10d0b8c5581" target="_blank" rel="noopener noreferrer">git 单一代码库 Monorepo</a> 来了解一下，不过相关的企业实践我也没有太多的经历，以后有机会在进行补充...</p>
+<h3 id="_12-2-代码仓库部署" tabindex="-1"><a class="header-anchor" href="#_12-2-代码仓库部署"><span>12.2.代码仓库部署</span></a></h3>
+<p>实际上我们不依赖 <code v-pre>GitHub, Gitee</code> 这些代码仓库，也可以在自己部署的服务器之间进行协作，这方面可以 <a href="https://www.ruanyifeng.com/blog/2022/10/git-server.html" target="_blank" rel="noopener noreferrer">查看阮一峰的最简单 Git 服务器文档</a>，待补充...</p>
+<h3 id="_12-3-代码仓库模块" tabindex="-1"><a class="header-anchor" href="#_12-3-代码仓库模块"><span>12.3.代码仓库模块</span></a></h3>
+<p>一个 <code v-pre>Git</code> 仓库通常只有一个 <code v-pre>.git</code> 文件，但是我们不得不复用一些第三方库，这些第三方库通常也是需要 <code v-pre>Git</code> 来管理的，这种情况下就有导致一个仓库中具备多个 <code v-pre>.git</code>，因此就必须设置子模块，否则就会造成错乱，待补充...</p>
+<hr>
+</div></template>
+
+

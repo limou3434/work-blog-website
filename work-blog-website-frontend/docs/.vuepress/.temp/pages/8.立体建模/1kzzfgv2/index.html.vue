@@ -1,0 +1,193 @@
+<template><div><h2 id="_1-环境安装" tabindex="-1"><a class="header-anchor" href="#_1-环境安装"><span>1.环境安装</span></a></h2>
+<p>除了 <code v-pre>Blender</code>，我们还需要做一些新的软件安装。</p>
+<figure><img src="@source/8.立体建模/assets/image-20260112222438521.png" alt="image-20260112222438521" tabindex="0" loading="lazy"><figcaption>image-20260112222438521</figcaption></figure>
+<figure><img src="@source/8.立体建模/assets/image-20260112222642657.png" alt="image-20260112222642657" tabindex="0" loading="lazy"><figcaption>image-20260112222642657</figcaption></figure>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：本教程操作系统是 <code v-pre>Ubuntu</code>，不过教程适应 <code v-pre>Windows</code>。</p>
+</div>
+<p>安装流程待补充...</p>
+<p>如果没有自动识别到 <code v-pre>UnityHub</code> 和安装好的 <code v-pre>Unity</code> 编辑器，则可以手动在 <code v-pre>ALCOM</code> 软件进行指定。</p>
+<figure><img src="@source/8.立体建模/assets/image-20260112223853575.png" alt="image-20260112223853575" tabindex="0" loading="lazy"><figcaption>image-20260112223853575</figcaption></figure>
+<h2 id="_2-基础工具" tabindex="-1"><a class="header-anchor" href="#_2-基础工具"><span>2.基础工具</span></a></h2>
+<p>我们来理解一下为什么需要上述的软件工具，虽然我们已经有了 <code v-pre>Blender</code> 的基础，但是我们最好还是先尝试使用别人的模型之后再来尝试做自己的模型，也就是说：在学会 <code v-pre>VRchat</code> 建模之前我们需要学会 <code v-pre>VRchat</code> 改模。而本教程是基于以下内容以及一些部分自己的理解进行编写的：</p>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1MfYez2E2J/" target="_blank" rel="noopener noreferrer">视频教程</a></li>
+<li><a href="https://vrclearn.gamemode1.com/docs/start/starter-why-unity.html" target="_blank" rel="noopener noreferrer">图文教程</a></li>
+</ul>
+<p>首先我们需要一些安装环境的配置，<code v-pre>Blender</code> 我们之前已经安装过了，还需要安装 <code v-pre>UnityHub</code> 来进一步安装 <code v-pre>Unity</code> 编辑器，还需要安装一个 <code v-pre>ALCOM</code>（用来替代 <code v-pre>VRCaht</code> 官方的 <code v-pre>VCC</code> 工具）。并且，您还需要拥有一个能够上传到 <code v-pre>VRChat</code> 上的一个帐号。</p>
+<p>首先我们需要理解一下上述软件的工作流程：</p>
+<ol>
+<li>建模手需要使用 <code v-pre>Blender</code> 进行建模来获取 <code v-pre>.blender</code> 文件以及 <code v-pre>.fbx</code> 文件等资源文件，或者在公开渠道及各种商店中购买模型直接获取 <code v-pre>.unitypackage</code> 压缩包（内含前面的文件）</li>
+<li>然后我们安装好 <code v-pre>UnityHub</code> 后，可以使用这个工具来下载并且管理多个版本的 <code v-pre>Unity</code> 工具，同时获取最为重要的许可证（免费）</li>
+<li>然后我们需要在本地安装好 <code v-pre>ALCOM</code> 软件，这款软件的作用和 <code v-pre>VRChat</code> 的官方软件 <code v-pre>VCC</code> 的作用是一样的，这款软件的主要作用就是可以快速下载 <code v-pre>VRChat</code> 项目所需要的依赖，以及自动识别 <code v-pre>Unity</code> 编辑器的地址快速建立一个符合 <code v-pre>VRChat</code> 规范的 <code v-pre>VRChat</code> 项目</li>
+</ol>
+<h2 id="_3-快速体验" tabindex="-1"><a class="header-anchor" href="#_3-快速体验"><span>3.快速体验</span></a></h2>
+<h3 id="_3-1-获取模型包" tabindex="-1"><a class="header-anchor" href="#_3-1-获取模型包"><span>3.1.获取模型包</span></a></h3>
+<p>我们先来简单获取一些公开的模型包（这里获取的是我的世界史蒂夫的模型），一个标准的模型包应该是下面这样的。</p>
+<h3 id="_3-2-创建新项目" tabindex="-1"><a class="header-anchor" href="#_3-2-创建新项目"><span>3.2.创建新项目</span></a></h3>
+<p>然后我们需要创建新的项目。</p>
+<figure><img src="@source/8.立体建模/assets/image-20260112223333534.png" alt="image-20260112223333534" tabindex="0" loading="lazy"><figcaption>image-20260112223333534</figcaption></figure>
+<figure><img src="@source/8.立体建模/assets/image-20260112223343968.png" alt="image-20260112223343968" tabindex="0" loading="lazy"><figcaption>image-20260112223343968</figcaption></figure>
+<div class="hint-container warning">
+<p class="hint-container-title">注意</p>
+<p>注意：这里的报错是正常的，可以不用理会。这个错误只是表明从 <code v-pre>VRChat</code> 官方包仓库下载依赖包超时失败，但是 <code v-pre>ALCOM</code> 会自己处理。</p>
+<figure><img src="@source/8.立体建模/assets/image-20260112223420851.png" alt="image-20260112223420851" tabindex="0" loading="lazy"><figcaption>image-20260112223420851</figcaption></figure>
+</div>
+<div class="hint-container warning">
+<p class="hint-container-title">注意</p>
+<p>注意：一般情况下 <code v-pre>ALCOM</code> 新建项目时会自动给你安装以下两个模块并高亮显示名称，
+若没有则需要点击软件包右边的 <code v-pre>+</code> 手动安装一下。</p>
+<ul>
+<li><code v-pre>VRChat SDK - Avatars</code></li>
+<li><code v-pre>VRChat SDK - Base</code></li>
+</ul>
+</div>
+<figure><img src="@source/8.立体建模/assets/image-20260112223556626.png" alt="image-20260112223556626" tabindex="0" loading="lazy"><figcaption>image-20260112223556626</figcaption></figure>
+<p>点击右上角的 <code v-pre>打开 UNITY</code> 就可以自动识别 <code v-pre>Unity</code> 编辑器来打开新项目了。</p>
+<div class="hint-container caution">
+<p class="hint-container-title">警告</p>
+<p>警告：请耐心等待 <code v-pre>Unity</code> 加载完毕，当 <code v-pre>Unity</code> 弹出界面时，先不要着急操作，为了避免出现未响应等错误，等待界面右下角的加载图标变为 <code v-pre>√</code> 后，再开始进行操作。</p>
+</div>
+<figure><img src="@source/8.立体建模/assets/image-20260112223931848.png" alt="image-20260112223931848" tabindex="0" loading="lazy"><figcaption>image-20260112223931848</figcaption></figure>
+<p>然后界面布局稍微改一下。</p>
+<figure><img src="@source/8.立体建模/assets/image-20260112224552024.png" alt="image-20260112224552024" tabindex="0" loading="lazy"><figcaption>image-20260112224552024</figcaption></figure>
+<p>在 <code v-pre>Unity</code> 菜单栏上依次选择 <code v-pre>Assets - Import Package - Custom Package...</code> 来导入我们的压缩包。</p>
+<figure><img src="@source/8.立体建模/assets/image-20260112232113138.png" alt="image-20260112232113138" tabindex="0" loading="lazy"><figcaption>image-20260112232113138</figcaption></figure>
+<p>在 <code v-pre>Unity</code> 弹出的 <code v-pre>Import Unity Package</code> 窗口中，点击 <code v-pre>All</code> 确保选中全部的文件（默认全部选中），最后点击 <code v-pre>Import</code>。导入完后，在正下方的窗口中会多出一个 <code v-pre>gamemode1</code> 文件夹。</p>
+<figure><img src="@source/8.立体建模/assets/image-20260112232151144.png" alt="image-20260112232151144" tabindex="0" loading="lazy"><figcaption>image-20260112232151144</figcaption></figure>
+<figure><img src="@source/8.立体建模/assets/image-20260112232321048.png" alt="image-20260112232321048" tabindex="0" loading="lazy"><figcaption>image-20260112232321048</figcaption></figure>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：这里保留一份目录解构，预防后续需要进行一些深入的研究。</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Assets</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Library</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Logs</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Materials</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Packages</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ProjectSettings</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> Temp</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> test-steve-character.sln</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> UniTask.Addressables.csproj</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> UniTask.csproj</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> UniTask.DOTween.csproj</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> UniTask.Editor.csproj</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> UniTask.Linq.csproj</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> UniTask.TextMeshPro.csproj</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> UserSettings</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> VRC.ExampleCentral.Editor.csproj</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> VRC.SDK3A.csproj</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> VRC.SDK3A.Editor.csproj</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> VRC.SDKBase.csproj</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> VRC.SDKBase.Editor.BuildPipeline.csproj</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> VRC.SDKBase.Editor.csproj</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">└──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> VRC.SDKBase.Editor.ShaderStripping.csproj</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div>
+<h3 id="_3-3-一些基础认识" tabindex="-1"><a class="header-anchor" href="#_3-3-一些基础认识"><span>3.3.一些基础认识</span></a></h3>
+<p>在继续学习之前，需要先了解 <code v-pre>Unity</code> 编辑器的不同窗口，认识不同的窗口对后续的学习有很大的帮助。</p>
+<figure><img src="@source/8.立体建模/assets/image-20260112232627102.png" alt="image-20260112232627102" tabindex="0" loading="lazy"><figcaption>image-20260112232627102</figcaption></figure>
+<p>在游戏开发中，游戏对象（在 <code v-pre>Unity</code> 中称为 <code v-pre>GameObject</code>）是游戏里所有 <strong>可见</strong> 和 <strong>不可见</strong> 元素的统称。无论是玩家角色，角色身上的装备，还是地图中的道具，音效，背后的逻辑代码等，都可以称为一个游戏对象。简单来说，游戏对象就是游戏中每一个独立的 <code v-pre>东西</code>。这有些类似一些编程语言的对象概念，但是在这个领域中有所区分。</p>
+<ul>
+<li>
+<p><code v-pre>Scene</code> 窗口：用于直观的观察和编辑场景中的对象。<code v-pre>Scene</code> 窗口有多种操作方式来改变视角，这里只讲两种最简单的</p>
+<ul>
+<li>
+<p>在 <code v-pre>Scene</code> 窗口中按住 <code v-pre>鼠标右键</code>，使用 <code v-pre>WASD</code> 移动视角</p>
+</li>
+<li>
+<p>在 <code v-pre>Hierarchy</code> 中双击你想观察的对象可以直接把视角拉到该物体旁边，但有时会因为错误的模型中心点导致视角非常远，所以首选第一种方式</p>
+</li>
+<li>
+<p>最右上角的 <code v-pre>Gizmos</code> 开关，用于控制显示 <code v-pre>Scene</code> 中的各种辅助图标，辅助线</p>
+<figure><img src="@source/8.立体建模/assets/image-20260112233033698.png" alt="image-20260112233033698" tabindex="0" loading="lazy"><figcaption>image-20260112233033698</figcaption></figure>
+</li>
+</ul>
+</li>
+<li>
+<p><code v-pre>Hierarchy</code> 窗口：用于管理 <code v-pre>Scene</code> 窗口中的所有对象，因此这两个窗口本质上相互关联。</p>
+</li>
+<li>
+<p><code v-pre>Project</code> 窗口：类似电脑中的文件管理器，用于文件管理，向场景中添加对象。其左侧可用于快速选择文件的路径（类似电脑文件管理器上方的路径栏）。其中不同的文件夹一般有不同的作用</p>
+<ul>
+<li>
+<p><code v-pre>Assets</code>：这是你的资源文件夹，可以把所有需要的资源（比如图片，音频，模型等）都放在这里</p>
+</li>
+<li>
+<p><code v-pre>Packages</code>：包/库文件夹，用于存放官方（包括第三方）提供的 <code v-pre>Unity</code> 工具和插件，
+此文件夹由 <code v-pre>Unity</code> 自动管理，一般不会用到</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：一些常见的软件图标也需要您稍微了解一下</p>
+<ul>
+<li>文件夹图标（Folder）<img src="data:image/webp;base64,UklGRroAAABXRUJQVlA4WAoAAAAQAAAAHwAAHwAAQUxQSGcAAAABYFvbbhMfD6COIJWs5IqayZhJJR1agSo6kDNlREyAesdAOJvqnQzLYr4PsF2usl1IbL9oS70HrhnaIsJ5gl36sallkc0u/WBXMuyy1godhn8J7UdzwHZnhjllWHZlo5aBcEcC9Y4BAFZQOCAsAAAAsAIAnQEqIAAgAD4tEIZCoaEN+gAMAWJaQAArgMQAAP72P0f3Tt//+7OgAAA=" alt="文件夹" loading="lazy"></li>
+<li>预制件图标（Prefab）<img src="data:image/webp;base64,UklGRk4CAABXRUJQVlA4IEICAADQDwCdASogACAAAMASJbACdMoRwN4x+Gf5AdKk6fzKhAPMB+u/oZ+oD/x+lVvgHll+xj/lv9v6QF3K/D643+2TR7/EaQB/VfOD+AfwDiIf0T7VfdZ/YPwz9QXw1/qvcC/iH8Z/tH9U/bn9/+Uz/VA7nPqPBznRwPsyCUUX9UjErhHWmhmLoAAA/v/+Tl70f//jwIEqYMD2sbTf82Wf/6ZKWQD2f/jsTmjlNdo9pab6VH/4zCSbPyUt3eUIT/8rWLDfd95v8w9KF5qbINeVBf/jkFokRQl1eLfGstuHmRQQzzhLXJDpzzx/muuBGqm56+U9P/+hloab2pA3y/etY2n++222+T/JoTdhDYV/ICJoN/djoGXV3A+91KRtSmJX21Tc/+8Z0kdK+xeFmYnA8paN7/n//kXYpAMDCOdkrZlcc4Zk+Qz9N8hch1pALUak0sgQ+Ix+H0wh/85O/zHuDUTo1oea/00/9tL3P1GXSuZrRp6lwgHl8c+NC8CAwBRH/1GVlNyHKVoW1Zp32PGtA+cBDhsqvB/JOY3xq2Wy2MDyixNpL35JWIE1Wn/Lv+jz/wWpYIKLEUF6TDYZzPvS7Zd1QPz3ExJxji3MZPuQ8licxenkeKYfPiwc+jl+I83JmkPXvWM/H62Ifg+LzS+9z5h6VfiMyQQrNMoRdswey8p12AJOJGR7wiw9DDbG5HWXkOFKm3L9NGAXblhO7Ld8bSRG55nHt/hvO3sI4T2EQpagS6iesC/kWceifOmkXZ89QiIAAA==" alt="预制件" loading="lazy"></li>
+<li>模型文件图标（Model）<img src="data:image/webp;base64,UklGRngCAABXRUJQVlA4IGwCAAAwEQCdASogACAAAMASJbACdMoSCz5Bvd5gF1E4gMMB+rn7HcIB/a+oA9ADyqvZG/ar0d7ktySXpRkgnuOcL/sH4q5Jf+q/jdqiH9E8gD+AcgB/G/6X+VX+A94P9N/G71BfCv9v+zP7Av4j/Hv67/Tv2w/vf/45Tj9HTuc+o9VkWHCi9j0E2F3+Fe1xTCAbAqzGgAD+//5OXvR6cdeuO0RIVkTG9/zye//6ZMimPy//HGuIOQqAmhrI8fT8/9GehJ55J58Mp5W/K7C3P3asUZ/+O4Gj6lG+rYrgsXerwJzR3xdDi2Bbog/kE6Bnih+0WK/1Y1euDyzdhaUEIdwEf3U6/x2Onr4xFhLjXL8SPx//yIXVvlsxvDrEHaXZkDq1rKSEsZ9Q6CxCCSGY0Xg7D6mcab1PjZezlpQM/Q7+a47JlfhO8gnl3ZdI+vkEVCOJMDnK33Gmn5jb9j/+2X4KWHCLavqnYiCCfVDpm+3wHq9Mek3U4T87esgaA0CN7UERZ/yDc/G9iEmazDon0xw4j6ydaleQHBe3o8uZYIw2myHuH0O//5MeOCr+P2oT6RXDlD2ZABElKpXrWQexmftc0WIkb73tJf/Rto/zi0EKb16/PIeMEdwdqGoOhKr86MzHq3/+paRXu1t/y7/o88FB+j5FDy88JlnyhVHCzVpNk7TT/ltqpsoPP+hKafLoToo8+W+Mna6vRWVRqSOQejYZEwR4qxZgUl+0wVMqMHZJOAPwhS3DrT8VZjdNHs/wbYZHvFa4wc2h3dC618VDnLlHKqNgk/4ZrCChxOctmtl8zo8KLiz0nfSwUN53LVQAAA==" alt="模型" loading="lazy"></li>
+<li>材质球图标（Material）<img src="data:image/webp;base64,UklGRiwCAABXRUJQVlA4ICACAACwDQCdASogACAAAMASJbACdMoRwN4B+AH5Ac4ZoEY0dAXJLvAH0S8ID9oP1A4QD+k/5nrAPQA6R79kf2Z9qO7pPvNcZMD/0UqHPlzf1/kC+J/YG/j/8q3wD9uTuqtyiVMupupXEAutsPjutxwNcPJoSZoMcFYAAP7//k6NdPS4k4sDFVHXXZN/s1d3cYTP/QJHuxIK4fbrcokk7JcPAXKdmUeb3TCiTZ8g95c8Ed/JkonLZdTV3wQ+dPodRP5iEkKeuo7bylQS/+bj/72MeJgE3SxNR4/97LSHVetpJkT/VXOvep/urwfwFKP+d+06UuHTWjcxknJWpQ1vudWZxJ89b1n7ULYjP0/maXph/XqBflwd26+bpRw+YdKz/nEiPk1qxCPbUSM4F8zknEtBd9TBYbUKeCoX+Zftj/oA4wxNKY6OZ3erbje/YKR+ufQU/Prc6bku8QIiseqcP54BOHzJ5f/TPrWHFd7oh3p3NjLX3f+M6rZzAGB16nnB5tmJi3tM8/+Ljb57/8Pqm3u8ghdkvXLvYFROlxvGGlc2xUPwEgaP3k53Hw5SDwkU+03Bjd/s9/qCzWmJ7g4ll5FjEj1onGsC7HvyFEhqA4GircAYJvjGk8F6u9hbAhT576E7LIUH863ozwO/T625zpVKB5ftE9db1AoQSWTdCT+/d8ColU9W68375z/+GlcdtT98Egxuu9h6Ai/wDdIxHjOdSAAA" alt="材质球" loading="lazy"></li>
+<li>场景图标（Scene）<img src="data:image/webp;base64,UklGRjgEAABXRUJQVlA4ICwEAADwFQCdASo2AEAAAMASJaQAToXwx8Tnkn2T3Ra/j/J/jZ+Xeok/uX5K/jtnPv0n/Kfl5wEv5Ae6J/o/yV5gaMv/F/kZ793+x5R/yT++/7v/GfAF/If5//sP7r/ffex9iv7Aexd+xSDbkxnD9elzUQAQKmANONSWN0I6TFqeoBso9jSXnHvCEH/4PQ8jQlQBetm165m2nxyukUUHpEZqks8QfQWndQ1cTo+d2+QEJrL57VZSWUTYfr4AAP7/SGLgnxi18IrxYKoDNaGHkkIs3Xr41kI2Qvj7rRxm9s+ihxe9QcmKq/B96+r91PqYxoQsd9mZ/DP4MV11XVAjBeA+TEwD8IoTqR/R/YcPr8NPHZ6b+AlnmrXaaje7M6gE/n2zCc0t71DnewW67BGK/rantPXOOsL1YX/rfCK+9n2dNq3wgDmhX/Tec2ly9t16R2S1Q8f/v9BEW7nJpLtb4vonn+srybqrEQ6HFo2qDy5D6lM/5xtxXEq6jU0gSgir1CKpEhLMvH01owelDRg61V13SbomQoDzwJ6ObH/QvcQWVVeD6ssMM9K0ytlqLXd/nhqvI9HGtIlfzRWGN4CryJqBl1vSeShVhpwrTBHpoNKqaGsPfDjp7K8qcH7AvERUuvrkkg7raZNh3tNDN4Qcwu3sCbMCvbCUwxEQneEn8v9IhUzxDldLJ3U/iG0K9xdeaHnyoV6UkhWvN5L8XDbbqowixnFmvbPm8hvzTq0tf4Iw9YH/rmeUr7ExvGgLHBytfMdfMxwka1HMOSVCih+/0IMRyZujN8kU6Daf8+S9cnR3can6uk/trCq6Ze/lBT/YH3R7Z//DJ0nXDaxFt3N5eQqoMnXoV7XNkKJ5a4wf5EN/N0DS4BIu2MUX1C/Ye0rQjIv1pIxUFrOffzetJ80pwymAohKx8Sl21IOT3GpM9jv7KZsTwufrRZNJ51GVUAOrpl+4t6kwykhpr7zPproeFZ5+BZMB/aF1fRMhC/GqtOPkP3c9oowDVdvBWItwnf8NUS/D4pNDLUrFwOa9RKmkQRmv57xVXDYZyKJkBbWm/4lfY3yPon76UnZeVqBzQJ1ov/z15t7TbvA5ZWMuQ+P/4n+RV5FTakIucaulIQB4soXFOvRuO2UOK1FRUYHtP86eHSJPvue2tCI+270gRmoNNAlgz0dSKxhPByyoIB20rczvzyoixjqA5ZY38S0cDqYkw+uKmWDYq/jTn0LkbKmIv23ShT77rXZdMLrTl4iLRaen24gsskO6wzfvcrr8Op0KSDuzf/5O6pEnZbwaAbFF3mE8hbzwO7pH9PqXrEuMYpX9z/LzVnzGWP9/3dkzrVR8gvGG37A+GX6yJVCffv/8gdwcuaHO7+heE4Hu6ipm+/Ul5Uy35AN8cQd56Ndpd4zUrYuEYOADkaIlf5MgrdaFgAA=" alt="场景" loading="lazy"></li>
+</ul>
+</div>
+<h3 id="_3-4-两个场景" tabindex="-1"><a class="header-anchor" href="#_3-4-两个场景"><span>3.4.两个场景</span></a></h3>
+<p>其中导入 <code v-pre>unitypackage</code> 后，会看到两个 <code v-pre>场景</code> 文件：</p>
+<ul>
+<li><code v-pre>SteveV1</code>：经典版硬邦邦史蒂夫，走路时四肢直直的</li>
+<li><code v-pre>SteveV2</code>：有动作模组的史蒂夫，各个关节可以弯曲</li>
+</ul>
+<h3 id="_3-5-安装着色器" tabindex="-1"><a class="header-anchor" href="#_3-5-安装着色器"><span>3.5.安装着色器</span></a></h3>
+<figure><img src="@source/8.立体建模/assets/image-20260113000423172.png" alt="image-20260113000423172" tabindex="0" loading="lazy"><figcaption>image-20260113000423172</figcaption></figure>
+<p>进入场景后会看见一个紫色的方块人，这是缺少必要的 <code v-pre>着色器</code> 导致模型渲染失败。如果你玩过 <code v-pre>Minecraft</code>，这就类似于材质包错误时显示黑紫色的方块。在这个项目中，我们的模型使用 <code v-pre>liltoon</code> 着色器，现在我们来学习如何安装。</p>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：</p>
+<ul>
+<li>着色器：着色器是一种给物体“上色”的配方。它告诉电脑如何给物体表面涂上颜色、添加光影效果等。</li>
+<li>Gizmos：如果觉得场景内的图标遮挡了视野，可以关闭 <code v-pre>Gizmos</code> 开关，或者关闭下拉列表里的 <code v-pre>3D Icons</code> 使其显示为更小的图标。</li>
+</ul>
+</div>
+<p>打开 <code v-pre>ALCOM</code>，<a href="https://start.gamemode1.com/" target="_blank" rel="noopener noreferrer">从主站前往 VRChat SDK 镜像站</a>，搜索并在 <code v-pre>ALCOM</code> 中添加 <code v-pre>liltoon</code> 的 <code v-pre>镜像仓库地址</code>。然后回到 <code v-pre>项目</code> 列表，进入 <code v-pre>项目</code> 的 <code v-pre>管理</code> 界面，在列表中找到 <code v-pre>liltoon</code> 并添加。</p>
+<figure><img src="@source/8.立体建模/assets/image-20260113003822113.png" alt="image-20260113003822113" tabindex="0" loading="lazy"><figcaption>image-20260113003822113</figcaption></figure>
+<p>然后重新打开项目就可以看见了（或者原地等待一分钟不重新启动也是可以的）。</p>
+<figure><img src="@source/8.立体建模/assets/image-20260113004128711.png" alt="image-20260113004128711" tabindex="0" loading="lazy"><figcaption>image-20260113004128711</figcaption></figure>
+<p>如果您觉得背景的天空碍事，按图片所示位置关闭 <code v-pre>Skybox</code> 层级。</p>
+<h3 id="_3-6-更换贴图" tabindex="-1"><a class="header-anchor" href="#_3-6-更换贴图"><span>3.6.更换贴图</span></a></h3>
+<p>下载任意的 <code v-pre>png</code> 图片来进行更换皮肤，并且将您的皮肤文件拖入到 <code v-pre>#Skin</code> 文件夹中。</p>
+<figure><img src="@source/8.立体建模/assets/image-20260113004509974.png" alt="image-20260113004509974" tabindex="0" loading="lazy"><figcaption>image-20260113004509974</figcaption></figure>
+<p>然后选中 <code v-pre>SteveV1</code> 子级里的 <code v-pre>Body</code>，将您的皮肤图片文件拖入到 <code v-pre>主色/透明度</code> 的小图标上。</p>
+<figure><img src="@source/8.立体建模/assets/image-20260113004916251.png" alt="image-20260113004916251" tabindex="0" loading="lazy"><figcaption>image-20260113004916251</figcaption></figure>
+<figure><img src="@source/8.立体建模/assets/image-20260113004944020.png" alt="image-20260113004944020" tabindex="0" loading="lazy"><figcaption>image-20260113004944020</figcaption></figure>
+<p>如果您的图片是有透明的地方，则需要先点击您的图片，然后打开一个叫 <code v-pre>Alpha Is Transparency</code> 的选项，激活图片的透明通道（不过我这张图片没有透明的部分所以看不出来效果）。</p>
+<figure><img src="@source/8.立体建模/assets/image-20260113005203336.png" alt="image-20260113005203336" tabindex="0" loading="lazy"><figcaption>image-20260113005203336</figcaption></figure>
+<p>然后将 <code v-pre>Warp Mod</code> 修改为 <code v-pre>Clamp</code>，将 <code v-pre>Filter Mod</code> 修改为 <code v-pre>Point (no filter)</code>。</p>
+<ul>
+<li><code v-pre>Warp Mod 【Clamp】</code>：拉伸贴图（纹理）的边缘</li>
+<li><code v-pre>Filter Mod Point 【no filter】</code>：贴图（纹理）变为块状</li>
+</ul>
+<p>将 <code v-pre>Max Size</code> 修改为 <code v-pre>512</code>，将 <code v-pre>Compression</code> 修改为 <code v-pre>None</code></p>
+<ul>
+<li><code v-pre>Max Size 【512】</code>：限制贴图（纹理）最大尺寸为 <code v-pre>512</code></li>
+<li><code v-pre>Compression 【None】</code>：不压缩贴图（纹理）</li>
+</ul>
+<p>然后点击应用。</p>
+<figure><img src="@source/8.立体建模/assets/image-20260113005412935.png" alt="image-20260113005412935" tabindex="0" loading="lazy"><figcaption>image-20260113005412935</figcaption></figure>
+<h3 id="_3-7-上传角色" tabindex="-1"><a class="header-anchor" href="#_3-7-上传角色"><span>3.7.上传角色</span></a></h3>
+<p>开启加速器，这个没办法。然后从 <code v-pre>Unity</code> 菜单中选择 <code v-pre>VRChat SDK</code>，打开 <code v-pre>Show Control Panel</code>，并登录自己的账号。</p>
+<figure><img src="@source/8.立体建模/assets/image-20260113005702851.png" alt="image-20260113005702851" tabindex="0" loading="lazy"><figcaption>image-20260113005702851</figcaption></figure>
+<p>若满足上传条件，<code v-pre>Avatar Creator Status</code> 这一栏会显示 <code v-pre>Allowed to publish avatars</code>。进入 <code v-pre>Builder</code> 界面，填写模型名称，设置封面，自动修复报错其他的非八边形红色报错不用管。</p>
+<figure><img src="@source/8.立体建模/assets/image-20260113005750550.png" alt="image-20260113005750550" tabindex="0" loading="lazy"><figcaption>image-20260113005750550</figcaption></figure>
+<ul>
+<li><code v-pre>Select Image</code>：选择一张图片，只支持 <code v-pre>PNG</code> 格式</li>
+<li><code v-pre>Capture In Scene</code>：从场景中截取一张图片作为封面</li>
+</ul>
+<p>最后点击 <code v-pre>Build &amp; Publish</code> 上传，一般会上传成功，但是如果不行就可能需要阅读 <a href="https://vrclearn.gamemode1.com/docs/avatarsdk/summary-of-network-issues" target="_blank" rel="noopener noreferrer">报错报告</a>。</p>
+<h3 id="_3-8-添加装饰物" tabindex="-1"><a class="header-anchor" href="#_3-8-添加装饰物"><span>3.8.添加装饰物</span></a></h3>
+<p>等到上传成功后使用 https://vrclearn.gamemode1.com/docs/avatarsdk/diamond-sword.html 就可以。</p>
+<h2 id="_4-深入研究" tabindex="-1"><a class="header-anchor" href="#_4-深入研究"><span>4.深入研究</span></a></h2>
+<h2 id="_5-插件推荐" tabindex="-1"><a class="header-anchor" href="#_5-插件推荐"><span>5.插件推荐</span></a></h2>
+<h2 id="_6-开发能力" tabindex="-1"><a class="header-anchor" href="#_6-开发能力"><span>6.开发能力</span></a></h2>
+<p>待补充...</p>
+</div></template>
+
+
