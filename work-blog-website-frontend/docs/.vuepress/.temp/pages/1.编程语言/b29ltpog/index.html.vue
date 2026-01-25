@@ -1,0 +1,85 @@
+<template><div><h2 id="_1-1-c-简介" tabindex="-1"><a class="header-anchor" href="#_1-1-c-简介"><span>1.1 C# 简介</span></a></h2>
+<p><code v-pre>C#</code> 是一个简单的、现代的、通用的、面向对象的编程语言，它是由微软（Microsoft）开发的。</p>
+<p>可能会有人分不清 <code v-pre>.Net</code> 和 <code v-pre>C#</code> 的关系，笼统的讲 <code v-pre>.Net</code> 是微软的一个开发平台，也是一个开发框架，而 <code v-pre>C#</code> 是这个框架中的编程语言，在 <code v-pre>.Net</code> 的生态系统中密不可分。</p>
+<h2 id="_1-2-c-的特点" tabindex="-1"><a class="header-anchor" href="#_1-2-c-的特点"><span>1.2 C# 的特点</span></a></h2>
+<p>按照百度百科官方给出的解释：</p>
+<p><code v-pre>C#</code> 的语法对于熟悉<code v-pre>C</code>、<code v-pre>C++</code>、<code v-pre>Java</code>或<code v-pre>JavaScript</code>的开发者来说非常熟悉，这使得他们可以快速学习和使用 <code v-pre>C#</code> 。 <code v-pre>C#</code> 提供了许多强大的功能，如可空类型、委托、Lambda表达式和安全的内存访问。 <code v-pre>C#</code> 还支持泛型方法和类型，提高了类型安全性和性能。 此外，<code v-pre>C#</code> 还提供了迭代器、LINQ表达式、异步流等高级功能。</p>
+<p><code v-pre>C#</code> 的另一个特点是它的互操作性，它允许 <code v-pre>C#</code> 程序与本机组件交互，执行几乎任何C++程序可以执行的操作。（此处系统为<code v-pre>windows</code>）</p>
+<p>根据笔者的使用体验来说：</p>
+<ol>
+<li><code v-pre>C#</code> 上手快，得益于 <code v-pre>VS</code> 的优势，可以很快速的完成开发环境的搭建。不需要有很复杂的版本控制和管理，几乎傻瓜式的项目创建流程让启动变得极为容易。对于依赖包的管理也非常简便。<Plot>对于笔者而言nuget包的使用可以说是舒适</Plot></li>
+<li>对windows平台的支持较好，对于其他语言来说，<code v-pre>C#</code> 作为微软主推的开发语言，对windows的适配很高，可以非常方便的调用win32接口和其他底层控制。比如实现窗口自动化等功能可以直接使用 <code v-pre>C#</code> 的UIAutomation包进行快速实现。</li>
+</ol>
+<p>总而言之，<code v-pre>C#</code> 是一个在<code v-pre>C</code>和<code v-pre>C++</code>基础上衍生出来的<strong>面向对象语言</strong>，和 <code v-pre>Java</code> 编程比较类似。</p>
+<h1 id="常用编译软件" tabindex="-1"><a class="header-anchor" href="#常用编译软件"><span>常用编译软件</span></a></h1>
+<h2 id="_2-1-virtual-studio" tabindex="-1"><a class="header-anchor" href="#_2-1-virtual-studio"><span>2.1 Virtual Studio</span></a></h2>
+<p><code v-pre>Virtual Studio</code> 以下简称 <code v-pre>VS</code> ，作为微软官方推出的编译器，绝对是开发 <code v-pre>C#</code> 的首选，具体下载链接：
+<a href="https://visualstudio.microsoft.com/zh-hans/" target="_blank" rel="noopener noreferrer">微软官方下载页</a></p>
+<p><code v-pre>VS</code> 对 <code v-pre>C#</code> 的适配有着得天独厚的优势，<Plot>谁用谁知道啊</Plot>，此处不多做展开，有兴趣可以查阅 <a href="https://learn.microsoft.com/zh-cn/visualstudio/get-started/visual-studio-ide?view=visualstudio" target="_blank" rel="noopener noreferrer">什么是 Visual Studio？</a> 了解具体功能。后续本文也将使用 <code v-pre>VS</code> 作为编译器进行讲述。</p>
+<h2 id="_2-2-virtual-studio-code" tabindex="-1"><a class="header-anchor" href="#_2-2-virtual-studio-code"><span>2.2 Virtual Studio Code</span></a></h2>
+<p><code v-pre>Virtual Studio Code</code> 以下简称 <code v-pre>VSCode</code> ，作为另一款微软官方推出的编译器，主要用途并不是用于编写 <code v-pre>C#</code> 而是轻量化的跨平台多语言编译器。在安装对应语言的插件后，可以进行对应语言的程序编写与调试编译。本人不使用 <code v-pre>VSCode</code> 进行 <code v-pre>C#</code> 开发，所以在此不多做赘述。</p>
+<h1 id="基础教程推荐" tabindex="-1"><a class="header-anchor" href="#基础教程推荐"><span>基础教程推荐</span></a></h1>
+<p>此处推荐一些比较共通的教程，可以先对 <code v-pre>C#</code> 的语言结构有一定的了解。</p>
+<ul>
+<li><a href="https://www.runoob.com/csharp/csharp-tutorial.html" target="_blank" rel="noopener noreferrer">菜鸟教程</a> 大部分语言就能在菜鸟教程找到最基础的学习教程<s>菜鸟教程是新手村村长一样的存在</s>。</li>
+<li><a href="https://c.biancheng.net/csharp/" target="_blank" rel="noopener noreferrer">C语言中文网</a> 虽然名字叫C语言中文网，但实际也包含了很多语言的基础教程，和菜鸟教程类似。</li>
+<li><a href="https://search.bilibili.com/all?keyword=C%23%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">哔哩哔哩</a> b站相信都不会陌生，可以在b站找到不少网络教程<s>收藏了视频知识就会进入脑袋的（确信）</s>，有视频参考的情况下，有时能比纯书面更加容易理解一些代码的运行逻辑。</li>
+</ul>
+<p>在通过查阅上述的教程后，相信您会对C#的编写方式有一定了解，同时应该可以尝试下载一些简易的项目进行自行解读和使用，如果还没搞懂也没关系后续的篇幅会具体讲述。</p>
+<h1 id="c-和-net的关系" tabindex="-1"><a class="header-anchor" href="#c-和-net的关系"><span>C# 和 .Net的关系</span></a></h1>
+<p>在上文中曾简短提到 <code v-pre>C#</code> 和 <code v-pre>.Net</code> 的关系。实际使用中，还是分成很多不同的框架，接下来将简单对各个框架进行介绍，方便各位对自己需要的框架进行选择和学习</p>
+<h2 id="_4-1-net-framework" tabindex="-1"><a class="header-anchor" href="#_4-1-net-framework"><span>4.1 .net framework</span></a></h2>
+<p>按照资历上来说，<code v-pre>.net framework</code> 可以说是最最老资历的框架，他是 <code v-pre>.net</code> 生态系统中最早被推出的框架。<Plot>老资历我敬你！</Plot> 相较于后续其他推出的框架而言 <code v-pre>.net framework</code> 主要为Windows平台服务，一般用于开发<strong>桌面应用</strong>或是<strong>windows服务</strong>等。作为最早推出的框架，虽然比较适配windows平台，但是不开源、不能跨平台等缺点还是比较麻烦。</p>
+<h2 id="_4-2-net-core" tabindex="-1"><a class="header-anchor" href="#_4-2-net-core"><span>4.2 .net core</span></a></h2>
+<p><code v-pre>.net core</code> 是继 <code v-pre>.net framework</code> 后推出的<strong>跨平台</strong>框架，为了解决 <code v-pre>.net framework</code> 不能跨平台的问题和不能适用于容器化的问题而出现的。最大的亮点就是高性能和跨平台，同时可以模块化开发，主要服务于微服务和云系统。</p>
+<h2 id="_4-3-net" tabindex="-1"><a class="header-anchor" href="#_4-3-net"><span>4.3 .net</span></a></h2>
+<p><code v-pre>.net</code> 可以看作是结合了 <code v-pre>.net framework</code> 和 <code v-pre>.net core</code> 推出的整合新版本框架，结合了二者的优势。<code v-pre>.net core</code> 在 3.1 版本后就停止了更新，转而合并为 <code v-pre>.net</code> 。目标是实现了跨平台开发，支持windows、linux和macOS，可以构建的项目也囊括了原有的所有，如桌面应用、Web应用、云服务、移动应用等。</p>
+<h2 id="关系表格" tabindex="-1"><a class="header-anchor" href="#关系表格"><span>关系表格</span></a></h2>
+<VPTable  copy="all" align="center" title="关系总结表" markdown="eJx9UMtOwkAU3fsV/QGJxI9xDaZujGKqCZsuZmKibQPRRVMhDIuigUYtGEVLaZGFf6KdO+2KX/BOSzVhwSxuzpxzz33pijBDICMFn65UTtUL5UirnajNhnZcEocNTS2xvqMru8VDaivCzDTwePjGb16Q/7rD8M3sMqKMfdPLBRLJzMeYPXUwAiM5kHpnwm+HIhqJyIfeFBxZJ1n2oUVFNAXrQVgfQCiS+5UqLmIAe07fA04Z+IMiQxqiNmde4V/FBhiPUo0dftUF5xrcex68Fmq+YXVvFZt5+2QWpUN6oNbBIsAmWKp2frY+wz9cX2fj/2dPFkthe5zNoSsrgNvK+gM+t5H8ITQlNHND0RujxD/HwNrcciVfHq6p1qXLxAFMnLBM/gWm79/Z"><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>.net framework</th>
+<th>.net core</th>
+<th>.net</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>跨平台</td>
+<td>×</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>中</td>
+<td>高</td>
+<td>最高</td>
+</tr>
+<tr>
+<td>是否继续更新</td>
+<td>保持维护状态</td>
+<td>3.1 版本起停止维护</td>
+<td>仍在更新（截止编写文档已更新.net 10）</td>
+</tr>
+<tr>
+<td>主要Web技术</td>
+<td>asp .net</td>
+<td>asp .net core</td>
+<td>asp .net core</td>
+</tr>
+<tr>
+<td>主要使用场景</td>
+<td>桌面应用、老项目</td>
+<td>微服务、跨平台web</td>
+<td>所有新项目</td>
+</tr>
+</tbody>
+</table>
+</VPTable><blockquote>
+<p>三个不同的框架之间无法互通，例如使用 <code v-pre>.net framework</code> 进行类库的开发，完成后的dll文件无法给 <code v-pre>.net</code> 项目使用。</p>
+</blockquote>
+</div></template>
+
+

@@ -1,0 +1,1 @@
+export const postsData = {"/blog/":[{"path":"/blog/xh5a5ysf/","title":"示例文档","categoryList":[{"id":"db06c7","sort":10000,"name":"测试"}],"sticky":1,"createTime":"2025/11/19 22:06:35","lang":"zh-CN","excerpt":"自定义摘要内容","cover":"https://avatars.githubusercontent.com/u/113878415?s=400&u=9f10b63e033c9504615bc475581441478424e04b&v=4","readingTime":{"minutes":7.08,"words":2125}}]}

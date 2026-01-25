@@ -1,0 +1,351 @@
+<template><div><blockquote>
+<p>https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/index.html</p>
+</blockquote>
+<blockquote>
+<p>如果您实在懒得看这些规则类，可以看下面这份简易的代码以了解风格。</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-shell"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"># 项目目录</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">Project/</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> .</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ..</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> .git</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # git 存储仓库有管理</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> .gitignore</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # git 忽略文件管理</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> include/</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 存放头文件的目录</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">│</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   ├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> module_1/</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">    # 模块 1 的头文件目录</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">│</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   │</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   ├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> header_1.h</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">│</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   │</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   └──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> header_2.h</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">│</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   ├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> module_2/</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">    # 模块 2 的头文件目录</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">│</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   │</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   ├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> header_1.h</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">│</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   │</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   └──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> header_2.h</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">│</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   └──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> common</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">│</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">       └──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> common.hpp#</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 公共头文件，如宏定义、常量等</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> src/</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 存放源文件的目录</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">│</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   ├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> module_1/</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">    # 模块 1 的源文件目录</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">│</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   │</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   ├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> source1.cpp</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">│</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   │</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   └──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> source2.cpp</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">│</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   ├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> module_2/</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">    # 模块 2 的源文件目录</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">│</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   │</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   ├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> source_1.cpp</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">│</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   │</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   └──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> source_2.cpp</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">│</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   └──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> main.cpp</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">    # 主程序入口源文件</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 3rdparty/</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 第三方软件的目录</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">│</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   ├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> dynamic/</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">    # 第三方库的动态库</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">│</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">   └──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> static/</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">     # 第三方库的静态库</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> tests/</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 单元测试代码</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> build/</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 构建过程中的临时文件</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> doc/</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 帮助文档</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> README.md</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 项目手册</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">├──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> CMakeLists.txt</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 或</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> makefile</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">  # CMake 配置文件或者其他构建工具配置文件</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">└──</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> 协议</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> # 根据软件定位进行开源或闭源(开源则填写开源证书)</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-cpp line-numbers-mode" data-highlighter="shiki" data-ext="cpp" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-cpp"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">// header_1.h</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">#</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">ifndef</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> PROJECT_MODULE_1_HEADER_1_H_</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> // 使用头文件防护符的宏</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">#</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">define</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> PROJECT_MODULE_1_HEADER_1_H_</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">namespace</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> project</span><span style="--shiki-light:#999999;--shiki-dark:#666666">::</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">module_1</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> // 命名空间与子命名空间做分离而不做嵌套, 还不用显示定义 project 命名空间</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">// 匿名命名空间(类型声明, 全局变量, 静态函数)</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">namespace</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">using</span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994"> Integer</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> int</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">void</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> GlobalFunction</span><span style="--shiki-light:#999999;--shiki-dark:#666666">();</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">// 声明枚举</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">enum</span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994"> Color</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">       LIGHT_RED</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">    // 默认值为 0</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">       LIGHT_GREEN</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">  // 默认值为 1</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">       LIGHT_BLUE</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">    // 默认值为 2</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">// 声明结构体</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">struct</span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994"> DataInfo</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">       int</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> a_data_1</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> // 声明结构体内成员变量</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">       float</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> a_data_2</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">       DataInfo</span><span style="--shiki-light:#999999;--shiki-dark:#666666">()</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">       // ...</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">       }</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">};</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> // namespace end</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">// 声明类</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">class</span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994"> DataManger</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">public</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">    DataManger</span><span style="--shiki-light:#999999;--shiki-dark:#666666">();</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> // 构造函数</span></span>
+<span class="line"><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994">    DataInfo</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> getDataInfo</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994">DataInfo</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> data_info_1</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994"> DataInfo</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> data_info_2</span><span style="--shiki-light:#999999;--shiki-dark:#666666">);</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> // 声明类内成员方法</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">protected</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">// ...</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">private</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">    DataInfo data_info_1_</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> // 声明类内成员变量</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">    DataInfo data_info_2_</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> // 声明类内成员变量</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">// 声明常量</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">constexpr</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> int</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> MY_VALUE </span><span style="--shiki-light:#999999;--shiki-dark:#666666">=</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">// 声明函数</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">void</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> MyFunction</span><span style="--shiki-light:#999999;--shiki-dark:#666666">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">// using 别名</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">using</span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994"> PropertiesMap</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994"> hash_map</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;</span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994">UrlTableProperties</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> *</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994"> string</span><span style="--shiki-light:#999999;--shiki-dark:#666666">>;</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> // namespace project::module_1 end</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">#</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> endif</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> // PROJECT_MODULE_1_HEADER_1_H_</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-cpp line-numbers-mode" data-highlighter="shiki" data-ext="cpp" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-cpp"><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">// source_1.cc</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">#</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">include</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">header_1.h</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">project</span><span style="--shiki-light:#999999;--shiki-dark:#666666">::</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">module_1</span><span style="--shiki-light:#999999;--shiki-dark:#666666">::</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">DataManger</span><span style="--shiki-light:#999999;--shiki-dark:#666666">::</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">DataManger</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">	DataInfo data_info_1</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">	DataInfo data_info_2</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">: </span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">data_info_1_</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">data_info_1</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> data_info_2_</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">data_info_2</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">// ...  </span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">project</span><span style="--shiki-light:#999999;--shiki-dark:#666666">::</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">module_1</span><span style="--shiki-light:#999999;--shiki-dark:#666666">::</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">DataManger</span><span style="--shiki-light:#999999;--shiki-dark:#666666">::</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">getDataInfo</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">	int</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> x</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> int</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> y</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> int</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> z</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> // 这里假设 x y z 是具有某种结构的参数</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">	int</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> i</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">// TODO(名字-邮件-定制时间->解决时间)</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">if</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> (</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">...</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> return</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 0</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">while</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> (</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">...</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> continue</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">for</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> (</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">...</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">// ...</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">if</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> (</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">	statement1 </span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">&#x26;&#x26;</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">	statement2 </span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">&#x26;&#x26;</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">	statement3</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">	// ...</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></blockquote>
+<h2 id="_1-命名规则" tabindex="-1"><a class="header-anchor" href="#_1-命名规则"><span>1.命名规则</span></a></h2>
+<h3 id="_1-1-通用命名规则" tabindex="-1"><a class="header-anchor" href="#_1-1-通用命名规则"><span>1.1.通用命名规则</span></a></h3>
+<p>命名规则不论是否合理，只有规则一致性才是命名约定的最核心力量。</p>
+<ul>
+<li>命名由单词构成，保证不缩写所有的单词，除非它真的广而人知</li>
+<li>命名都需要保证一致遵循所有的命名规则</li>
+</ul>
+<h3 id="_1-2-文件命名规则" tabindex="-1"><a class="header-anchor" href="#_1-2-文件命名规则"><span>1.2.文件命名规则</span></a></h3>
+<ul>
+<li>文件名全部采用小写，并且使用 <code v-pre>_</code> 进行分割</li>
+<li>文件名应该避免和 <code v-pre>/usr/include</code> 下的文件名重复</li>
+<li>源文件后缀应使用 <code v-pre>.cc</code>，头文件后缀应使用 <code v-pre>.h</code>，并且对应大驼峰的类名</li>
+</ul>
+<blockquote>
+<p>补充：这里的文件专门指 <code v-pre>C++</code> 运行过程中有可能使用的文件，不包含其他文件。</p>
+</blockquote>
+<blockquote>
+<p>补充：前期为了编码方便，小文件可以先使用 <code v-pre>.cpp</code> 作为过渡，先把代码进行实现，临近结项的时候再使用一些工具进行头文件分离。</p>
+</blockquote>
+<h3 id="_1-3-类型命名规则" tabindex="-1"><a class="header-anchor" href="#_1-3-类型命名规则"><span>1.3.类型命名规则</span></a></h3>
+<ul>
+<li>类名、结构体名、枚举结构体名、类型模版参数均使用大驼峰</li>
+<li><code v-pre>typedef/using</code> 也都使用大驼峰</li>
+</ul>
+<h3 id="_1-4-变量命名规则" tabindex="-1"><a class="header-anchor" href="#_1-4-变量命名规则"><span>1.4.变量命名规则</span></a></h3>
+<ul>
+<li>普通变量命名，用 <code v-pre>_</code> 分割小写单词</li>
+<li>结构成员命名，用 <code v-pre>_</code> 分割小写单词，但是在结尾不加 <code v-pre>_</code> 表示为结构成员</li>
+<li>类内成员命名，用 <code v-pre>_</code> 分割小写单词，但是在结尾加上 <code v-pre>_</code> 表示为类内成员</li>
+</ul>
+<h3 id="_1-5-常量命名规则" tabindex="-1"><a class="header-anchor" href="#_1-5-常量命名规则"><span>1.5.常量命名规则</span></a></h3>
+<ul>
+<li>声明为 <code v-pre>constexpr</code> 或 <code v-pre>const</code> 的变量，使用全大写单词，并且使用 <code v-pre>_</code> 来进行分割</li>
+<li>宏常量使用全大写单词，并且使用 <code v-pre>_</code> 来进行分割（当然宏能不用就不用，不过作为头文件防护符的宏是必须的，其格式有些特殊，应该使用 <code v-pre>项目_路径_文件名_H_</code> 的命名方式）</li>
+<li>枚举常量使用全大写单词，并且使用 <code v-pre>_</code> 来进行分割</li>
+</ul>
+<h3 id="_1-6-函数命名规则" tabindex="-1"><a class="header-anchor" href="#_1-6-函数命名规则"><span>1.6.函数命名规则</span></a></h3>
+<ul>
+<li>普通函数使用大驼峰命名</li>
+<li>类内方法使用小驼峰命名</li>
+</ul>
+<h3 id="_1-7-命名空间规则" tabindex="-1"><a class="header-anchor" href="#_1-7-命名空间规则"><span>1.7.命名空间规则</span></a></h3>
+<ul>
+<li>项目文件夹的名字作为根命名空间的名字</li>
+<li>模块文件夹的名字作为子命名空间的名字</li>
+</ul>
+<h2 id="_2-注释规则" tabindex="-1"><a class="header-anchor" href="#_2-注释规则"><span>2.注释规则</span></a></h2>
+<ul>
+<li>由于本文章主要面向个人开发，所以初次开发统一使用简单的 <code v-pre>//</code> 注释，结项使用 <code v-pre>Doxygen</code> 注释，并且方便生成文档。而关于 <code v-pre>Doxygen</code> 的注释风格，待补充...</li>
+<li>不用在 <code v-pre>.h</code> 和 <code v-pre>.cc</code> 中来回复制注释，这是无效的，尽可能把注释写在 <code v-pre>.h</code> 处，如果 <code v-pre>.cc</code> 中需要特别注意某些细节，那么就进行简单的注释即可</li>
+<li>永远不要用自然语言翻译代码作为注释，要假定阅读代码的人 <code v-pre>C++</code> 比您的要高明</li>
+<li><code v-pre>TODO</code> 注释采用 <code v-pre>TODO(名字-邮件-定制时间-&gt;解决时间)</code> 格式</li>
+</ul>
+<h2 id="_3-头文件规则" tabindex="-1"><a class="header-anchor" href="#_3-头文件规则"><span>3.头文件规则</span></a></h2>
+<ul>
+<li>使用头文件防护符，其格式为 <code v-pre>#ifndef 项目_路径_文件名_H_</code></li>
+<li>头文件需要导入对应实现中的所有头文件，达到自给自足的目的，重复包含问题可以被防护符解决</li>
+<li>只把 <code v-pre>10</code> 行以下的小函数定义为内联，并且对应的实现直接写入头文件中，包括类内的内联函数，不要过度依赖编译器的内联判定，并且不要对虚函数和递归函数进行内联声明</li>
+<li>包含的头文件顺序推荐为 <code v-pre>C 语言系统库头文件, C++ 标准库头文件, 其他库的头文件, 本项目的头文件</code> 每一组都使用空行进行分割</li>
+</ul>
+<h2 id="_4-代码格式规则" tabindex="-1"><a class="header-anchor" href="#_4-代码格式规则"><span>4.代码格式规则</span></a></h2>
+<h3 id="_4-1-行长度格式规则" tabindex="-1"><a class="header-anchor" href="#_4-1-行长度格式规则"><span>4.1.行长度格式规则</span></a></h3>
+<ul>
+<li>我不认为一行 <code v-pre>80</code> 字符对于现代显示器有什么优良的可读性提升，让那些用老设备显示器甚至手机查看代码的人见鬼去吧！您只要保证不要长的过于离谱就行</li>
+</ul>
+<h3 id="_4-2-字符集格式规则" tabindex="-1"><a class="header-anchor" href="#_4-2-字符集格式规则"><span>4.2.字符集格式规则</span></a></h3>
+<ul>
+<li>强制您使用 <code v-pre>ASCII</code> 字符，并且使用 <code v-pre>UTF-8</code> 编码编写程序，但是除去一些特殊需求</li>
+</ul>
+<h3 id="_4-3-代码缩进格式规则" tabindex="-1"><a class="header-anchor" href="#_4-3-代码缩进格式规则"><span>4.3.代码缩进格式规则</span></a></h3>
+<ul>
+<li>我推荐使用 <code v-pre>4</code> 空格</li>
+</ul>
+<h3 id="_4-4-参数缩进格式规则" tabindex="-1"><a class="header-anchor" href="#_4-4-参数缩进格式规则"><span>4.4.参数缩进格式规则</span></a></h3>
+<ul>
+<li>参数如果需要进行缩进，可以使用 <code v-pre>8</code> 空格在前，然后直接进行换行</li>
+<li>如果参数本身具有一定的结构，可以在换行的时候把一些参数控制在同一行</li>
+</ul>
+<h3 id="_4-5-列表初始化格式规则" tabindex="-1"><a class="header-anchor" href="#_4-5-列表初始化格式规则"><span>4.5.列表初始化格式规则</span></a></h3>
+<ul>
+<li>如果迫不得已需要进行换行，应尽可能保证每一行为一个列表</li>
+</ul>
+<h3 id="_4-6-控制流格式规则" tabindex="-1"><a class="header-anchor" href="#_4-6-控制流格式规则"><span>4.6.控制流格式规则</span></a></h3>
+<ul>
+<li>在 <code v-pre>()</code> 中不推荐在最左和最右靠近括号的地方带上空格，但内部的其他地方允许</li>
+<li>当语句简单只有一句才允许使用一行 <code v-pre>if、while、for</code> 语句（其中 <code v-pre>if</code> 要保证没有使用 <code v-pre>else</code>）</li>
+<li>在使用 <code v-pre>if-else, while, for, case</code> 中无论内部代码多小，一定要使用 <code v-pre>{}</code></li>
+<li>空循环体应使用 <code v-pre>continue</code> 增强语意义</li>
+</ul>
+<h3 id="_4-7-指针变量格式规则" tabindex="-1"><a class="header-anchor" href="#_4-7-指针变量格式规则"><span>4.7.指针变量格式规则</span></a></h3>
+<ul>
+<li>在声明指针变量或参数时，星号与类型或变量名紧挨都可以，但是我推荐您靠近类型</li>
+</ul>
+<h3 id="_4-8-逻辑与或格式规则" tabindex="-1"><a class="header-anchor" href="#_4-8-逻辑与或格式规则"><span>4.8.逻辑与或格式规则</span></a></h3>
+<ul>
+<li>如果有大量的逻辑与和逻辑或，可以考虑在写完一个逻辑表达式后，在最末尾添加逻辑运算符然后再进行换行，换行规则类似函数参数</li>
+</ul>
+<h3 id="_4-9-预处理指令格式规则" tabindex="-1"><a class="header-anchor" href="#_4-9-预处理指令格式规则"><span>4.9.预处理指令格式规则</span></a></h3>
+<ul>
+<li>预处理不要有任何缩进，并且不要使用空格分割 <code v-pre>#</code></li>
+</ul>
+<h3 id="_4-10-访问限定符格式规则" tabindex="-1"><a class="header-anchor" href="#_4-10-访问限定符格式规则"><span>4.10.访问限定符格式规则</span></a></h3>
+<ul>
+<li><code v-pre>public</code> 放在最前面，然后是 <code v-pre>protected</code>，最后是 <code v-pre>private</code></li>
+<li>访问限定符关键词后不要保留空行，直接开始编写程序</li>
+<li>除第一个 <code v-pre>public</code> 外，其他访问限定符关键词前要空一行</li>
+</ul>
+<h3 id="_4-11-初始化列表格式" tabindex="-1"><a class="header-anchor" href="#_4-11-初始化列表格式"><span>4.11.初始化列表格式</span></a></h3>
+<ul>
+<li>如果一定要换行，直接开始换行后，使用 <code v-pre>:</code> 和 <code v-pre>,</code> 开始做行首</li>
+<li>初始化列表应该放在函数实现的源文件中</li>
+</ul>
+<h3 id="_4-12-命名空间格式规则" tabindex="-1"><a class="header-anchor" href="#_4-12-命名空间格式规则"><span>4.12.命名空间格式规则</span></a></h3>
+<ul>
+<li>命名空间不要进行缩进，哪怕是有嵌套的命名空间</li>
+<li>命名空间内部的代码也不要因为命名空间发生缩进</li>
+<li>被命名空间所包含的代码需要和命名空间的 <code v-pre>{}</code> 保持一个空行的距离</li>
+</ul>
+<h3 id="_4-13-水平留白格式规则" tabindex="-1"><a class="header-anchor" href="#_4-13-水平留白格式规则"><span>4.13.水平留白格式规则</span></a></h3>
+<ul>
+<li>函数声明、函数定义、函数调用中 <code v-pre>()</code> 不使用空格进行分割，但是 <code v-pre>()</code> 和 <code v-pre>{}</code> 间允许</li>
+<li>在 <code v-pre>if-else, while, for</code> 和 <code v-pre>()</code> 的中间位置添加空格进行分割，在 <code v-pre>()</code> 和 <code v-pre>{}</code> 的中间位置添加空格进行分割</li>
+<li>除去一元操作符，其他操作符必须和操作数之间必须保留一个空格进行分割</li>
+<li>模板中 <code v-pre>&lt;&gt;</code> 不要和模板类型使用空格进行分割</li>
+</ul>
+<h3 id="_4-14-垂直留白格式规则" tabindex="-1"><a class="header-anchor" href="#_4-14-垂直留白格式规则"><span>4.14.垂直留白格式规则</span></a></h3>
+<ul>
+<li>函数内部实现不要使用空行进行分割</li>
+<li>函数定义之间使用一行空行进行分割</li>
+</ul>
+<h2 id="_5-作用域规则" tabindex="-1"><a class="header-anchor" href="#_5-作用域规则"><span>5.作用域规则</span></a></h2>
+<h3 id="_5-1-命名空间规则" tabindex="-1"><a class="header-anchor" href="#_5-1-命名空间规则"><span>5.1.命名空间规则</span></a></h3>
+<ul>
+<li>禁止使用内联命名空间，内联命名空间会自动把其中的标识符置入外层作用域，导致混淆</li>
+<li>禁止使用 <code v-pre>using</code> 打开命名空间内所有的符号</li>
+<li>允许使用 <code v-pre>using</code> 对某些长命名进行缩略</li>
+<li>命名空间与子命名空间做分离而不做嵌套</li>
+<li>使用匿名命名空间，匿名命名空间内部的 <code v-pre>全局变量, 静态函数, 类型声明</code> 仅在定义它们的翻译单元中可见，效果可以完全替代语义多重的 <code v-pre>static</code></li>
+</ul>
+<h3 id="_5-2-局部变量规则" tabindex="-1"><a class="header-anchor" href="#_5-2-局部变量规则"><span>5.2.局部变量规则</span></a></h3>
+<ul>
+<li>局部变量最好在的定义时就做初始化，或者在定义之后很快进行使用</li>
+<li>尽量避免使用全局变量和静态全局变量</li>
+</ul>
+<h2 id="_6-类规则" tabindex="-1"><a class="header-anchor" href="#_6-类规则"><span>6.类规则</span></a></h2>
+<ul>
+<li>不用的成员函数就禁用，直到出现问题</li>
+<li>只使用 <code v-pre>public</code> 继承</li>
+<li>禁止私用多继承</li>
+<li>子类数据成员必须是私有的，需要时给外界提供 <code v-pre>ste()/get()</code></li>
+<li>谨慎重载运算符</li>
+</ul>
+<blockquote>
+<p>还有一些规则待补充...</p>
+</blockquote>
+<h2 id="_7-函数规则" tabindex="-1"><a class="header-anchor" href="#_7-函数规则"><span>7.函数规则</span></a></h2>
+<ul>
+<li>推荐使用返回值而不使用输出型参数，因为语义更好</li>
+<li>虚函数不允许使用默认参数</li>
+<li>在可以使用函数重载的情况下不要使用默认参数</li>
+</ul>
+<blockquote>
+<p>还有一些规则待补充...</p>
+</blockquote>
+<h2 id="_8-指针规则" tabindex="-1"><a class="header-anchor" href="#_8-指针规则"><span>8.指针规则</span></a></h2>
+<ul>
+<li>能使用智能指针就不要使用普通指针进行 <code v-pre>new</code> 管理</li>
+</ul>
+<blockquote>
+<p>还有一些规则待补充...</p>
+</blockquote>
+<h2 id="_9-其他规则" tabindex="-1"><a class="header-anchor" href="#_9-其他规则"><span>9.其他规则</span></a></h2>
+<h3 id="右值引用" tabindex="-1"><a class="header-anchor" href="#右值引用"><span>右值引用</span></a></h3>
+<h3 id="变长数组" tabindex="-1"><a class="header-anchor" href="#变长数组"><span>变长数组</span></a></h3>
+<h3 id="友元" tabindex="-1"><a class="header-anchor" href="#友元"><span>友元</span></a></h3>
+<h3 id="异常" tabindex="-1"><a class="header-anchor" href="#异常"><span>异常</span></a></h3>
+<h3 id="rtti" tabindex="-1"><a class="header-anchor" href="#rtti"><span>RTTI</span></a></h3>
+<h3 id="类型转换" tabindex="-1"><a class="header-anchor" href="#类型转换"><span>类型转换</span></a></h3>
+<ul>
+<li>使用 <code v-pre>xxx_cast&lt;&gt;()</code> 之类的转换而不使用 <code v-pre>()</code> 进行转换</li>
+</ul>
+<h3 id="前置后置" tabindex="-1"><a class="header-anchor" href="#前置后置"><span>前置后置</span></a></h3>
+<ul>
+<li>优先使用前置 <code v-pre>++/--</code></li>
+</ul>
+<h3 id="const" tabindex="-1"><a class="header-anchor" href="#const"><span>const</span></a></h3>
+<ul>
+<li>尽可能使用 <code v-pre>const</code></li>
+</ul>
+<h3 id="空指针" tabindex="-1"><a class="header-anchor" href="#空指针"><span>空指针</span></a></h3>
+<ul>
+<li>使用 <code v-pre>nullptr</code> 替代 <code v-pre>NULL</code></li>
+</ul>
+<h3 id="sizeof" tabindex="-1"><a class="header-anchor" href="#sizeof"><span>sizeof</span></a></h3>
+<ul>
+<li>使用 <code v-pre>sizeof(value)</code> 好过 <code v-pre>sizeof(type)</code>，因为变量名不常修改，但类型有可能</li>
+</ul>
+<h3 id="auto" tabindex="-1"><a class="header-anchor" href="#auto"><span>auto</span></a></h3>
+<ul>
+<li>类型名又臭又长时，可以使用 <code v-pre>auto</code> 进行简化</li>
+</ul>
+<h3 id="列表初始化" tabindex="-1"><a class="header-anchor" href="#列表初始化"><span>列表初始化</span></a></h3>
+<ul>
+<li>允许使用列表初始化</li>
+</ul>
+<h3 id="lambda" tabindex="-1"><a class="header-anchor" href="#lambda"><span>Lambda</span></a></h3>
+<h2 id="_10-boost-规则" tabindex="-1"><a class="header-anchor" href="#_10-boost-规则"><span>10.boost 规则</span></a></h2>
+<ul>
+<li><a href="http://www.boost.org/doc/libs/1_58_0/libs/utility/call_traits.htm" target="_blank" rel="noopener noreferrer">Call Traits</a> : <code v-pre>boost/call_traits.hpp</code></li>
+<li><a href="http://www.boost.org/libs/utility/compressed_pair.htm" target="_blank" rel="noopener noreferrer">Compressed Pair</a> : <code v-pre>boost/compressed_pair.hpp</code></li>
+<li>[ : <code v-pre>boost/graph</code>, except serialization (<code v-pre>adj_list_serialize.hpp</code>) and parallel/distributed algorithms and data structures(<code v-pre>boost/graph/parallel/*</code> and <code v-pre>boost/graph/distributed/*</code>)</li>
+<li><a href="http://www.boost.org/libs/property_map/" target="_blank" rel="noopener noreferrer">Property Map</a> : <code v-pre>boost/property_map.hpp</code></li>
+<li>The part of <a href="http://www.boost.org/libs/iterator/" target="_blank" rel="noopener noreferrer">Iterator</a> that deals with defining iterators: <code v-pre>boost/iterator/iterator_adaptor.hpp</code>, <code v-pre>boost/iterator/iterator_facade.hpp</code>, and <code v-pre>boost/function_output_iterator.hpp</code></li>
+<li>The part of <a href="http://www.boost.org/libs/polygon/" target="_blank" rel="noopener noreferrer">Polygon</a> that deals with Voronoi diagram construction and doesn’t depend on the rest of Polygon: <code v-pre>boost/polygon/voronoi_builder.hpp</code>, <code v-pre>boost/polygon/voronoi_diagram.hpp</code>, and <code v-pre>boost/polygon/voronoi_geometry_type.hpp</code></li>
+<li><a href="http://www.boost.org/libs/bimap/" target="_blank" rel="noopener noreferrer">Bimap</a> : <code v-pre>boost/bimap</code></li>
+<li><a href="http://www.boost.org/libs/math/doc/html/dist.html" target="_blank" rel="noopener noreferrer">Statistical Distributions and Functions</a> : <code v-pre>boost/math/distributions</code></li>
+<li><a href="http://www.boost.org/libs/multi_index/" target="_blank" rel="noopener noreferrer">Multi-index</a> : <code v-pre>boost/multi_index</code></li>
+<li><a href="http://www.boost.org/libs/heap/" target="_blank" rel="noopener noreferrer">Heap</a> : <code v-pre>boost/heap</code></li>
+<li>The flat containers from <a href="http://www.boost.org/libs/container/" target="_blank" rel="noopener noreferrer">Container</a>: <code v-pre>boost/container/flat_map</code>, and <code v-pre>boost/container/flat_set</code></li>
+</ul>
+<blockquote>
+<p>补充：以下库可以用，但由于如今已经被 <code v-pre>C++11</code> 标准库取代，不再鼓励。</p>
+<ul>
+<li><a href="http://www.boost.org/libs/ptr_container/" target="_blank" rel="noopener noreferrer">Pointer Container</a> : <code v-pre>boost/ptr_container</code>, 改用 <a href="http://en.cppreference.com/w/cpp/memory/unique_ptr" target="_blank" rel="noopener noreferrer">std::unique_ptr</a></li>
+<li><a href="http://www.boost.org/libs/array/" target="_blank" rel="noopener noreferrer">Array</a> : <code v-pre>boost/array.hpp</code>, 改用 <a href="http://en.cppreference.com/w/cpp/container/array" target="_blank" rel="noopener noreferrer">std::array</a></li>
+</ul>
+</blockquote>
+<h3 id="_11-平台规则" tabindex="-1"><a class="header-anchor" href="#_11-平台规则"><span>11.平台规则</span></a></h3>
+<h3 id="linux" tabindex="-1"><a class="header-anchor" href="#linux"><span>Linux</span></a></h3>
+<h3 id="windows" tabindex="-1"><a class="header-anchor" href="#windows"><span>Windows</span></a></h3>
+</div></template>
+
+
