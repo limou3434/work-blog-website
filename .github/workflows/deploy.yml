@@ -35,7 +35,7 @@ jobs:
       - name: 构建项目
         run: |
           cd work-blog-website-frontend
-          npm run docs:build
+          DEPLOY_ENV=GITHUB_PAGES npm run docs:build
 
       - name: 部署服务
         uses: crazy-max/ghaction-github-pages@v4
