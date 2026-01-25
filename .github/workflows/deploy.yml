@@ -1,49 +1,89 @@
 name: docs
 
-# 每当某个行为发生的时候讲触发动作
 on:
-  # 当 push 到 main 分支时触发工作流
   push:
     branches: [main]
-  # 当 xxx 规则时触发工作流（当前为空）
   workflow_dispatch:
 
-# 工作流中需要做的人物清单（每个 job 可以自己命名，并且相互之间默认是并行执行的独立关系，除非使用 needs）
 jobs:
-  # 文档任务（当前只有一个任务）
   docs:
-    # 指定运行环境
     runs-on: ubuntu-latest
 
-    # 指定
     steps:
-      - name: 把触发 workflow 的那个仓库 clone 到 runner 的工作目录，把仓库“搬到” CI/CD 虚拟机上方便后续构建、测试、部署
+      - name: 拉取仓库
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # 拉取 Git 仓库的完整历史
+          fetch-depth: 0
 
-      - name: 设置指定的 node 依赖管理器和对应的版本
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10 # 选择要使用的 pnpm 版本
-          run_install: true # 使用 pnpm 安装依赖
-
-      - name: 设置指定的 node 语言和对应的版本
+      - name: 安装 Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22 # 选择要使用的 node 版本
-          cache: pnpm # 缓存 pnpm 依赖
-          cache-dependency-path: work-blog-website-frontend/pnpm-lock.yaml
+          node-version: 22
 
-      - name: 运行构建脚本
+      - name: 安装依赖
         run: |
-          cd work-blog-site-frontend 
-          pnpm docs:build
+          cd work-blog-website-frontend
+          npm install
 
-      - name: 部署博客站点到 Github Page 中 # @see https://github.com/crazy-max/ghaction-github-pages
+      - name: 构建文档
+        run: |
+          cd work-blog-website-frontend
+          npm run docs:build
+
+      - name: 部署到 gh-pages
         uses: crazy-max/ghaction-github-pages@v4
         with:
-          target_branch: gh-pages # 部署到 gh-pages 分支
-          build_dir: work-blog-site-frontend/docs/.vuepress/dist # 部署目录为 VuePress 的默认输出目录
+          target_branch: gh-pages
+          build_dir: work-blog-website-frontend/docs/.vuepress/dist
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+#name: docs
+#
+## 每当某个行为发生的时候讲触发动作
+#on:
+#  # 当 push 到 main 分支时触发工作流
+#  push:
+#    branches: [main]
+#  # 当 xxx 规则时触发工作流（当前为空）
+#  workflow_dispatch:
+#
+## 工作流中需要做的人物清单（每个 job 可以自己命名，并且相互之间默认是并行执行的独立关系，除非使用 needs）
+#jobs:
+#  # 文档任务（当前只有一个任务）
+#  docs:
+#    # 指定运行环境
+#    runs-on: ubuntu-latest
+#
+#    # 指定
+#    steps:
+#      - name: 把触发 workflow 的那个仓库 clone 到 runner 的工作目录，把仓库“搬到” CI/CD 虚拟机上方便后续构建、测试、部署
+#        uses: actions/checkout@v4
+#        with:
+#          fetch-depth: 0 # 拉取 Git 仓库的完整历史
+#
+#      - name: 设置指定的 node 依赖管理器和对应的版本
+#        uses: pnpm/action-setup@v4
+#        with:
+#          version: 10 # 选择要使用的 pnpm 版本
+#          run_install: true # 使用 pnpm 安装依赖
+#
+#      - name: 设置指定的 node 语言和对应的版本
+#        uses: actions/setup-node@v4
+#        with:
+#          node-version: 22 # 选择要使用的 node 版本
+#          cache: pnpm # 缓存 pnpm 依赖
+#
+#      - name: 运行构建脚本
+#        run: |
+#          cd work-blog-site-frontend
+#          pnpm docs:build
+#
+#      - name: 部署博客站点到 Github Page 中 # @see https://github.com/crazy-max/ghaction-github-pages
+#        uses: crazy-max/ghaction-github-pages@v4
+#        with:
+#          target_branch: gh-pages # 部署到 gh-pages 分支
+#          build_dir: work-blog-site-frontend/docs/.vuepress/dist # 部署目录为 VuePress 的默认输出目录
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
