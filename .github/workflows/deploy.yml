@@ -33,6 +33,7 @@ jobs:
         with:
           node-version: 22 # 选择要使用的 node 版本
           cache: pnpm # 缓存 pnpm 依赖
+          cache-dependency-path: work-blog-website-frontend/pnpm-lock.yaml
 
       - name: 运行构建脚本
         run: |
