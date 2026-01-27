@@ -1,3 +1,16 @@
-import comp from "/home/ljp/git/work/work-blog-website/docs/.vuepress/.temp/pages/1.编程语言/7cacwx5v/index.html.vue"
-const data = JSON.parse("{\"path\":\"/1.%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/7cacwx5v/\",\"title\":\"JavaScript\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/11/16 18:14:24\",\"permalink\":\"/1.编程语言/7cacwx5v/\",\"description\":\"JavaScript\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"JavaScript\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2025-11-24T07:31:59.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/1.%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/7cacwx5v/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"JavaScript\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"JavaScript\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2025-11-24T07:31:59.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2025-11-24T07:31:59.000Z\"}]]},\"readingTime\":{\"minutes\":0.04,\"words\":13},\"git\":{\"createdTime\":1763624881000,\"updatedTime\":1763969519000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":2,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"0843bbd5822d813e44d13090b1a6a2b4c244a149\",\"time\":1763969519000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改语言目录结构，同时归纳新的语言目录\"},{\"hash\":\"6e6aa451227a45bab9580d4d6d6ab5216e5dc585\",\"time\":1763624881000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"项目大更新\"}]},\"autoDesc\":true,\"filePathRelative\":\"1.编程语言/6.JavaScript/README.md\",\"headers\":[],\"bulletin\":true}")
+import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/1.编程语言/7cacwx5v/index.html.vue"
+const data = JSON.parse("{\"path\":\"/1.%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/7cacwx5v/\",\"title\":\"JavaScript\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/11/16 18:14:24\",\"permalink\":\"/1.编程语言/7cacwx5v/\"},\"readingTime\":{\"minutes\":0.04,\"words\":13},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"1.编程语言/6.JavaScript/README.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

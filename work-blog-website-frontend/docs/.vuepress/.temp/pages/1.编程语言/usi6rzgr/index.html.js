@@ -1,3 +1,16 @@
-import comp from "/home/ljp/git/work/work-blog-website/docs/.vuepress/.temp/pages/1.编程语言/usi6rzgr/index.html.vue"
-const data = JSON.parse("{\"path\":\"/1.%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/usi6rzgr/\",\"title\":\"Cache 替换算法\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:58\",\"permalink\":\"/1.编程语言/usi6rzgr/\",\"description\":\"Cache 替换算法\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"Cache 替换算法\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2025-11-24T07:31:59.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/1.%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/usi6rzgr/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"Cache 替换算法\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"Cache 替换算法\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2025-11-24T07:31:59.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2025-11-24T07:31:59.000Z\"}]]},\"readingTime\":{\"minutes\":0.06,\"words\":17},\"git\":{\"createdTime\":1763733086000,\"updatedTime\":1763969519000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":2,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"0843bbd5822d813e44d13090b1a6a2b4c244a149\",\"time\":1763969519000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改语言目录结构，同时归纳新的语言目录\"},{\"hash\":\"6fa6eae10517f850cf13358e780dd7114a7263a2\",\"time\":1763733086000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"迁移所有有效的文章\"}]},\"autoDesc\":true,\"filePathRelative\":\"1.编程语言/2.Cpp/037_2023_12_03_ljp_的Cache替换算法.md\",\"headers\":[],\"bulletin\":true}")
+import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/1.编程语言/usi6rzgr/index.html.vue"
+const data = JSON.parse("{\"path\":\"/1.%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/usi6rzgr/\",\"title\":\"Cache 替换算法\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:58\",\"permalink\":\"/1.编程语言/usi6rzgr/\"},\"readingTime\":{\"minutes\":0.06,\"words\":17},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"1.编程语言/2.Cpp/037_2023_12_03_ljp_的Cache替换算法.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

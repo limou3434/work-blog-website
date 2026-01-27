@@ -1,3 +1,16 @@
-import comp from "/home/ljp/git/work/work-blog-website/docs/.vuepress/.temp/pages/6.素材处理/d08f5m4m/index.html.vue"
-const data = JSON.parse("{\"path\":\"/6.%E7%B4%A0%E6%9D%90%E5%A4%84%E7%90%86/d08f5m4m/\",\"title\":\"拍摄技巧\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/12/25 18:21:37\",\"permalink\":\"/6.素材处理/d08f5m4m/\",\"description\":\"拍摄技巧\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"拍摄技巧\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2026-01-07T18:40:23.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/6.%E7%B4%A0%E6%9D%90%E5%A4%84%E7%90%86/d08f5m4m/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"拍摄技巧\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"拍摄技巧\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2026-01-07T18:40:23.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2026-01-07T18:40:23.000Z\"}]]},\"readingTime\":{\"minutes\":0.05,\"words\":16},\"git\":{\"createdTime\":1766658779000,\"updatedTime\":1767811223000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":2,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"7f1dcb555708545c52cc6455d25c96915bf7b744\",\"time\":1767811223000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"把降噪的一些操作细节描述出来\"},{\"hash\":\"ad72709e76269cf67ad71c9c652711ca581fcd30\",\"time\":1766658779000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"近期的一些学习\"}]},\"autoDesc\":true,\"filePathRelative\":\"6.素材处理/002_2025_12_25_ljp_拍摄技巧.md\",\"headers\":[],\"bulletin\":true}")
+import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/6.素材处理/d08f5m4m/index.html.vue"
+const data = JSON.parse("{\"path\":\"/6.%E7%B4%A0%E6%9D%90%E5%A4%84%E7%90%86/d08f5m4m/\",\"title\":\"拍摄技巧\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/12/25 18:21:37\",\"permalink\":\"/6.素材处理/d08f5m4m/\"},\"readingTime\":{\"minutes\":0.05,\"words\":16},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"6.素材处理/002_2025_12_25_ljp_拍摄技巧.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

@@ -207,7 +207,7 @@ date="2024/08/16"
 <VPCollapse><VPCollapseItem :index="0"><template #title>标题 1</template><p>正文内容</p>
 </VPCollapseItem><VPCollapseItem :index="1"><template #title>标题 2</template><p>正文内容</p>
 </VPCollapseItem></VPCollapse><h3 id="_2-12-页面测试" tabindex="-1"><a class="header-anchor" href="#_2-12-页面测试"><span>2.12.页面测试</span></a></h3>
-<CanIUseViewer feature="css-matches-pseudo" meta="nyemg" :past="2" :future="1" /><h3 id="_2-13-对话记录" tabindex="-1"><a class="header-anchor" href="#_2-13-对话记录"><span>2.13.对话记录</span></a></h3>
+<CanIUseViewer feature="css-matches-pseudo" meta="edump" :past="2" :future="1" /><h3 id="_2-13-对话记录" tabindex="-1"><a class="header-anchor" href="#_2-13-对话记录"><span>2.13.对话记录</span></a></h3>
 <div class="vp-chat">
   <div class="vp-chat-header">
     <p class="vp-chat-title">标题</p>
@@ -534,6 +534,11 @@ date="2024/08/16"
 </VPField><!-- 字段组合 -->
 <div class="vp-field-group"><VPField name="字段名" required type="类型" default-value="默认值"><p>字段描述信息</p>
 </VPField><VPField name="字段名" required type="类型" default-value="默认值"><p>字段描述信息</p>
-</VPField></div></div></template>
+</VPField></div><h3 id="_2-26-自定组件" tabindex="-1"><a class="header-anchor" href="#_2-26-自定组件"><span>2.26.自定组件</span></a></h3>
+<ClientOnly>
+  <AiChat />
+</ClientOnly>
+<p>111</p>
+</div></template>
 
 
