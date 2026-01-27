@@ -1,3 +1,16 @@
-import comp from "/home/ljp/git/work/work-blog-website/docs/.vuepress/.temp/pages/6.素材处理/3r28w0yg/index.html.vue"
-const data = JSON.parse("{\"path\":\"/6.%E7%B4%A0%E6%9D%90%E5%A4%84%E7%90%86/3r28w0yg/\",\"title\":\"设计原则\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/11/21 18:08:41\",\"permalink\":\"/6.素材处理/3r28w0yg/\",\"title\":\"设计原则\",\"description\":\"重要 以下文章，等待后续补充... 如何成为 UIEnjoying Typora Plugin? Star us! 设计师 首先，你得开始学习设计的一些原则和套路，如配色、平衡、排版、一致性等。还有用户体验的 4D 步骤——Discover、Define、Develop 和 Delivery。然后，开始到一些网站上找灵感。接下来，是到不同的网站上读各种...\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"设计原则\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2025-12-28T18:18:03.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/6.%E7%B4%A0%E6%9D%90%E5%A4%84%E7%90%86/3r28w0yg/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"设计原则\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"重要 以下文章，等待后续补充... 如何成为 UIEnjoying Typora Plugin? Star us! 设计师 首先，你得开始学习设计的一些原则和套路，如配色、平衡、排版、一致性等。还有用户体验的 4D 步骤——Discover、Define、Develop 和 Delivery。然后，开始到一些网站上找灵感。接下来，是到不同的网站上读各种...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2025-12-28T18:18:03.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2025-12-28T18:18:03.000Z\"}]]},\"readingTime\":{\"minutes\":7.86,\"words\":2358},\"git\":{\"createdTime\":1766945883000,\"updatedTime\":1766945883000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"59b2ba1b80bb387a02a45c1d9dc9a6dcd0e4c985\",\"time\":1766945883000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"提交一些进期的计划和一些新的 AE 学习记录\"}]},\"autoDesc\":true,\"filePathRelative\":\"6.素材处理/001_2025_08_06_ljp_设计原则.md\",\"headers\":[],\"bulletin\":true}")
+import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/6.素材处理/3r28w0yg/index.html.vue"
+const data = JSON.parse("{\"path\":\"/6.%E7%B4%A0%E6%9D%90%E5%A4%84%E7%90%86/3r28w0yg/\",\"title\":\"设计原则\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/11/21 18:08:41\",\"permalink\":\"/6.素材处理/3r28w0yg/\",\"title\":\"设计原则\"},\"readingTime\":{\"minutes\":7.86,\"words\":2358},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"6.素材处理/001_2025_08_06_ljp_设计原则.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

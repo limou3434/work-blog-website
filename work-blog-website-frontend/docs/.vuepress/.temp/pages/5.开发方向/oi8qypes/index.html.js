@@ -1,3 +1,16 @@
-import comp from "/home/ljp/git/work/work-blog-website/docs/.vuepress/.temp/pages/5.开发方向/oi8qypes/index.html.vue"
-const data = JSON.parse("{\"path\":\"/5.%E5%BC%80%E5%8F%91%E6%96%B9%E5%90%91/oi8qypes/\",\"title\":\"反应模式\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:58\",\"permalink\":\"/5.开发方向/oi8qypes/\",\"description\":\"反应模式\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"反应模式\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2025-11-21T13:51:26.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/5.%E5%BC%80%E5%8F%91%E6%96%B9%E5%90%91/oi8qypes/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"反应模式\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"反应模式\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2025-11-21T13:51:26.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2025-11-21T13:51:26.000Z\"}]]},\"readingTime\":{\"minutes\":0.05,\"words\":16},\"git\":{\"createdTime\":1763733086000,\"updatedTime\":1763733086000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"6fa6eae10517f850cf13358e780dd7114a7263a2\",\"time\":1763733086000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"迁移所有有效的文章\"}]},\"autoDesc\":true,\"filePathRelative\":\"5.开发方向/8.架构开发/011_2024_12_17_ljp_反应模式.md\",\"headers\":[],\"bulletin\":true}")
+import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/5.开发方向/oi8qypes/index.html.vue"
+const data = JSON.parse("{\"path\":\"/5.%E5%BC%80%E5%8F%91%E6%96%B9%E5%90%91/oi8qypes/\",\"title\":\"反应模式\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:58\",\"permalink\":\"/5.开发方向/oi8qypes/\"},\"readingTime\":{\"minutes\":0.05,\"words\":16},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"5.开发方向/8.架构开发/011_2024_12_17_ljp_反应模式.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

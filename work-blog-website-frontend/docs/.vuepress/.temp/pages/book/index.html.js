@@ -1,3 +1,16 @@
-import comp from "/home/ljp/git/work/work-blog-website/docs/.vuepress/.temp/pages/book/index.html.vue"
-const data = JSON.parse("{\"path\":\"/book/\",\"title\":\"项目文档\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/11/22 00:43:07\",\"permalink\":\"/book/\",\"title\":\"项目文档\",\"description\":\"这里包含了所有相关项目的文档，供您愉快的使用项目！\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"项目文档\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2025-11-21T16:48:41.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/book/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"项目文档\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"这里包含了所有相关项目的文档，供您愉快的使用项目！\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2025-11-21T16:48:41.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2025-11-21T16:48:41.000Z\"}]]},\"readingTime\":{\"minutes\":0.11,\"words\":34},\"git\":{\"createdTime\":1763743721000,\"updatedTime\":1763743721000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"39084a51024e04ae00e5cebcf97ce1099b96394c\",\"time\":1763743721000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"添加文档存储目录\"}]},\"autoDesc\":true,\"filePathRelative\":\"book/README.md\",\"headers\":[],\"bulletin\":true}")
+import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/book/index.html.vue"
+const data = JSON.parse("{\"path\":\"/book/\",\"title\":\"项目文档\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/11/22 00:43:07\",\"permalink\":\"/book/\",\"title\":\"项目文档\"},\"readingTime\":{\"minutes\":0.11,\"words\":34},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"book/README.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}
