@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "ant-design-vue": "^4.2.6",
-    "marked": "^17.0.1"
-  }
-}
