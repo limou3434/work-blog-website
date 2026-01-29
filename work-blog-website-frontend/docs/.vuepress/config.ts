@@ -135,6 +135,7 @@ export default defineUserConfig({
                 fullWidth: false, // 表格宽度默认占据整行
                 copy: true, // true | 'all' | 'html' | 'md', 复制为 html/markdown, true 相当于 `all`, 相当于同时启用 html 和 markdown
             },
+            qrcode: true, // 二维码
         },
     }),
 })

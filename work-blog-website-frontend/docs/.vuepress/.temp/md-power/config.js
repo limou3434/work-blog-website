@@ -16,6 +16,7 @@ import VPCollapseItem from '/home/ljp/git/work/work-blog-website/work-blog-websi
 import '/home/ljp/git/work/work-blog-website/work-blog-website-frontend/node_modules/vuepress-theme-plume/node_modules/vuepress-plugin-md-power/lib/client/styles/chat.css'
 import VPField from '/home/ljp/git/work/work-blog-website/work-blog-website-frontend/node_modules/vuepress-theme-plume/node_modules/vuepress-plugin-md-power/lib/client/components/VPField.vue'
 import VPTable from '/home/ljp/git/work/work-blog-website/work-blog-website-frontend/node_modules/vuepress-theme-plume/node_modules/vuepress-plugin-md-power/lib/client/components/VPTable.vue'
+import VPQRCode from '/home/ljp/git/work/work-blog-website/work-blog-website-frontend/node_modules/vuepress-theme-plume/node_modules/vuepress-plugin-md-power/lib/client/components/VPQRCode.vue'
 import { setupMarkHighlight } from '/home/ljp/git/work/work-blog-website/work-blog-website-frontend/node_modules/vuepress-theme-plume/node_modules/vuepress-plugin-md-power/lib/client/composables/mark.js'
 
 import '/home/ljp/git/work/work-blog-website/work-blog-website-frontend/node_modules/vuepress-theme-plume/node_modules/vuepress-plugin-md-power/lib/client/styles/index.css'
@@ -38,6 +39,7 @@ export default defineClientConfig({
     app.component('VPCollapseItem', VPCollapseItem)
     app.component('VPField', VPField)
     app.component('VPTable', VPTable)
+    app.component('VPQRCode', VPQRCode)
   },
   setup() {
         setupMarkHighlight("eager")

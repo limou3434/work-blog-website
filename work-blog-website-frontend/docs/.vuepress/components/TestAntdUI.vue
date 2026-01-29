@@ -10,5 +10,5 @@
 </template>
 
 <script setup>
-import { Button as AButton } from 'ant-design-vue'
+import { Button as AButton } from 'ant-design-vue';
 </script>
