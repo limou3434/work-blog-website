@@ -11,6 +11,8 @@ import Swiper from 'vuepress-theme-plume/features/Swiper.vue'
 import BulletinContent from './components/BulletinContent.vue'
 // @ts-ignore
 import TestAntdUI from './components/TestAntdUI.vue'
+// @ts-ignore
+import AIChatDrawer from './components/AIChatDrawer.vue'
 
 export default defineClientConfig({
     enhance({app}) {
@@ -18,5 +20,6 @@ export default defineClientConfig({
         app.component('Swiper', Swiper) // 引入轮播图片组件
         app.component('BulletinContent', BulletinContent); // 引入全局公告组件
         app.component('TestAntdUI', TestAntdUI) // 引入轮播图片组件
+        app.component('AIChatDrawer', AIChatDrawer) // 引入轮播图片组件
     },
 })
