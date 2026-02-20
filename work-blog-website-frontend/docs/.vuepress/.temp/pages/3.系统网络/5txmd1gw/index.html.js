@@ -1,16 +1,3 @@
 import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/3.系统网络/5txmd1gw/index.html.vue"
-const data = JSON.parse("{\"path\":\"/3.%E7%B3%BB%E7%BB%9F%E7%BD%91%E7%BB%9C/5txmd1gw/\",\"title\":\"构建器\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/04/11 12:12:53\",\"permalink\":\"/3.系统网络/5txmd1gw/\",\"title\":\"构建器\"},\"readingTime\":{\"minutes\":17.62,\"words\":5285},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"3.系统网络/1.基本操作/007_ljp_2023_09_12_构建器.md\",\"headers\":[],\"bulletin\":true}")
+const data = JSON.parse("{\"path\":\"/3.%E7%B3%BB%E7%BB%9F%E7%BD%91%E7%BB%9C/5txmd1gw/\",\"title\":\"构建器\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/04/11 12:12:53\",\"permalink\":\"/3.系统网络/5txmd1gw/\",\"title\":\"构建器\",\"description\":\"1.Make 1.1.Make 的概念 make 是一个指令，makefile 是一个在当前目录下存在的一个具有特定格式的文件。 如果在 Linux 中编写了大量的代码文件，难不成要一个一个使用 gcc/h++ 编译吗，要是代码出了问题，修改后又需要编译怎么办？因此出现了 make 这样的自动化构建工具。 1.2.Make 的使用 1.2.1.编写代码...\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"构建器\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2026-01-25T16:36:00.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/3.%E7%B3%BB%E7%BB%9F%E7%BD%91%E7%BB%9C/5txmd1gw/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"构建器\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"1.Make 1.1.Make 的概念 make 是一个指令，makefile 是一个在当前目录下存在的一个具有特定格式的文件。 如果在 Linux 中编写了大量的代码文件，难不成要一个一个使用 gcc/h++ 编译吗，要是代码出了问题，修改后又需要编译怎么办？因此出现了 make 这样的自动化构建工具。 1.2.Make 的使用 1.2.1.编写代码...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}]]},\"readingTime\":{\"minutes\":17.62,\"words\":5285},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"autoDesc\":true,\"filePathRelative\":\"3.系统网络/1.基本操作/007_ljp_2023_09_12_构建器.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

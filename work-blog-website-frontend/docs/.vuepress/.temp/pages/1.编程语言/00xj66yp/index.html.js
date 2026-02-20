@@ -1,16 +1,3 @@
 import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/1.编程语言/00xj66yp/index.html.vue"
-const data = JSON.parse("{\"path\":\"/1.%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/00xj66yp/\",\"title\":\"搜索二叉树\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:58\",\"permalink\":\"/1.编程语言/00xj66yp/\",\"title\":\"搜索二叉树\"},\"readingTime\":{\"minutes\":18.27,\"words\":5482},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"1.编程语言/2.Cpp/022_2023_10_05_ljp_搜索二叉树.md\",\"headers\":[],\"bulletin\":true}")
+const data = JSON.parse("{\"path\":\"/1.%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/00xj66yp/\",\"title\":\"搜索二叉树\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:58\",\"permalink\":\"/1.编程语言/00xj66yp/\",\"title\":\"搜索二叉树\",\"description\":\"本章主要是二叉树的进阶部分，学习搜索二叉树后可以更好理解后面的 map 和 set 的特性，因为两者都是在二叉搜索树上作出一定的限定。 1.二叉搜索树概念 二叉搜索树/二叉排序树的递归定义为：非空左子树所有元素都小于根节点的值，非空右子树所有元素都大于根节点的值，而左右子树也是二叉搜索树。 image-20231006003650179 2.二叉搜索树...\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"搜索二叉树\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2026-01-25T16:36:00.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/1.%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/00xj66yp/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"搜索二叉树\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"本章主要是二叉树的进阶部分，学习搜索二叉树后可以更好理解后面的 map 和 set 的特性，因为两者都是在二叉搜索树上作出一定的限定。 1.二叉搜索树概念 二叉搜索树/二叉排序树的递归定义为：非空左子树所有元素都小于根节点的值，非空右子树所有元素都大于根节点的值，而左右子树也是二叉搜索树。 image-20231006003650179 2.二叉搜索树...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}]]},\"readingTime\":{\"minutes\":18.27,\"words\":5482},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"autoDesc\":true,\"filePathRelative\":\"1.编程语言/2.Cpp/022_2023_10_05_ljp_搜索二叉树.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

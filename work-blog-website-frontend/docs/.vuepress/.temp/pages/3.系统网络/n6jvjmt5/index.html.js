@@ -1,16 +1,3 @@
 import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/3.系统网络/n6jvjmt5/index.html.vue"
-const data = JSON.parse("{\"path\":\"/3.%E7%B3%BB%E7%BB%9F%E7%BD%91%E7%BB%9C/n6jvjmt5/\",\"title\":\"伺服程序软件\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/04/09 23:31:30\",\"permalink\":\"/3.系统网络/n6jvjmt5/\",\"title\":\"伺服程序软件\"},\"readingTime\":{\"minutes\":23.13,\"words\":6940},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"3.系统网络/1.基本操作/036_ljp_2024_09_05_伺服程序软件.md\",\"headers\":[],\"bulletin\":true}")
+const data = JSON.parse("{\"path\":\"/3.%E7%B3%BB%E7%BB%9F%E7%BD%91%E7%BB%9C/n6jvjmt5/\",\"title\":\"伺服程序软件\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/04/09 23:31:30\",\"permalink\":\"/3.系统网络/n6jvjmt5/\",\"title\":\"伺服程序软件\",\"description\":\"1.Nginx Nginx 是一款自由、开源、高性能的 HTTP 服务器和反向代理服务器（正向代理代理客户端，反向代理代理服务端）。同时也是 一个 IMAP, POP3, SMTP 代理服务器。Nginx 可以作为一个 HTTP 服务器进行网站 的发布处理，也可以作为反向代理进行负载均衡的实现，这里展示关于 Ubuntu 下 Nginx 的使用。 注意...\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"伺服程序软件\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2026-01-25T16:36:00.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/3.%E7%B3%BB%E7%BB%9F%E7%BD%91%E7%BB%9C/n6jvjmt5/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"伺服程序软件\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"1.Nginx Nginx 是一款自由、开源、高性能的 HTTP 服务器和反向代理服务器（正向代理代理客户端，反向代理代理服务端）。同时也是 一个 IMAP, POP3, SMTP 代理服务器。Nginx 可以作为一个 HTTP 服务器进行网站 的发布处理，也可以作为反向代理进行负载均衡的实现，这里展示关于 Ubuntu 下 Nginx 的使用。 注意...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}]]},\"readingTime\":{\"minutes\":23.13,\"words\":6940},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"autoDesc\":true,\"filePathRelative\":\"3.系统网络/1.基本操作/036_ljp_2024_09_05_伺服程序软件.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

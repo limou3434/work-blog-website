@@ -1,16 +1,3 @@
 import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/1.编程语言/u27qbnuz/index.html.vue"
-const data = JSON.parse("{\"path\":\"/1.%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/u27qbnuz/\",\"title\":\"特殊类设计\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:58\",\"permalink\":\"/1.编程语言/u27qbnuz/\",\"title\":\"特殊类设计\"},\"readingTime\":{\"minutes\":10.91,\"words\":3274},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"1.编程语言/2.Cpp/030_2023_11_19_ljp_特殊类设计.md\",\"headers\":[],\"bulletin\":true}")
+const data = JSON.parse("{\"path\":\"/1.%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/u27qbnuz/\",\"title\":\"特殊类设计\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:58\",\"permalink\":\"/1.编程语言/u27qbnuz/\",\"title\":\"特殊类设计\",\"description\":\"1.设计不能被拷贝的类 解析：拷贝只会放生在两个场景中 拷贝构造函数 赋值运算符重载 因此想要让一个类禁止拷贝，就需让该类不能调用“拷贝构造函数”以及“赋值运算符重载”，而 C++11 提供的 delete 重载关键字可以让这件事情变得更加简单。 1.1.C++98 做法 1.2.C++11 做法 2.设计在堆上创建的类 2.1.析构私有 解析：一个在...\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"特殊类设计\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2026-01-25T16:36:00.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/1.%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/u27qbnuz/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"特殊类设计\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"1.设计不能被拷贝的类 解析：拷贝只会放生在两个场景中 拷贝构造函数 赋值运算符重载 因此想要让一个类禁止拷贝，就需让该类不能调用“拷贝构造函数”以及“赋值运算符重载”，而 C++11 提供的 delete 重载关键字可以让这件事情变得更加简单。 1.1.C++98 做法 1.2.C++11 做法 2.设计在堆上创建的类 2.1.析构私有 解析：一个在...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}]]},\"readingTime\":{\"minutes\":10.91,\"words\":3274},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"autoDesc\":true,\"filePathRelative\":\"1.编程语言/2.Cpp/030_2023_11_19_ljp_特殊类设计.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

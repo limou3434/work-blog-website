@@ -1,16 +1,3 @@
 import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/4.业务服务/ll75051h/index.html.vue"
-const data = JSON.parse("{\"path\":\"/4.%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1/ll75051h/\",\"title\":\"集群架构\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/04/24 16:09:13\",\"permalink\":\"/4.业务服务/ll75051h/\",\"title\":\"集群架构\"},\"readingTime\":{\"minutes\":64.87,\"words\":19462},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"4.业务服务/3.缓存服务/003_ljp_2024_12_07_集群架构.md\",\"headers\":[],\"bulletin\":true}")
+const data = JSON.parse("{\"path\":\"/4.%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1/ll75051h/\",\"title\":\"集群架构\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/04/24 16:09:13\",\"permalink\":\"/4.业务服务/ll75051h/\",\"title\":\"集群架构\",\"description\":\"1.Redis 读分离架构/高可用架构 重要 补充：实际上 Redis 的单机读写性能一般可以达到十万级别的 QPS，可以 查阅官方文档。 1.1.架构原理 当客户端足够多时，要减轻 redis 节点的负担，则可以考虑多个从节点复制主节点的数据，主节点负责读写，从节点只负责读（不过这么做其实是有点问题的，后面一步一步来）。 1.2.数据节点 1.2.1...\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"集群架构\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2026-01-25T16:36:00.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/4.%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1/ll75051h/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"集群架构\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"1.Redis 读分离架构/高可用架构 重要 补充：实际上 Redis 的单机读写性能一般可以达到十万级别的 QPS，可以 查阅官方文档。 1.1.架构原理 当客户端足够多时，要减轻 redis 节点的负担，则可以考虑多个从节点复制主节点的数据，主节点负责读写，从节点只负责读（不过这么做其实是有点问题的，后面一步一步来）。 1.2.数据节点 1.2.1...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}]]},\"readingTime\":{\"minutes\":64.87,\"words\":19462},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"autoDesc\":true,\"filePathRelative\":\"4.业务服务/3.缓存服务/003_ljp_2024_12_07_集群架构.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

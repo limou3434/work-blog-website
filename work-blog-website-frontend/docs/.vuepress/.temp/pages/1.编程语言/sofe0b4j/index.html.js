@@ -1,16 +1,3 @@
 import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/1.编程语言/sofe0b4j/index.html.vue"
-const data = JSON.parse("{\"path\":\"/1.%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/sofe0b4j/\",\"title\":\"语言升级\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:58\",\"permalink\":\"/1.编程语言/sofe0b4j/\",\"title\":\"语言升级\"},\"readingTime\":{\"minutes\":4.88,\"words\":1465},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"1.编程语言/2.Cpp/000_2023_07_23_ljp_语言升级.md\",\"headers\":[],\"bulletin\":true}")
+const data = JSON.parse("{\"path\":\"/1.%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/sofe0b4j/\",\"title\":\"语言升级\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:58\",\"permalink\":\"/1.编程语言/sofe0b4j/\",\"title\":\"语言升级\",\"description\":\"1.何为 C++ C 语言是关于结构化和模块化的语言，比较适合处理较小规模的程序。而对于复杂的问题，规模较大的程序，需要高度的抽象和建模时，C 语言则变得很不适用且麻烦。 在 20 世纪 80 年代，计算机界提出了 OOP 思想（面向对象思想）支持面向对象的程序设计语言（例如 C++、Java 等）应运而生。 1982 年，Bjarne Stroust...\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"语言升级\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2026-01-25T16:36:00.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/1.%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/sofe0b4j/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"语言升级\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"1.何为 C++ C 语言是关于结构化和模块化的语言，比较适合处理较小规模的程序。而对于复杂的问题，规模较大的程序，需要高度的抽象和建模时，C 语言则变得很不适用且麻烦。 在 20 世纪 80 年代，计算机界提出了 OOP 思想（面向对象思想）支持面向对象的程序设计语言（例如 C++、Java 等）应运而生。 1982 年，Bjarne Stroust...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}]]},\"readingTime\":{\"minutes\":4.88,\"words\":1465},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"autoDesc\":true,\"filePathRelative\":\"1.编程语言/2.Cpp/000_2023_07_23_ljp_语言升级.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

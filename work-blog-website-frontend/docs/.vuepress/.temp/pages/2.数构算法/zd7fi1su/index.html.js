@@ -1,16 +1,3 @@
 import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/2.数构算法/zd7fi1su/index.html.vue"
-const data = JSON.parse("{\"path\":\"/2.%E6%95%B0%E6%9E%84%E7%AE%97%E6%B3%95/zd7fi1su/\",\"title\":\"1.树基础\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:58\",\"permalink\":\"/2.数构算法/zd7fi1su/\"},\"readingTime\":{\"minutes\":19.95,\"words\":5985},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"2.数构算法/1.数据结构/005_limou_2023_11_06_树和二叉树和堆.md\",\"headers\":[],\"bulletin\":true}")
+const data = JSON.parse("{\"path\":\"/2.%E6%95%B0%E6%9E%84%E7%AE%97%E6%B3%95/zd7fi1su/\",\"title\":\"1.树基础\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:58\",\"permalink\":\"/2.数构算法/zd7fi1su/\",\"description\":\"树的结构我们使用最为广泛的还是二叉树，因此我会提及树的相关概念，并且重点提及二叉树的应用。 1.树基础 1.1.树的分类 1.1.1.一般树 树（tree）是一种非线性结构，由 n,(n>=0) 个有限节点构成一个具有层次关系的集合，看起来就像一棵倒挂的树，是一种 1 对多的关系的集合。 有且仅有一个特殊的节点，称为“根节点”，根节点没有父亲节点 除根...\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"1.树基础\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2026-01-25T16:36:00.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/2.%E6%95%B0%E6%9E%84%E7%AE%97%E6%B3%95/zd7fi1su/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"1.树基础\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"树的结构我们使用最为广泛的还是二叉树，因此我会提及树的相关概念，并且重点提及二叉树的应用。 1.树基础 1.1.树的分类 1.1.1.一般树 树（tree）是一种非线性结构，由 n,(n>=0) 个有限节点构成一个具有层次关系的集合，看起来就像一棵倒挂的树，是一种 1 对多的关系的集合。 有且仅有一个特殊的节点，称为“根节点”，根节点没有父亲节点 除根...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}]]},\"readingTime\":{\"minutes\":19.95,\"words\":5985},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"autoDesc\":true,\"filePathRelative\":\"2.数构算法/1.数据结构/005_limou_2023_11_06_树和二叉树和堆.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

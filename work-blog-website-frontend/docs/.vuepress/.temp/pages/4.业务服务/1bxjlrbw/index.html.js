@@ -1,16 +1,3 @@
 import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/4.业务服务/1bxjlrbw/index.html.vue"
-const data = JSON.parse("{\"path\":\"/4.%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1/1bxjlrbw/\",\"title\":\"1.下载开发包\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:57\",\"permalink\":\"/4.业务服务/1bxjlrbw/\",\"title\":\"1.下载开发包\"},\"readingTime\":{\"minutes\":4.98,\"words\":1493},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"4.业务服务/2.存储服务/012_ljp_2024_03_07_和语言的连接.md\",\"headers\":[],\"bulletin\":true}")
+const data = JSON.parse("{\"path\":\"/4.%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1/1bxjlrbw/\",\"title\":\"1.下载开发包\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:57\",\"permalink\":\"/4.业务服务/1bxjlrbw/\",\"title\":\"1.下载开发包\",\"description\":\"有了之前的基础，就可以使用语言来使用数据库了，实际上原生命令行操作数据库的场景比较少，语言级别的库和包才更加常用，接下我来带您学习如何使用 C/C++ 访问 MySQL 客户端。 然后创建一个可以远程登录的用户，并且拥有对一个 coon 数据库的所有权限。 然后去 官网 安装对应的库。 image-20240307153754663image-2024...\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"1.下载开发包\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2026-01-25T16:36:00.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/4.%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1/1bxjlrbw/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"1.下载开发包\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"有了之前的基础，就可以使用语言来使用数据库了，实际上原生命令行操作数据库的场景比较少，语言级别的库和包才更加常用，接下我来带您学习如何使用 C/C++ 访问 MySQL 客户端。 然后创建一个可以远程登录的用户，并且拥有对一个 coon 数据库的所有权限。 然后去 官网 安装对应的库。 image-20240307153754663image-2024...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}]]},\"readingTime\":{\"minutes\":4.98,\"words\":1493},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"autoDesc\":true,\"filePathRelative\":\"4.业务服务/2.存储服务/012_ljp_2024_03_07_和语言的连接.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

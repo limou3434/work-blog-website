@@ -1,16 +1,3 @@
 import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/4.业务服务/1pvpbgsk/index.html.vue"
-const data = JSON.parse("{\"path\":\"/4.%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1/1pvpbgsk/\",\"title\":\"\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:57\",\"permalink\":\"/4.业务服务/1pvpbgsk/\"},\"readingTime\":{\"minutes\":1.91,\"words\":572},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"4.业务服务/2.存储服务/013_ljp_2024_03_08_连接池原理和架构雏形.md\",\"headers\":[],\"bulletin\":true}")
+const data = JSON.parse("{\"path\":\"/4.%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1/1pvpbgsk/\",\"title\":\"\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:57\",\"permalink\":\"/4.业务服务/1pvpbgsk/\",\"description\":\"实际上没什么好说的，这里只是简单总结一下连接池原理，顺便梳理下一个用户注册和登录的过程，进一步带您理解一些业务逻辑。 预先设置好连接池内的正在等待的执行单元（进程/线程），每个执行单元保持和 MySQL 连接的状态，有任务（SQL 语句）到来就 push 进连接池中的执行流队列，我们完全可以自己手写一个连接池。 另外，网上还有一些 MySQL 连接池的...\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2026-01-25T16:36:00.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/4.%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1/1pvpbgsk/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"实际上没什么好说的，这里只是简单总结一下连接池原理，顺便梳理下一个用户注册和登录的过程，进一步带您理解一些业务逻辑。 预先设置好连接池内的正在等待的执行单元（进程/线程），每个执行单元保持和 MySQL 连接的状态，有任务（SQL 语句）到来就 push 进连接池中的执行流队列，我们完全可以自己手写一个连接池。 另外，网上还有一些 MySQL 连接池的...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}]]},\"readingTime\":{\"minutes\":1.91,\"words\":572},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"autoDesc\":true,\"filePathRelative\":\"4.业务服务/2.存储服务/013_ljp_2024_03_08_连接池原理和架构雏形.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

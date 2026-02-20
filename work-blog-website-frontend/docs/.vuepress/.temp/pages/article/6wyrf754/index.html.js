@@ -1,16 +1,3 @@
 import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/article/6wyrf754/index.html.vue"
-const data = JSON.parse("{\"path\":\"/article/6wyrf754/\",\"title\":\"004_limou_2024_04_17_网络库\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"004_limou_2024_04_17_网络库\",\"createTime\":\"2025/04/09 13:05:16\",\"permalink\":\"/article/6wyrf754/\"},\"readingTime\":{\"minutes\":20.23,\"words\":6069},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"1.编程语言/2.Cpp/组件/017_limou_2024_04_17_网络库.md\",\"headers\":[],\"bulletin\":true}")
+const data = JSON.parse("{\"path\":\"/article/6wyrf754/\",\"title\":\"004_limou_2024_04_17_网络库\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"004_limou_2024_04_17_网络库\",\"createTime\":\"2025/04/09 13:05:16\",\"permalink\":\"/article/6wyrf754/\",\"description\":\"1.1.概要 cpp-httplib（也称为 httplib）是一个基于 C++ 的轻量级 HTTP 框架，它提供了简单易用的 API，用于创建 HTTP 服务器和客户端。本身简单易用，适用于快速搭建简单的 HTTP 服务器和客户端，因此本身可能不支持复杂的功能。 1.2.安装 httplib 的安装也很简单，直接克隆库中的 httplib.h 到项目...\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"004_limou_2024_04_17_网络库\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2026-01-25T16:36:00.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/article/6wyrf754/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"004_limou_2024_04_17_网络库\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"1.1.概要 cpp-httplib（也称为 httplib）是一个基于 C++ 的轻量级 HTTP 框架，它提供了简单易用的 API，用于创建 HTTP 服务器和客户端。本身简单易用，适用于快速搭建简单的 HTTP 服务器和客户端，因此本身可能不支持复杂的功能。 1.2.安装 httplib 的安装也很简单，直接克隆库中的 httplib.h 到项目...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}]]},\"readingTime\":{\"minutes\":20.23,\"words\":6069},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"autoDesc\":true,\"filePathRelative\":\"1.编程语言/2.Cpp/组件/017_limou_2024_04_17_网络库.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

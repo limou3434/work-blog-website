@@ -1,16 +1,3 @@
 import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/1.编程语言/b25bd2aw/index.html.vue"
-const data = JSON.parse("{\"path\":\"/1.%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/b25bd2aw/\",\"title\":\"环境搭建\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/12/04 18:42:03\",\"permalink\":\"/1.编程语言/b25bd2aw/\",\"title\":\"环境搭建\"},\"readingTime\":{\"minutes\":8.38,\"words\":2513},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"1.编程语言/3.CSharp/002_coco_2025_11_24_csharp_环境搭建.md\",\"headers\":[],\"bulletin\":true}")
+const data = JSON.parse("{\"path\":\"/1.%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/b25bd2aw/\",\"title\":\"环境搭建\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/12/04 18:42:03\",\"permalink\":\"/1.编程语言/b25bd2aw/\",\"title\":\"环境搭建\",\"description\":\"1.1 软件安装需求 需要先根据基础介绍中的编译软件部分选择需要软件进行安装，后续的演示都以 VS 作为编译软件。 1.2 软件安装流程 首先还是需要先去微软官方下载页下载安装包，一般来说Community版本已经足够覆盖大部分使用场景。 install-downloadpageinstall-downloadpage 点击下载后就会自动开始下载，如果...\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"环境搭建\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2026-01-25T16:36:00.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/1.%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/b25bd2aw/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"环境搭建\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"1.1 软件安装需求 需要先根据基础介绍中的编译软件部分选择需要软件进行安装，后续的演示都以 VS 作为编译软件。 1.2 软件安装流程 首先还是需要先去微软官方下载页下载安装包，一般来说Community版本已经足够覆盖大部分使用场景。 install-downloadpageinstall-downloadpage 点击下载后就会自动开始下载，如果...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}]]},\"readingTime\":{\"minutes\":8.38,\"words\":2513},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"autoDesc\":true,\"filePathRelative\":\"1.编程语言/3.CSharp/002_coco_2025_11_24_csharp_环境搭建.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

@@ -1,16 +1,3 @@
 import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/3.系统网络/8ck0qm2i/index.html.vue"
-const data = JSON.parse("{\"path\":\"/3.%E7%B3%BB%E7%BB%9F%E7%BD%91%E7%BB%9C/8ck0qm2i/\",\"title\":\"软件管理\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/04/11 12:12:53\",\"permalink\":\"/3.系统网络/8ck0qm2i/\",\"title\":\"软件管理\"},\"readingTime\":{\"minutes\":2.43,\"words\":728},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"3.系统网络/1.基本操作/008_ljp_2023_09_28_软件管理.md\",\"headers\":[],\"bulletin\":true}")
+const data = JSON.parse("{\"path\":\"/3.%E7%B3%BB%E7%BB%9F%E7%BD%91%E7%BB%9C/8ck0qm2i/\",\"title\":\"软件管理\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/04/11 12:12:53\",\"permalink\":\"/3.系统网络/8ck0qm2i/\",\"title\":\"软件管理\",\"description\":\"1.安装目录常识 在系统目录中，存在一个 /usr 目录，其全称为 Unix System Resources(系统资源) 如果希望软件只安装给当前用户进行使用而不让其他用户看见，则可以自己自定义目录存储可执行文件、源文件、头文件等相关文件。 2.安装管理包 Linux 在不同平台下有不同的管理包 在 Debian 或 Ubuntu 系统中，您可以通过...\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"软件管理\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2026-01-25T16:36:00.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/3.%E7%B3%BB%E7%BB%9F%E7%BD%91%E7%BB%9C/8ck0qm2i/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"软件管理\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"1.安装目录常识 在系统目录中，存在一个 /usr 目录，其全称为 Unix System Resources(系统资源) 如果希望软件只安装给当前用户进行使用而不让其他用户看见，则可以自己自定义目录存储可执行文件、源文件、头文件等相关文件。 2.安装管理包 Linux 在不同平台下有不同的管理包 在 Debian 或 Ubuntu 系统中，您可以通过...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}]]},\"readingTime\":{\"minutes\":2.43,\"words\":728},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"autoDesc\":true,\"filePathRelative\":\"3.系统网络/1.基本操作/008_ljp_2023_09_28_软件管理.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

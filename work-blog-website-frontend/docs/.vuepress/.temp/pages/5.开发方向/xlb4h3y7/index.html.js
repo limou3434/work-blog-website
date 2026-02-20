@@ -1,16 +1,3 @@
 import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/5.开发方向/xlb4h3y7/index.html.vue"
-const data = JSON.parse("{\"path\":\"/5.%E5%BC%80%E5%8F%91%E6%96%B9%E5%90%91/xlb4h3y7/\",\"title\":\"\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/04/09 13:05:15\",\"permalink\":\"/5.开发方向/xlb4h3y7/\"},\"readingTime\":{\"minutes\":1.02,\"words\":307},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"5.开发方向/2.网页开发/ReactJS/000_limou_2024_05_09_ReactJS_先导课程.md\",\"headers\":[],\"bulletin\":true}")
+const data = JSON.parse("{\"path\":\"/5.%E5%BC%80%E5%8F%91%E6%96%B9%E5%90%91/xlb4h3y7/\",\"title\":\"\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/04/09 13:05:15\",\"permalink\":\"/5.开发方向/xlb4h3y7/\",\"description\":\"浏览器拓展 https://zh-hans.react.dev/learn/react-developer-tools 访问一个用 React 构建 的网站，将看到 Components 和 Profiler 面板 React 是一个用于构建用户界面的 JAVASCRIPT 库。 React 主要用于构建 UI，很多人认为 React 是 MVC 中的...\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2026-01-25T16:36:00.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/5.%E5%BC%80%E5%8F%91%E6%96%B9%E5%90%91/xlb4h3y7/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"浏览器拓展 https://zh-hans.react.dev/learn/react-developer-tools 访问一个用 React 构建 的网站，将看到 Components 和 Profiler 面板 React 是一个用于构建用户界面的 JAVASCRIPT 库。 React 主要用于构建 UI，很多人认为 React 是 MVC 中的...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}]]},\"readingTime\":{\"minutes\":1.02,\"words\":307},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"autoDesc\":true,\"filePathRelative\":\"5.开发方向/2.网页开发/ReactJS/000_limou_2024_05_09_ReactJS_先导课程.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

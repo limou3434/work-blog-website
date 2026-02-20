@@ -1,16 +1,3 @@
 import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/2.数构算法/edqwh8x8/index.html.vue"
-const data = JSON.parse("{\"path\":\"/2.%E6%95%B0%E6%9E%84%E7%AE%97%E6%B3%95/edqwh8x8/\",\"title\":\"1.原理\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:58\",\"permalink\":\"/2.数构算法/edqwh8x8/\",\"title\":\"1.原理\"},\"readingTime\":{\"minutes\":14.71,\"words\":4413},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"2.数构算法/4.常规算法/002_limou_2023_10_31_滑动窗口.md\",\"headers\":[],\"bulletin\":true}")
+const data = JSON.parse("{\"path\":\"/2.%E6%95%B0%E6%9E%84%E7%AE%97%E6%B3%95/edqwh8x8/\",\"title\":\"1.原理\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:58\",\"permalink\":\"/2.数构算法/edqwh8x8/\",\"title\":\"1.原理\",\"description\":\"我们用这道题目 LCR 008. 长度最小的子数组 来讲解“滑动窗口”的解法。 1.1.暴力解法 遍历每一个子数组（都要大于等于 7），最统计出最小的数组。 这样做的话，划分左右区间（left 和 right）就需要 O(n2)，然后每一个区间都要求和，所有求和又需要 O(n)，整体时间复杂度就是 O(n3)。 1.2.优化一次 如何将上述解法优化呢？...\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"1.原理\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2026-01-25T16:36:00.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/2.%E6%95%B0%E6%9E%84%E7%AE%97%E6%B3%95/edqwh8x8/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"1.原理\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"我们用这道题目 LCR 008. 长度最小的子数组 来讲解“滑动窗口”的解法。 1.1.暴力解法 遍历每一个子数组（都要大于等于 7），最统计出最小的数组。 这样做的话，划分左右区间（left 和 right）就需要 O(n2)，然后每一个区间都要求和，所有求和又需要 O(n)，整体时间复杂度就是 O(n3)。 1.2.优化一次 如何将上述解法优化呢？...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}]]},\"readingTime\":{\"minutes\":14.71,\"words\":4413},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"autoDesc\":true,\"filePathRelative\":\"2.数构算法/4.常规算法/002_limou_2023_10_31_滑动窗口.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

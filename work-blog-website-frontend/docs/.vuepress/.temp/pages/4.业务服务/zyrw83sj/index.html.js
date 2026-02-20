@@ -1,16 +1,3 @@
 import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/4.业务服务/zyrw83sj/index.html.vue"
-const data = JSON.parse("{\"path\":\"/4.%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1/zyrw83sj/\",\"title\":\"MySQL\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:57\",\"permalink\":\"/4.业务服务/zyrw83sj/\",\"title\":\"MySQL\"},\"readingTime\":{\"minutes\":53.44,\"words\":16033},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"4.业务服务/2.存储服务/001_2024_01_21_ljp_mysql.md\",\"headers\":[],\"bulletin\":true}")
+const data = JSON.parse("{\"path\":\"/4.%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1/zyrw83sj/\",\"title\":\"MySQL\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:57\",\"permalink\":\"/4.业务服务/zyrw83sj/\",\"title\":\"MySQL\",\"description\":\"1.组件简介 存储数据为什么不使用文件而是使用数据库呢？文件存储有一些显见的缺点： 不利于文件安全 不利于数据查询和数据管理（文件没有给程序员提供良好的数据管理能力，都需要程序员来在代码中做繁琐的操作） 不利于海量数据存储 不利于程序控制 我们可以使用数据库来解决这些问题。 主流的数据库有： SQL Server：微软产品，深受 .Net 程序员喜欢，...\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"MySQL\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2026-01-25T16:36:00.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/4.%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1/zyrw83sj/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"MySQL\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"1.组件简介 存储数据为什么不使用文件而是使用数据库呢？文件存储有一些显见的缺点： 不利于文件安全 不利于数据查询和数据管理（文件没有给程序员提供良好的数据管理能力，都需要程序员来在代码中做繁琐的操作） 不利于海量数据存储 不利于程序控制 我们可以使用数据库来解决这些问题。 主流的数据库有： SQL Server：微软产品，深受 .Net 程序员喜欢，...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}]]},\"readingTime\":{\"minutes\":53.44,\"words\":16033},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"autoDesc\":true,\"filePathRelative\":\"4.业务服务/2.存储服务/001_2024_01_21_ljp_mysql.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

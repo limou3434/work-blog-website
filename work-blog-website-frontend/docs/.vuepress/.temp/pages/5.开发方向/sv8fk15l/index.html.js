@@ -1,16 +1,3 @@
 import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/5.开发方向/sv8fk15l/index.html.vue"
-const data = JSON.parse("{\"path\":\"/5.%E5%BC%80%E5%8F%91%E6%96%B9%E5%90%91/sv8fk15l/\",\"title\":\"页面组件\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/10/20 01:41:26\",\"permalink\":\"/5.开发方向/sv8fk15l/\",\"title\":\"页面组件\"},\"readingTime\":{\"minutes\":5.4,\"words\":1621},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"5.开发方向/2.网页开发/ReactJS/004_limou_2025_10_20_ReactJS_页面组件.md\",\"headers\":[],\"bulletin\":true}")
+const data = JSON.parse("{\"path\":\"/5.%E5%BC%80%E5%8F%91%E6%96%B9%E5%90%91/sv8fk15l/\",\"title\":\"页面组件\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/10/20 01:41:26\",\"permalink\":\"/5.开发方向/sv8fk15l/\",\"title\":\"页面组件\",\"description\":\"1.设计思路 我决定采用 Antd UI 组件封装一个更加便捷使用，更加符合我的风格的前端组件。首先我们需要整理一些事情，比如设计思路、设计模式、组件生态、全局设置等。 1.1.色彩 色彩体系解读成两个层面：系统级色彩体系 和 产品级色彩体系。 系统级色彩体系主要定义了蚂蚁中台设计中的基础色板、中性色板、数据可视化色板。 基础色板：Ant Design...\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"页面组件\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2026-01-25T16:36:00.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/5.%E5%BC%80%E5%8F%91%E6%96%B9%E5%90%91/sv8fk15l/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"页面组件\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"1.设计思路 我决定采用 Antd UI 组件封装一个更加便捷使用，更加符合我的风格的前端组件。首先我们需要整理一些事情，比如设计思路、设计模式、组件生态、全局设置等。 1.1.色彩 色彩体系解读成两个层面：系统级色彩体系 和 产品级色彩体系。 系统级色彩体系主要定义了蚂蚁中台设计中的基础色板、中性色板、数据可视化色板。 基础色板：Ant Design...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}]]},\"readingTime\":{\"minutes\":5.4,\"words\":1621},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"autoDesc\":true,\"filePathRelative\":\"5.开发方向/2.网页开发/ReactJS/004_limou_2025_10_20_ReactJS_页面组件.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

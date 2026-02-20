@@ -1,16 +1,3 @@
 import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/3.系统网络/tqi8br7j/index.html.vue"
-const data = JSON.parse("{\"path\":\"/3.%E7%B3%BB%E7%BB%9F%E7%BD%91%E7%BB%9C/tqi8br7j/\",\"title\":\"网络应用演变\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/04/09 23:31:29\",\"permalink\":\"/3.系统网络/tqi8br7j/\",\"title\":\"网络应用演变\"},\"readingTime\":{\"minutes\":3.28,\"words\":983},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"3.系统网络/1.基本操作/030_ljp_2024_11_12_网络应用演变.md\",\"headers\":[],\"bulletin\":true}")
+const data = JSON.parse("{\"path\":\"/3.%E7%B3%BB%E7%BB%9F%E7%BD%91%E7%BB%9C/tqi8br7j/\",\"title\":\"网络应用演变\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/04/09 23:31:29\",\"permalink\":\"/3.系统网络/tqi8br7j/\",\"title\":\"网络应用演变\",\"description\":\"1.网络诞生 那会人们刚刚整理好关于计算机和计算机之间的传输问题，明确了私网和公网的概念。 2.静态网站 这个阶段，人们知道服务器其实也是一台可以被公开访问的电脑，人们使用类似 Nginx 这种后端服务器程序，运行在特定 IP 和 PORT 上，管理众多的静态 HTML 页面，那会的应用就是静态网站，只能用来读取。这个阶段已经普及了浏览器，浏览器用户在...\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"网络应用演变\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2026-01-25T16:36:00.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/3.%E7%B3%BB%E7%BB%9F%E7%BD%91%E7%BB%9C/tqi8br7j/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"网络应用演变\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"1.网络诞生 那会人们刚刚整理好关于计算机和计算机之间的传输问题，明确了私网和公网的概念。 2.静态网站 这个阶段，人们知道服务器其实也是一台可以被公开访问的电脑，人们使用类似 Nginx 这种后端服务器程序，运行在特定 IP 和 PORT 上，管理众多的静态 HTML 页面，那会的应用就是静态网站，只能用来读取。这个阶段已经普及了浏览器，浏览器用户在...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}]]},\"readingTime\":{\"minutes\":3.28,\"words\":983},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"autoDesc\":true,\"filePathRelative\":\"3.系统网络/1.基本操作/030_ljp_2024_11_12_网络应用演变.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

@@ -1,16 +1,3 @@
 import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/5.开发方向/jegkzqu9/index.html.vue"
-const data = JSON.parse("{\"path\":\"/5.%E5%BC%80%E5%8F%91%E6%96%B9%E5%90%91/jegkzqu9/\",\"title\":\"基础内容\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:58\",\"permalink\":\"/5.开发方向/jegkzqu9/\",\"title\":\"基础内容\"},\"readingTime\":{\"minutes\":35.7,\"words\":10710},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"5.开发方向/9.机器学习/002_2025_03_31_ljp_基础内容.md\",\"headers\":[],\"bulletin\":true}")
+const data = JSON.parse("{\"path\":\"/5.%E5%BC%80%E5%8F%91%E6%96%B9%E5%90%91/jegkzqu9/\",\"title\":\"基础内容\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:58\",\"permalink\":\"/5.开发方向/jegkzqu9/\",\"title\":\"基础内容\",\"description\":\"1.机器学习分类 1.1.机器学习的流程 现在，假如需要我们编写程序来响应一个“唤醒词”（比如 “Alexa”、“Hey Siri”）。 我们试着用一台计算机和一个代码编辑器编写代码。问题看似很难解决：麦克风每秒钟将收集大约 44000 个样本，每个样本都是声波振幅的测量值。而该测量值与唤醒词难以直接关联。那又该如何编写程序，令其输入麦克风采集到的原始...\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"基础内容\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2026-01-25T16:36:00.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/5.%E5%BC%80%E5%8F%91%E6%96%B9%E5%90%91/jegkzqu9/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"基础内容\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"1.机器学习分类 1.1.机器学习的流程 现在，假如需要我们编写程序来响应一个“唤醒词”（比如 “Alexa”、“Hey Siri”）。 我们试着用一台计算机和一个代码编辑器编写代码。问题看似很难解决：麦克风每秒钟将收集大约 44000 个样本，每个样本都是声波振幅的测量值。而该测量值与唤醒词难以直接关联。那又该如何编写程序，令其输入麦克风采集到的原始...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}]]},\"readingTime\":{\"minutes\":35.7,\"words\":10710},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"autoDesc\":true,\"filePathRelative\":\"5.开发方向/9.机器学习/002_2025_03_31_ljp_基础内容.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

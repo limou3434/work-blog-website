@@ -1,16 +1,3 @@
 import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/2.开发方向/grjoq8qr/index.html.vue"
-const data = JSON.parse("{\"path\":\"/2.%E5%BC%80%E5%8F%91%E6%96%B9%E5%90%91/grjoq8qr/\",\"title\":\"快速入门\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/10/28 01:50:10\",\"permalink\":\"/2.开发方向/grjoq8qr/\",\"title\":\"快速入门\"},\"readingTime\":{\"minutes\":20.44,\"words\":6132},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"5.开发方向/3.桌面开发/001_ljp_2025_10_28_快速入门.md\",\"headers\":[],\"bulletin\":true}")
+const data = JSON.parse("{\"path\":\"/2.%E5%BC%80%E5%8F%91%E6%96%B9%E5%90%91/grjoq8qr/\",\"title\":\"快速入门\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/10/28 01:50:10\",\"permalink\":\"/2.开发方向/grjoq8qr/\",\"title\":\"快速入门\",\"description\":\"1.基本要求 1.1.沙盒环境 Electron 是一个使用 HTML、CSS、JS 构建桌面应用程序的框架。在嵌入 Chromium 和 Node.js 到二进制的 Electron 中，允许您保持一个 JavaScript 代码代码库并创建跨平台桌面应用 Windows、MacOS、Linux，且不需要本地开发的经验。 建议您从 教程 开始，该教程...\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"快速入门\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2026-01-25T16:36:00.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/2.%E5%BC%80%E5%8F%91%E6%96%B9%E5%90%91/grjoq8qr/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"快速入门\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"1.基本要求 1.1.沙盒环境 Electron 是一个使用 HTML、CSS、JS 构建桌面应用程序的框架。在嵌入 Chromium 和 Node.js 到二进制的 Electron 中，允许您保持一个 JavaScript 代码代码库并创建跨平台桌面应用 Windows、MacOS、Linux，且不需要本地开发的经验。 建议您从 教程 开始，该教程...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}]]},\"readingTime\":{\"minutes\":20.44,\"words\":6132},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"autoDesc\":true,\"filePathRelative\":\"5.开发方向/3.桌面开发/001_ljp_2025_10_28_快速入门.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

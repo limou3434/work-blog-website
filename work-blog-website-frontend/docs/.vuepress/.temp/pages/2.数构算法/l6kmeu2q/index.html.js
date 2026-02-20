@@ -1,16 +1,3 @@
 import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/2.数构算法/l6kmeu2q/index.html.vue"
-const data = JSON.parse("{\"path\":\"/2.%E6%95%B0%E6%9E%84%E7%AE%97%E6%B3%95/l6kmeu2q/\",\"title\":\"1.栈\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:58\",\"permalink\":\"/2.数构算法/l6kmeu2q/\",\"title\":\"1.栈\"},\"readingTime\":{\"minutes\":2.77,\"words\":832},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"2.数构算法/1.数据结构/003_limou_2023_11_06_栈和队列和串_.md\",\"headers\":[],\"bulletin\":true}")
+const data = JSON.parse("{\"path\":\"/2.%E6%95%B0%E6%9E%84%E7%AE%97%E6%B3%95/l6kmeu2q/\",\"title\":\"1.栈\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/06/21 15:33:58\",\"permalink\":\"/2.数构算法/l6kmeu2q/\",\"title\":\"1.栈\",\"description\":\"1.1.栈概念 1.2.栈接口 1.3.栈细节 1.4.栈实现 2.队列 2.1.队列概念 2.2.队列接口 2.3.队列细节 2.4.队列实现 3.串 3.1.串概念 3.2.串接口 3.3.串细节 串最重要的接口莫过于在主串中定位子串的位置，这种定位运算就是串的模式匹配（串匹配），这里简单介绍两种实现。 3.3.1.BF 算法 暴力匹配的算法。 3...\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"1.栈\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2026-01-25T16:36:00.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/2.%E6%95%B0%E6%9E%84%E7%AE%97%E6%B3%95/l6kmeu2q/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"1.栈\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"1.1.栈概念 1.2.栈接口 1.3.栈细节 1.4.栈实现 2.队列 2.1.队列概念 2.2.队列接口 2.3.队列细节 2.4.队列实现 3.串 3.1.串概念 3.2.串接口 3.3.串细节 串最重要的接口莫过于在主串中定位子串的位置，这种定位运算就是串的模式匹配（串匹配），这里简单介绍两种实现。 3.3.1.BF 算法 暴力匹配的算法。 3...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}]]},\"readingTime\":{\"minutes\":2.77,\"words\":832},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"autoDesc\":true,\"filePathRelative\":\"2.数构算法/1.数据结构/003_limou_2023_11_06_栈和队列和串_.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

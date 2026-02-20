@@ -1,16 +1,3 @@
 import comp from "/home/ljp/git/work/work-blog-website/work-blog-website-frontend/docs/.vuepress/.temp/pages/3.系统网络/oqw8t109/index.html.vue"
-const data = JSON.parse("{\"path\":\"/3.%E7%B3%BB%E7%BB%9F%E7%BD%91%E7%BB%9C/oqw8t109/\",\"title\":\"终端优化软件\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/04/09 23:31:30\",\"permalink\":\"/3.系统网络/oqw8t109/\",\"title\":\"终端优化软件\"},\"readingTime\":{\"minutes\":2.34,\"words\":702},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"filePathRelative\":\"3.系统网络/1.基本操作/035_ljp_2024_09_18_终端优化软件.md\",\"headers\":[],\"bulletin\":true}")
+const data = JSON.parse("{\"path\":\"/3.%E7%B3%BB%E7%BB%9F%E7%BD%91%E7%BB%9C/oqw8t109/\",\"title\":\"终端优化软件\",\"lang\":\"zh-CN\",\"frontmatter\":{\"createTime\":\"2025/04/09 23:31:30\",\"permalink\":\"/3.系统网络/oqw8t109/\",\"title\":\"终端优化软件\",\"description\":\"主要是关于 zsh 的 登录 shell：需要用户名、密码登录后才能进入的 shell（或者通过--login”选项生成的 shell）。 非登录 shell：不需要输入用户名和密码即可打开的 Shell，例如：直接命令“bash”就是打开一个新的非登录 shell；在 Gnome 或 KDE 中打开一个“终端”（terminal）窗口程序也是一个非登...\",\"head\":[[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"终端优化软件\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2026-01-25T16:36:00.000Z\\\",\\\"author\\\":[]}\"],[\"meta\",{\"property\":\"og:url\",\"content\":\"https://limou3434.github.io/work-blog-website/3.%E7%B3%BB%E7%BB%9F%E7%BD%91%E7%BB%9C/oqw8t109/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"缡墨\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"终端优化软件\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"主要是关于 zsh 的 登录 shell：需要用户名、密码登录后才能进入的 shell（或者通过--login”选项生成的 shell）。 非登录 shell：不需要输入用户名和密码即可打开的 Shell，例如：直接命令“bash”就是打开一个新的非登录 shell；在 Gnome 或 KDE 中打开一个“终端”（terminal）窗口程序也是一个非登...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2026-01-25T16:36:00.000Z\"}]]},\"readingTime\":{\"minutes\":2.34,\"words\":702},\"git\":{\"createdTime\":1769358960000,\"updatedTime\":1769358960000,\"contributors\":[{\"name\":\"limou3434\",\"username\":\"limou3434\",\"email\":\"898738804@qq.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/limou3434?v=4\",\"url\":\"https://github.com/limou3434\"}],\"changelog\":[{\"hash\":\"403d4bb1a423fafb3f1de0fb7b0ef8203abf65fa\",\"time\":1769358960000,\"email\":\"898738804@qq.com\",\"author\":\"limou3434\",\"message\":\"修改 Github 工作流的配置，以方便未来支持前后端拓展\"}]},\"autoDesc\":true,\"filePathRelative\":\"3.系统网络/1.基本操作/035_ljp_2024_09_18_终端优化软件.md\",\"headers\":[],\"bulletin\":true}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}
