@@ -134,7 +134,7 @@
 </blockquote>
 <p><code v-pre>Linux</code> 操作系统最初由一位名为 <code v-pre>Linus Torvalds</code> 的芬兰赫尔辛基大学的学生编制内核，随后由全世界各地的成千上万的程序员设计和实现。其目的是建立不受任何商品化软件的版权制约的、全世界都能自由使用的类 <code v-pre>Unix</code> 兼容产品。因为 <code v-pre>Linux</code> 是本系列文章的围绕点，因此 <code v-pre>Linux</code> 这一部分我们后面详细解读。</p>
 <blockquote>
-<p>吐槽：<code v-pre>Linus Torvalds</code> 这人非常的有趣 <span class="heimu" title="你知道的太多了"> <Plot>比如竖中指骂人</Plot> </span> 😏，坊间一直流传和谈论和他有关的事物...</p>
+<p>吐槽：<code v-pre>Linus Torvalds</code> 这人非常的有趣 <span class="heimu" title="你知道的太多了"> !! 比如竖中指骂人!! </span> 😏，坊间一直流传和谈论和他有关的事物...</p>
 </blockquote>
 <h2 id="_2-linux-的认知" tabindex="-1"><a class="header-anchor" href="#_2-linux-的认知"><span>2.Linux 的认知</span></a></h2>
 <h3 id="_2-1-linux-是什么" tabindex="-1"><a class="header-anchor" href="#_2-1-linux-是什么"><span>2.1.Linux 是什么</span></a></h3>
@@ -228,7 +228,100 @@
 <p>新手推荐下载 <code v-pre>Centos7</code> 进行学习，熟练后就可以开始使用 <code v-pre>Ubuntu</code> 进行学习了。</p>
 <h2 id="_4-linux-的安装" tabindex="-1"><a class="header-anchor" href="#_4-linux-的安装"><span>4.Linux 的安装</span></a></h2>
 <p>在学习 <code v-pre>Linux</code> 之前，首先需要有一个操作环境把？否则谈及 <code v-pre>Linux</code> 的相关知识就是白谈，因此我们需要有一个能够运行 <code v-pre>Linux</code> 操作系统的环境供我们实验，下面推荐几种常见的做法。</p>
-<h3 id="_4-1-云服务器与-shell-软件-推荐" tabindex="-1"><a class="header-anchor" href="#_4-1-云服务器与-shell-软件-推荐"><span>4.1.云服务器与 Shell 软件（推荐）</span></a></h3>
+<h3 id="_4-1-直接安装-推荐" tabindex="-1"><a class="header-anchor" href="#_4-1-直接安装-推荐"><span>4.1.直接安装（推荐）</span></a></h3>
+<p>如果你有闲置的电脑，可以直接烧录一个用于重装系统的系统 <code v-pre>U</code> 盘保存系统文件，给电脑直接安装一个 <code v-pre>Linux</code> 系统（或者也可以搞一个双系统），好处就是最为“原生态”，但是对于丝毫不懂系统的新手来说配置的难度比较高。</p>
+<p>并且这台电脑以后大概率是作为开发和工作使用了，基本不会在其他娱乐的方面有所作用（因为支持 <code v-pre>Linux</code> 的大众应用软件有可能不太好用，甚至没有对于的版本支持）。</p>
+<p>这种需要有一定的技术力，所以新手不推荐...如果想要尝试的话可以尝试安装 <code v-pre>Ubuntu</code> 作为开发主机，一旦成熟就可以开始使用 <code v-pre>Arch</code> 作为您新的道路。</p>
+<h4 id="_4-1-1-安装业务系统" tabindex="-1"><a class="header-anchor" href="#_4-1-1-安装业务系统"><span>4.1.1.安装业务系统</span></a></h4>
+<p>待补充...</p>
+<h4 id="_4-1-2-安装学习系统" tabindex="-1"><a class="header-anchor" href="#_4-1-2-安装学习系统"><span>4.1.2.安装学习系统</span></a></h4>
+<p>首先需要明白 <code v-pre>Arch</code> 没有所谓的系统版本这一说，大概每周就需要自己检查一次系统滚动更新，同时 <code v-pre>Arch</code> 在使用引导 <code v-pre>U</code> 盘启动之后就只会安装最为精简的系统内核、系统依赖、系统工具、系统管理、包管理器。<a href="https://www.bilibili.com/video/BV11J411a7Tp/?spm_id_from=333.1007.top_right_bar_window_history.content.click&amp;vd_source=c92c89dbfcf9cc30c48086469621f35b" target="_blank" rel="noopener noreferrer">这个 up 的安装过程</a> 比较繁琐（如果您觉得用命令行安装过于繁琐，可以试试官方的安装脚本 <code v-pre>archinstall</code>，详情可参见 <a href="https://wiki.archlinuxcn.org/wiki/Archinstall" target="_blank" rel="noopener noreferrer">archinstall</a>），但是依旧建议您使用这个比较原始的方法，可以学习到一些东西。</p>
+<p>而其实这个 <code v-pre>UP</code> 遵循的安装教程就是 <a href="https://wiki.archlinuxcn.org/wiki/%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97" target="_blank" rel="noopener noreferrer">Arch 安装指南</a>，这里大概预览一下您要做的事情（具体的安装步骤我就不再进行编写了）：</p>
+<ol>
+<li>获取安装映像</li>
+<li>验证签名（可选步骤），这一步是用来校验自己的系统镜像是否被人篡改</li>
+<li>烧录安装介质，通常使用 <code v-pre>Rufus</code> 来进行制作</li>
+<li>在 <code v-pre>BIOS</code> 界面中选择 <code v-pre>Arch Linux install medium</code> 启动 <code v-pre>live</code> 环境，这将会以 <code v-pre>root</code> 身份来启动一个 <code v-pre>zsh</code> 终端</li>
+<li>配置控制台键盘布局和字体</li>
+<li>验证引导模式，查验是 <code v-pre>UEFI</code> 的位模式</li>
+<li>连接互联网</li>
+<li>更新系统时间</li>
+<li>创建硬盘分区，并且分配好后进行挂载</li>
+<li>开始安装系统</li>
+</ol>
+<div class="hint-container important">
+<p class="hint-container-title">重要</p>
+<p>补充：实际上 <code v-pre>live</code> 模式就是借助介质把整个 <code v-pre>Arch</code> 系统跑在内存上，方便您先对计算机进行分盘，然后基于 <code v-pre>live</code> 环境的工具，重新从官方仓库下载、部署一套全新的系统。</p>
+</div>
+<p>这里有一些规定，安装系统前需要考虑清楚这些问题：</p>
+<ul>
+<li>
+<p>桌面环境操作管理问题：使用 <code v-pre>Hyprland</code></p>
+</li>
+<li>
+<p>现代终端命令管理问题：使用 <code v-pre>X-CMD</code>，并且安装一些基础终端软件</p>
+</li>
+<li>
+<p>多浏览器安装管理问题：使用 <code v-pre>Chrome + Edge + Firefox + Vivaldi</code></p>
+</li>
+<li>
+<p>编程语言版本管理问题：使用 <code v-pre>node.js/python/go/rust-&gt;asdf-vm、java-&gt;sdkman</code></p>
+</li>
+<li>
+<p>用户目录文件管理问题：规定 <code v-pre>myself/、git/、script/、design/、vital/、temp/</code></p>
+</li>
+<li>
+<p>软件安装卸载管理问题：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>pacman 安装（系统级）</th>
+<th>手动安装（用户级）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>可执行指令</td>
+<td><code v-pre>/usr/bin/</code></td>
+<td><code v-pre>~/.local/bin/</code></td>
+</tr>
+<tr>
+<td>依赖库</td>
+<td><code v-pre>/usr/lib/</code></td>
+<td><code v-pre>~/.local/lib/</code></td>
+</tr>
+<tr>
+<td>资源文件</td>
+<td><code v-pre>/usr/share/</code></td>
+<td><code v-pre>~/.local/share/</code></td>
+</tr>
+<tr>
+<td>桌面图标</td>
+<td><code v-pre>/usr/share/icons/</code></td>
+<td><code v-pre>~/.local/share/icons/</code></td>
+</tr>
+<tr>
+<td>快捷方式</td>
+<td><code v-pre>/usr/share/applications/</code></td>
+<td><code v-pre>~/.local/share/applications/</code></td>
+</tr>
+<tr>
+<td>配置文件</td>
+<td><code v-pre>/etc/</code></td>
+<td><code v-pre>~/.config/</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>开发虚拟环境管理问题：使用 <code v-pre>Docker Compose + Docker</code></p>
+</li>
+<li>
+<p>代码与编辑器管理问题：使用 <code v-pre>VSCode + NVim + Zellij</code></p>
+</li>
+</ul>
+<h3 id="_4-1-云服务器-推荐" tabindex="-1"><a class="header-anchor" href="#_4-1-云服务器-推荐"><span>4.1.云服务器（推荐）</span></a></h3>
 <p>购买一个年租的云服务器，再下载免费版的 <code v-pre>Xshell</code> 结合使用。部署简单（实在不会还能联系提供云服务器的厂商，协助安装，官方甚至还有写游戏），只是要钱，并且一般都是月租和年租...但是购买一个服务器可以多人使用噢！推荐腾讯云、华为云、阿里云（这些云服务器厂商有时有学生优惠），并且如果服务器的配置不高，其实统计下来几年的费用甚至都超不过一台家用个人笔记本。</p>
 <p>有了一台云服务器，您至少可以学习以下的知识模块：</p>
 <ul>
@@ -271,27 +364,24 @@
 <blockquote>
 <p>注意：第一次买 <code v-pre>Linux</code> 服务器我推荐使用 <code v-pre>CentOs 7</code> 版本的 <code v-pre>Linux</code> 服务器，这个版本的 <code v-pre>Linux</code> 最为经典也常用。而且对于云服务器来说，即便您现在选定了操作系统，未来也可以通过服务器厂商的可视化面板一键初始化系统，然后重新安装一些更为时髦的操作系统（我这个时候就流行使用 <code v-pre>Ubuntu</code>）。</p>
 </blockquote>
-<h3 id="_4-2-虚拟机-vmware-player-推荐" tabindex="-1"><a class="header-anchor" href="#_4-2-虚拟机-vmware-player-推荐"><span>4.2.虚拟机 VMware player（推荐）</span></a></h3>
+<h3 id="_4-2-虚拟机器-推荐" tabindex="-1"><a class="header-anchor" href="#_4-2-虚拟机器-推荐"><span>4.2.虚拟机器（推荐）</span></a></h3>
 <p>虚拟机算是一种容器技术，可以在一台本就搭载了操作系统的主机上（例如您的 <code v-pre>Windows</code> 电脑上）运行一个虚拟出来的操作系统，这个操作系统可以是 <code v-pre>Linux</code> 或其他的操作系统。这种虚拟机运行的操作系统获取成本最低，使用简单，不过偶尔会有奇怪的 <code v-pre>bug</code>（这种情况并不多），并且安装麻烦。但如果只是学习基本命令和一些系统调用基本也还过得去。就是学习到网络编程可能会麻烦一点，包括以后要学习的 <code v-pre>Nginx</code>、<code v-pre>MySQL</code>、<code v-pre>Web</code> 等都有可能受到影响。另外还需要找到对应操作系统的镜像文件，不过这个也不难找，上操作系统的官网下录镜像文件就行，因此 <code v-pre>Linux</code> 纯新手也比较推荐直接使用这个。</p>
 <p>可以直接看 <code v-pre>CSDN</code> 看 <a href="https://blog.csdn.net/qq_45743985/article/details/121152504" target="_blank" rel="noopener noreferrer">这哥们写的 Centos7 安装教程</a>。</p>
-<h3 id="_4-3-linux-to-go-的使用-一般" tabindex="-1"><a class="header-anchor" href="#_4-3-linux-to-go-的使用-一般"><span>4.3.Linux To Go 的使用（一般）</span></a></h3>
+<h3 id="_4-3-便携启动-一般" tabindex="-1"><a class="header-anchor" href="#_4-3-便携启动-一般"><span>4.3.便携启动（一般）</span></a></h3>
 <p>去网店买一个系统 <code v-pre>U</code> 盘（不是普通 <code v-pre>U</code> 盘），这里的系统 <code v-pre>U</code> 盘是一种即插即用式的 <code v-pre>U</code> 盘，只要给自己的个人计算机插上 <code v-pre>U</code> 盘就可以使用某种操作系统，不过这种直接买的有时会偏贵（当然你也可以选择自己烧录一个……不过这对 U 盘的读取速度要求比较高，也可以换一种媒介）。</p>
 <p>我自己就有一个 <code v-pre>128G</code> 的 <code v-pre>Ubuntu</code> （一种 <code v-pre>Linux</code> 操作系统）系统 <code v-pre>U</code> 盘，使用起来还挺不错。</p>
 <p>这个方案能进行原生态的使用一台 <code v-pre>Linux</code> 机器，并且文件能和原来的电脑一起共享，并且方便快捷，可以随身携带（我的大学的时候经常在 <code v-pre>U</code> 盘内部预先安装好各种软件和环境，到了机房就把 <code v-pre>U</code> 盘插到学校的计算机里哈哈），并且比双操作系统来得更快捷一些。</p>
 <p>不过几个小问题：</p>
 <ol>
-<li>使用 <code v-pre>U</code> 盘的时候可能有点烫 <span class="meimu" title="你知道的太多了">也许会把您吓倒也说不定，我曾经被烫到手...</span></li>
+<li>使用 <code v-pre>U</code> 盘的时候可能有点烫 <span class="meimu" title="你知道的太多了"> 也许会把您吓倒也说不定，我曾经被烫到手...</span></li>
 <li>如果是自己烧录 <code v-pre>U</code> 盘可能需要一定的技术门槛</li>
 <li><code v-pre>U</code> 盘很容易坏，万一坏掉了，很容易整个系统都无法再访问了（包括里面的文件和数据），这点很危险，因此最好还是把 <code v-pre>U</code> 盘版的 <code v-pre>To Go</code>  技术当作是开发者便携的一个小工具</li>
 </ol>
 <p>感兴趣看着玩就可以。</p>
-<h3 id="_4-4-直接安装-linux-系统-一般" tabindex="-1"><a class="header-anchor" href="#_4-4-直接安装-linux-系统-一般"><span>4.4.直接安装 Linux 系统（一般）</span></a></h3>
-<p>如果你有闲置的电脑，可以直接烧录一个用于重装系统的系统 <code v-pre>U</code> 盘保存系统文件，给电脑直接安装一个 <code v-pre>Linux</code> 系统（或者也可以搞一个双系统），好处就是最为“原生态”，但是对于丝毫不懂系统的新手来说配置的难度比较高。</p>
-<p>并且这台电脑以后大概率是作为开发和工作使用了，基本不会在其他娱乐的方面有所作用（因为支持 <code v-pre>Linux</code> 的大众应用软件有可能不太好用，甚至没有对于的版本支持）。</p>
-<p>这种需要有一定的技术力，所以新手不推荐...</p>
-<h3 id="_4-5-在-windows-中使用-不推荐" tabindex="-1"><a class="header-anchor" href="#_4-5-在-windows-中使用-不推荐"><span>4.5.在 windows 中使用（不推荐）</span></a></h3>
+<h3 id="_4-5-模拟系统-一般" tabindex="-1"><a class="header-anchor" href="#_4-5-模拟系统-一般"><span>4.5.模拟系统（一般）</span></a></h3>
 <p>在 <code v-pre>windows</code> 中可以使用类似 <code v-pre>Cygwin64Terminal</code> 这些软件模拟 <code v-pre>Linux</code> 的 <code v-pre>bash</code> 窗口，但是不太推荐。毕竟不够“原生态”，不利于您的学习，而且安装也是一个问题，并且微软貌似也不太对这方面感兴趣...</p>
-<h3 id="_4-6-一些在线的命令行网站-不推荐" tabindex="-1"><a class="header-anchor" href="#_4-6-一些在线的命令行网站-不推荐"><span>4.6.一些在线的命令行网站（不推荐）</span></a></h3>
+<p>不过现在貌似 <code v-pre>WSL</code> 也比较成熟了，可以了考虑使用...</p>
+<h3 id="_4-6-在线命令-差评" tabindex="-1"><a class="header-anchor" href="#_4-6-在线命令-差评"><span>4.6.在线命令（差评）</span></a></h3>
 <p>新手可以提前寻找一些网站来使用 <code v-pre>Linux</code> 的系统：</p>
 <ol>
 <li><a href="https://www.tutorialspoint.com/unix_terminal_online.php" target="_blank" rel="noopener noreferrer">Linux 在线网站 1</a></li>

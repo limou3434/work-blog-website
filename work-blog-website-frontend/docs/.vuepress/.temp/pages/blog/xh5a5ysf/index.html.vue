@@ -207,7 +207,7 @@ date="2024/08/16"
 <VPCollapse><VPCollapseItem :index="0"><template #title>标题 1</template><p>正文内容</p>
 </VPCollapseItem><VPCollapseItem :index="1"><template #title>标题 2</template><p>正文内容</p>
 </VPCollapseItem></VPCollapse><h3 id="_2-12-页面测试" tabindex="-1"><a class="header-anchor" href="#_2-12-页面测试"><span>2.12.页面测试</span></a></h3>
-<CanIUseViewer feature="css-matches-pseudo" meta="ffyzs" :past="2" :future="1" /><h3 id="_2-13-对话记录" tabindex="-1"><a class="header-anchor" href="#_2-13-对话记录"><span>2.13.对话记录</span></a></h3>
+<CanIUseViewer feature="css-matches-pseudo" meta="opotp" :past="2" :future="1" /><h3 id="_2-13-对话记录" tabindex="-1"><a class="header-anchor" href="#_2-13-对话记录"><span>2.13.对话记录</span></a></h3>
 <div class="vp-chat">
   <div class="vp-chat-header">
     <p class="vp-chat-title">标题</p>
