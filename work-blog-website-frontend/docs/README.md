@@ -25,8 +25,12 @@ config:
       actions:
         -
           theme: brand
-          text: 日常博客
+          text: 博客集合
           link: /blog/
+        -
+          theme: sponsor
+          text: 文档集合
+          link: /book   /
         -
           theme: alt
           text: 本项目 Github 仓库 →
