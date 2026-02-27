@@ -1,5 +1,7 @@
 /**
- * 基础配置
+ * 站点配置
+ *
+ * 配置 vuepress 站点的一些功能，同时提供一些拓展功能
  */
 import {viteBundler} from '@vuepress/bundler-vite'
 import {defineUserConfig} from 'vuepress'
@@ -82,9 +84,6 @@ export default defineUserConfig({
             maxCount: 10,
             repoUrl: 'https://github.com/limou3434/work-blog-website',
         },
-        plugins: {
-            git: true, // 如果您在此处直接声明为 true, 则表示开发环境和生产环境都启用该功能
-        },
 
         // 部署域名
         hostname: 'https://limou3434.github.io/work-blog-website/', // 有助于 SEO, 生成 sitemap
@@ -136,6 +135,14 @@ export default defineUserConfig({
                 copy: true, // true | 'all' | 'html' | 'md', 复制为 html/markdown, true 相当于 `all`, 相当于同时启用 html 和 markdown
             },
             qrcode: true, // 二维码
+        },
+
+        // 额外插件
+        plugins: {
+            git: true, // 如果您在此处直接声明为 true, 则表示开发环境和生产环境都启用该功能
+            markdownPower: { // 图片尺寸优化
+                imageSize: true, // 可选 'local' | 'all'
+            },
         },
     }),
 })

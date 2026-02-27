@@ -1,5 +1,7 @@
 /**
  * 导航配置
+ *
+ * 在配置好集合的基础上，指向每个集合目录内的最顶层 README.md 文件
  */
 import {defineNavbarConfig} from 'vuepress-theme-plume'
 

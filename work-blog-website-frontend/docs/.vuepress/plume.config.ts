@@ -1,5 +1,7 @@
 /**
  * 主题配置
+ *
+ * 配置 vuepress 站点主题的一些功能
  */
 import {defineThemeConfig} from 'vuepress-theme-plume'
 import {navbar} from "./navbar";
