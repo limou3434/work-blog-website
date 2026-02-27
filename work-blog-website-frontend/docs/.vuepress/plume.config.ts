@@ -15,8 +15,6 @@ export default defineThemeConfig({
 
     // 社交链接
     social: [
-        { icon: 'qq', link: '898738804@qq.com'},
-        { icon: 'gmail', link: 'llimou3434@gmail.com'},
         { icon: 'github', link: 'https://github.com/limou3434'},
         { icon: 'docker', link: 'https://hub.docker.com/repositories/limou3434' },
         { icon: 'twitter', link: 'https://x.com/3434Limou97685' },

@@ -71,6 +71,14 @@ export const collections = defineCollections([
         sidebarCollapsed: true,
         sidebar: 'auto',
     }),
+    // 智能集合
+    defineCollection({
+        type: 'doc',
+        dir: '/agent/',
+        title: '智能集合',
+        sidebarCollapsed: true,
+        sidebar: 'auto',
+    }),
     // 学习集合
     ...docConfigs.map(config => defineCollection(config)),
 ])

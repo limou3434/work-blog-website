@@ -3,7 +3,7 @@
  *
  * 在这里注册使用 vue 编写客户端组件，注册好后就可以在 markdown 文件中使用
  */
-// 引入自定义的主题
+// 引入自定义的主题颜色
 // @ts-ignore
 import './styles/index.css'
 
@@ -19,6 +19,8 @@ import Swiper from 'vuepress-theme-plume/features/Swiper.vue'
 
 // 引入本人自主开发的客户端组件
 // @ts-ignore
+import HomeComponent from './components/HomeComponent.vue'
+// @ts-ignore
 import BulletinContent from './components/BulletinContent.vue'
 // @ts-ignore
 import TestAntdUI from './components/TestAntdUI.vue'
@@ -30,6 +32,7 @@ export default defineClientConfig({
     enhance({app}) {
         app.component('RepoCard', RepoCard); // 引入码仓卡片组件
         app.component('Swiper', Swiper) // 引入轮播图片组件
+        app.component('HomeComponent', HomeComponent); // 引入首页组件
         app.component('BulletinContent', BulletinContent); // 引入全局公告组件
         app.component('TestAntdUI', TestAntdUI) // 引入轮播图片组件
         app.component('AIChatDrawer', AIChatDrawer) // 引入轮播图片组件

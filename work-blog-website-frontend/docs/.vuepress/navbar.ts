@@ -11,6 +11,7 @@ export const navbar = defineNavbarConfig([
     {text: '友链', icon: 'material-symbols:partner-exchange', link: '/FRIENDS.md',},
     {text: '博客', icon: 'material-symbols:article-outline', link: '/blog/',},
     {text: '文档', icon: 'material-symbols:developer-guide', link: '/book/',},
+    {text: '智能', icon: 'material-symbols:smart-toy-rounded', link: '/agent/',},
     {
         text: '开发修养',
         icon: 'material-symbols:code-blocks',
