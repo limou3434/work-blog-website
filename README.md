@@ -39,6 +39,8 @@
 - [客端配置](./work-blog-website-frontend/docs/.vuepress/client.ts)
 - [集合配置](./work-blog-website-frontend/docs/.vuepress/collections.ts)
 - [导航配置](./work-blog-website-frontend/docs/.vuepress/navbar.ts)
+- [区域配置](./work-blog-website-frontend/docs/.vuepress/components/HomeComponent.vue)
+- [颜色配置](./work-blog-website-frontend/docs/.vuepress/styles/index.css)
 
 > [!IMPORTANT]
 > 补充：基本上您如果需要给本站提供新的知识文章，基本上只需要了解上述的 `集合配置` 和 `导航配置` 即可。
