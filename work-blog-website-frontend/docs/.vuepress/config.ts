@@ -137,6 +137,19 @@ export default defineUserConfig({
             qrcode: true, // 二维码
         },
 
+        // 高亮代码
+        codeHighlighter: {
+            themes: { light: 'vitesse-light', dark: 'vitesse-dark' },
+            notationDiff: true,
+            notationErrorLevel: true,
+            notationFocus: true,
+            notationHighlight: true,
+            notationWordHighlight: true,
+            highlightLines: true,
+            collapsedLines: false,
+            lineNumbers: true,
+        },
+
         // 额外插件
         plugins: {
             git: true, // 如果您在此处直接声明为 true, 则表示开发环境和生产环境都启用该功能

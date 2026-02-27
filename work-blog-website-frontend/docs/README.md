@@ -4,8 +4,10 @@ footer: false
 home: true
 config:
   -
-    type: hero
-    full: true
+    type: hero # 区域类型
+    full: true # 是否全屏
+    # backgroundImage?: string | { light: string, dark: string } # 背景图片
+    # backgroundAttachment?: 'fixed' | 'local' # 背景定位
     effect: beams
     effectConfig:
       beamWidth: 2
