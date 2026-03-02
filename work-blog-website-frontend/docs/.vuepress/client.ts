@@ -3,13 +3,21 @@
  *
  * 在这里注册使用 vue 编写客户端组件，注册好后就可以在 markdown 文件中使用
  */
+// 引入 vuepress 对于客户端组件渲染的支持
+// @ts-ignore
+import {defineClientConfig} from 'vuepress/client'
+
 // 引入自定义的主题颜色
 // @ts-ignore
 import './styles/index.css'
 
-// 引入 vuepress 对于客户端组件渲染的支持
+// 引入自定义的布局组件
 // @ts-ignore
-import {defineClientConfig} from 'vuepress/client'
+import Layout from './components/Layout.vue'
+
+// 引入自定义的主页组件
+// @ts-ignore
+import HomeComponent from './components/HomeComponent.vue'
 
 // 引入 plume 主题提供的客户端组件
 // @ts-ignore
@@ -19,8 +27,6 @@ import Swiper from 'vuepress-theme-plume/features/Swiper.vue'
 
 // 引入本人自主开发的客户端组件
 // @ts-ignore
-import HomeComponent from './components/HomeComponent.vue'
-// @ts-ignore
 import BulletinContent from './components/BulletinContent.vue'
 // @ts-ignore
 import TestAntdUI from './components/TestAntdUI.vue'
@@ -29,10 +35,13 @@ import AIChatDrawer from './components/AIChatDrawer.vue'
 
 // 在这里注册客户端组件，就可以成功将 Vue 代码编写的组件使用到 markdown 文件中
 export default defineClientConfig({
+    // layouts: {
+    //     Layout,
+    // },
     enhance({app}) {
+        app.component('HomeComponent', HomeComponent); // 引入首页组件
         app.component('RepoCard', RepoCard); // 引入码仓卡片组件
         app.component('Swiper', Swiper) // 引入轮播图片组件
-        app.component('HomeComponent', HomeComponent); // 引入首页组件
         app.component('BulletinContent', BulletinContent); // 引入全局公告组件
         app.component('TestAntdUI', TestAntdUI) // 引入轮播图片组件
         app.component('AIChatDrawer', AIChatDrawer) // 引入轮播图片组件

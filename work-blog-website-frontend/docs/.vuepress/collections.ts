@@ -40,7 +40,7 @@ const navbarLinks = extractLinksFromNavbar()
 const docConfigs = navbarLinks.map(({link, text}) => ({
     type: 'doc' as const,
     dir: link,
-    title: "学习集合" + "_" + text,
+    title: "学习集合", // + "_" + text,
     sidebarCollapsed: true,
     sidebar: 'auto' as const,
 }))
