@@ -1,14 +1,19 @@
 /**
  * 导航配置
+ *
+ * 在配置好集合的基础上，指向每个集合目录内的最顶层 README.md 文件
  */
 import {defineNavbarConfig} from 'vuepress-theme-plume'
 
+// TODO：这里再加一个自动化就可以基本实现自动化博客了
+
 // 导航图标可以在 https://fonts.google.com/icons 中查找
 export const navbar = defineNavbarConfig([
-    {text: '首页', icon: 'material-symbols:home-outline', badge: {text: 'v2.0.0', type: 'info'}, link: '/',},
+    {text: '首页', icon: 'material-symbols:home-outline', badge: {text: 'v1.0.0', type: 'info'}, link: '/',},
     {text: '友链', icon: 'material-symbols:partner-exchange', link: '/FRIENDS.md',},
     {text: '博客', icon: 'material-symbols:article-outline', link: '/blog/',},
     {text: '文档', icon: 'material-symbols:developer-guide', link: '/book/',},
+    {text: '智能', icon: 'material-symbols:smart-toy-rounded', link: '/agent/',},
     {
         text: '开发修养',
         icon: 'material-symbols:code-blocks',
@@ -29,4 +34,12 @@ export const navbar = defineNavbarConfig([
             {text: '立体建模', icon: 'material-symbols:view-in-ar', link: '/8.立体建模/README.md'},
         ]
     },
+    {
+        text: '仪容仪表',
+        icon: 'material-symbols:spa', // 替换为spa图标，更贴合护肤主题
+        items: [
+            {text: '护肤美妆', icon: 'material-symbols:face', link: '/9.护肤美妆/README.md'},
+            {text: '香水香氛 ', icon: 'material-symbols:fragrance', link: '/10.香水香氛/README.md'},
+        ]
+    }
 ])

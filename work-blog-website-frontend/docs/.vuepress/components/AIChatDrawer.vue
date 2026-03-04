@@ -196,7 +196,7 @@ const autoResize = (e: Event) => {
 
 // 请求本地模型
 const callOllamaOnce = async (prompt: string): Promise<string> => {
-  const res = await fetch('http://localhost:11434/api/generate', {
+  const res = await fetch('http://edtechhub.com.cn:11434/api/generate', { // TODO：这个后续改为请求后端请求而不是直接请求服务器
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({

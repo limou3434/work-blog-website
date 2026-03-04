@@ -1,6 +1,6 @@
-docs/.vuepress/.cache
-docs/.vuepress/.temp
-docs/.vuepress/dist
+work-blog-website-frontend/docs/.vuepress/.temp
+work-blog-website-frontend/docs/.vuepress/.cache
+work-blog-website-frontend/docs/.vuepress/dist
 
 # >>> 2025-09-12-ljp-项目通用屏蔽文件 >>>
 **.idea/
