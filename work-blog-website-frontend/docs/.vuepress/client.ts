@@ -7,18 +7,6 @@
 // @ts-ignore
 import {defineClientConfig} from 'vuepress/client'
 
-// 引入自定义的主题颜色
-// @ts-ignore
-import './styles/index.css'
-
-// 引入自定义的布局组件
-// @ts-ignore
-import Layout from './components/Layout.vue'
-
-// 引入自定义的主页组件
-// @ts-ignore
-import HomeComponent from './components/HomeComponent.vue'
-
 // 引入 plume 主题提供的客户端组件
 // @ts-ignore
 import RepoCard from 'vuepress-theme-plume/features/RepoCard.vue'
@@ -33,11 +21,21 @@ import TestAntdUI from './components/TestAntdUI.vue'
 // @ts-ignore
 import AIChatDrawer from './components/AIChatDrawer.vue'
 
+// 引入自定义的主题颜色
+// @ts-ignore
+import './styles/index.css'
+// 引入自定义的首页页面
+// @ts-ignore
+import HomeComponent from './components/HomeComponent.vue'
+// 引入自定义的基本布局
+// @ts-ignore
+import UniversalLayout from './layout/UniversalLayout.vue'
+
 // 在这里注册客户端组件，就可以成功将 Vue 代码编写的组件使用到 markdown 文件中
 export default defineClientConfig({
-    // layouts: {
-    //     Layout,
-    // },
+    layouts: {
+        UniversalLayout,
+    },
     enhance({app}) {
         app.component('HomeComponent', HomeComponent); // 引入首页组件
         app.component('RepoCard', RepoCard); // 引入码仓卡片组件
