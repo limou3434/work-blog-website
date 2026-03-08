@@ -579,6 +579,9 @@ createApp(App).mount('#app')
 
 <AIChatDrawer />
 
+<VisitorCounter />
+
+
 ### 2.27.二维代码
 
 ::: qrcode card svg title="百度搜索" align="center"
