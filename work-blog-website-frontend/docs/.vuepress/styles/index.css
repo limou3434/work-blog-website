@@ -2,6 +2,7 @@
  * 主题配置
  *
  * 可以自定义主题的配置颜色，更多颜色配置可以参考 https://github.com/pengzhanbo/vuepress-theme-plume/blob/main/theme/src/client/styles/vars.css
+ * 其他完整的主题配置都在这个源代码中 https://github.com/pengzhanbo/vuepress-theme-plume/blob/main/theme/src/client/styles/vars.css
  */
 :root {
     /** 主题颜色 */
