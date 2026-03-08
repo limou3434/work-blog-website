@@ -86,7 +86,7 @@ export default defineUserConfig({
         },
 
         // 部署域名
-        hostname: 'https://limou3434.github.io/work-blog-website/', // 有助于 SEO, 生成 sitemap
+        hostname: 'https://wbw.edtechhub.com.cn', // 有助于 SEO, 生成 sitemap
 
         // 文档仓库
         docsRepo: 'https://github.com/limou3434/work-blog-website',
@@ -100,6 +100,7 @@ export default defineUserConfig({
 
         // 拓展语法
         markdown: {
+            icon: { provider: 'iconify' }, // 启用 iconify 图标
             field: true, // 启用字段展示
             math: {             // 启用数学公式
                 type: 'katex',
@@ -109,10 +110,11 @@ export default defineUserConfig({
             echarts: true,      // 启用 ECharts
             markmap: true,      // 启用 Markmap
             codeTree: true,     // 启用代码树语法
-            bilibili: true,     // 启用嵌入 bilibili 视频 语法 @[bilibili](bid)
-            youtube: true,      // 启用嵌入 youtube 视频 语法 @[youtube](video_id)
-            pdf: true,          // 启用 PDF 嵌入 @[pdf](/xxx.pdf)
-            audioReader: true,  // 启用嵌入音频朗读功能 语法 @[audioReader](url)
+            bilibili: true,     // 启用嵌入 bilibili 视频语法 @[bilibili](bid)
+            youtube: true,      // 启用嵌入 youtube 视频语法 @[youtube](video_id)
+            artPlayer: true,    // 启用嵌入本地视频语法
+            audioReader: true,  // 启用嵌入本地音频语法
+            pdf: true,          // 启用嵌入 PDF 语法 @[pdf](/xxx.pdf)
             plot: true,         // 启用隐秘文本语法 !!xxxx!!
             annotation: true,   // 启用 annotation 语法  [+label]: content
             timeline: true,     // 启用 timeline 语法  ::: timeline
