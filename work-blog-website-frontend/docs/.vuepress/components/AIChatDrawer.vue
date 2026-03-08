@@ -31,8 +31,8 @@
           <div v-for="(item, idx) in chatList" :key="idx" class="chat-item">
             <div v-if="item.role === 'user'" class="user-chat">
               <div
-                class="bubble user-bubble markdown-body"
-                v-html="renderMarkdown(item.content)"
+                  class="bubble user-bubble markdown-body"
+                  v-html="renderMarkdown(item.content)"
               ></div>
               <div class="avatar user-avatar">🙂</div>
             </div>
@@ -44,9 +44,9 @@
                   <span></span><span></span><span></span>
                 </div>
                 <div
-                  v-else
-                  class="markdown-body"
-                  v-html="renderMarkdown(item.content)"
+                    v-else
+                    class="markdown-body"
+                    v-html="renderMarkdown(item.content)"
                 ></div>
               </div>
             </div>
@@ -69,9 +69,9 @@
               v-model="inputVal"
               class="ai-input"
               :disabled="sending"
-              placeholder="Enter 换行，Shift + Enter 发送"
+              placeholder="Ctrl + Enter 发送，Enter 换行"
               rows="1"
-              @keydown.shift.enter.prevent="sendMsg($event)"
+              @keydown="handleKeydown"
               @input="autoResize"
           />
           <button
@@ -92,12 +92,12 @@
 </template>
 
 <script lang="ts" setup>
-import {nextTick, ref} from 'vue'
+import { nextTick, ref } from 'vue'
+import { marked } from 'marked'
 
 // 核心状态
-const sending = ref(false) // 是否正在等待 AI 回复
+const sending = ref(false)
 const drawerOpen = ref<boolean>(false)
-const isBtnHover = ref<boolean>(false) // 按钮悬浮状态，初始不悬浮
 const inputVal = ref<string>('')
 const chatRef = ref<HTMLDivElement | null>(null)
 const chatList = ref<Array<{
@@ -114,7 +114,7 @@ const tips = ref<string[]>([
   '前端工程化实践'
 ])
 
-// 对话滚动到底部
+// 滚动到底部
 const scrollToBottom = () => {
   nextTick(() => {
     if (chatRef.value) {
@@ -123,32 +123,27 @@ const scrollToBottom = () => {
   })
 }
 
-// 清空聊天记录
+// 清空聊天
 const clearChat = () => {
   chatList.value = []
 }
 
-// 下载聊天记录
+// 下载聊天
 const buildMarkdown = () => {
   if (!chatList.value.length) return ''
-
   const lines: string[] = []
-
   lines.push('# 聊天记录')
   lines.push('')
   lines.push(`> 导出时间：${new Date().toLocaleString()}`)
   lines.push('')
-
   chatList.value.forEach(item => {
     if (item.loading) return
-
     if (item.role === 'user') {
       lines.push('## 👤 用户')
       lines.push('')
       lines.push(item.content)
       lines.push('')
     }
-
     if (item.role === 'assistant') {
       lines.push('## 🤖 AI')
       lines.push('')
@@ -156,131 +151,107 @@ const buildMarkdown = () => {
       lines.push('')
     }
   })
-
   return lines.join('\n')
 }
 
 const downloadMd = () => {
   const mdContent = buildMarkdown()
   if (!mdContent) return
-
-  const blob = new Blob([mdContent], {type: 'text/markdown;charset=utf-8;'})
+  const blob = new Blob([mdContent], { type: 'text/markdown;charset=utf-8;' })
   const url = URL.createObjectURL(blob)
-
   const a = document.createElement('a')
   a.href = url
   a.download = `chat-${Date.now()}.md`
   a.click()
-
   URL.revokeObjectURL(url)
 }
 
-// 支持 markdown 转化
-import { marked } from 'marked'
+// markdown
+marked.setOptions({ gfm: true, breaks: true })
+const renderMarkdown = (text: string) => marked.parse(text || '')
 
-marked.setOptions({
-  gfm: true,
-  breaks: true
-})
-
-const renderMarkdown = (text: string) => {
-  return marked.parse(text || '')
-}
-
-// 支持换行文本
+// 自动高度
 const autoResize = (e: Event) => {
   const el = e.target as HTMLTextAreaElement
   el.style.height = 'auto'
   el.style.height = el.scrollHeight + 'px'
 }
 
-// 请求本地模型
-const callOllamaOnce = async (prompt: string): Promise<string> => {
-  const res = await fetch('http://edtechhub.com.cn:11434/api/generate', { // TODO：这个后续改为请求后端请求而不是直接请求服务器
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      model: 'llama3:8b-instruct-q4_0',
-      prompt: `请使用【简体中文】回答下面的问题：\n\n${prompt}`,
-      stream: false
-    })
-  })
+// ====================== 快捷键逻辑（你要的版本）======================
+const handleKeydown = (e: KeyboardEvent) => {
+  if (e.isComposing) return
 
-  if (!res.ok) {
-    throw new Error('Ollama 请求失败')
+  // Ctrl + Enter = 发送
+  if (e.ctrlKey && e.key === 'Enter') {
+    e.preventDefault()
+    sendMsg()
+    return
   }
 
-  const data = await res.json()
-  return data.response || ''
+  // Enter / Shift + Enter = 换行
+  if (e.key === 'Enter') {
+    // 不阻止，让它正常换行
+    return
+  }
 }
 
-// 发送消息
-// const sendMsg = (e?: KeyboardEvent) => {
-//   // 🚫 中文输入法组合阶段，直接忽略
-//   if (e?.isComposing) return
-//
-//   // 🚫 发送中禁止重复触发
-//   if (sending.value) return
-//   if (!inputVal.value.trim()) return
-//
-//   sending.value = true
-//
-//   chatList.value.push({
-//     role: 'user',
-//     content: inputVal.value.trim()
-//   })
-//
-//   inputVal.value = ''
-//   scrollToBottom()
-//
-//   chatList.value.push({
-//     role: 'assistant',
-//     content: '',
-//     loading: true
-//   })
-//   scrollToBottom()
-//
-//   setTimeout(() => {
-//     const lastItem = chatList.value.at(-1)
-//     if (lastItem?.loading) {
-//       lastItem.content =
-//           `已收到您的问题：\n\n${chatList.value.at(-2)?.content}\n\n请注意 AI 的使用次数...`
-//       lastItem.loading = false
-//       sending.value = false
-//       scrollToBottom()
-//     }
-//   }, 1500)
-// }
-const sendMsg = async (e?: KeyboardEvent) => {
-  if (e?.isComposing) return
-  if (sending.value) return
-  if (!inputVal.value.trim()) return
+// 自动切环境
+const getOllamaBaseUrl = () => {
+  const isLocal = window.location.href.includes('localhost') || window.location.href.includes('127.0.0.1')
+  return isLocal ? 'http://localhost:11434' : 'http://edtechhub.com.cn:11434'
+}
 
-  const userContent = inputVal.value.trim()
-  sending.value = true
-  inputVal.value = ''
-
-  // 用户消息
-  chatList.value.push({
-    role: 'user',
-    content: userContent
+// 请求 Ollama
+const callOllamaOnce = async (prompt: string): Promise<string> => {
+  const baseUrl = getOllamaBaseUrl()
+  const body = JSON.stringify({
+    model: 'llama3:8b-instruct-q4_0',
+    prompt: `请使用【简体中文】回答下面的问题：\n\n${prompt}`,
+    stream: false
   })
 
-  // AI 占位
-  const aiMsg = {
-    role: 'assistant' as const,
-    content: '',
-    loading: true
-  }
-  chatList.value.push(aiMsg)
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), 30000)
 
+  try {
+    const res = await fetch(`${baseUrl}/api/generate`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body,
+      signal: controller.signal
+    })
+    clearTimeout(timer)
+
+    if (res.status === 204) throw new Error('AI 服务返回空内容 204')
+    if (!res.ok) throw new Error(`请求失败 ${res.status}`)
+
+    const text = await res.text()
+    const data = JSON.parse(text)
+    return data.response || '无回答'
+  } catch (err) {
+    clearTimeout(timer)
+    throw err
+  }
+}
+
+// 发送
+const sendMsg = async () => {
+  const text = inputVal.value.trim()
+  if (!text || sending.value) return
+
+  sending.value = true
+  chatList.value.push({ role: 'user', content: text })
+  inputVal.value = ''
+
+  const aiMsg = { role: 'assistant' as const, content: '', loading: true }
+  chatList.value.push(aiMsg)
   scrollToBottom()
 
   try {
-    const answer = await callOllamaOnce(userContent)
-    aiMsg.content = answer
-  } catch (err) {
-    aiMsg.content = '请求回答失败的说...'
+    const ans = await callOllamaOnce(text)
+    aiMsg.content = ans
+  } catch (e: any) {
+    aiMsg.content = `😭 请求失败：${e.message}`
   } finally {
     aiMsg.loading = false
     sending.value = false
@@ -290,6 +261,13 @@ const sendMsg = async (e?: KeyboardEvent) => {
 </script>
 
 <style scoped>
+/* 全局重置：消除所有默认边距和内边距 */
+.ai-drawer :deep(*) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* ================= 浮动按钮 ================= */
 .ai-btn {
   position: fixed;
@@ -341,7 +319,7 @@ const sendMsg = async (e?: KeyboardEvent) => {
   color: var(--vp-c-text-1);
   border-left: 1px solid var(--vp-c-border);
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* 保持列布局 */
   pointer-events: auto;
 }
 
@@ -352,6 +330,7 @@ const sendMsg = async (e?: KeyboardEvent) => {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-shrink: 0; /* 固定头部不压缩 */
 }
 
 /* 右侧操作区 */
@@ -379,32 +358,35 @@ const sendMsg = async (e?: KeyboardEvent) => {
 
 /* ================= 内容区 ================= */
 .ai-drawer-body {
-  flex: 1;
-  padding: 24px;
+  flex: 1; /* 占满剩余空间 */
+  padding: 24px 24px 20px 24px; /* 底部内边距减小，给输入框让位 */
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 对话区在上，输入区在下 */
 }
 
 .chat-content {
-  height: calc(100% - 180px);
+  flex: 1; /* 对话区占满上方空间 */
   overflow-y: auto;
-  margin-bottom: 20px;
+  margin-bottom: 10px; /* 和输入区保持小间距 */
 }
 
 .chat-item {
-  margin-bottom: 20px;
+  margin-bottom: 10px; /* 消息之间的间距 */
   display: flex;
-  align-items: flex-start; /* ← 关键 */
+  align-items: flex-start;
 }
 
 .user-chat,
 .ai-chat {
   display: flex;
-  align-items: flex-start; /* ← 关键 */
+  align-items: flex-start;
 }
 
 .avatar {
-  width: 36px;
-  height: 36px;
+  width: 32px; /* 缩小头像 */
+  height: 32px;
   border-radius: 50%;
   background: var(--vp-c-bg-alt);
   display: flex;
@@ -415,31 +397,33 @@ const sendMsg = async (e?: KeyboardEvent) => {
 
 /* AI 头像：在左 */
 .ai-chat .avatar {
-  margin-right: 12px;
+  margin-right: 8px; /* 减小头像和气泡间距 */
 }
 
 /* 用户头像：在右 */
 .user-chat .avatar {
-  margin-left: 12px;
+  margin-left: 8px; /* 减小头像和气泡间距 */
 }
 
 .user-chat {
   display: flex;
   align-items: flex-start;
-  margin-left: auto;   /* ⭐ 核心 */
+  margin-left: auto;
 }
 
-/* 气泡 */
+/* 气泡 ← 核心修复：彻底消除多余高度 */
 .bubble {
   max-width: 85%;
-  padding: 12px 16px;
+  padding: 8px 12px; /* 极致紧凑的内边距 */
   font-size: 14px;
-  line-height: 1.5;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+  line-height: 1.3; /* 最小行高 */
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .08); /* 弱化阴影，视觉更紧凑 */
   word-break: break-word;
   overflow-wrap: anywhere;
   white-space: pre-wrap;
+  min-height: unset !important; /* 强制取消最小高度 */
+  height: fit-content !important; /* 高度自适应内容 */
 }
 
 .user-bubble {
@@ -458,13 +442,13 @@ const sendMsg = async (e?: KeyboardEvent) => {
 .tips {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .ai-tag {
-  margin: 0 8px 8px 0;
-  padding: 4px 12px;
-  font-size: 14px;
+  margin: 0 6px 6px 0;
+  padding: 3px 10px;
+  font-size: 13px;
   border-radius: 4px;
   background: var(--vp-c-bg-alt);
   color: var(--vp-c-text-2);
@@ -477,20 +461,26 @@ const sendMsg = async (e?: KeyboardEvent) => {
   color: var(--vp-c-white);
 }
 
-/* ================= 输入区 ================= */
+/* ================= 输入区（核心修改：靠底部） ================= */
 .ai-input-wrap {
   display: flex;
   gap: 8px;
+  margin-top: auto; /* 强制靠底部 */
+  align-self: flex-end; /* 宽度自适应 */
+  width: 100%; /* 占满容器宽度 */
 }
 
 .ai-input {
   flex: 1;
-  padding: 12px 16px;
+  padding: 10px 14px;
   border-radius: 8px;
   border: 1px solid var(--vp-c-border);
   background: var(--vp-c-bg-alt);
   font-size: 14px;
   outline: none;
+  resize: none;
+  overflow-y: hidden;
+  line-height: 1.3;
 }
 
 .ai-input:focus {
@@ -499,7 +489,7 @@ const sendMsg = async (e?: KeyboardEvent) => {
 
 /* 发送按钮 */
 .ai-send-btn {
-  padding: 0 16px;
+  padding: 0 14px;
   border-radius: 8px;
   border: none;
   background: var(--vp-c-brand);
@@ -518,11 +508,13 @@ const sendMsg = async (e?: KeyboardEvent) => {
 .loading {
   display: flex;
   gap: 4px;
+  align-items: center;
+  height: 18px; /* 缩小加载动画高度 */
 }
 
 .loading span {
-  width: 8px;
-  height: 8px;
+  width: 6px; /* 缩小加载圆点 */
+  height: 6px;
   border-radius: 50%;
   background: var(--vp-c-brand);
   animation: blink 1s infinite;
@@ -559,8 +551,8 @@ const sendMsg = async (e?: KeyboardEvent) => {
 
 /* 旋转圈 */
 .send-spinner {
-  width: 14px;
-  height: 14px;
+  width: 12px; /* 缩小加载圈 */
+  height: 12px;
   border: 2px solid rgba(255,255,255,.4);
   border-top-color: #fff;
   border-radius: 50%;
@@ -571,35 +563,42 @@ const sendMsg = async (e?: KeyboardEvent) => {
   to { transform: rotate(360deg); }
 }
 
-.markdown-body pre {
-  background: #020617;
-  padding: 12px;
-  border-radius: 6px;
-  overflow-x: auto;
-  font-size: 13px;
+/* Markdown 样式终极重置 ← 关键中的关键 */
+.bubble :deep(.markdown-body) {
+  line-height: 1.3 !important;
+  font-size: 14px !important;
 }
 
-.markdown-body code {
-  background: rgba(255,255,255,0.08);
-  padding: 2px 4px;
-  border-radius: 4px;
+.bubble :deep(.markdown-body p) {
+  margin: 0 !important; /* 彻底消除p标签默认边距 */
+  padding: 0 !important;
+  line-height: 1.3 !important;
 }
 
-.markdown-body h1,
-.markdown-body h2,
-.markdown-body h3 {
-  margin: 8px 0;
+.bubble :deep(.markdown-body br) {
+  line-height: 1.3 !important;
 }
 
-.markdown-body ul {
-  padding-left: 20px;
+.bubble :deep(.markdown-body pre) {
+  padding: 8px 10px !important;
+  margin: 4px 0 !important;
+  font-size: 12px !important;
+  line-height: 1.2 !important;
 }
 
-.ai-input {
-  resize: none;
-  overflow-y: hidden;
+.bubble :deep(.markdown-body code) {
+  padding: 1px 3px !important;
+  font-size: 13px !important;
 }
 
+.bubble :deep(.markdown-body ul),
+.bubble :deep(.markdown-body ol) {
+  margin: 4px 0 !important;
+  padding-left: 20px !important;
+  line-height: 1.3 !important;
+}
+
+/* 辅助样式 */
 .ai-tip {
   margin-left: 6px;
   font-size: 12px;
@@ -607,19 +606,14 @@ const sendMsg = async (e?: KeyboardEvent) => {
   font-weight: normal;
 }
 
-/* Chrome / Edge / Safari */
+/* 隐藏滚动条（全端兼容） */
 *::-webkit-scrollbar {
   width: 0 !important;
   height: 0 !important;
 }
 
-/* Firefox */
 * {
   scrollbar-width: none !important;
-}
-
-/* IE / 旧 Edge */
-* {
   -ms-overflow-style: none !important;
 }
 </style>
