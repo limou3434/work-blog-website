@@ -14,6 +14,9 @@ cover: /assets/pexels-goumbik-574069.jpg
 
 **粗体**、*斜体*、==高亮==、[引用](https://github.com/limou3434)
 
+19^th^
+H~2~O
+
 - 无序列表
 - 无序列表
 - 无序列表
@@ -22,7 +25,7 @@ cover: /assets/pexels-goumbik-574069.jpg
 2. 有序列表
 3. 有序列表
 
-![图片](/images/code.jpg)
+![图片](/code.jpg)
 
 ```cpp
 include <iostream>
@@ -35,37 +38,30 @@ int main() {
 
 ## 2.测试拓展语法
 
-### 2.1.数学公式
+### 2.1.表情图标
 
-$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$
+下述 `emoji` 表情可以在这个 [列表中](https://github.com/markdown-it/markdown-it-emoji/blob/master/lib/data/full.mjs) 查询
 
-### 2.2.箴言加强
+:tada: :100:
 
-> [!CAUTION]
->
-> 警告：
+也可以直接在 [主题网站中进行复制](https://theme-plume.vuejs.press/guide/markdown/emoji/#%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B)
 
-> [!WARNING]
->
-> 注意：
+主题支持在 Markdown 文件使用 [iconify](https://iconify.design/)
 
-> [!IMPORTANT]
->
-> 补充：
+github: ::tdesign:logo-github-filled::
+修改颜色：::tdesign:logo-github-filled /#f00::
+修改大小：::tdesign:logo-github-filled =36px::
+修改大小颜色：::tdesign:logo-github-filled =36px /#f00::
 
-> [!TIP]
->
-> 区别：
-
-> [!NOTE]
->
-> 吐槽：
+彩色图标 ::skill-icons:vscode-dark =36px::
 
 ### 2.2.媒体载体
 
 @[bilibili](BV1xG8ge6ESE)
 
 @[youtube](0JJPfz5dg20)
+
+@[artPlayer](/still_alive.mp3)
 
 @[pdf](/text.pdf)
 
@@ -557,7 +553,48 @@ createApp(App).mount('#app')
 ```
 :::
 
-### 2.24.表格加强
+### 2.25.字段展示
+
+<!-- 单个字段 -->
+::: field name="字段名" type="类型" required default="默认值"
+字段描述信息
+:::
+
+<!-- 字段组合 -->
+:::: field-group
+
+::: field name="字段名" type="类型" required default="默认值"
+字段描述信息
+:::
+
+::: field name="字段名" type="类型" required default="默认值"
+字段描述信息
+:::
+
+::::
+
+### 2.26.自定组件
+
+<TestAntdUI />
+
+<AIChatDrawer />
+
+### 2.27.二维代码
+
+::: qrcode card svg title="百度搜索" align="center"
+https://baidu.com
+:::
+
+### 2.28.数学公式
+
+Euler's identity $e^{i\pi}+1=0$ is a beautiful formula in $\mathbb{R}^2$.
+
+$$
+\frac {\partial^r} {\partial \omega^r} \left(\frac {y^{\omega}} {\omega}\right)
+= \left(\frac {y^{\omega}} {\omega}\right) \left\{(\log y)^r + \sum_{i=1}^r \frac {(-1)^ Ir \cdots (r-i+1) (\log y)^{ri}} {\omega^i} \right\}
+$$
+
+### 2.29.表格加强
 
 ::: table title="这是表格标题"
 | Header 1 | Header 2 | Header 3 |
@@ -611,34 +648,45 @@ createApp(App).mount('#app')
 | (4,1) | (4,2) | (4,3) | (4,4) |
 :::
 
-### 2.25.字段展示
+### 2.30.箴言加强
 
-<!-- 单个字段 -->
-::: field name="字段名" type="类型" required default="默认值"
-字段描述信息
+> [!CAUTION]
+>
+> 警告：
+
+> [!WARNING]
+>
+> 注意：
+
+> [!IMPORTANT]
+>
+> 补充：
+
+> [!TIP]
+>
+> 区别：
+
+> [!NOTE]
+>
+> 吐槽：
+
+### 2.31.示例容器
+
+::: window
+![hero](/code.jpg)
 :::
 
-<!-- 字段组合 -->
-:::: field-group
+::: window
+<h2 class="your-demo-title">这是标题</h2>
+<p class="your-demo-paragraph">这是段落</p>
 
-::: field name="字段名" type="类型" required default="默认值"
-字段描述信息
+<style>
+  .your-demo-title {
+    color: red;
+  }
+  .your-demo-paragraph {
+    color: blue;
+  }
+</style>
 :::
 
-::: field name="字段名" type="类型" required default="默认值"
-字段描述信息
-:::
-
-::::
-
-### 2.26.自定组件
-
-<TestAntdUI />
-
-<AIChatDrawer />
-
-### 2.27.二维代码
-
-::: qrcode card svg title="百度搜索" align="center"
-https://baidu.com
-:::
