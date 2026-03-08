@@ -34,7 +34,7 @@ import UniversalLayout from './layout/UniversalLayout.vue'
 // 在这里注册客户端组件，就可以成功将 Vue 代码编写的组件使用到 markdown 文件中
 export default defineClientConfig({
     layouts: {
-        UniversalLayout,
+        Layout: UniversalLayout,
     },
     enhance({app}) {
         app.component('HomeComponent', HomeComponent); // 引入首页组件
