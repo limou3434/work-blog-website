@@ -86,7 +86,7 @@ export default defineUserConfig({
         },
 
         // 部署域名
-        hostname: 'https://wbw.edtechhub.com.cn', // 有助于 SEO, 生成 sitemap
+        hostname: 'https://wbw.edtechhub.com.cn', // 有助于 SEO
 
         // 文档仓库
         docsRepo: 'https://github.com/limou3434/work-blog-website',
