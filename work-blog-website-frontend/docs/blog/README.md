@@ -3,7 +3,7 @@ sticky: 1
 excerpt: 自定义摘要内容，测试，测试，测试
 createTime: 2025/11/19 22:06:35
 permalink: /blog/xh5a5ysf/
-cover: /assets/pexels-goumbik-574069.jpg
+cover: /assets/pexels_goumbik.jpg
 ---
 
 # 博客文档
