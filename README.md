@@ -15,7 +15,7 @@
 
 ## 3.原理分析
 
-而本项目作为开源项目，实际上也是支持您来进行做自定义的，本项目是基于 [vuepress](https://vuepress.vuejs.org/) 主题 [plume](https://theme-plume.vuejs.press/) 二次开发而成文档站点，相关的原理可以查阅内部的文档。如果您想要快速了解，则直接看下面的几个文件即可：
+而本项目作为开源项目，实际上也是支持您来进行做自定义的，本项目是基于 [vuepress](https://vuepress.vuejs.org/) 主题 [plume](https://theme-plume.vuejs.press/) 二次开发而成文档站点，相关的原理可以查阅内部的文档。如果您想要快速了解，则直接看下面的几个文件即可，本项目对两种开源项目的使用做了一些简化：
 
 - [站点配置](./work-blog-website-frontend/docs/.vuepress/config.ts)
 - [主题配置](./work-blog-website-frontend/docs/.vuepress/plume.config.ts)
