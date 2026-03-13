@@ -42,7 +42,6 @@ export default defineClientConfig({
         app.component('RepoCard', RepoCard); // 引入码仓卡片组件
         app.component('Swiper', Swiper) // 引入轮播图片组件
         app.component('BulletinContent', BulletinContent); // 引入全局公告组件
-        app.component('TestAntdUI', TestAntdUI) // 引入轮播图片组件
-        app.component('AIChatDrawer', AIChatDrawer) // 引入轮播图片组件
+        app.component('TestAntdUI', TestAntdUI) // 引入框架测试组件
     },
 })

@@ -350,10 +350,10 @@ onMounted(() => {
 /* 播放器容器 */
 .music-player-container {
   width: 100%;
-  margin: 8px 0 12px 0;
+  margin: 8px 0 4px 0;
   padding: 12px 10px;
   border-radius: 8px;
-  background: var(--vp-c-bg-alt);
+  background: var(--vp-c-bg-alt) !important;
   box-sizing: border-box;
 }
 
@@ -549,16 +549,5 @@ onMounted(() => {
 /* 隐藏原生音频元素 */
 audio {
   display: none;
-}
-
-/* 适配暗黑模式 */
-@media (prefers-color-scheme: dark) {
-  .music-player-container {
-    background: var(--vp-c-bg-dark-alt);
-    border-color: var(--vp-c-border-dark);
-  }
-  .visualizer-bar {
-    background: var(--vp-c-brand-dark);
-  }
 }
 </style>
