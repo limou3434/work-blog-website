@@ -16,11 +16,11 @@ export default defineThemeConfig({
     // 社交链接
     social: [
         { icon: 'github', link: 'https://github.com/limou3434'},
-        { icon: 'docker', link: 'https://hub.docker.com/repositories/limou3434' },
-        { icon: 'twitter', link: 'https://x.com/3434Limou97685' },
-        { icon: 'youtube', link: 'https://www.youtube.com/@3434limou' },
-        { icon: 'zhihu', link: 'https://www.zhihu.com/people/limou3434' },
-        { icon: 'xiaohongshu', link: 'https://www.xiaohongshu.com/user/profile/62b85f3b000000001902b070' },
+        // { icon: 'docker', link: 'https://hub.docker.com/repositories/limou3434' },
+        // { icon: 'twitter', link: 'https://x.com/3434Limou97685' },
+        // { icon: 'youtube', link: 'https://www.youtube.com/@3434limou' },
+        // { icon: 'zhihu', link: 'https://www.zhihu.com/people/limou3434' },
+        // { icon: 'xiaohongshu', link: 'https://www.xiaohongshu.com/user/profile/62b85f3b000000001902b070' },
     ],
     navbarSocialInclude: ['qq', 'gmail', 'github', 'docker', 'twitter', 'youtube', 'zhihu', 'xiaohongshu',], // 允许显示在导航栏的 social 社交链接
 
