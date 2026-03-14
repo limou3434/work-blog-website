@@ -5,6 +5,7 @@ import ChatComponent from '../components/ChatComponent.vue'
 import MusicPlayer from '../components/MusicPlayer.vue'
 import Calendar from '../components/Calendar.vue'
 import BentoGallery from '../components/BentoGallery.vue'
+import MdContribute from '../components/MdContribute.vue'
 </script>
 
 <template>
@@ -18,7 +19,8 @@ import BentoGallery from '../components/BentoGallery.vue'
     <template #posts-post-list-before>
       <BentoGallery/>
     </template>
-    <template #posts-post-list-after>
+    <template #posts-aside-bottom>
+      <MdContribute/>
     </template>
   </Layout>
 </template>
