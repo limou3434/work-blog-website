@@ -20,11 +20,10 @@
           }"
           @mouseenter="item.paused = true"
           @mouseleave="item.paused = false"
-      <!-- 移除整个弹幕的点击删除事件 -->
       >
-      <span class="danmaku-content">{{ item.content }}</span>
-      <span class="close-icon" @click.stop="closeDanmaku(idx)">✕</span>
-    </div>
+        <span class="danmaku-content">{{ item.content }}</span>
+        <span class="close-icon" @click.stop="closeDanmaku(idx)">✕</span>
+      </div>
     </div>
   </Teleport>
 
@@ -429,7 +428,8 @@ const deleteHistory = (index: number) => {
 /* 弹幕：循环滚动，只靠 transform 保证清晰，移除字体设置 */
 .ai-danmaku {
   position: absolute;
-  left: 100%;
+  /* 关键修改1：起始位置从右侧改为左侧 */
+  right: 100%;
   border: 1px solid var(--vp-c-border);
   border-radius: 20px;
   padding: 8px 16px;
@@ -445,12 +445,14 @@ const deleteHistory = (index: number) => {
   transform: translateZ(0);
 }
 
+/* 关键修改2：动画方向从左到右 */
 @keyframes danmakuSlide {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-200vw);
+    /* 从左侧移出到右侧 */
+    transform: translateX(200vw);
   }
 }
 

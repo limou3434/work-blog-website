@@ -28,11 +28,11 @@ export default defineThemeConfig({
     profile: {
         avatar: 'https://avatars.githubusercontent.com/u/113878415?s=400&u=9f10b63e033c9504615bc475581441478424e04b&v=4',
         name: 'limou3434', // 开发者名称
-        description: '是本网站的主要搭建者...', // 开发者描述
+        description: '❀ 是本站很忙很忙的开发者 ❀', // 开发者描述
         location: '广东省广州市', // 开发者地址
         organization: '工作室', // 开发者组织
         circle: true, // 显示园框头像
-        layout: 'left', // 卡片显示左侧
+        layout: 'right', // 卡片显示左侧
     },
 
     // 全站公告
