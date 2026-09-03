@@ -7,7 +7,7 @@ import {defineNavbarConfig} from 'vuepress-theme-plume'
 
 // TODO：这里再加一个自动化就可以基本实现自动化博客了
 
-// 导航图标可以在 https://fonts.google.com/icons 中查找
+// 导航图标可以在 https://fonts.google.com/icons 中查找，导航按照 “从事行业 -> 职业素养 -> 技能细节” 来进行拆分
 export const navbar = defineNavbarConfig([
     {text: '首页', icon: 'material-symbols:home-outline', badge: {text: 'v1.0.0', type: 'info'}, link: '/',},
     {text: '友链', icon: 'material-symbols:partner-exchange', link: '/FRIENDS.md',},
@@ -29,17 +29,18 @@ export const navbar = defineNavbarConfig([
         text: '艺术设计',
         icon: 'material-symbols:design-services',
         items: [
-            {text: '素材处理', icon: 'material-symbols:landscape-2-edit', link: '/6.素材处理/README.md'},
-            {text: '视频剪辑', icon: 'material-symbols:cinematic-blur', link: '/7.视频剪辑/README.md'},
-            {text: '立体建模', icon: 'material-symbols:view-in-ar', link: '/8.立体建模/README.md'},
+            {text: '视频拍摄', icon: 'material-symbols:cinematic-blur', link: '/6.视频剪辑/README.md'},
+            {text: '素材处理', icon: 'material-symbols:landscape-2-edit', link: '/7.素材处理/README.md'},
+            {text: '动画特效', icon: 'material-symbols:cinematic-blur', link: '/8.动画特效/README.md'},
+            {text: '立体建模', icon: 'material-symbols:view-in-ar', link: '/9.立体建模/README.md'},
         ]
     },
     {
         text: '仪容仪表',
-        icon: 'material-symbols:spa', // 替换为spa图标，更贴合护肤主题
+        icon: 'material-symbols:spa',
         items: [
-            {text: '护肤美妆', icon: 'material-symbols:face', link: '/9.护肤美妆/README.md'},
-            {text: '香水香氛 ', icon: 'material-symbols:fragrance', link: '/10.香水香氛/README.md'},
+            {text: '护肤美妆', icon: 'material-symbols:face', link: '/10.护肤美妆/README.md'},
+            {text: '香水香氛 ', icon: 'material-symbols:fragrance', link: '/11.香水香氛/README.md'},
         ]
     }
 ])
