@@ -33,7 +33,7 @@ export const navbar = defineNavbarConfig([
             {text: '素材处理', icon: 'material-symbols:landscape-2-edit', link: '/7.素材处理/README.md'},
             {text: '动画特效', icon: 'material-symbols:cinematic-blur', link: '/8.动画特效/README.md'},
             {text: '立体建模', icon: 'material-symbols:view-in-ar', link: '/9.立体建模/README.md'},
-            {text: '虚拟歌姬', icon: 'material-symbols:view-in-ar', link: '/10.虚拟歌姬/README.md'},
+            {text: '虚拟歌姬', icon: 'material-symbols:headphones', link: '/10.虚拟歌姬/README.md'},
         ]
     },
 ])
