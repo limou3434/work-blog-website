@@ -10,10 +10,10 @@ import {defineNavbarConfig} from 'vuepress-theme-plume'
 // 导航图标可以在 https://fonts.google.com/icons 中查找，导航按照 “从事行业 -> 职业素养 -> 技能细节” 来进行拆分
 export const navbar = defineNavbarConfig([
     {text: '首页', icon: 'material-symbols:home-outline', badge: {text: 'v1.0.0', type: 'info'}, link: '/',},
-    {text: '友链', icon: 'material-symbols:partner-exchange', link: '/FRIENDS.md',},
     {text: '博客', icon: 'material-symbols:article-outline', link: '/blog/',},
     {text: '文档', icon: 'material-symbols:developer-guide', link: '/book/',},
     {text: '智能', icon: 'material-symbols:smart-toy-rounded', link: '/agent/',},
+    {text: '友链', icon: 'material-symbols:partner-exchange', link: '/FRIENDS.md',},
     {
         text: '开发修养',
         icon: 'material-symbols:code-blocks',
@@ -34,6 +34,14 @@ export const navbar = defineNavbarConfig([
             {text: '动画特效', icon: 'material-symbols:cinematic-blur', link: '/8.动画特效/README.md'},
             {text: '立体建模', icon: 'material-symbols:view-in-ar', link: '/9.立体建模/README.md'},
             {text: '虚拟歌姬', icon: 'material-symbols:headphones', link: '/10.虚拟歌姬/README.md'},
+
+        ]
+    },
+    {
+        text: '美妆行业',
+        icon: 'material-symbols:lips',
+        items: [
+            {text: '洗护美妆', icon: 'material-symbols:soap', link: '/11.洗护美妆/README.md'}, 
         ]
     },
 ])
