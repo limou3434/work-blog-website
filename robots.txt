@@ -1,0 +1,3 @@
+Sitemap: https://wbw.edtechhub.com.cn/work-blog-website/sitemap.xml
+User-agent:*
+Disallow:
