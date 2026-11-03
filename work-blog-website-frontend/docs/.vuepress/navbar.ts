@@ -42,6 +42,7 @@ export const navbar = defineNavbarConfig([
         icon: 'material-symbols:lips',
         items: [
             {text: '洗护美妆', icon: 'material-symbols:soap', link: '/11.洗护美妆/README.md'}, 
+            {text: '工商管理', icon: 'material-symbols:work', link: '/12.工商管理/README.md'}, 
         ]
     },
 ])
