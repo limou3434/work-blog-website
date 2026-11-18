@@ -230,7 +230,12 @@ $ sudo systemctl restart nginx
 > - **InstantWP**：`Windows` 专属，绿色便携版。特点：放 `U盘` 里直接跑，不用安装，拿到别的电脑插上就能打开 `WP`，适合快速演示
 >- **WordPress Studio**：`Automattic`（[WordPress.com](https://WordPress.com) 母公司）新出的可视化客户端。特点：图形界面，不用敲命令，轻松新建、切换多个本地 `WordPress` 站点，对不熟悉 `Docker` 的开发者友好
 > 
->有时间研究一下 `DDEV` 的用法吧，我个人比较看好这个，其次就是 `wp-env`，待补充...
+>有时间研究一下 `DDEV` 的用法吧，我个人比较看好这个，其次就是 `wp-env`。
+
+> [!IMPORTANT]
+>
+> 补充：这里还有个控制面板 [WP Toolkit](https://developer.wordpress.org/advanced-administration/server/control-panel/) 可以了解一下，对我没什么太大用，所以我就没有研究了。
+>
 
 > [!IMPORTANT]
 >
@@ -254,9 +259,19 @@ $ sudo systemctl restart nginx
 
 ### 3.1.项目配置
 
-#### 3.1.1.服务配置
+#### 3.1.1.系统配置
 
-##### 3.1.1.1.服务主题
+##### 3.1.1.1.查找信息
+
+我们有时候在排查问题之前是需要查看各种版本信息的，怎么快速查看您的服务器环境信息（PHP 版本、数据库、操作系统、web 服务器软件）呢？在自己的 `wordpress` 中写一个随机字符 `php` 文件（例如 `abc789xyz.php`），然后写下下面代码，`URL` 访问 `http://127.0.0.1:3000/abc789xyz.php` 即可快速获得信息。
+
+```php
+<?php phpinfo(); ?>
+```
+
+![image-20261117181649805](./assets/image-20261117181649805.png)
+
+##### 3.1.1.2.服务主题
 
 服务器配置涉及运行 `WordPress` 的托管环境。这包括 `Web` 服务器、文件和目录权限、数据库工具、邮件传输、域名路由以及托管控制面板等部分。一些服务器上的更改如果执行不当，可能会导致网站无法使用。在进行任何修改之前，请先查看相关页面。在修改文件或数据库时，请务必创建当前版本的备份。
 
@@ -265,7 +280,280 @@ $ sudo systemctl restart nginx
 - [Apache HTTPD / .htaccess](https://developer.wordpress.org/advanced-administration/server/web-server/httpd/) 文件包含了关于 `WordPress` 重写规则的说明，以及相关的 `Apache` 配置细节
 - [Nginx](https://developer.wordpress.org/advanced-administration/server/web-server/nginx/) 提供了关于 `WordPress` 的独立配置指南，包括单站点和多站点应用的配置示例
 
-##### 3.1.1.2.共享数库
+不过目前我使用的是 `Nginx`，其实这里还有一个服务器程序是我喜欢的，就是 `Caddy`，尤其是在部署到公网的角度上来看会更加方便，这方面您可以研究一下
+
+##### 3.1.1.3.数据管理
+
+[Emptying a Database Table](https://developer.wordpress.org/advanced-administration/server/empty-database/) 是指如何使用 `phpMyAdmin` 来删除某个表，不过说实在的，对于开发人员来说使用 `IDEA` 等软件来进行管理就已经足够使用了，除非是开发人员身边没有电脑只有手机，那倒是可以考虑使用 `phpMyAdmin` 操作一下。不过，我们可以顺便了解一下 `WP` 的数据库内部结构。
+
+```sql
+mysql> show databases;
++-----------------------+
+| Database              |
++-----------------------+
+| information_schema    |
+| mysql                 |
+| performance_schema    |
+| sys                   |
+| work_lingan_wordpress |
++-----------------------+
+5 rows in set (0.01 sec)
+
+mysql> use work_lingan_wordpress;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++---------------------------------+
+| Tables_in_work_lingan_wordpress |
++---------------------------------+
+| wp_commentmeta                  |
+| wp_comments                     |
+| wp_links                        |
+| wp_options                      |
+| wp_postmeta                     |
+| wp_posts                        |
+| wp_term_relationships           |
+| wp_term_taxonomy                |
+| wp_termmeta                     |
+| wp_terms                        |
+| wp_usermeta                     |
+| wp_users                        |
++---------------------------------+
+12 rows in set (0.00 sec)
+```
+
+上面是我的 `WP` 在快速体验章节安装后，查看 `MySQL` 的所有数据表。
+
+| Tables_in_work_lingan_wordpress | 详细作用                                                     |
+| ------------------------------- | ------------------------------------------------------------ |
+| wp_commentmeta                  | 评论的元数据扩展表。给单条评论附加额外自定义信息，是键值对结构。插件常用：评论评分、评论 IP 备注、评论自定义标记、评论附加选项；单条评论可以有多条 `meta` 记录，没有则为空。和 `wp_comments` 通过 `comment_id` 关联 |
+| wp_comments                     | 评论主数据表。保存所有评论、`Pingback`、`Trackback`。包含评论内容、评论作者名称、邮箱、网址、评论时间、评论归属文章 `ID`、评论状态（待审核 / 已通过 / 垃圾评论）、父评论 ID（实现楼中楼回复）。`comment_ID` 是主键 |
+| wp_links                        | 友情链接（`Blogroll`）遗留表。早期 `WordPress` 自带链接管理功能，新版 `WP` 后台默认隐藏该菜单，需要插件才能启用。存放链接标题、链接地址、链接描述、分类、打开方式。新项目几乎不用，老站点会残留数据 |
+| wp_options                      | 全局核心配置表，整个站点最重要的表之一。存储站点级别的配置，键值对形式。包含 `siteurl`、`home`（就是前面聊的两个 `URL`）、站点标题、简介、固定链接结构、插件开关、主题设置、缓存配置、自动更新设置、后台默认选项。`autoload` 字段控制 `WP` 启动时是否自动加载这条配置，量大的 `autoload` 会拖慢网站 |
+| wp_postmeta                     | 文章内容元数据表。和 `wp_posts` 通过 `post_id` 关联，键值对。作用是给 `post` 类型对象挂载自定义字段：文章额外参数、页面配置、特色图缩略图 `ID`、附件附加信息、古腾堡区块数据、各类插件自定义字段（商品价格、属性等）。一条 `post` 可以无限多条 `meta` |
+| wp_posts                        | 内容主表，`WP` 里几乎所有内容都在这里。主键 `ID`。存放类型不止文章：`Post` 文章、`Page` 页面、`Attachment` 附件（上传图片/文件）、`Revision` 内容修订版本、`Nav_menu_item` 导航菜单、自定义文章类型（产品、案例等）。记录标题、正文、摘要、发布时间、修改时间、状态（发布/草稿/回收站）、别名 `slug`、父级 `ID` |
+| wp_term_relationships           | 多对多中间关联表。负责【内容 ↔ 分类/标签】绑定。比如一篇文章同时打上 `2` 个标签、归属 `1` 个分类，就会在这里生成多条记录。`object_id` 对应文章 `ID`，`term_taxonomy_id` 关联到 `wp_term_taxonomy`，本身不存分类名称，只做绑定 |
+| wp_term_taxonomy                | 分类法定义表。区分这条 `term` 是什么类型：`category` 分类、`post_tag` 标签、自定义分类法。记录分类描述、父分类 `ID`（实现多级分类）、该分类下一共有多少篇内容（`count` 计数）。主键 `term_taxonomy_id`，关联 `term_id` 到 `wp_terms` |
+| wp_termmeta                     | 分类/标签元数据表。给分类、标签、自定义分类挂载扩展字段。比如分类封面图、分类额外说明、分类模板配置、标签 `SEO` 设置，键值对结构，通过 `term_id` 关联 `wp_terms` |
+| wp_terms                        | 术语基础表。存放分类、标签、自定义分类的基础名称。字段：名称 `name`、别名 `slug`（`URL` 里的短链接）、`term_group`（分组，很少用）。这里只是名字，它到底是标签还是分类，不由本表决定，由 `wp_term_taxonomy` 决定 |
+| wp_usermeta                     | 用户元数据扩展表，键值对。和 `wp_users` 通过 `user_id` 关联。存储用户除基础信息以外的全部扩展数据：用户角色权限、昵称、显示名、用户描述、后台设置、插件增加的用户字段、社交账号信息 |
+| wp_users                        | 用户账号主表。主键 `ID`。保存账号基础信息：登录用户名、密码哈希（不是明文密码）、邮箱、注册时间、用户激活码、用户状态。`WP` 登录校验、用户基础信息读取都从这张表拿 |
+
+##### 3.1.1.4.更改权限
+
+当 `WordPress` 无法写入文件、更新失败、上传失败，或者需要检查文件的归属和权限时，可以查看 [Changing File Permissions](https://developer.wordpress.org/advanced-administration/server/file-permissions/)。在计算机文件系统中，不同的文件和目录都有权限设置，这些设置决定了谁可以读取、写入、修改或访问这些文件。这一点非常重要，因为 `WordPress` 可能需要访问你的 `wp-content` 目录中的文件以执行某些功能。这个文档的前半部分讲解的都是 `Linux` 的用户权限部分，我觉得这些对于 `Linux` 开发者算是基础了，我就不太展开了。
+
+> 补充：下面是我 AI 整理的一些重要点，就算是知道 `Linux` 权限的人也会出现的一些问题，等我后续进行补充，待补充...
+>
+> 逐点展开细化（你已经懂基础 chmod、u/g/o、rwx，我避开基础定义，聚焦 WP 专属、容易混淆的部分）
+>
+> 1. 核心：权限好不好使，决定性因素是「PHP 进程跑在哪个 UID」
+>
+> Linux 的 chmod 只是文件上的标签；**真正去读/写文件的是 PHP 进程，进程有自己的 uid/gid**，这个是很多人只学权限却忽略的核心。 两套架构，权限模板完全不能混用：
+>
+> 模式 A：传统隔离（mod_php / 普通 php-fpm，Nginx+FPM 单站常用）
+>
+> - 文件属主：你的 SSH/ftp 用户，比如 `wwwuser`
+> - PHP 进程身份：独立用户，`www-data` / `apache` / `nobody`，**和文件属主不是同一个人**
+> - 逻辑：文件所有者是你，web 是另一个用户；web 不属于 owner，只能走 **group（属组）权限** 拿到写入能力
+>   - 目录 775：owner = rwx，group = rwx，other = rx → www-data 加入这个文件的属组，就能写目录
+>   - 文件 664：owner = rw，group = rw，other = r
+> - 风险红线：**不要把文件属主改成 www-data** 共享主机上这么做危害极大：服务器上别的站点如果被入侵，攻击者以 www-data 身份运行，就能读写服务器上所有属主是 www-data 的网站文件。
+> - 经典现象：后台装插件、更新主题时弹出「请输入 FTP 账号密码」 原因：PHP 进程（www-data）没有组写权限，没法直接写文件；WP 退而求其次，调用 FTP（以你的账号）上传修改文件。
+>
+> 模式 B：suexec / suphp / FPM pool 按用户拆分（虚拟主机、cPanel、宝塔虚拟主机常用）
+>
+> > 重点：很多人会把这套方案直接搬到独立服务器，其实文档明确说了它的设计目标是 **共享多租户主机**，单独立站没有收益。
+>
+> - 逻辑：每个站点的 PHP-FPM 池，绑定这个站点专属的用户 UID；**PHP 进程 = 文件属主同一个账号**
+> - 此时 group 权限基本失去作用，不需要 775/664
+>   - 目录 755：owner = rwx，group = rx，other = rx；进程是 owner，直接可写
+>   - 文件 644：owner = rw
+>   - wp-config.php 收紧至 `440` / `400`：**同服务器别的租户用户完全读不到数据库账号密码**，这是 suexec 模式最大的安全优势
+> - 现象：不会弹出 FTP 输入框，后台直接更新插件主题
+>
+> > ✅ 快速自检当前是哪种模式
+>
+> ```
+> # 看php进程是谁
+> ps aux | grep php-fpm
+> # 看网站文件属主
+> ls -l /path/to/wordpress/
+> ```
+>
+> 进程 UID 和 文件 UID 一致 = suexec 类；不一致 = 隔离模式 A。
+>
+> ------
+>
+> 2. 特殊文件&目录的 WP 专属约束
+>
+> wp-config.php
+>
+> 里面存放数据库用户名、密码、数据库名、密钥 `AUTH_KEY` 等核心凭证。
+>
+> - 安装默认生成是 644：other 位有读权限。**同服务器上别的用户，可以直接 cat 读取这个文件**，这就是文档说默认不安全的原因
+>
+> - 最优：`chmod 400 wp-config.php`，只有属主能读，任何人无权限
+>
+> - 限制：只有模式 B（php = 属主）下 400 才可以正常运行；模式 A（web 是另一个用户）如果设 400，web 进程连读都读不了，网站直接 500。
+>
+>   > 所以：模式 A 里 wp-config.php 最低只能到 640（owner rw，group r，other 0），把 other 读拿掉。
+>
+> .htaccess
+>
+> 只在 Apache 环境生效，Nginx 默认不用它。 WP 固定链接、重定向、防盗链、缓存规则都写在这里；当你后台修改固定链接结构时，WP 尝试写入 .htaccess。
+>
+> - 权限满足但是写失败 → 不要反复调 chmod，优先排查 SELinux
+> - 最小权限：644；不需要给写权限常驻，**只在后台改固定链接时临时放开 group 写，改完收回是最佳实践**
+>
+> 目录分工（只读目录 vs 可写目录）
+>
+> ✅ **Web 进程只允许写入的目录**：
+>
+> - `wp-content/uploads` 用户上传图片附件
+>
+> - `wp-content/cache` 缓存插件生成缓存文件
+>
+> - 多站点额外：`wp-content/blogs.dir` 子站点上传资源 ✅ **Web 进程应当只有读权限，绝对不能写**： `wp-admin/`、`wp-includes/`、根目录所有 php 文件
+>
+>   > 很多一键包偷懒，直接递归 775 全站，一旦攻击者上传 php 到 uploads，就能改写 wp 核心文件，这是 WP 入侵高频入口。
+>
+> 后台主题编辑器（Appearance → Theme Editor）开启条件
+>
+> 编辑器本质：PHP 进程去读取、修改主题目录里的 php/css 文件。 想要能用，文件必须拥有 **group write**。
+>
+> - 独立站推荐做法：直接关掉这个编辑器，不要开组写。线上环境给 web 修改代码的权限属于高危。
+> - 多人 FTP 协同维护才需要这个能力；共享主机场景，组里面只能加入你信任的账号，绝对不能把 www-data 放进这个组。
+>
+> ------
+>
+> 3. 777 的危害链路（文档原文视角，区别于笼统的“不安全”）
+>
+> 777 = ugo 全部 rwx，other 位全局可写可执行。 攻击链路：
+>
+> 1. 攻击者通过评论上传漏洞、插件漏洞，往 uploads 目录上传恶意 php 脚本
+> 2. 目录是 777 → www-data（web 进程）可以写入这个恶意文件
+> 3. 在浏览器访问这个恶意 php → 以 www-data 身份执行代码
+> 4. 读取 wp-config.php 拿到数据库账号，甚至篡改全站文件
+>
+> - 文档原话：作者几乎没有见过生产环境真的必须 777 的场景，上限一般 767 就足够临时排错
+> - 777 定位用途：**临时调试验证是不是权限问题**，确认问题后立刻回落至最小权限，禁止常驻。
+>
+> > 误区纠正：很多人遇到报错直接 `chmod -R 777`，递归把 uploads、主题、核心目录全部放开；等于把站点大门敞开。
+>
+> ------
+>
+> 4. SELinux：DAC 权限放行，MAC 强制拦截（最容易卡很久的坑）
+>
+> Linux 默认两套权限体系：
+>
+> 1. DAC：就是你学的 chmod、属主属组（自主访问控制）
+> 2. MAC：SELinux（强制访问控制，RHEL 系默认开启：CentOS、Rocky、Alma、Amazon Linux；Debian/Ubuntu 默认关闭） 表现特征： `ls -l` 看权限完全正确，chmod 怎么调都没用，日志报 Permission denied，表象和普通权限错误一模一样，很容易迷惑。
+>
+> 排查流程
+>
+> 1. 查看 SELinux 状态
+>
+> ```
+> getenforce
+> # 返回 Enforcing = 开启拦截；Permissive = 只记录不拦截；Disabled=关闭
+> ```
+>
+> 1. 查看拦截审计日志（AVC 拒绝记录）
+>
+> ```
+> ausearch -m avc -c httpd
+> audit2allow -w -a
+> ```
+>
+> 1. WP 场景最高发的拦截：httpd 写入 .htaccess 解决方案示例（文档给出）
+>
+> ```
+> setsebool -P httpd_unified 1
+> ```
+>
+> > 不推荐直接 `setenforce 0` 永久关闭 SELinux，等于废掉一层内核防护；优先调整布尔值、打文件上下文标签 `chcon`。
+>
+> 简单理解：chmod 只是门的锁，SELinux 是房间的保安，哪怕锁打开了，保安依然可以拦着进程不让操作。
+>
+> ------
+>
+> 5. umask：决定安装初始权限，不是 WP 写死 644/755
+>
+> umask 是「掩码」，从最大权限里减去对应位：
+>
+> - 文件原始最大 666，目录原始最大 777
+>
+> - umask 022：文件 666-022 = 644；目录 777-022 = 755（标准安全掩码）
+>
+> - 如果主机服务商设置 umask 002：文件 664、目录 775，安装完自带组写权限，偏宽松 关键点： 如果你是在不同服务器上装 WP，两台机器装完默认权限不一样，**不是 WP 程序问题，是安装那一刻 shell 的 umask 不一样**。
+>
+>   > 别人帮你部署好的站点，不要盲目递归 chmod，很容易破坏原有适配好的属组、SE 上下文。只有自己全新部署、出现报错才调整。
+>
+> ------
+>
+> 6. FTP 隐藏文件陷阱
+>
+> `.htaccess` 是点开头的隐藏文件，FileZilla 默认不加载、不展示。 现象：你在 FTP 里选中目录，修改权限，但是漏掉了 .htaccess；你以为改好了，实际文件权限没变。 新版 FileZilla：顶部菜单 `Server` → `Force show hidden files`
+>
+> ------
+>
+> 7. 官方推荐排错顺序（禁止直接 -R 递归放开）
+>
+> 很多人的习惯：一报错直接
+>
+> ```
+> chmod -R 775 wp-content
+> ```
+>
+> 递归的坏处：会把 uploads 里面用户上传的所有图片、附件一并修改权限，扩大攻击面。
+>
+> WP 文档建议顺序：
+>
+> 1. 只修改目标目录本身，不加 `-R`，只给目录写权限，不碰里面已有文件
+>
+> ```
+> chmod 775 wp-content/uploads
+> ```
+>
+> 1. 写入依旧失败，再加 `-R` 递归子文件子目录
+> 2. 上面都不行，临时调高权限（767 这类）测试定位问题
+> 3. 最后手段：临时 777 确认是不是权限问题，确认后立刻回退收紧
+>
+> ------
+>
+> 8. 插件/主题的额外目录需求
+>
+> WP 核心标准权限只覆盖上面几个目录。 很多缓存插件、静态生成插件、图片优化插件，会自建子文件夹（比如 `wp-content/wp-rocket-cache`），插件运行时需要在这个子目录写缓存。
+>
+> - 这类不属于 WP 官方标准权限清单，以插件文档为准
+> - 多站点（Multisite）是特例，额外需要处理 `blogs.dir`
+>
+> 汇总对照，方便你随时查阅
+>
+> 模式 A：PHP 进程 ≠ 文件属主（普通 Nginx+FPM 独立站）
+>
+> | 对象               | 推荐权限  | 说明                                |
+> | ------------------ | --------- | ----------------------------------- |
+> | 目录               | 755 / 775 | 需要 web 写入的目录用 775，其余 755 |
+> | php 文件、静态文件 | 644 / 664 | 需要 web 写的文件 664               |
+> | wp-config.php      | 640       | 不能 400，web 进程需要读            |
+>
+> 模式 B：PHP 进程 = 文件属主（suexec / FPM pool per user，虚拟主机）
+>
+> | 对象          | 推荐权限  | 说明         |
+> | ------------- | --------- | ------------ |
+> | 全部目录      | 755       | 不需要 775   |
+> | 全部文件      | 644       | 不需要 664   |
+> | wp-config.php | 400 / 440 | 最高安全等级 |
+>
+> > 补充边界提醒：Nginx 本身不解析 php，只转发给 FPM；所以 Nginx 环境的权限判断，**只看 FPM 进程 UID，和 nginx 本身用户无关**，这点也经常混淆。
+>
+> 如果你愿意，下一步我可以给一份 **Nginx + PHP-FPM 独立服务器（模式 A）一键权限加固脚本 + 配套 SELinux 上下文命令**，可以直接在服务器上跑。
+
+##### 3.1.1.5.共享数库
 
 另外对于 `CMS` 系统来说，内容其实才是最重要的，所以如果单纯使用 `Git` 管理核心代码其实有些不够用，可以进一步看 [这篇文章](https://developer.wordpress.org/advanced-administration/before-install/development/) 中的两个 `WP` 共享一个数据库来优化自己的工作流，为什么会有人想让两套 `WP` 共用同一个数据库？正常来说，一般大家是这么开发的，`线上数据库 → 导出一份快照 → 导入本地`，本地是一份独立副本。优点是本地随便改，随便测试，完全碰不到线上真实数据。缺点是数据不同步，线上新增商品、新订单、用户提交内容，你本地看不到，想要最新数据，就得重新导出、导入一遍数据库，比较麻烦。
 
@@ -451,65 +739,173 @@ mysql> SELECT option_name, option_value
 
 另外一种 `Drop-In` 的方法我懒得研究了，我觉得上面的方式就完全足够了，待补充...
 
-##### 3.1.1.3.更改权限
+##### 3.1.1.6.多个站点
 
-当 `WordPress` 无法写入文件、更新失败、上传失败，或者需要检查文件的归属和权限时，可以查看 [文档](https://developer.wordpress.org/advanced-administration/server/file-permissions/)
+###### 3.1.1.6.1.迁移目录
 
-- [Changing File Permissions](https://developer.wordpress.org/advanced-administration/server/file-permissions/) 部分解释了文件和目录权限的工作原理，以及这些权限如何影响到 `WordPress` 的更新、上传操作、插件、主题以及配置文件等功能的正常运行
-- [Emptying a Database Table](https://developer.wordpress.org/advanced-administration/server/empty-database/) 是指如何使用 `phpMyAdmin` 来删除某个表。在确认了正确的表名并创建了备份之后，才进行此操作
-- [Finding Server Info](https://developer.wordpress.org/advanced-administration/server/server-info/) 部分介绍了如何收集服务器的相关细节，比如 `PHP` 版本、服务器软件以及数据库版本，这些信息对于安装或故障排除非常有用
+许多人希望让 `WordPress` 作为他们网站的根目录来运行（例如：https://example.com），但他们不想让所有的 `WordPress` 文件占据他们的网站根目录。`WordPress` 允许你将网站安装到一个子目录中，同时仍然让网站从根目录开始运行。
 
-##### 3.1.1.4.查找信息
+但是其实我觉得完全没必要参考官方 [这篇文档](https://developer.wordpress.org/advanced-administration/server/wordpress-in-directory/)，只要 `Nginx` 配置写得得当，是可以支持在哪个地方的文件夹都可以进行访问的，同时又可以放在任意域名上。
 
-我们有时候在排查问题之前是需要查看各种版本信息的，怎么快速查看您的服务器环境信息（PHP 版本、数据库、操作系统、web 服务器软件）呢？在自己的 `wordpress` 中写一个随机字符 `php` 文件（例如 `abc789xyz.php`），然后写下下面代码，`URL` 访问 `http://127.0.0.1:3000/abc789xyz.php` 即可快速获得信息。
+但是这个也涉及到实际部署上，我是想要用 `WP` 做独立站的，到时候肯定只能用公司的服务器，因此这个迁移目录的做法我没有实践的必要，您可以试试我说的修改 `Nginx` 配置文件达成目的是否可以搬到，这样不用修改业务代码很好（做到了分离职责的原则）。
 
-```php
-<?php phpinfo(); ?>
+###### 3.1.1.6.2.通配子域
+
+[这篇文档](https://developer.wordpress.org/advanced-administration/server/subdomains-wildcard/) 是 `WordPress` 多站点（`Multisite`），也就是子域名模式的通配符子域名配置文档。它不是普通单站，专门给域名型多站点网络用的，用户可以自动新建 `xxx.example.com`，不用每建一个子域名就去 `DNS`、面板手动添加。因此这个文章其实对我没什么用，您自己简单看一下就可以。
+
+为什么需要通配符 `*.example.com`？正常子域名您每开一个 `a.example.com`，就要在 `DNS` 加一条 `A` 记录、`Web` 服务器程序配一条虚拟主机配置。而通配符就可以做到一条 `*.example.com` `DNS` 记录，所有 `任意前缀.example.com` 全部解析到您服务器的 `IP`。`Web` 服务器（Apache/Nginx/cPanel 等）也配置通配别名，收到所有子域名请求，全部交给同一个 `WordPress` 多站点程序处理。这样在 `WP` 后台新建站点的时候，只需要填前缀，不用去 `DNS/面板` 操作就可以自动生效，这就是多站点子域名模式的前提。
+
+这个我也不深入实践了，您研究一下文档吧。
+
+##### 3.1.1.7.电子邮件
+
+###### 3.1.1.7.1.邮件协议
+
+当 `WordPress` 的电子邮件无法可靠发送或传递时，可以查看 [Mail](https://developer.wordpress.org/advanced-administration/server/mail/) 这一文档，这里解释了 `WordPress` 是如何通过服务器环境发送电子邮件的，同时指出了管理员在选择 `SMTP` 服务、邮件转发机制、邮件送达能力时应该考虑的因素。
+
+在开始之前，你需要对 `SMTP` 协议有基本的了解，并且要清楚三种邮件处理代理（`MUA、MTA、MDA`）各自的功能。其中 `SMTP` 即简单邮件传输协议（英语：`Simple Mail Transfer Protocol`），我其实也是第一次细致了解这个协议，所以会稍微在这里研究一下。这是一种用于电子邮件传输的互联网标准通信协议。邮件服务器使用 `SMTP` 来发送和接收邮件。电子邮件客户端通常仅使用 `SMTP` 将邮件发送至邮件服务器进行中继，并通常在端口 `587` 或 `465` 上提交外发邮件（依据 [RFC 8314](https://zh.wikipedia.org/w/index.php?title=RFC_8314&action=edit&redlink=1)）。用于接收邮件的标准协议是 [IMAP](https://zh.wikipedia.org/wiki/%E5%9B%A0%E7%89%B9%E7%BD%91%E4%BF%A1%E6%81%AF%E8%AE%BF%E9%97%AE%E5%8D%8F%E8%AE%AE)（取代了旧的 [POP](https://zh.wikipedia.org/wiki/%E9%83%B5%E5%B1%80%E5%8D%94%E5%AE%9A)），但专有服务器也常常实现专有协议，例如 [Exchange ActiveSync](https://zh.wikipedia.org/w/index.php?title=Exchange_ActiveSync&action=edit&redlink=1)。
+
+`SMTP` 起源于 `1980` 年，基于 `1971` 年在 [ARPANET](https://zh.wikipedia.org/wiki/ARPANET) 上实施的概念构建。此协议已多次更新、修改和扩展。目前普遍使用的版本具有可扩展的结构，支持多种扩展功能，如 [身份验证](https://zh.wikipedia.org/wiki/身份验证)、[加密](https://zh.wikipedia.org/wiki/加密)、[二进制](https://zh.wikipedia.org/wiki/二进制) 数据传输和国际化电子邮件地址。`SMTP` 服务器通常使用 [TCP](https://zh.wikipedia.org/wiki/传输控制协议)，在 [端口](https://zh.wikipedia.org/wiki/端口) `25`（用于服务器之间）和端口 `587`（用于来自已认证客户端的提交）上运行，支持加密与非加密两种方式。下面是一些重要的数据包结构，您可以简单查看一下。
+
+```bash
+## 报头 Header，都是 `键: 值` 格式
+- `From`：发件人显示地址
+- `To`：收件人
+- `Cc`：抄送
+- `Bcc`：密送（Bcc 经常不在头里，只在 SMTP 信封）
+- `Subject`：邮件主题
+- `Date`：发送时间
+- `Message-ID`：邮件唯一 ID
+- `Reply-To`：回复地址
+- `Received`：**路由追踪头**（每经过一台 MTA 就追加一条，Postfix/msmtp 都会生成）
+- `Content-Type`：内容类型（text/plain/text/html/multipart/mixed 带附件）
+- `Content-Transfer-Encoding`：编码方式（base64 /quoted-printable）
+- `DKIM-Signature`：DKIM 签名头
+- `X-*`：自定义扩展头（X-Mailer、X-WP-Mail 这类 WordPress 发信经常出现）
+
+## 载荷 Payload，空行后面所有东西都属于载荷，分几种情况
+- 简单文本邮件：载荷就是纯文本正文
+- HTML 邮件：载荷是 HTML 源码
+- 带附件：`Content-Type: multipart/mixed`，载荷内部会拆成**多个 Body Part**：
+   - part1：HTML / 文本正文
+   - part2：附件（base64 编码的文件二进制）
+   - part3：内嵌图片等资源
+- 载荷本身还可以继续嵌套 multipart，这个叫 MIME 结构（MIME 属于载荷的组织规范）
 ```
 
-![image-20261117181649805](./assets/image-20261117181649805.png)
+整套链路存在三个角色 `MUA（发件人客户端） → MTA（邮件转发服务器） → MDA（投递到收件箱）` 这是 `SMTP` 体系里的分工，和网页没有对应的概念，也是邮件 “存储转发” 的根源。
 
-##### 3.1.1.5.专属目录
+| 缩写 | 全称                  | 角色               | 核心协议                      | 典型软件                             | 详细解释                                                     |
+| ---- | --------------------- | ------------------ | ----------------------------- | ------------------------------------ | ------------------------------------------------------------ |
+| MUA  | `Mail User Agent`     | 用户客户端         | `SMTP（发）、IMAP/POP3（收）` | `Foxmail、Thunderbird、WP SMTP 插件` | **就是用户直接操作的那一端**<br/>- 例子：`Thunderbird`、`Foxmail`、`Outlook`、手机自带邮件 `App`、`WordPress SMTP` 发信客户端<br/>- 功能：<br/>  1. 写邮件、添加附件、填写收件人<br/>  2. 通过 `SMTP` 把邮件提交给 **自己的发件服务器（MTA）**<br/>  3. 通过 `IMAP/POP3` 去收信服务器拉取已经收到的邮件<br/>- 特点：**用户的入口，只负责 “发出去” 和 “拿回来”，不负责跨服务器中转**<br/> |
+| MTA  | `Mail Transfer Agent` | 邮件中继转发服务器 | `SMTP`                        | `Postfix、Exim、Sendmail`            | **邮件中转站，跑 SMTP 协议**<br/><br/>- 例子：`Postfix`、`Exim`、`Sendmail`、`Qmail`（`VPS` 上搭建的邮件服务；腾讯企业邮、阿里云邮件服务器也是 `MTA`）<br/>- 功能：<br/>  1. 接收来自 `MUA` 提交的邮件<br/>  2. 查收件人域名的 `MX` 记录，找到对方的邮件服务器<br/>  3. 通过 `SMTP` 把邮件转发给下一台 `MTA`（可以多次中转）<br/>  4. 如果对方服务器暂时连不上，就放进队列，隔一段时间重试发送<br/>- 特点：**只管接力传递，不负责放进收件箱**。服务器之间互相通信靠的就是 `MTA`，`25` 端口就是 `MTA` 和 `MTA` 之间中继的标准端口，`587` 是 `MUA` 提交给 `MTA` 的端口 |
+| MDA  | `Mail Delivery Agent` | 本地投递代理       | 内部调用，一般不对外          | `Dovecot、Procmail`                  | **最后一公里，把邮件落到收件人的邮箱文件/数据库里**<br/><br/>- 例子：`Dovecot`、`Procmail`<br/>- 功能：<br/>  1. 接收 `MTA` 送过来的邮件<br/>  2. 判断收件人在本机是否存在<br/>  3. 投递到对应的邮箱存储（`Maildir/mbox` 格式，或者数据库）<br/>  4. 附带过滤能力：垃圾邮件过滤、规则分拣、自动转发<br/>- 特点：`MTA` 负责 **传到这台服务器**。`MDA` 负责 **丢进这个人的收件箱**。投递完成之后，收件人再用 `MUA（IMAP/POP3）` 把邮件取走 |
 
-https://developer.wordpress.org/advanced-administration/server/wordpress-in-directory/，待补充...
+这里对于我需求最大的就是 `MTA` 服务。而 `WordPress` 默认并不提供 `MAU` 或 `MTA` 功能。它只提供了一个语言 `API` 库的封装层，该封装层负责将消息提交到 `MTA` 接口，而 `MTA` 接口可以通过 `PHP` 函数或扩展来实现与用户的交互。这意味着，配置 `MTA` 及相关邮件发送环境的任务由服务器管理员负责，以确保它们能够正确地与所选的语言 `API` 进行交互。历史上，`PHPMailer` 一直被用作此类库。`WordPress` 并不参与邮件的发送过程，只负责格式化邮件内容并将其提交给邮件发送 `API`。
 
-##### 3.1.1.6.通配子域
+目前，`WordPress` 使用的是 `wp_mail()` 这种封装函数。根据默认配置，这种封装函数会通知 `PHPMailer` 库使用 `PHP` 内置的 `mail()` 函数，而该函数需要有一个与 `sendmail` 兼容的邮件传输程序作为 `MTA`。因此，为了让 `WordPress` 能够正常使用，相关邮件本地环境必须得到正确配置。
 
-https://developer.wordpress.org/advanced-administration/server/subdomains-wildcard/，待补充...
+如果您使用的是托管服务，这通常不会成为问题。但如果您自己运行服务器，且没有正确配置 `SMTP` 服务器或相关的邮件环境，那么邮件将无法发送。除非你配置 `WordPress` 的封装层来使用远程 `SMTP` 服务器。目前有两种做法：
 
-##### 3.1.1.7.清空数据
+- 自己搭建 `MTA（Postfix / msmtp-mta）` 或者找第三方 `MTA`，不需要 `SMTP` 插件，走 `WP` 原生 `wp_mail()`
+- 只装 `SMTP` 插件（`WP Mail SMTP / Easy WP SMTP`），不用自己搭建 `MTA`
 
-https://developer.wordpress.org/advanced-administration/server/empty-database/，待补充...
+###### 3.1.1.7.2.自行搭建
 
-##### 3.1.1.8.控制面板
+如果您选择第一种方案配置 `MTA`，这里将会重点说关于 `*NIX` 环境中配置 `MTA` 的基本步骤。在深入细节之前，请注意这种方式的存在一些风险。必须确保端口 `25` 是开放的，如果不注意这一点，就会面临风险，因为 `25` 端口是常见的攻击目标之一。如果未能妥善保护 `SMTP` 中继认证机制，可能会导致安全方面的问题，或者让服务器被用于发送垃圾邮件。
 
-https://developer.wordpress.org/advanced-administration/server/control-panel/，待补充...
+> [!IMPORTANT]
+>
+> 补充：不是...原来 `*NIX` 是黑客说法么，其实就是指 `Unix` 着了系统，但是 `Linux、AIX、IRIX、Ultrix、Xenix`，所以大家玩了个 `shell` 通配符梗，`*` 代表前面任意字符，`*ix → 写成 *NIX / Un*x`...好有个性的官方文档。不过确实严格来说，只有通过认证的系统才能叫 `UNIX`，`Linux、FreeBSD` 只是 “`类 Unix（Unix-like）`”，不能直接叫 `UNIX`，用 `*NIX` 作为泛称，可以规避商标问题。
 
-##### 3.1.1.10.电子邮件
+如果您正在运行自己的 `Unix` 服务器，那么您的机器上应该已经安装了 `postfix、exim、qmail、sendmail` 这些最受欢迎的邮件传输程序。您只需要进行简单的配置即可。如果您希望使用第三方邮件服务，建议将本地邮件传输程序配置为将邮件转发到远程 `SMTP` 服务器，这样就能避免页面加载时间的延长。
 
-当 `WordPress` 的电子邮件无法可靠发送或传递时，可以查看 [文档](https://developer.wordpress.org/advanced-administration/server/mail/)
+```bash
+# 检查 sendmail 兼容入口（PHP mail() 依赖）
+$ ls -l /usr/sbin/sendmail
+.rwxr-xr-x 31k root  5 5月  23:48 /usr/sbin/sendmail
 
-- [Mail](https://developer.wordpress.org/advanced-administration/server/mail/) 一书解释了 `WordPress` 是如何通过服务器环境发送电子邮件的，同时指出了管理员在选择 SMTP 服务、邮件转发机制以及邮件送达能力时应该考虑的因素。
-- [Control Panels](https://developer.wordpress.org/advanced-administration/server/control-panel/) 控制面板涵盖了常见的托管控制面板工具，例如适用于 `cPanel、WHM、Plesk、WP Toolkit` 工具
+# 检查软件包是否安装（postfix/exim4/qmail/sendmail）
+# - 下面显示中 postfix 已经安装（ii = 已安装完好），但是缺少 `/etc/postfix/main.cf` 配置文件，服务启动失败，现在是不可用状态
+# - `libmail-sendmail-perl` 只是 Perl 的发信工具库，不是邮件传输 MTA，完全不能用来给 PHP / WordPress 的 `mail()` 用，忽略它
+# - `exim4 / qmail / sendmail` 这些都没有安装
+$ dpkg -l | grep -E 'postfix|exim4|qmail|sendmail'
+ii  libmail-sendmail-perl                            0.80-1.1                                         all          simple way to send email from a perl script
+ii  postfix                                          3.6.4-1ubuntu1.4                                 amd64        High-performance mail transport agent
 
-- 当您需要获取用于安装或故障排除的 `PHP`、数据库、操作系统或服务器软件的相关信息时，可以查看 [文档](https://developer.wordpress.org/advanced-administration/server/server-info/)
-- 当您的服务器提供了如 `WP Toolkit、cPanel、WHM、Plesk` 之类的工具时，可以查看 [文档](https://developer.wordpress.org/advanced-administration/server/control-panel/)
+$ cat /etc/postfix/main.cf
+cat: /etc/postfix/main.cf: 没有那个文件或目录
+
+# 检查服务运行状态，当前没有运行、已停止
+$ systemctl status postfix --no-pager
+○ postfix.service - Postfix Mail Transport Agent
+     Loaded: loaded (/lib/systemd/system/postfix.service; enabled; vendor preset: enabled)
+     Active: inactive (dead) # 已停止
+  Condition: start condition failed at Mon 2026-11-16 23:51:20 CST; 1 day 18h ago
+             └─ ConditionPathExists=/etc/postfix/main.cf was not met
+       Docs: man:postfix(1)
+
+11月 16 23:51:20 limou3434 systemd[1]: Condition check resulted in Postfix Mail Transport Agent being skipped.
+
+# 检查 25 端口监听，输出是空白的，说明没有东西在监听
+$ ss -tlnp | grep :25
+```
+
+那么怎么配置好呢？待补充...
+
+###### 3.1.1.7.3.安装插件
+
+使用 `SMTP` 插件，您可以从 `wordpress.org` 的插件目录中安装 `SMTP` 插件。这类插件会覆盖默认的设置，使用 `PHPMailer` 或任何其他您喜欢的邮件发送库，从而利用第三方的邮件服务来为你所在的域名发送邮件，待补充...
+
+###### 3.1.1.7.4.确保交付
+
+一旦我们的系统开始发送邮件，我们就需要确保这些邮件能够真正被送到收件人手中，我们需要检查几件事情来确保这一点。
+
+默认情况下，`WordPress` 的封装程序会将 `From:` 字段填充为 `wordpress@example.com` ，而 `From:` 则被当作 `WordPress` 的发送者邮箱地址。如果这是一个有效的电子邮件地址，那么这样就可以了。
+
+例如，如果您的部署好 `MTA` 后的域名是 `limou3434.com` ，那么你的主机会将 `wordpress@limou3434.com` 作为投递地址。只要 `limou3434.com` 被设置为可以发送和接收邮件，那么您的邮件很可能会被发送出去，即使 `wordpress` 不是一个有效的邮箱用户。一些旧的邮件投递程序会检查 `From:` 地址是否有效，并且是否能够接收邮件。不过，这种检查现在已经不太常见了，但我们仍然建议确保使用的电子邮件地址是有效的，并且该邮箱地址存在于您的邮件接收服务器中。
+
+如果你使用的是默认的 `From:` 地址，那么请确认您可以接收 `wordpress@limou3434.com` 邮箱中的邮件。请记住，`limou3434.com` 是你的 `WordPress` 安装的域名。
+
+如果您不想使用与您的安装中显示的域名相同的域名来发送邮件，那么您需要在您的 `WordPress` 代码中做出一些修改。例如，如果您的 `WordPress` 域名是 `limou3434.org` ，而您希望使用 `mail.limou3434.org` 域名来发送邮件，那么邮件可能无法被发送，因为 `limou3434.org` 域名的 `DNS` 记录可能不允许邮件由您的邮件服务器处理。因为默认下的 `From:` 域名会被设置为 wordpress@limou3434.org 。要更改默认的 `From:` 域名，您可以使用 [wp_mail_from](https://developer.wordpress.org/reference/hooks/wp_mail_from/) 过滤器。对于名称方面，您可以使用 [wp_mail_from_name](https://developer.wordpress.org/reference/hooks/wp_mail_from_name/) 过滤器。
+
+`WordPress` 的封装层忽略了 `Reply-To:` 符号（`Reply-To` 是邮件头里的一个字段，收件人点邮件里的回复按钮，邮箱软件会自动填这个地址），因此它会与 `From:` 地址匹配（不是 `WP` 内部代码把 `Reply-To` 赋值成 `From`，而是它干脆不输出这一行头字段，最后由收件方的邮箱软件默认复用 `From`）。按照上面的例子，默认情况下它会匹配 wordpress@limou3434.com 地址。如果您希望用户能够回复发送的邮件，请确保该邮箱在接收邮件的服务器上存在。默认情况下，`Reply-To:` 地址始终与 `From:` 地址相同，除非您在邮件头中明确指定了不同的地址。
+
+只有一种情况下会自动设置 `Reply-To:` 地址，当我们向曾评论过某篇帖子的用户发送邮件时。在这种情况下，`Reply-To:` 地址将会被设置为评论者明确指定的电子邮件地址。
+
+###### 3.1.1.7.5.垃圾邮件
+
+您的电子邮件可能被发送到垃圾邮件文件夹，或者更糟糕的情况是，被误认为具有恶意内容而被删除。不过，您可以采取一些措施来确保收件人的邮件服务器能够识别您的邮件是合法的，并将其正确送达目标收件人手中。设置 `SPF、DKIM、DMARC` 记录是确保邮件能够成功送达的关键步骤。网上有许多指南可以帮助您完成这些设置。下面简要说明一下这些记录为何具有重要作用。
+
+- **SPF**：这是最常见的反垃圾邮件措施。`MDA` 会检查发件人域的 `SPF` 记录，以确定该发件人是否有权限为该域发送邮件。`SPF` 是一种 `TXT DNS` 记录，你需要手动添加或确认你的主机是否已经为你添加了这一记录，该记录会列出被授权为该域发送邮件的 `IP` 地址或主机名。这样就能确保邮件并非来自未经授权的来源。例如，如果一个未知的服务器 `IP` 地址发送了带有你域名的邮件，由于 `SPF DNS` 记录的存在，`MDA` 会将该邮件视为垃圾邮件而拒绝处理。但如果你在 `DNS` 记录中没有正确配置这一功能，那么你的邮件也有可能被误认为是垃圾邮件而被拒绝。请记住，如果你通过不同的服务器发送电子邮件，包括你的 `WordPress` 网站，那么你需要将所有服务器的地址添加到 `SPF` 记录中。
+
+- **DKIM**：这种反垃圾邮件的完整性认证检查在近年来越来越受到重视，大多数主要的电子邮件服务提供商都已经采用了这一机制。你可以在一封邮件中同时使用 `SPF` 和 `DKIM` 这两种认证方式。与 `SPF` 类似，你也可以通过检查邮件头部信息来判断接收邮件的服务器是否验证了你所在域的密钥。同样，如果你能够编辑 `TXT DNS` 记录，你也可以自行设置 `DKIM` 认证信息。如果你处于托管环境中，建议咨询你的托管服务提供商，看看他们是否已经为你设置了这一功能，因为这是一种常见的做法。如果你需要自己处理这个问题，有多种方法可以在电子邮件中嵌入正确的 `DKIM` 签名：
+
+  - 请配置您的 `MTA`，使其能够在发送电子邮件时使用 `DKIM` 签名来签名这些邮件
+  - 一些 `SMTP` 插件提供了 `DKIM` 签名功能
+  - 使用 `PHPMailer` 库来设置 `DKIM` 签名。为此，你可能需要连接到 `phpmailer_init` 操作，并参考 `PHPMailer` 库的文档进行操作
+
+  请务必生成包含正确域名信息的 `DKIM` 密钥，并相应地发布相应的 `DNS` 记录。当您将 `DKIM` 公共密钥添加到 `DNS` 记录中时，`MDA` 会检查电子邮件头部的 `DKIM` 签名，并验证其有效性。如果签名无效，`MDA` 会将该邮件作为垃圾邮件予以拒绝。这样就能防止邮件被伪造或由未经授权的来源发送。`DKIM` 和 `SPF` 结合使用，可以确保电子邮件的合法性，并确保邮件能够准确送达目标收件人
+
+- **DMARC**：`DMARC` 记录是一种 `TXT DNS` 记录，你需要将其添加到你的域名设置中，或者检查你的托管服务是否已经为你完成了这一操作。这种记录列出了当电子邮件未能通过 `SPF` 或 `DKIM` 检查时应该采取的行动。由于 `DMARC` 记录几乎已成为确保邮件送达的必要设施，因此为了确保邮件能够成功送达，我们建议你设置这一记录
 
 #### 3.1.2.网站配置
 
-https://developer.wordpress.org/advanced-administration/wordpress/，待补充...
+https://developer.wordpress.org/advanced-administration/wordpress/，太多了，待补充...
 
 ### 3.2.架构升级
 
-代补充...
+- 通过 `FTP` 方式更新 `WordPress` 网站
+- 升级 WordPress
+- 迁移 WordPress
+
+等后面需要升级了再来研究，https://developer.wordpress.org/advanced-administration/upgrade/upgrading/，待补充...
 
 ### 3.3.多站模式
 
-代补充...
+`WordPress` 多站点功能允许您在同一安装环境中创建多个 `WordPress` 实例。要使用多站点功能，您需要启用重写功能。不过我现在用不到这种东西，这种东西是服务商才需要看的东西，留个 [文档](https://developer.wordpress.org/advanced-administration/multisite/) 在这里吧。
 
-### 3.4.内部原理
-
-#### 3.4.1.主题原理
+### 3.4.主题原理
 
 更换主题其实不复杂，`WP` 自己内置了很庞大的主题市场，不过这里虽然标题讲 `Themes`，但正文重点讲的是主题运行所依赖的服务端技术栈。目的是让开发者、设计师、管理员统一认知，避免改个样式结果把站点搞崩。
 
@@ -541,7 +937,7 @@ assets  functions.php  parts  patterns  readme.txt  screenshot.png  style.css  s
 | **functions.php** | `functions.php` 文件包含了一些 `PHP` 函数以及用于主题特定功能和自定义设置的代码。在这里，你可以添加各种操作、过滤器以及自定义函数，以调整主题的行为。 | **高**，改错直接致命错误 |
 | **其他资源**      | 图片、字体、图标                                             | 低                       |
 
-#### 3.4.2.插件市场
+### 3.5.插件市场
 
 待补充...
 
@@ -557,7 +953,7 @@ assets  functions.php  parts  patterns  readme.txt  screenshot.png  style.css  s
 
 待补充...
 
-### 3.9.网站资源
+### 3.9.其他资源
 
 待补充...
 
