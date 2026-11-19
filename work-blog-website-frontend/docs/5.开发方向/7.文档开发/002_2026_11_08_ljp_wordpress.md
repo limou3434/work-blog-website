@@ -67,37 +67,36 @@
 
 网站用户的访问链路为：浏览器访问你的域名 → `Nginx` 转发到 `index.php` → `index.php` 引入 `wp-load.php` → 加载 `wp-includes` 内核 → 读取 `wp-config.php` 里面的数据库信息 → 连接 `MySQL/MariaDB` → 读取数据，再调用 `wp-content` 里的主题渲染页面。
 
-> [!IMPORTANT]
->
-> 补充：因此通过上面的读取我们很快就需要意识到几个问题：
->
-> - **部署之前需要创建一个数据库，那么是选择 `MySQL` 还是 `MariaDB` 呢？**
->
->   优先选 MariaDB，MariaDB 是 MySQL 的开源分支，底层协议、基础语法、连接方式对 WP 完全兼容。版本推荐 `10.6 / 10.11`，稳定，WordPress、WooCommerce 全部适配，甲骨文维护的 MySQL 商业版权约束更重，而 `MariaDB` 完全开源，没有额外商业限制，海外建站圈子默认首选。不要混着用，数据库创建好之后，二者的数据文件不能直接互换，只要你是从零新建库，选 MariaDB 没有坑。不过！！！我要说不过了，现在的官方文档内写的是 `MySQL`，再加上我对 `MariaDB` 是有些不熟悉的，所以先使用 `MySQL` 一段时间试试吧
->
-> - **运行之前本机电脑上需要安装和 `PHP` 相关的模块程序，但是貌似 `PHP` 有很多以 `php-` 开头命名的模块，这些模型为什么会被切分为那么多而不像其他语言一样只需要安装一个 `编译器/解释器 + 软件库管理器` 就足够了呢？**
->
->   这个是 `PHP 历史形态 + Linux 发行包管理 + SAPI 模型` 共同造成的，不是设计缺陷。`PHP` 本身自带大量内置扩展，但发行版（Debian/Ubuntu）选择拆包分发 PHP 内核本身是一个程序，它自带几十种扩展（`mysql、gd、zip、curl` 等）。但是 Ubuntu 源的维护策略，把扩展拆成独立 deb 包，理由是
->
->   - **最小化安装**：很多轻量业务根本不需要图片处理、压缩、xml 这些扩展，不拆包就会白白占用磁盘
->   - **安全隔离**：某个扩展有漏洞，只需要升级这个扩展包，不用整体升级整个 `PHP`
->   
->   - **多 SAPI 隔离**：`cli`、`fpm`、`libapache2-mod-php` 是三套不同的 `SAPI` 运行入口，用途完全不一样，所以拆成独立包
->   - **软件管理**：`php` 内核本身自带的功能（连数据库、图像处理），在 `Linux` 发行层被拆成独立包，`PHP` 的应用层包管理器是 `composer`（`WP` 本身基本不用 `composer`，很多 `WP` 插件生态也不用），简单一句话，不是 `PHP` 语言本身拆成很多块，是 `Ubuntu` 的打包方式把它拆碎了
->   - **整包编译**：如果你用源码编译 PHP，你可以一次性编译启用全部扩展，那就是一个单独的 `php` 程序，不会分成一堆包
->   
-> - **官方下载的是压缩包，那么这个压缩包内的文件是不是就是 `Github` 上的最新版本呢？以后更新框架怎么办？只需要替换文件夹就可以了？是不是有些草率？**
->
->   可以手动替换，但不推荐直接粗暴覆盖，有坑，不是简单替换就完事，先说两种更新方式：
->
->   - 推荐方式：`WP` 后台图形化自动更新（最标准），`WP` 后台 → 仪表盘 → 更新，一键升级内核。它会自动处理文件替换、校验、权限、数据库版本迁移（`WP` 有时候会更新数据库表结构！这个是重点）
->   - 手动 `zip` 覆盖（你想的方式）：流程不是直接丢进去覆盖，先完整备份数据库 + 全部网站文件（重中之重），下载新版 zip，解压，删除旧的 `wp-admin、wp-includes`（不要直接覆盖！旧残留文件容易冲突），把新版的 `wp-admin、wp-includes、根目录 php 文件` 放进去，千万不要覆盖 `wp-content`！主题、插件、上传图片都在这里，访问网站，WP 会自动检测数据库版本，执行数据库升级脚本。
->
->   关键点 WordPress 更新不只是改文件，偶尔会变更数据库表结构。只替换文件、没走数据库升级，网站会报错、功能异常
->
-> - **WP 是啥？**：`wp = WordPress` 的简写，就是我们现在一直在聊的这个 `CMS` 程序
+因此通过上面的读取我们很快就需要意识到几个问题：
+- **部署之前需要创建一个数据库，那么是选择 `MySQL` 还是 `MariaDB` 呢？**
 
-### 1.3.快速部署
+  优先选 MariaDB，MariaDB 是 MySQL 的开源分支，底层协议、基础语法、连接方式对 WP 完全兼容。版本推荐 `10.6 / 10.11`，稳定，WordPress、WooCommerce 全部适配，甲骨文维护的 MySQL 商业版权约束更重，而 `MariaDB` 完全开源，没有额外商业限制，海外建站圈子默认首选。不要混着用，数据库创建好之后，二者的数据文件不能直接互换，只要你是从零新建库，选 MariaDB 没有坑。不过！！！我要说不过了，现在的官方文档内写的是 `MySQL`，再加上我对 `MariaDB` 是有些不熟悉的，所以先使用 `MySQL` 一段时间试试吧
+
+- **运行之前本机电脑上需要安装和 `PHP` 相关的模块程序，但是貌似 `PHP` 有很多以 `php-` 开头命名的模块，这些模型为什么会被切分为那么多而不像其他语言一样只需要安装一个 `编译器/解释器 + 软件库管理器` 就足够了呢？**
+
+  这个是 `PHP 历史形态 + Linux 发行包管理 + SAPI 模型` 共同造成的，不是设计缺陷。`PHP` 本身自带大量内置扩展，但发行版（Debian/Ubuntu）选择拆包分发 PHP 内核本身是一个程序，它自带几十种扩展（`mysql、gd、zip、curl` 等）。但是 Ubuntu 源的维护策略，把扩展拆成独立 deb 包，理由是
+
+  - **最小化安装**：很多轻量业务根本不需要图片处理、压缩、xml 这些扩展，不拆包就会白白占用磁盘
+  - **安全隔离**：某个扩展有漏洞，只需要升级这个扩展包，不用整体升级整个 `PHP`
+
+  - **多 SAPI 隔离**：`cli`、`fpm`、`libapache2-mod-php` 是三套不同的 `SAPI` 运行入口，用途完全不一样，所以拆成独立包
+  - **软件管理**：`php` 内核本身自带的功能（连数据库、图像处理），在 `Linux` 发行层被拆成独立包，`PHP` 的应用层包管理器是 `composer`（`WP` 本身基本不用 `composer`，很多 `WP` 插件生态也不用），简单一句话，不是 `PHP` 语言本身拆成很多块，是 `Ubuntu` 的打包方式把它拆碎了
+  - **整包编译**：如果你用源码编译 PHP，你可以一次性编译启用全部扩展，那就是一个单独的 `php` 程序，不会分成一堆包
+
+- **官方下载的是压缩包，那么这个压缩包内的文件是不是就是 `Github` 上的最新版本呢？以后更新框架怎么办？只需要替换文件夹就可以了？是不是有些草率？**
+
+  可以手动替换，但不推荐直接粗暴覆盖，有坑，不是简单替换就完事，先说两种更新方式：
+
+  - 推荐方式：`WP` 后台图形化自动更新（最标准），`WP` 后台 → 仪表盘 → 更新，一键升级内核。它会自动处理文件替换、校验、权限、数据库版本迁移（`WP` 有时候会更新数据库表结构！这个是重点）
+  - 手动 `zip` 覆盖（你想的方式）：流程不是直接丢进去覆盖，先完整备份数据库 + 全部网站文件（重中之重），下载新版 zip，解压，删除旧的 `wp-admin、wp-includes`（不要直接覆盖！旧残留文件容易冲突），把新版的 `wp-admin、wp-includes、根目录 php 文件` 放进去，千万不要覆盖 `wp-content`！主题、插件、上传图片都在这里，访问网站，WP 会自动检测数据库版本，执行数据库升级脚本。
+
+  关键点 WordPress 更新不只是改文件，偶尔会变更数据库表结构。只替换文件、没走数据库升级，网站会报错、功能异常
+
+- **WP 是啥？**：`wp = WordPress` 的简写，就是我们现在一直在聊的这个 `CMS` 程序
+
+## 2.快速体验
+
+### 2.1.安装数库
 
 既然如此，我们先安装一下数据库吧，这里我使用的是 `MySQL`，这方面就不介绍怎么安装了。
 
@@ -123,6 +122,8 @@ Query OK, 0 rows affected (0.01 sec)
 mysql> EXIT  
 Bye 
 ```
+
+### 2.2.解压缩包
 
 接下来就是来自官方的步骤了，先简单看一下不要先操作：
 
@@ -150,7 +151,7 @@ Bye
 
 诶不过这个只是官方的演示例子，我们需要一个 `Nginx` 才可以，并且编写对应的配置文件。
 
-## 2.快速体验
+### 2.3.搭建服务
 
 ```nginx
 # Nginx 负责监听 80/443 端口，接收浏览器请求
@@ -189,11 +190,15 @@ $ sudo nginx -t
 $ sudo systemctl restart nginx
 ```
 
+### 2.4.依赖安装
+
 然后就应该是访问 http://127.0.0.1:3000/wp-admin/install.php 来进行安装了，但是通常会出现下面问题。
 
 ![image-20261108201412505](./assets/image-20261108201412505.png)
 
 这是因为我们还缺少一个 `php` 的模块，使用 `sudo apt install php8.1-mysql` 安装然后刷新浏览器即可出现下面页面进行对应的填写，最后运行安装程序即可。
+
+### 2.5.配置网站
 
 ![image-20261108202123240](./assets/image-20261108202123240.png)
 
@@ -204,6 +209,8 @@ $ sudo systemctl restart nginx
 ![image-20261108202312999](./assets/image-20261108202312999.png)
 
 ![image-20261108202349763](./assets/image-20261108202349763.png)
+
+### 2.6.前台后台
 
 因此这里，我们很快就拥有了我们的前台和后台页面。
 
@@ -230,7 +237,7 @@ $ sudo systemctl restart nginx
 > - **InstantWP**：`Windows` 专属，绿色便携版。特点：放 `U盘` 里直接跑，不用安装，拿到别的电脑插上就能打开 `WP`，适合快速演示
 >- **WordPress Studio**：`Automattic`（[WordPress.com](https://WordPress.com) 母公司）新出的可视化客户端。特点：图形界面，不用敲命令，轻松新建、切换多个本地 `WordPress` 站点，对不熟悉 `Docker` 的开发者友好
 > 
->有时间研究一下 `DDEV` 的用法吧，我个人比较看好这个，其次就是 `wp-env`。
+>有时间研究一下 `DDEV` 的用法吧，我个人比较看好这个，其次就是 `wp-env`，待补充...
 
 > [!IMPORTANT]
 >
@@ -248,16 +255,9 @@ $ sudo systemctl restart nginx
 > - 在 `iPage Hosting` 上安装 `WordPress`
 > - 在 `Microsoft Azure` 上安装 `WordPress`
 
-> [!IMPORTANT]
->
-> 补充：还有一些其他小众需求。
->
-> - 安装多个 `WP` 实例，需要看 [这个文章](https://developer.wordpress.org/advanced-administration/before-install/multiple-instances/)，待补充...
-> - 以您的语言安装 `WP`，需要 [看这个文章](https://developer.wordpress.org/advanced-administration/before-install/in-your-language/)，待补充...
-
 ## 3.深入研究
 
-### 3.1.项目配置
+### 3.1.三种配置
 
 #### 3.1.1.系统配置
 
@@ -889,23 +889,231 @@ $ ss -tlnp | grep :25
 
 - **DMARC**：`DMARC` 记录是一种 `TXT DNS` 记录，你需要将其添加到你的域名设置中，或者检查你的托管服务是否已经为你完成了这一操作。这种记录列出了当电子邮件未能通过 `SPF` 或 `DKIM` 检查时应该采取的行动。由于 `DMARC` 记录几乎已成为确保邮件送达的必要设施，因此为了确保邮件能够成功送达，我们建议你设置这一记录
 
-#### 3.1.2.网站配置
+#### 3.1.2.项目配置
 
-https://developer.wordpress.org/advanced-administration/wordpress/，太多了，待补充...
+这里主要是看 [文档](https://developer.wordpress.org/advanced-administration/wordpress/)。在您的 `WordPress` 安装中，最重要的文件之一就是 `wp-config.php` 文件。该文件位于 `WordPress` 文件目录的根目录下，包含了网站的基本配置信息，比如数据库连接信息。
 
-### 3.2.架构升级
+当您首次下载 `WordPress` 的压缩包时，`wp-config.php` 文件并不会被包含在内。`WordPress` 的安装过程会根据你在安装过程中提供的信息，为你创建一个 `wp-config.php` 文件。
 
-- 通过 `FTP` 方式更新 `WordPress` 网站
-- 升级 WordPress
-- 迁移 WordPress
+![image-20261118235352577](./assets/image-20261118235352577.png)
 
-等后面需要升级了再来研究，https://developer.wordpress.org/advanced-administration/upgrade/upgrading/，待补充...
+除非是开发人员，否则普通人不太可能需要编辑 `wp-config.php` 文件。如果你是按照技术专家或你的网站托管服务提供商提供的解决方案来解决问题的，那么这一页的内容应该会对你有所帮助。不过要研究这个配置文件，最快的方法就是直接找到部署后的配置文件的内容，然后一个一个进行注释解读。
 
-### 3.3.多站模式
+```php
+<?php
+/**
+ * The base configuration for WordPress
+ * 【注释】文件头 docblock：说明这是 WordPress 的基础配置文件
+ *
+ * The wp-config.php creation script uses this file during the installation.
+ * 【注释】安装时 wp-config.php 创建脚本会使用本文件（即 wp-config-sample.php）作为模板
+ *
+ * You don't have to use the website, you can copy this file to "wp-config.php and fill in the values.
+ * 【注释】你不必通过网站安装，也可以直接把本文件复制为 wp-config.php 并填入值
+ * 
+ * This file contains the following configurations:
+ * 【注释】本文件包含以下配置：
+ *
+ * * Database settings          —— 数据库设置
+ * * Secret keys                —— 密钥/盐值
+ * * Database table prefix      —— 数据库表前缀
+ * * ABSPATH                    —— WordPress 绝对路径
+ *
+ * @link https://developer.wordpress.org/advanced-administration/wordpress/wp-config/
+ * 【注释】官方文档链接
+ *
+ * @package WordPress
+ * 【注释】所属包为 WordPress
+ */
 
-`WordPress` 多站点功能允许您在同一安装环境中创建多个 `WordPress` 实例。要使用多站点功能，您需要启用重写功能。不过我现在用不到这种东西，这种东西是服务商才需要看的东西，留个 [文档](https://developer.wordpress.org/advanced-administration/multisite/) 在这里吧。
+// ** Database settings - You can get this info from your web host ** //
+// 【注释】数据库设置 - 你可以从你的主机服务商这里获取这些信息
+/** The name of the database for WordPress */
+define( 'DB_NAME', 'work_lingan_wordpress' );
+// 【注释】DB_NAME：WordPress 使用的数据库名，这里是 work_lingan_wordpress
 
-### 3.4.主题原理
+/** Database username */
+define( 'DB_USER', 'work_lingan_wordpress_user' );
+// 【注释】DB_USER：连接数据库的用户名，这里是 work_lingan_wordpress_user
+
+/** Database password */
+define( 'DB_PASSWORD', 'Qwe54188_' );
+// 【注释】DB_PASSWORD：数据库用户密码（明文），此文件应放在 Web 根目录之外或设置严格权限，切勿泄露
+
+/** Database hostname */
+define( 'DB_HOST', '127.0.0.1' );
+// 【注释】DB_HOST：数据库主机地址，127.0.0.1 表示数据库与本站在同一台服务器上
+
+/** Database charset to use in creating database tables. */
+define( 'DB_CHARSET', 'utf8mb4' );
+// 【注释】DB_CHARSET：建表时使用的字符，。utf8mb4 支持完整的 Unicode（包括 emoji）
+
+/** The database collate type. Don't change this if in doubt. */
+define( 'DB_COLLATE', '' );
+// 【注释】DB_COLLATE：数据库排序规则，留空则由 MySQL 按字符集自动选择，不确定时不要改
+
+/**#@+
+ * Authentication unique keys and salts.
+ * 【注释】认证用的唯一密钥与盐值（用于加密登录 Cookie 等）
+ *
+ * Change these to different unique phrases! You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/  WordPress.org secret-key service}.
+ * 【注释】请改成不同的、唯一的短语！可用官方生成器生成：https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
+ *
+ * You can change these at any point in time to invalidate all existing cookie
+ * 【注释】随时可以修改这些值，修改后会使所有已存在的 Cookie 失效
+ *
+ * This will force all users to have to log in again.
+ * 【注释】这会强制所有用户重新登录
+ *
+ * @since 2.6.0
+ * 【注释】自 WordPress 2.6.0 起引入
+ */
+// 下方各密钥字符串在原文中显示被截断，实际应为完整字符串
+
+define( 'AUTH_KEY',         'qKdW)AO%EgEn=LdGvSn>W3958n=#0`x}v?,>5a!kY5-<#~wM')
+// 【注释】AUTH_KEY：认证密钥之一
+define( 'SECURE_AUTH_KEY',  '+AaSx;:Dc%o1AA3h~f +l,b+2{<a<Cj4!R_NO/ow>$N_bj^!W')
+// 【注释】SECURE_AUTH_KEY：用于 HTTPS 安全认证的密钥
+define( 'LOGGED_IN_KEY',    'kT:ndXe!CXf~rz(PcBV&#A+(T<65La/gy)4 vTkyy&bX+Dk{8')
+// 【注释】LOGGED_IN_KEY：已登录用户 Cookie 的密钥
+define( 'NONCE_KEY',        '!WJEa~eHnr%RI8V+)pZ+rL.z-BiR>*jD175J~5kV05qlP@pjo')
+// 【注释】NONCE_KEY：用于生成防 CSRF 的 nonce 的密钥
+    
+define( 'AUTH_SALT',        ']ybkTut5w_vbX>Y0sP5{Fl0gYC&IzSC8wR@p6|fAy#j *I~yb')
+// 【注释】AUTH_SALT：与 AUTH_KEY 配合使用的盐值
+define( 'SECURE_AUTH_SALT', 'riY#f{8M6%9f`bI(t{>SaWD@yhtJ[}TdY(Dva?P]==pI049ox')
+// 【注释】SECURE_AUTH_SALT：与 SECURE_AUTH_KEY 配合的盐值
+define( 'LOGGED_IN_SALT',   'izA,bMSfW_tuY/s PnolT8-%n]MF2|Hn`^^&Yu.z]5y`l~rxM')
+// 【注释】LOGGED_IN_SALT：与 LOGGED_IN_KEY 配合的盐值
+define( 'NONCE_SALT',       'gg)z9nNDa;8^9)-d@VDZ R!T7 -JWlf&mGTaCk[n-z[&?QNQ/')
+// 【注释】NONCE_SALT：与 NONCE_KEY 配合的盐值
+
+/**#@-*/
+// 【注释】/**#@-*/ 是结束批量 docblock 标记，与上方 /**#@+ */ 配对
+
+/**
+ * WordPress database table prefix.
+ * 【注释】WordPress 数据库表前缀
+ *
+ * You can have multiple installations in one database if you give each a unique prefix. Only numbers, letters, and underscores please!
+ * 【注释】在同一数据库中可安装多套 WordPress，只需给每套使用不同的前缀，前缀只能包含数字、字母、下划线
+ *
+ * At the installation time, database tables are created with the specified prefix. Changing this value after WordPress is installed will make your site think it has not been installed.
+ * 【注释】安装时，数据库表会使用此处指定的前缀创建，安装完成后修改此值，会让站点误以为尚未安装
+ *
+ * @link https://developer.wordpress.org/advanced-administration/wordpress/wp-config/#table-prefix
+ * 【注释】官方文档链接。
+ */
+$table_prefix = 'wp_';
+// 【注释】$table_prefix：数据库表前缀，默认为 wp_，即表名形如 wp_posts、wp_users 等
+
+/**
+ * For developers: WordPress debugging mode.
+ * 【注释】面向开发者：WordPress 调试模式
+ *
+ * Change this to true to enable the display of notices during development.
+ * 【注释】改为 true 可在开发时显示提示/警告信息
+ *
+ * It is strongly recommended that plugin and theme developers use WP_DEBUG in their development environments.
+ * 【注释】强烈建议插件和主题开发者在开发环境中使用 WP_DEBUG
+ *
+ * For information on other constants that can be used for debugging, visit the documentation.
+ * 【注释】关于其他可用于调试的常量，请查阅文档
+ *
+ * @link https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/
+ * 【注释】官方调试文档链接
+ */
+define( 'WP_DEBUG', false );
+// 【注释】WP_DEBUG：调试模式开关，false 表示关闭（生产环境推荐关闭）
+
+/* Add any custom values between this line and the "stop editing" line. */
+// 【注释】可在此行与下方 "stop editing" 行之间添加自定义常量（如 WP_HOME、WP_SITEURL、WP_MEMORY_LIMIT 等）
+
+
+
+/* That's all, stop editing! Happy publishing. */
+// 【注释】到此为止，停止编辑！——这是官方约定的分界线，之后是 WordPress 核心引导代码，不应修改
+
+/** Absolute path to the WordPress directory. */
+if ( ! defined( 'ABSPATH' ) ) {
+        define( 'ABSPATH', __DIR__ . '/' );
+}
+// 【注释】ABSPATH：WordPress 目录的绝对路径
+//   - 先判断是否已定义，避免重复定义报错；
+//   - __DIR__ 是当前文件所在目录，拼接 '/' 得到以斜杠结尾的绝对路径
+
+/** Sets up WordPress vars and included files. */
+require_once ABSPATH . 'wp-settings.php';
+// 【注释】加载 wp-settings.php，初始化 WordPress 变量并引入核心文件，是启动 WordPress 的入口
+```
+
+> [!IMPORTANT]
+>
+> 补充：`HMAC` 签名的过程。
+>
+> 这里有些哦奇怪，正常网址想要搭配 `https` 的话，只需要 `Nginx` 配置就可以了，为什么 `WP` 这里的配置文件就已经配置了密钥？这是那里来的，我都还没买域名，公钥和私钥都没有拿到，我要配置这个密钥做什么？
+>
+> `SECURE_AUTH_KEY` 里的 `SECURE_AUTH` 其实和 `HTTPS` 证书（公钥/私钥）完全是两回事，它和域名、`SSL` 证书没有任何关系。这八个 `*_KEY` 和 `*_SALT` 是 `WordPress` 用来加密自家登录 `Cookie` 的“秘方”，属于应用层的安全机制，不是传输层的 `HTTPS` 加密。
+>
+> 具体原理很简单，当您登录 `WordPress` 后，服务器会给你的浏览器发一个 `Cookie`，里面记录着“您是已登录用户”的凭证。为了防止别人伪造这个 `Cookie` 混进来，`WordPress` 会用这些 `AUTH_KEY` 等字符串作为密码，对 `Cookie` 内容进行签名（`HMAC`）。
+>
+> 您登录 `WordPress` 后，服务器会给你浏览器一个 `Cookie`，比如里面写着 `user_id=1; role=administrator`，浏览器每次请求都会带上这个 `Cookie`。问题来了，服务器凭什么相信这个 `Cookie` 是真的？
+>
+> 因为 `Cookie` 存在用户自己的浏览器里，用户（或攻击者）完全可以手动改它。如果攻击者把 `user_id=1` 改成 `user_id=2`，服务器不验证就信了，那就能冒充别人登录。所以服务器需要一个办法，判断这个 `Cookie` 有没有被篡改过。这就是“签名”要解决的问题。
+>
+> `HMAC` 全称 `Hash-based Message Authentication Code`（基于哈希的消息认证码）。它是一个数学函数，输入两个东西，`HMAC(密钥, 消息内容) → 一段固定长度的指纹`
+>
+> - 密钥：就是你的 `AUTH_KEY` 那串乱码，只有服务器知道（权限设置好的话，普通用户看不到）
+> - 消息内容：就是 `Cookie` 里存的数据，比如 `user_id=1`
+> - 输出：一段看起来像乱码的指纹，比如 `a3f9c2...`
+>
+> 这个函数有个关键特性：同样的密钥 + 同样的内容，永远算出同样的指纹，内容改一个字，指纹就完全变样，而且没有密钥，几乎不可能倒推出指纹。
+
+>  [!IMPORTANT]
+>
+> 补充：那为什么需要四个密钥呢？
+>
+> 这是因为 `WordPress` 用它们来分别保护四种不同用途的认证凭证。如果混用同一个密钥，某一类凭证（比如公开页面上的 `nonce`）一旦被分析或泄露，就可能危及另一类凭证（比如后台登录状态）的安全，隔离密钥是为了把风险隔离开。
+>
+> - **AUTH_KEY**：用于保护非 `SSL` 环境下的身份认证 `Cookie`，不过在现代全站 `HTTPS` 的站点上，这个密钥的实际作用已经被 `SECURE_AUTH_KEY` 覆盖了很多
+> - **SECURE_AUTH_KEY**：专门用于保护通过 `SSL（HTTPS）` 访问时的认证 `Cookie`，以及后台管理界面的登录状态
+> - **LOGGED_IN_KEY**：用于保护“已登录”状态本身。它让 `WordPress` 知道 “这个访客已经登录了”，通常作用于站点前端以及一般的登录状态维持
+> - **NONCE_KEY**：用于生成和保护 `nonce`（一次性安全令牌），主要防御 `CSRF`（跨站请求伪造）攻击，`nonce` 会出现在表单、链接甚至公开页面里，暴露的机会比登录 `Cookie` 多得多，所以它需要一个独立的密钥，避免牵连其他认证机制
+>
+> 这里单独拉出来跨站请求的讲解，先搞清楚“跨站请求伪造”到底在伪造什么，关键点在于浏览器有个 “自动带 `Cookie`” 的机制。假设您已经登录了 `bank.com`，浏览器里存着 `bank.com` 的登录 `Cookie`。这时你打开另一个网站 `evil.com`，这个网站里藏了一段代码，偷偷向 `bank.com` 发了一个请求。
+>
+> ```bash
+> POST https://bank.com/transfer?to=攻击者&amount=10000
+> ```
+>
+> 这个请求是 `evil.com` 发起的，但浏览器会自动把 `bank.com` 的 `Cookie` 一起带上。因为浏览器分不清“这个请求是用户自己点的，还是 [evil.com](https://evil.com/) 偷偷发的”，它只管按域名带 `Cookie`。结果就是 `bank.com` 收到请求，看到 `Cookie` 有效，以为是你本人操作的，重要数据就被转走了。
+>
+> 这就是 `CSRF`，攻击者没有偷你的 `Cookie`，也没有伪造 `Cookie`，而是 “借用” 您浏览器里真实有效的 `Cookie`，诱导浏览器替你做你没想做的事。“跨站”指的就是攻击发生在另一个网站（[evil.com](https://evil.com/)）上，伪造的是对目标站（[bank.com](https://bank.com/)）的请求。
+>
+> 那 `nonce` 怎么防住它？问题的根源是 `bank.com` 无法区分 “这个请求是用户自己在 [bank.com](https://bank.com/) 页面上点的” 还是 “[evil.com](https://evil.com/) 偷偷发的”，两者都带着合法 `Cookie`。`nonce` 的思路是，在真正的表单里藏一个攻击者猜不到的随机令牌，服务器只认带正确令牌的请求。具体流程：
+>
+> 1. 你正常访问 `bank.com` 的转账页面，服务器生成一个 nonce，比如 `x7k2p9`，嵌进表单里：
+>
+>    ```html
+>    <form action="/transfer" method="POST">
+>      <input type="hidden" name="nonce" value="x7k2p9">
+>      <input name="to"> ...
+>    </form>
+>    ```
+>
+> 2. 你填好表单点提交，浏览器发的请求里带着 `nonce=x7k2p9`，服务器用 `NONCE_KEY` 验证这个令牌有效，执行转账
+>
+> 3. 而 `evil.com` 的攻击者想伪造请求，但他根本不知道这个 `nonce` 是多少，因为 `nonce` 是服务器随机生成的。`nonce` 虽然就明文写在 `bank.com` 页面的 `HTML` 里，但受同源策略限制，`evil.com` 上的脚本读不到 `bank.com` 页面的内容。这就是 `nonce` 防护的核心前提，它不靠保密，靠浏览器把不同源的页面隔开。这意味着，除非用户在黑客的电脑上进行登陆直接亮出自己表单的 `nonce`，否则 `nonce` 这种类似验证码的东西只出现在你浏览器当前页面的 `HTML` 里。`evil.com` 的代码读不到 [bank.com](https://bank.com/) 页面上的内容（同源策略）。他盲猜也猜不中。于是服务器收到没有正确 `nonce` 的请求，直接拒绝
+
+不过除了上面在部署的时候自动生成的配置文件，还有很多很多配置可以使用，我的建议是使用 `AI` 去读取 [这个配置文档](https://developer.wordpress.org/advanced-administration/wordpress/wp-config/)，在需要的时候进行翻阅就可以了。
+
+#### 3.1.3.可视配置
+
+这里需要讲解一下，待补充...
+
+### 3.2.两个原理
+
+#### 3.2.1.主题原理
 
 更换主题其实不复杂，`WP` 自己内置了很庞大的主题市场，不过这里虽然标题讲 `Themes`，但正文重点讲的是主题运行所依赖的服务端技术栈。目的是让开发者、设计师、管理员统一认知，避免改个样式结果把站点搞崩。
 
@@ -937,25 +1145,100 @@ assets  functions.php  parts  patterns  readme.txt  screenshot.png  style.css  s
 | **functions.php** | `functions.php` 文件包含了一些 `PHP` 函数以及用于主题特定功能和自定义设置的代码。在这里，你可以添加各种操作、过滤器以及自定义函数，以调整主题的行为。 | **高**，改错直接致命错误 |
 | **其他资源**      | 图片、字体、图标                                             | 低                       |
 
-### 3.5.插件市场
+不过，如果主题只是用代码修改，那未免成本也太高（这种方式在以前被叫做经典主题），一般是分为区块编辑器和主题编辑器来进行外观修改（这种方式在现在被叫做区块主题，现在比较新的 `WP` 都默认这么做）：
 
-待补充...
+![image-20261119125942036](./assets/image-20261119125942036.png)
+
+- **区块编辑器 site-editor.php（后台 -> 外观 -> 编辑）**：它底层就是古腾堡区块引擎，所以你在这里拖拽、排版、设置页眉页脚、首页模板，本质上就是在用区块操作。它能干非常多事情，页眉、页脚、首页、文章模板、分类列表模板、`404` 模板，绝大部分网站外观布局都在这里搞定，优先用它。它保存之后，生成的不是 `PHP`，是区块标记的 `HTML` 模板文件，放在主题编辑器的 `templates/` 文件夹里
+
+  ![image-20261119130248275](./assets/image-20261119130248275.png)
+
+  ![image-20261119130318096](./assets/image-20261119130318096.png)
+
+- **主题编辑器 theme-editor.php（后台 -> 工具 -> 主题文件编辑器）**：它是兜底工具，可以直接编辑一个主题的所有代码（其实就是在线打开了 `~/work-lingan-wordpress/wordpress/wp-content/themes/某个主题/` 目录可以在线编辑），平时正常做页面、改布局不需要碰它。在 `Site Editor` 拖拽区块，保存的是 `templates/*.html` 区块模板（里面是带区块注释的 `HTML`，是古腾堡专属格式），这个 `html` 文件可以在 `theme-editor.php` 里面打开、直接修改源码。不过它只展示可文本编辑的代码类文件，图片、语言翻译目录不在它的展示范围内
+
+  ![image-20261119132254594](./assets/image-20261119132254594.png)
+
+  ![image-20261119131628300](./assets/image-20261119131628300.png)
+
+#### 3.2.2.插件原理
+
+在 `WP` 中允许开发者使用各种插件来进行建站，在标准的 `WordPress` 安装中，有许多可以由用户编辑的文件，其中就包括插件文件。虽然很少需要修改插件代码，但插件文件编辑器界面允许你编辑这些插件文件。根据您的主题不同，您可以在以下位置找到这个编辑器：
+
+- **如果你使用的是区块主题（底层也有代码文件，但网站整体模板（页眉、页脚、文章模板）不再靠 PHP 手写，改用古腾堡区块做可视化拖拽编辑（Site Editor 全站编辑器）**：那么这个编辑器会列在“工具”选项中（现在下载的基本都是区块主题了）
+- **如果你使用的是经典主题（底层用 PHP、CSS 代码文件如 header.php、single.php 来渲染页面，页面布局、页眉页脚，主要靠改代码文件实现；古腾堡区块只负责文章/页面正文内容，管不到页眉、页脚、整个网站模板）**：那么这个编辑器将会出现在“外观”选项中
+
+内置的插件文件编辑器允许你查看或修改该界面中大型文本编辑框内的任何插件 `PHP` 代码。如果某个文件是可以被编辑的，那么你可以对其进行修改，然后保存该文件。如果文件不可编辑，你会看到这样的消息，您需要先使该文件可编辑，才能保存你的修改结果。
+
+正在编辑的插件文件的名称出现在文本框的顶部，插件选择下拉菜单下方，会列出该插件可编辑的文件。点击文件名称，即可在编辑框加载并打开对应文件代码。
+
+不过记得，这个编辑页面也和前面区块编辑器和主题编辑器是一样的，无法编辑图片这类无文本文件。
+
+编辑已启用的插件文件时务必谨慎。该编辑器不会自动备份文件。如果你修改代码出错导致网站崩溃，将无法再通过这个编辑器修复。遇到这种情况，你可以通过 `FTP` 上传该文件可用的备份版本，或者修改 `wp-content/` 下 `plugins` 文件夹的名称，这样所有插件都会被停用，等你把文件夹名称改回原样后，插件才会恢复。
+
+在编辑器下方，有一个下拉菜单，列出了您正在编辑的插件文件中存在的函数名称。选择某个函数后，点击“查找”按钮，即可在代码参考或 `PHP` 文档中查看该函数的相关说明。
+
+请记得点击这个按钮来保存您对插件文件所做的修改。点击后，屏幕上会显示一条提示信息，内容为“文件编辑成功”。如果您看不到这条信息，那就说明您的修改尚未被保存。请注意，如果文件无法被写入，那么 “更新文件” 按钮将不可用。
+
+> [!IMPORTANT]
+>
+> 补充：必用插件，也叫 `mu` 插件，是放置在内容目录下一个特殊文件夹里的插件。它们会在该 `WordPress` 安装下的所有站点自动启用。
+>
+> 必用插件不会出现在后台插件页面的默认插件列表里，但会单独划分在必用插件板块。无法在后台直接禁用。想要禁用一个必用插件，只能把插件文件从必用插件目录移出，该目录默认路径为 `wp-content/mu-plugins`。
+>
+> 主机服务商经常使用必用插件，来添加主机专属功能，尤其是移除之后会直接造成网站故障的功能。
+>
+> 如果你需要手动修改默认目录，可以在 `wp-config.php` 中定义 `WPMU_PLUGIN_DIR` 和 `WPMU_PLUGIN_URL` 两个常量。
+>
+> 这部分的内容参考 [这篇文档](https://developer.wordpress.org/advanced-administration/plugins/mu-plugins/)，这里不再展开。
+
+### 3.2.架构升级
+
+- 通过 `FTP` 方式更新 `WordPress` 网站
+- 升级 WordPress
+- 迁移 WordPress
+
+等后面需要升级了再来研究，https://developer.wordpress.org/advanced-administration/upgrade/upgrading/，待补充...
+
+### 3.3.多站模式
+
+`WordPress` 多站点功能允许您在同一安装环境中创建多个 `WordPress` 实例。要使用多站点功能，您需要启用重写功能。不过我现在用不到这种东西，这种东西是服务商才需要看的东西，留个 [文档](https://developer.wordpress.org/advanced-administration/multisite/) 在这里吧。
 
 ### 3.6.安全问题
 
-待补充...
+关于 `WP` 的安全问题是值得重视的，但是这点必须要在实际部署中深刻实践，这里需要列出为了安全，我们需要做的一些 [动作清单](https://developer.wordpress.org/advanced-administration/security/)，待补充...
 
 ### 3.7.性能优化
 
-待补充...
+#### 3.7.1.指导优化
+
+https://developer.wordpress.org/advanced-administration/performance/cache/，待补充...
+
+#### 3.7.2.缓存优化
+
+https://developer.wordpress.org/advanced-administration/performance/cache/，待补充...
+
+#### 3.7.3.语言优化
+
+https://developer.wordpress.org/advanced-administration/performance/php/，待补充...
 
 ### 3.8.调试测试
 
-待补充...
+https://developer.wordpress.org/advanced-administration/debug/，待补充...
 
-### 3.9.其他资源
+#### 3.8.1.项目测试
 
-待补充...
+#### 3.8.2.网络测试
+
+#### 3.8.3.脚本测试
+
+### 3.9.拓展开发
+
+如果您需要主题、插件、区块编辑器（古腾堡 `Gutenberg`）相关的开发文档可以看这里：
+
+- [主题开发者手册](https://developer.wordpress.org/themes/)
+- [插件开发者手册](https://developer.wordpress.org/plugins/)
+- [区块编辑器手册](https://developer.wordpress.org/block-editor/)
 
 ## 4.源码修改
 
