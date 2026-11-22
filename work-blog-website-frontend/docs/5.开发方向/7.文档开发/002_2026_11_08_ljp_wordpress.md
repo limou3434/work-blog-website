@@ -226,7 +226,7 @@ $ sudo systemctl restart nginx
 >
 > 补充：直接下载压缩包的方式也太奇怪了？！当然，`WP` 也提供一些程序员熟悉的建站方式，下面全部都是 `WordPress` 本地开发环境工具，都是不用买服务器，可以在自己电脑上跑 `WordPress` 网站，用来开发主题、插件、改页面、测试功能，做好之后再上传到正式线上服务器。下面逐个通俗解释：
 >
-> - **wp-env**：`WordPress` 官方主推，基于 `Docker`。适合写区块编辑器插件、`WP` 核心二次开发，前端开发者首选。特点：官方维护，贴近源码，命令行操作
+> - **wp-env**：`WordPress` 官方主推，基于 `Docker`。适合写区块编辑器插件、`WP` 核心二次开发，前端开发者首选。特点：官方维护，贴近源码，命令行操作（本机必须安装 `Docker`）
 >- **DDEV**：现在圈内热度很高、非常推荐的 `Docker` 方案。亮点：一键启动本地 `WP`、自带 `phpMyAdmin、Xdebug` 调试、还能把本地站点临时公网分享给别人看，多站点管理很舒服（本机必须安装 `Docker`）
 > - **Lando**：`Docker` 封装工具，支持 `WordPress` 插件，配置文件驱动。特点：灵活，不止 `WordPress，Laravel、Drupal` 也能用，适合经常换项目框架的开发者（本机必须安装 `Docker`）
 >- **VVV (Varying Vagrant Vagrants)**：老牌经典方案，基于 `Vagrant + VirtualBox`。以前 `WP` 开发者圈非常流行。特点：一套虚拟机，自带 `Nginx`、`MySQL`、各种调试工具，配置略重，现在慢慢被 `DDEV、Lando` 替代
@@ -254,6 +254,18 @@ $ sudo systemctl restart nginx
 > - 在 `Linode` 上安装 `WordPress`
 > - 在 `iPage Hosting` 上安装 `WordPress`
 > - 在 `Microsoft Azure` 上安装 `WordPress`
+
+### 2.7.容器包装
+
+实际上，`WP` 是支持使用 `Docker` 来进行部署的，这里就需要推荐 `DDEV` 部署方式，但是！实际上如果您的 `Docker Compose` 基础知识过关的话，我的建议是直接使用 `Docker Compose` 会比较好，更加清爽，下面是我的配置文件：
+
+```yaml
+
+```
+
+> [!IMPORTANT]
+>
+> 补充：`WP` 官方只支持 `Apache` 变体，我对这种服务器不熟悉，所以我修改为上述的 `Nginx` 部署了。
 
 ## 3.深入研究
 
@@ -1109,7 +1121,7 @@ require_once ABSPATH . 'wp-settings.php';
 
 #### 3.1.3.可视配置
 
-这里需要讲解一下，待补充...
+这里需要讲解一下这个管理员后台界面，待补充...
 
 ### 3.2.两个原理
 
@@ -1232,9 +1244,9 @@ https://developer.wordpress.org/advanced-administration/debug/，待补充...
 
 #### 3.8.3.脚本测试
 
-### 3.9.拓展开发
+### 3.9.开发资料
 
-如果您需要主题、插件、区块编辑器（古腾堡 `Gutenberg`）相关的开发文档可以看这里：
+如果您需要主题、插件、区块编辑器（古腾堡 `Gutenberg`）相关的开发文档资料可以看这里：
 
 - [主题开发者手册](https://developer.wordpress.org/themes/)
 - [插件开发者手册](https://developer.wordpress.org/plugins/)
