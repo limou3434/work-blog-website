@@ -257,15 +257,15 @@ $ sudo systemctl restart nginx
 
 ### 2.7.容器包装
 
-实际上，`WP` 是支持使用 `Docker` 来进行部署的，这里就需要推荐 `DDEV` 部署方式，但是！实际上如果您的 `Docker Compose` 基础知识过关的话，我的建议是直接使用 `Docker Compose` 会比较好，更加清爽，下面是我的配置文件：
+实际上，`WP` 是支持使用 `Docker` 来进行部署的，这里就需要推荐 `DDEV` 部署方式，但是！实际上如果您的 `Docker Compose` 基础知识过关的话，我的建议是直接使用 `Docker Compose` 会比较好，更加清爽。由于我本人是自己有一个私有的 `Compose` 部署文件的，下面是我剪切一部分配置文件出来：
 
 ```yaml
-
+# 待补充...
 ```
 
 > [!IMPORTANT]
 >
-> 补充：`WP` 官方只支持 `Apache` 变体，我对这种服务器不熟悉，所以我修改为上述的 `Nginx` 部署了。
+> 补充：`WP` 官方只支持 `Apache` 变体，我对这种服务器不熟悉，所以我修改为上述的 `Nginx` 部署了，不过老实说除非为非企业用途，否则我是不愿意使用 `Docker` 的，有些没有必要。
 
 ## 3.深入研究
 
@@ -1240,9 +1240,19 @@ https://developer.wordpress.org/advanced-administration/debug/，待补充...
 
 #### 3.8.1.项目测试
 
-#### 3.8.2.网络测试
+在调试 `WordPress` 网站时，可以使用 [多种方法和技巧（详细看这里，还是比较简单的））](https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/) 可以帮助识别和解决各种类型的错误，例如 `PHP` 错误和数据库错误。这些方法包括：
 
-#### 3.8.3.脚本测试
+- `WordPress` 配置文件中启用调试模式
+- 使用错误日志
+- 使用调试插件
+-  自动化测试和单步调试非常有用（小项目上这种测试实在没有必要）
+  - `PHPUnit` 用于 `WordPress` 开发中的自动化 `PHP` 测试
+  - `WP-CLI` 可以为插件项目生成插件测试文件
+  - `Xdebug` 可以与兼容的编辑器或 `IDE` 一起使用，以逐步执行 `PHP` 代码、检查变量，并在请求运行时跟踪调用堆栈
+
+#### 3.8.2.脚本测试
+
+`JavaScript` 调试对于确保网站前端交互和用户体验正常运行至关重要。使用浏览器开发者工具检查源代码并诊断 `JavaScript` 问题是个很重要的技巧，同时您可以 [参考这一份文档](https://developer.wordpress.org/advanced-administration/debug/debug-javascript/)。
 
 ### 3.9.开发资料
 
@@ -1251,6 +1261,10 @@ https://developer.wordpress.org/advanced-administration/debug/，待补充...
 - [主题开发者手册](https://developer.wordpress.org/themes/)
 - [插件开发者手册](https://developer.wordpress.org/plugins/)
 - [区块编辑器手册](https://developer.wordpress.org/block-editor/)
+
+### 3.10.插件市场
+
+这里有很多插件是值得推荐的，待补充…
 
 ## 4.源码修改
 
